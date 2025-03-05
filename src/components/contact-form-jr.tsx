@@ -59,7 +59,7 @@ export default function ReservationForm() {
         {/* Bouton ENVOYE sous "Total" aligné à droite */}
         <div className="sm:col-span-2 flex justify-end">
           <button type="submit" className="mt-4 bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700 transition">
-            ENVOYE
+            ENVOYER
           </button>
         </div>
       </form>

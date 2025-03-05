@@ -4,7 +4,7 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -199,7 +199,7 @@ const CarouselPrevious = React.forwardRef<
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
-
+  console.log(variant, size)
   return (
     <button
       ref={ref}
@@ -216,9 +216,11 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      {/* <ArrowLeft className="h-4 w-4" /> */}
-      <span className="text-accent">&#x2BC7;</span>
-      <span className="sr-only">Previous slide</span>
+      {/* <ArrowLeft className="h-8 w-8" /> */}
+      <div className="h-8 w-8">
+      <span className="text-accent text-[50px]">&#x2BC7;</span>
+      </div>
+      {/* <span className="sr-only">Previous slide</span> */}
     </button>
   )
 })
@@ -229,7 +231,7 @@ const CarouselNext = React.forwardRef<
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
-
+  console.log(variant, size)
   return (
     <button
       ref={ref}
@@ -246,9 +248,10 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      {/* <ArrowRight className="h-4 w-4" /> */}
-      <span className="text-accent">&#x2BC8;</span>
-      <span className="sr-only">Next slide</span>
+      <div className="h-8 w-8">
+        <span className="text-accent text-[50px]">&#x2BC8;</span>
+      </div>
+      {/* <span className="sr-only">Next slide</span> */}
     </button>
   )
 })

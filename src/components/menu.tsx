@@ -2,7 +2,6 @@
 
 import React from 'react';
 import MenuItem from './menu-item';
-import Divider from './divider';
 import BtnShop from './btn-shop';
 import CloseIcon from './icons/close-icon';
 import MenuIcon from './icons/menu-icon';
@@ -25,8 +24,6 @@ export default function Menu() {
         {menus.map((menu, index) => (
           <li key={index}>
             <MenuItem nom={menu.nom} href={menu.href} />
-             {/* Ajoute un séparateur (Divider) sauf pour le dernier élément. */}
-             {index !== (menus.length - 1) && <Divider className="ml-6" />} 
           </li>
         ))}
       </ul>
