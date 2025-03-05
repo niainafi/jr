@@ -145,3 +145,5 @@ function Caracteristique({items}:{items : CaracteristiqueType[]}){
     </div>
   )
 }
+
+
