@@ -4,11 +4,11 @@ import ContactFormjr from "@/components/contact-form-jr";
 import Nextripe from "@/components/nextripe";
 import Logojustrent from "@/components/logo-just-rent";
 import AvisConditions from "@/components/avis-caroussel";
-import { MotoCarousel } from "@/components/carousel-moto";
+import { MotoCarousel } from "@/components/carousel-moto/carousel-moto";
 ;
 export default function JustRentPage() {
   return (
-    <div className="p-1">
+    <div>
       <HeroSectionjr/>
       <Logojustrent/>
       <MotoCarousel/>
