@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="p-1">
       <HeroSection/>
-      <Focus />
+      <Focus/>
       <ActualitesReportages />
       <Boutiques />
       <Logos/> 
