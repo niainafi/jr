@@ -8,7 +8,7 @@ import CloseIcon from './icons/close-icon';
 import MenuIcon from './icons/menu-icon';
 
 const menus = [
-  { nom: 'Actualités', href: '/actualites' },
+  { nom: 'Actualités', href: '/actualités' },
   { nom: 'Événements', href: '/evenements' },
   { nom: 'Boutique', href: '/boutique' },
   { nom: 'Just Rent', href: '/just-rent' },
