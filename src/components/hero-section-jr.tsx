@@ -9,12 +9,14 @@ export default function HeroSectionjr() {
         style={{ 
           backgroundImage: "url(/images/just-rent/liberte-avec-text.jpg)",
           backgroundSize: "110%", // Zoom arrière pour mieux ajuster
-          backgroundPosition: "center bottom", // Remonte l’image
+           // Remonte l’image
+           backgroundPosition: "center 75%", // Remonte encore plus l’image
+
         }}
       />
       
       {/* Overlay pour éclaircir l’image */}
-      <div className="absolute inset-0 bg-white opacity-50 mix-blend-soft-light" />
+      <div className="absolute inset-0 bg-white opacity-5 mix-blend-soft-light" />
 
       <Header />
 
@@ -24,3 +26,6 @@ export default function HeroSectionjr() {
     </section>
   );
 }
+
+
+
