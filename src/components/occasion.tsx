@@ -13,7 +13,7 @@ export default function Occasion() {
   return (
     <section className="p-6 md:p-10">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center">
-        NOS OCCASIONS <span className="text-yellow-500">100% VALIDÉES</span> PAR JUST RIDE
+        NOS OCCASIONS <span className="text-accent">100% VALIDÉES</span> PAR JUST RIDE
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6">
         {motos.map((moto, index) => (
@@ -25,7 +25,7 @@ export default function Occasion() {
               height={300}
               className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-yellow-500 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-white text-center">
+            <div className="absolute inset-0 bg-accent bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-white text-center">
               <h3 className="text-lg font-bold">{moto.title}</h3>
               <p className="text-sm mt-2">{moto.description}</p>
               <p className="text-lg font-bold mt-4">{moto.price}</p>
@@ -34,7 +34,7 @@ export default function Occasion() {
         ))}
       </div>
       <div className="mt-6 flex justify-center md:justify-end">
-        <a href="#" className="bg-yellow-700 text-black font-bold rounded-full px-6 py-2 flex items-center space-x-2">
+        <a href="#" className="bg-accent text-black font-bold rounded-full px-6 py-2 flex items-center space-x-2">
           Voir plus »»»
         </a>
       </div>

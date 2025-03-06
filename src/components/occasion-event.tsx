@@ -18,7 +18,7 @@ export default function OccasionEvent() {
       {/* Navigation */}
       <div className="text-center mb-6">
         <span className="text-gray-500">Ride | </span>
-        <span className="text-yellow-500 font-bold"> Événement </span>
+        <span className="text-accent font-bold"> Événement </span>
         <span className="text-gray-500">| Autre</span>
       </div>
 
@@ -35,7 +35,7 @@ export default function OccasionEvent() {
               className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
             />
             {/* Superposition jaune au hover */}
-            <div className="absolute inset-0 bg-yellow-500 opacity-0 transition-opacity duration-300 group-hover:opacity-80" />
+            <div className="absolute inset-0 bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-80" />
             {/* Texte blanc qui apparaît sur hover */}
             <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <p className="text-white font-bold text-lg text-center">
@@ -43,7 +43,7 @@ export default function OccasionEvent() {
               </p>
             </div>
             {/* Texte en bas qui reste toujours visible avec le même fond jaune transparent */}
-            <div className="absolute bottom-0 w-full bg-yellow-500 bg-opacity-80 text-white p-3 text-center font-bold">
+            <div className="absolute bottom-0 w-full bg-accent bg-opacity-80 text-white p-3 text-center font-bold">
               {article.title}
             </div>
           </div>
