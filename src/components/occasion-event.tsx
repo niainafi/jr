@@ -12,13 +12,14 @@ const articles = [
   { src: '/images/photos/ride1.jpg', title: 'YCF 125 MX : La Transition Idéale pour Débuter en Motocross' },
 ];
 
-export default function MotocrossNews() {
+export default function OccasionEvent() {
   return (
     <section className="p-6 md:p-10">
       {/* Navigation */}
       <div className="text-center mb-6">
-        <span className="text-gray-500">Actualités Internationales | </span>
-        <span className="text-yellow-500 font-bold">Actualités Locales</span>
+        <span className="text-gray-500">Ride | </span>
+        <span className="text-yellow-500 font-bold"> Evenement  </span>
+        <span className="text-gray-500">| Autre</span>
       </div>
 
       {/* Grille d'articles */}
@@ -41,15 +42,6 @@ export default function MotocrossNews() {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center mt-6 space-x-2 text-yellow-500 font-bold">
-        <span className="cursor-pointer">1</span>
-        <span className="cursor-pointer">2</span>
-        <span className="cursor-pointer">3</span>
-        <span>...</span>
-        <span className="cursor-pointer">10</span>
       </div>
     </section>
   );

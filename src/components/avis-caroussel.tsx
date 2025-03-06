@@ -4,32 +4,22 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 const reviews = [
   {
     name: "RAKOTO",
-    text: "Je roule avec la Himalayan 450 depuis quelques mois sur les routes de Madagascar, et c'est un vrai bijou !...",
+    text: " Je roule avec la Himalayan 450 depuis quelques mois sur les routes de Madagascar, et c'est un vrai bijou ! Que ce soit sur les pavés de Tana, les pistes en latérite des Hautes Terres ou les routes côtières sableuses, elle ne m’a jamais déçu. Sa suspension…  !...",
     rating: 5,
   },
   {
     name: "JEAN H",
-    text: "Enfin une moto adaptée à Madagascar ! Je fais souvent la route Tana-Majunga, et la Himalayan 450 est parfaite pour ça...",
+    text: "Enfin une moto adaptée à Madagascar ! Je fais souvent la route Tana-Majunga, et la Himalayan 450 est parfaite pour ça. Elle est confortable même après plusieurs heures de route, et le moteur ne chauffe pas trop malgré les grosses…  ...",
     rating: 5,
   },
   {
     name: "SOLO",
-    text: "J’ai testé pas mal de motos sur les pistes du Sud, et la Himalayan 450 est la meilleure option que j’ai trouvée...",
+    text: "J’ai testé pas mal de motos sur les pistes du Sud, et la Himalayan 450 est la meilleure pour ce type de terrain. Elle passe partout : sable, pierres, boue… et sans jamais caler ! Le garde au sol est idéal pour éviter les obstacles, et la hauteur de selle me permet d’avoir une… ...",
     rating: 5,
   },
   {
-    name: "MARC",
-    text: "Une moto idéale pour les longs trajets, solide et fiable...",
-    rating: 5,
-  },
-  {
-    name: "LUC",
-    text: "Très satisfait de cette moto, elle passe partout !...",
-    rating: 5,
-  },
-  {
-    name: "PAUL",
-    text: "Le confort de conduite est exceptionnel...",
+    name: "SOLO",
+    text: "J’ai testé pas mal de motos sur les pistes du Sud, et la Himalayan 450 est la meilleure pour ce type de terrain. Elle passe partout : sable, pierres, boue… et sans jamais caler ! Le garde au sol est idéal pour éviter les obstacles, et la hauteur de selle me permet d’avoir une… ...",
     rating: 5,
   },
 ];
@@ -39,7 +29,7 @@ export default function AvisConditions() {
     <section className="max-w-6xl mx-auto px-4">
       <Avis />
       <Conditions />
-      <p className="text-sm text-gray-600 mt-6 text-right">Télécharger en PDF | Voir la suite ▶</p>
+    
     </section>
   );
 }
@@ -82,8 +72,12 @@ export function Avis() {
             </CarouselItem>
           ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious
+          className="w-12 h-12 bg-[#c09606] clip-path-triangle-left"
+      />
+      <CarouselNext
+          className="w-12 h-12 bg-[#c09606] clip-path-triangle-right"
+      />
     </Carousel>
     </section>
   )
@@ -95,17 +89,22 @@ function Conditions(){
     <section className="mt-6" aria-label="Conditions">
         <h2 className="text-2xl font-bold mb-4">CONDITIONS</h2>
         <p className="text-gray-700 mb-4">
-          Le locataire doit être âgé d’au moins 21 ans et détenir un permis de conduire valide depuis au moins 2 ans. Une pièce
-          d’identité en cours de validité doit être présentée lors de la signature du contrat.
+          Le locataire doit être âgé d'au moins 21 ans et détenir un permis de conduire valide depuis au moins 2 ans.
+          Une pièce d'identité en cours de validité doit être présentée lors de la signature du contrat.
+          Une caution devra être déposée avant la remise des clés (montant variable selon le modèle de la moto louée).
+          La location est accordée pour une durée déterminée. Tout dépassement entraînera des frais supplémentaires.
         </p>
         <h3 className="text-lg font-semibold mt-4">Utilisation de la Moto</h3>
         <p className="text-gray-700 mb-4">
-          La moto doit être utilisée conformément aux règles du Code de la route et des règlements de location.
+          Le locataire s'engage à utiliser la moto dans le respect du Code de la route et des réglementations locales.
+          L'utilisation du véhicule est strictement personnelle et ne peut être sous-louée ou prêtée à un tiers.
+          La moto ne doit pas être utilisée pour des compétitions, du transport de marchandises ou toute autre activité illégale.
         </p>
         <h3 className="text-lg font-semibold mt-4">Assurance et Responsabilités</h3>
         <p className="text-gray-700">
-          L’assurance couvre uniquement la responsabilité civile. Tout dommage causé par une mauvaise utilisation sera à la charge
-          du locataire.
+          Le loueur fournit une assurance couvrant la responsabilité civile. Toutefois, les dégâts matériels, le vol et les frais médicaux ne sont pas inclus sauf si une assurance supplémentaire est souscrite.
+          En cas d'accident ou de vol, le locataire doit immédiatement informer le loueur et fournir un constat d'accident ou une déclaration de vol.
+  T       oute dégradation causée par une mauvaise utilisation de la moto sera à la charge du locataire.
         </p>
       </section>
   )
