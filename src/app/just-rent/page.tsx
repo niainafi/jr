@@ -21,3 +21,4 @@ export default function JustRentPage() {
     </div>
   );
 }
+

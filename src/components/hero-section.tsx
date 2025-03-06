@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './common/layout/header';
 
-export default function HeroSection() {
+export default function HeroSectionOcas() {
   return (
     <div className="relative h-[380px] md:h-[500px] lg:h-[600px] xl:h-[450px]">
       <div 

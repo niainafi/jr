@@ -79,7 +79,7 @@ export function MotoCarousel() {
             <CarouselContent>
               {data.map((item) => (
                 <CarouselItem key={item.id}>
-                  <div className="relative h-[400px] w-full p-6 rounded-lg">
+                  <div className="relative h-[500px] w-[100%] mx-auto p-6 rounded-lg">
                     <Image
                       src={item.img}
                       alt={`Image de ${item.name}`}
@@ -93,11 +93,11 @@ export function MotoCarousel() {
             </CarouselContent>
             <CarouselPrevious
               onClick={handlePrevious}
-              className="pointer-events-auto opacity-100"
+              className="w-12 h-12 bg-[#c09606] clip-path-triangle-left"
             />
             <CarouselNext
               onClick={handleNext}
-              className="pointer-events-auto opacity-100"
+              className="w-12 h-12 bg-[#c09606] clip-path-triangle-right"
             />
           </Carousel>
         </div>

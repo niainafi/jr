@@ -63,10 +63,10 @@ function YourCalendar() {
           <ListEvent />
         </div>
       </div>
+      
+     
+    
 
-      <div className="mt-2">
-        <FooterCalendar />
-      </div>
     </div>
   );
 }
@@ -95,6 +95,8 @@ function ListEvent() {
     </div>
   );
 }
+
+/*
 function FooterCalendar() {
   return (
     <div
@@ -102,8 +104,10 @@ function FooterCalendar() {
         clipPath: "polygon(100% 0, 100% 15%, 51% 46%, 0 15%, 0 0)",
       }}
       className="bg-accent h-44"
-    ></div>
+    >
+    </div>
   );
 }
+*/
 
 

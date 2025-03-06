@@ -15,16 +15,31 @@ export const data : Moto[] = [
         }
       ],
       subtitle: `l'aventure sans limite a Madagascar`,
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, ea dicta laboriosam numquam aspernatur reprehenderit fugit explicabo, culpa quasi error et id qui ipsa, soluta reiciendis maxime? Expedita, ducimus ea?`,
+      description: `Taillée pour l'exploration, la Himalayan 450 est la moto idéale pour affronter les routes variées de Madagascar.
+      Que ce soit sur les sentiers accidentés des Hautes Terres, les pistes sablonneuses du littoral ou les routes sinueuses des forêts tropicales, cette aventurière robuste offre un parfait équilibre entre puissance, confort et maniabilité.
+      Son moteur fiable de 450cc, sa suspension adaptée aux terrains difficiles et son autonomie impressionnante en font la compagne idéale pour les baroudeurs et amateurs de sensations fortes.`,
       caracteristique: [
         {
           name: "Tableau de bord",
-          value: "125cc",
+          value: "Écran TFT 4",
         },
         {
           name: 'Navigation',
           value: 'Cartographe',
-        }
+        },
+       {
+          name: "Réservoir",
+          value: "17 L",
+        }, 
+        {
+          name: "Vitesse",
+          value: "6 rapports",
+        }, 
+        {
+          name: "Suspension",
+          value: "Fourche inversée",
+        }, 
+        
       ],
       imagesDetails: [
         {
@@ -53,16 +68,31 @@ export const data : Moto[] = [
         }
       ],
       subtitle: `l'aventure sans limite a Madagascar`,
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, ea dicta laboriosam numquam aspernatur reprehenderit fugit explicabo, culpa quasi error et id qui ipsa, soluta reiciendis maxime? Expedita, ducimus ea?`,
+      description: `Taillée pour l'exploration, la Himalayan 450 est la moto idéale pour affronter les routes variées de Madagascar.
+      Que ce soit sur les sentiers accidentés des Hautes Terres, les pistes sablonneuses du littoral ou les routes sinueuses des forêts tropicales, cette aventurière robuste offre un parfait équilibre entre puissance, confort et maniabilité.
+      Son moteur fiable de 450cc, sa suspension adaptée aux terrains difficiles et son autonomie impressionnante en font la compagne idéale pour les baroudeurs et amateurs de sensations fortes.`,
       caracteristique: [
         {
           name: "Tableau de bord",
-          value: "125cc",
+          value: "Écran TFT 4",
         },
         {
           name: 'Navigation',
           value: 'Cartographe',
-        }
+        },
+       {
+          name: "Réservoir",
+          value: "17 L",
+        }, 
+        {
+          name: "Vitesse",
+          value: "6 rapports",
+        }, 
+        {
+          name: "Suspension",
+          value: "Fourche inversée",
+        }, 
+        
       ],
       imagesDetails: [
         {
@@ -90,16 +120,31 @@ export const data : Moto[] = [
         }
       ],
       subtitle: `l'aventure sans limite a Madagascar`,
-      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, ea dicta laboriosam numquam aspernatur reprehenderit fugit explicabo, culpa quasi error et id qui ipsa, soluta reiciendis maxime? Expedita, ducimus ea?`,
+      description: `Taillée pour l'exploration, la Himalayan 450 est la moto idéale pour affronter les routes variées de Madagascar.
+      Que ce soit sur les sentiers accidentés des Hautes Terres, les pistes sablonneuses du littoral ou les routes sinueuses des forêts tropicales, cette aventurière robuste offre un parfait équilibre entre puissance, confort et maniabilité.
+      Son moteur fiable de 450cc, sa suspension adaptée aux terrains difficiles et son autonomie impressionnante en font la compagne idéale pour les baroudeurs et amateurs de sensations fortes.`,
       caracteristique: [
         {
           name: "Tableau de bord",
-          value: "125cc",
+          value: "Écran TFT 4",
         },
         {
           name: 'Navigation',
           value: 'Cartographe',
-        }
+        },
+       {
+          name: "Réservoir",
+          value: "17 L",
+        }, 
+        {
+          name: "Vitesse",
+          value: "6 rapports",
+        }, 
+        {
+          name: "Suspension",
+          value: "Fourche inversée",
+        }, 
+        
       ],
       imagesDetails: [
         {
