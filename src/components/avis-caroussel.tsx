@@ -89,22 +89,22 @@ function Conditions(){
     <section className="mt-6" aria-label="Conditions">
         <h2 className="text-2xl font-bold mb-4">CONDITIONS</h2>
         <p className="text-gray-700 mb-4">
-          Le locataire doit être âgé d'au moins 21 ans et détenir un permis de conduire valide depuis au moins 2 ans.
+          {`Le locataire doit être âgé d'au moins 21 ans et détenir un permis de conduire valide depuis au moins 2 ans.
           Une pièce d'identité en cours de validité doit être présentée lors de la signature du contrat.
           Une caution devra être déposée avant la remise des clés (montant variable selon le modèle de la moto louée).
-          La location est accordée pour une durée déterminée. Tout dépassement entraînera des frais supplémentaires.
+          La location est accordée pour une durée déterminée. Tout dépassement entraînera des frais supplémentaires.`}
         </p>
         <h3 className="text-lg font-semibold mt-4">Utilisation de la Moto</h3>
         <p className="text-gray-700 mb-4">
-          Le locataire s'engage à utiliser la moto dans le respect du Code de la route et des réglementations locales.
+          {`Le locataire s'engage à utiliser la moto dans le respect du Code de la route et des réglementations locales.
           L'utilisation du véhicule est strictement personnelle et ne peut être sous-louée ou prêtée à un tiers.
-          La moto ne doit pas être utilisée pour des compétitions, du transport de marchandises ou toute autre activité illégale.
+          La moto ne doit pas être utilisée pour des compétitions, du transport de marchandises ou toute autre activité illégale.`}
         </p>
         <h3 className="text-lg font-semibold mt-4">Assurance et Responsabilités</h3>
         <p className="text-gray-700">
-          Le loueur fournit une assurance couvrant la responsabilité civile. Toutefois, les dégâts matériels, le vol et les frais médicaux ne sont pas inclus sauf si une assurance supplémentaire est souscrite.
+          {`Le loueur fournit une assurance couvrant la responsabilité civile. Toutefois, les dégâts matériels, le vol et les frais médicaux ne sont pas inclus sauf si une assurance supplémentaire est souscrite.
           En cas d'accident ou de vol, le locataire doit immédiatement informer le loueur et fournir un constat d'accident ou une déclaration de vol.
-  T       oute dégradation causée par une mauvaise utilisation de la moto sera à la charge du locataire.
+  T       oute dégradation causée par une mauvaise utilisation de la moto sera à la charge du locataire.`}
         </p>
       </section>
   )
