@@ -14,7 +14,7 @@ const articles = [
 
 export default function OccasionEvent() {
   return (
-    <section className="p-6 md:p-10">
+    <section className="mx-auto max-w-5xl mb-5">
       {/* Navigation */}
       <div className="text-center mb-6">
         <span className="text-gray-500">Ride | </span>
@@ -23,32 +23,31 @@ export default function OccasionEvent() {
       </div>
 
       {/* Grille d'articles */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {articles.map((article, index) => (
-          <div key={index} className="relative group overflow-hidden shadow-lg rounded-lg">
-            {/* Image avec effet de zoom */}
-            <Image
-              src={article.src}
-              alt={article.title}
-              width={400}
-              height={300}
-              className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-            {/* Superposition jaune au hover */}
-            <div className="absolute inset-0 bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-80" />
-            {/* Texte blanc qui apparaît sur hover */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white font-bold text-lg text-center">
-                {article.title}
-              </p>
-            </div>
-            {/* Texte en bas qui reste toujours visible avec le même fond jaune transparent */}
-            <div className="absolute bottom-0 w-full bg-accent bg-opacity-80 text-white p-3 text-center font-bold">
-              {article.title}
-            </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2 my-16">
+      {articles.map((article, index) => (
+        <div
+          key={index}
+          className="relative aspect-auto group overflow-hidden shadow-sm rounded-sm  transition-transform duration-200 "
+        >
+          {/* Image avec effet de zoom */}
+          <Image
+            src={article.src}
+            alt={article.title}
+            width={400}
+            height={300}
+            className="w-full h-full sm:h-64 object-cover"
+          />
+
+          {/* Effet de fond qui monte */}
+          <div className="absolute inset-0 bg-accent opacity-80 transition-transform duration-300 ease-out translate-y-[70%] group-hover:translate-y-0" />
+
+          {/* Texte en bas au début qui monte au centre */}
+          <div className="absolute bottom-0 w-full text-center text-white p-3 font-bold text-lg transition-all duration-300 ease-out  group-hover:bottom-1/2 group-hover:translate-y-1/2">
+            {article.title}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
+    </div>
     </section>
   );
 }
