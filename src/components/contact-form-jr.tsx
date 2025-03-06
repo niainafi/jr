@@ -27,7 +27,7 @@ export default function ReservationForm() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-16 px-4"> {/* Ajout de py-16 pour espacer le composant au-dessus */}
+    <div className="max-w-6xl mx-auto py-16 px-4"> {/* Ajout de py-16 pour espacer le composant au-dessus */}
       {/* Titre RESERVEZ avec un peu plus d'espace */}
       <h2 className="text-3xl font-bold mb-10">ME RESERVEZ</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">

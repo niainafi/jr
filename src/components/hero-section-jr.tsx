@@ -3,7 +3,7 @@ import Header from './common/layout/header';
 
 export default function HeroSectionjr() {
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden">
+    <section className="relative w-full h-[90vh] overflow-hidden">
       <div 
         className="absolute inset-0 bg-no-repeat bg-cover"
         style={{ 
@@ -21,6 +21,6 @@ export default function HeroSectionjr() {
       <div className="relative flex w-full items-center justify-center h-full z-10">
         {/* Contenu supplémentaire ici */}
       </div>
-    </div>
+    </section>
   );
 }
