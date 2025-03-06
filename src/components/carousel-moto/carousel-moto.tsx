@@ -96,7 +96,6 @@ export function MotoCarousel() {
             />
             <CarouselNext
               onClick={handleNext}
-              
             />
           </Carousel>
         </div>
