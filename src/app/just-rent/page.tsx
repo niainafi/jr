@@ -5,6 +5,7 @@ import Nextripe from "@/components/nextripe";
 import Logojustrent from "@/components/logo-just-rent";
 import AvisConditions from "@/components/avis-caroussel";
 import { MotoCarousel } from "@/components/carousel-moto/carousel-moto";
+import EnTouteLiberte from "@/components/en-toute-liberte";
 ;
 export default function JustRentPage() {
   return (
@@ -13,8 +14,8 @@ export default function JustRentPage() {
       <Logojustrent/>
       <MotoCarousel/>
       <AvisConditions/>
-     
       <ContactFormjr/>
+      <EnTouteLiberte />
       <Nextripe/>
       <Footer/> 
     </div>

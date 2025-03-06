@@ -36,17 +36,17 @@ const reviews = [
 export default function AvisConditions() {
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <section className="max-w-6xl mx-auto px-4">
       <Avis />
       <Conditions />
       <p className="text-sm text-gray-600 mt-6 text-right">Télécharger en PDF | Voir la suite ▶</p>
-    </div>
+    </section>
   );
 }
 
 export function Avis() {
   return (
-    <section className="mt-6">
+    <section className="mt-6" aria-label="Avis">
       <h2 className="text-2xl font-bold mb-4">AVIS</h2>
     <Carousel
       opts={{
@@ -92,7 +92,7 @@ export function Avis() {
 
 function Conditions(){
   return(
-    <section className="mt-6">
+    <section className="mt-6" aria-label="Conditions">
         <h2 className="text-2xl font-bold mb-4">CONDITIONS</h2>
         <p className="text-gray-700 mb-4">
           Le locataire doit être âgé d’au moins 21 ans et détenir un permis de conduire valide depuis au moins 2 ans. Une pièce
