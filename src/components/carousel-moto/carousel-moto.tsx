@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import Divider from "../divider";
+// import Divider from "../divider";
 import { data } from "./carousel-data";
 import { CaracteristiqueType, Moto } from "@/types/types";
 
@@ -57,7 +57,7 @@ export function MotoCarousel() {
   return (
     <section>
       <div className="mx-auto max-w-6xl relative">
-        <div className="flex items-center absolute -top-8">
+        {/* <div className="flex items-center absolute -top-8">
           {currentItem &&
             currentItem.logos.map((logo, i) => (
               <div key={i} className="flex items-center">
@@ -73,13 +73,13 @@ export function MotoCarousel() {
                 )}
               </div>
             ))}
-        </div>
-        <div className="mx-auto max-w-3xl">
+        </div> */}
+        <div className="mx-auto max-w-[250px] sm:max-w-[600px] md:max-w-[650px] lg:w-full">
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {data.map((item) => (
                 <CarouselItem key={item.id}>
-                  <div className="relative h-[500px] w-[100%] mx-auto p-6 rounded-lg">
+                  <div className="relative h-[200px] md:h-[400px] lg:h-[500px] w-[100%] mx-auto p-6 rounded-lg">
                     <Image
                       src={item.img}
                       alt={`Image de ${item.name}`}
@@ -93,11 +93,9 @@ export function MotoCarousel() {
             </CarouselContent>
             <CarouselPrevious
               onClick={handlePrevious}
-              className="w-12 h-12 bg-[#c09606] clip-path-triangle-left"
             />
             <CarouselNext
               onClick={handleNext}
-              className="w-12 h-12 bg-[#c09606] clip-path-triangle-right"
             />
           </Carousel>
         </div>
@@ -121,9 +119,9 @@ function MotoInfo({ data }: MotoInfoTypeProps) {
 
         <div className="mt-10">
           <Caracteristique items={data.caracteristique} />
-          <div className="mt-10 h-[200px] flex flex-row space-x-6 rounded-sm">
+          <div className="mt-10 h-[200px] grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-5 lg:gap-6 rounded-sm">
             {data.imagesDetails.map((img, i) => (
-              <div key={i} className="h-full basis-1/3 w-[33%] relative z-5 ">
+              <div key={i} className="h-full  w-full relative z-5 ">
                 <Image
                   fill
                   alt={`detail du moto`}
@@ -144,11 +142,11 @@ function MotoInfo({ data }: MotoInfoTypeProps) {
 
 function Caracteristique({ items }: { items: CaracteristiqueType[] }) {
   return (
-    <div className="flex flex-row gap-10">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-5">
       {items.map((item, i) => (
         <div
           key={i}
-          className="flex flex-col border-l border-0 pl-3 border-gray-950"
+          className="flex flex-col  border-l border-0 pl-3 border-gray-950"
         >
           <span>{item.name}</span>
           <span className="font-bold text-lg">{item.value}</span>

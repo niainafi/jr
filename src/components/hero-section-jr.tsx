@@ -3,14 +3,14 @@ import Header from './common/layout/header';
 
 export default function HeroSectionjr() {
   return (
-    <section className="relative w-full h-[90vh] overflow-hidden">
+    <section className="relative w-full h-[50vh] sm:h-[50vh]  md:h-[40vh] lg:h-[70vh] overflow-hidden">
       <div 
-        className="absolute inset-0 bg-no-repeat bg-cover"
+        className="absolute inset-0 bg-no-repeat bg-cover bg-right lg:bg-center"
         style={{ 
           backgroundImage: "url(/images/just-rent/liberte-avec-text.jpg)",
-          backgroundSize: "110%", // Zoom arrière pour mieux ajuster
+          // backgroundSize: "cover", // Zoom arrière pour mieux ajuster
            // Remonte l’image
-           backgroundPosition: "center 75%", // Remonte encore plus l’image
+          //  backgroundPosition: "center 75%", // Remonte encore plus l’image
 
         }}
       />
