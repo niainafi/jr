@@ -88,7 +88,7 @@ export default function Logos() {
         {logos.map((logo, index) => (
           <img key={index} className="w-16 sm:w-20 md:w-24 h-auto" src={logo.src} alt={logo.alt} />
         ))}
-        <a className="bg-yellow-700 text-black font-bold rounded-r-full px-4 py-2 flex items-center space-x-2">
+        <a className="bg-accent text-black font-bold rounded-r-full px-4 py-2 flex items-center space-x-2">
           <span>Voir plus</span>
           <span className="text-xl">&raquo;&raquo;&raquo;</span>
         </a>

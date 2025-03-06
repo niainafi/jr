@@ -39,10 +39,10 @@ export default function Nextripe() {
 
         {/* Boutons */}
         <div className="mt-6 flex space-x-4">
-          <button className="bg-yellow-500 text-black font-bold px-6 py-2 rounded shadow-lg">
+          <button className="bg-accent text-black font-bold px-6 py-2 rounded shadow-lg">
             INSCRIVEZ-VOUS
           </button>
-          <button className="bg-yellow-500 text-black font-bold px-6 py-2 rounded shadow-lg">
+          <button className="bg-accent text-black font-bold px-6 py-2 rounded shadow-lg">
             LOUEZ VOTRE <span className="font-extrabold">ROYAL ENFIELD</span>
           </button>
         </div>
