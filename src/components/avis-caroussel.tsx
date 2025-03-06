@@ -73,10 +73,10 @@ export function Avis() {
           ))}
       </CarouselContent>
       <CarouselPrevious
-          className="w-12 h-12 bg-[#c09606] clip-path-triangle-left"
+          className="w-12 h-12 bg-accent clip-path-triangle-left"
       />
       <CarouselNext
-          className="w-12 h-12 bg-[#c09606] clip-path-triangle-right"
+          className="w-12 h-12 bg-accent clip-path-triangle-right"
       />
     </Carousel>
     </section>

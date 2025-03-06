@@ -18,7 +18,7 @@ export default function MotocrossNews() {
       {/* Navigation */}
       <div className="text-center mb-6">
         <span className="text-gray-500">Actualités Internationales | </span>
-        <span className="text-yellow-500 font-bold">Actualités Locales</span>
+        <span className="text-accent font-bold">Actualités Locales</span>
       </div>
 
       {/* Grille d'articles */}
@@ -34,9 +34,9 @@ export default function MotocrossNews() {
               className="w-full h-56 sm:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
             />
             {/* Superposition jaune au hover */}
-            <div className="absolute inset-0 bg-yellow-500 opacity-0 transition-opacity duration-300 group-hover:opacity-50" />
+            <div className="absolute inset-0 bg-accent opacity-0 transition-opacity duration-300 group-hover:opacity-50" />
             {/* Texte en bas */}
-            <div className="absolute bottom-0 bg-yellow-500 bg-opacity-70 text-white p-3 text-center w-full font-bold">
+            <div className="absolute bottom-0 bg-accent bg-opacity-70 text-white p-3 text-center w-full font-bold">
               {article.title}
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function MotocrossNews() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-6 space-x-2 text-yellow-500 font-bold">
+      <div className="flex justify-center mt-6 space-x-2 text-accent font-bold">
         <span className="cursor-pointer">1</span>
         <span className="cursor-pointer">2</span>
         <span className="cursor-pointer">3</span>
