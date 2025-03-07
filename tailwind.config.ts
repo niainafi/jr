@@ -9,6 +9,12 @@ export default {
   ],
   theme: {
   	extend: {
+		screens:{
+			'8xl':"1920px"
+		},
+		maxWidth: {
+			"8xl": "96rem", // 96rem = 1536px
+		  },
   		colors: {
   			background: 'var(--color-bg)',
   			foreground: 'hsl(var(--foreground))',
