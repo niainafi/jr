@@ -7,7 +7,8 @@ import Calendar from "./calendar";
 export default function Focus() {
   return (
     <section className="mt-16 relative">
-      <Container className="flex gap-[2px] max-w-full px-[5.5rem] relative w-[50%] mr-auto">
+      <Container>
+      <div className="flex gap-[2px] max-w-full relative w-[50%] mr-auto">
         <div className="w-1/3 h-[260px] z-10 absolute -top-14 ">
           <FocusIcon />
         </div>
@@ -40,6 +41,7 @@ export default function Focus() {
             className="w-full h-full object-cover"
           />
         </div>
+      </div>
       </Container>
       <aside className="absolute right-[6%] -top-32">
         <YourCalendar />

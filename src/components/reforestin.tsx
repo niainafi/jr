@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Container from "./container";
 
 export default function ReforestinEvent() {
   const eventDate = new Date("2025-03-08T00:00:00").getTime();
@@ -27,15 +28,15 @@ export default function ReforestinEvent() {
   }, []);
 
   return (
-    <div className="w-full flex flex-row-reverse bg-accent p-4 my-24 md:max-w-xl lg:max-w-5xl mx-auto relative">
+    <Container className="w-full flex flex-row-reverse bg-accent p-4  relative">
       {/* Image Section */}
-      <div className="absolute w-full lg:w-[40%] md:w-[60%] md:-top-3 md:left-5 left-8 -top-9">
+      <div className="absolute w-full lg:w-[40%] md:w-[60%] md:-top-5 md:-translate-y-7 md:left-5 left-8 -top-9 h-[500px]">
         <Image
           src="/images/evenement/reforestin.jpg"
           alt="Reforest'in Ankadindriana"
           width={500}
           height={500}
-          className="relative z-10 w-full h-auto"
+          className="relative z-10 w-full h-full"
         />
       </div>
       
@@ -64,6 +65,6 @@ export default function ReforestinEvent() {
           </button>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }

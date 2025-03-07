@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "./ui/carousel";
+import Container from "./container";
 
 const reviews = [
   {
@@ -26,9 +27,11 @@ const reviews = [
 export default function AvisConditions() {
 
   return (
-    <section className="max-w-6xl mx-auto px-4">
-      <Avis />
-      <Conditions />
+    <section>
+      <Container>
+        <Avis />
+        <Conditions />
+      </Container>
     
     </section>
   );

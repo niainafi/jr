@@ -14,6 +14,7 @@ import {
 // import Divider from "../divider";
 import { data } from "./carousel-data";
 import { CaracteristiqueType, Moto } from "@/types/types";
+import Container from "../container";
 
 type MotoInfoTypeProps = {
   data: Moto;
@@ -56,7 +57,7 @@ export function MotoCarousel() {
 
   return (
     <section>
-      <div className="mx-auto max-w-6xl relative">
+      <Container className="mx-auto max-w-6xl relative">
         {/* <div className="flex items-center absolute -top-8">
           {currentItem &&
             currentItem.logos.map((logo, i) => (
@@ -74,12 +75,12 @@ export function MotoCarousel() {
               </div>
             ))}
         </div> */}
-        <div className="mx-auto max-w-[250px] sm:max-w-[600px] md:max-w-[650px] lg:w-full">
+        <div className="mx-auto max-w-[250px] sm:max-w-[600px] md:max-w-[850px] lg:w-full">
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {data.map((item) => (
                 <CarouselItem key={item.id}>
-                  <div className="relative h-[200px] md:h-[400px] lg:h-[500px] w-[100%] mx-auto p-6 rounded-lg">
+                  <div className="relative h-[200px] md:h-[400px] lg:h-[600px] w-full mx-auto p-6 rounded-lg">
                     <Image
                       src={item.img}
                       alt={`Image de ${item.name}`}
@@ -93,13 +94,15 @@ export function MotoCarousel() {
             </CarouselContent>
             <CarouselPrevious
               onClick={handlePrevious}
+              className="lg:-translate-x-[100px]"
             />
             <CarouselNext
               onClick={handleNext}
+              className="lg:translate-x-[100px]"
             />
           </Carousel>
         </div>
-      </div>
+      </Container>
       {currentItem && (
         <div className="mt-3">
           <MotoInfo data={currentItem} />
@@ -112,7 +115,7 @@ export function MotoCarousel() {
 function MotoInfo({ data }: MotoInfoTypeProps) {
   return (
     <section className="bg-accent  px-4 py-4" aria-labelledby={`${data.name}-title`}>
-      <div className="max-w-6xl mx-auto">
+      <Container>
         <h1 className="font-bold text-2xl uppercase">{data.name}</h1>
         <h3 className="font-bold text-xl mt-3">{data.subtitle}</h3>
         <p className="mt-3">{data.description}</p>
@@ -135,7 +138,7 @@ function MotoInfo({ data }: MotoInfoTypeProps) {
             <b>{data.unitAvailable} unité</b> disponible{" "}
           </p>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
