@@ -7,7 +7,7 @@ export default function HeroSectionOcas() {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
-          background: "url(/images/photos/hero-img.jpg) no-repeat center center/cover" 
+          background: "url(/images/evenement/acc.jpg) no-repeat center center/cover" 
         }}
         
       />

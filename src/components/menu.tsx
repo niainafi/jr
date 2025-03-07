@@ -12,9 +12,8 @@ const menus = [
   { nom: 'Boutique', href: '/boutique' },
   { nom: 'Just Rent', href: '/just-rent' },
   { nom: 'Occasion', href: '/occasions' },
-  { nom: 'LVPM', href: '/lvpm' },
   { nom: 'Membre', href: '/' },
-  { nom: 'Contact', href: '/' },
+  { nom: 'Contact', href: '/contactez-nous' },
 ];
 
 export default function Menu() {

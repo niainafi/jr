@@ -1,23 +1,17 @@
-import ActualitesReportages from "@/components/ActualitesReportages";
-import Boutiques from "@/components/boutiques";
-import Focus from "@/components/focus";
 import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
-import Logos from "@/components/logos-partner";
-import ContactForm from "@/components/contact-form";
-import Occasion from "@/components/occasion";
-import Nextripe from "@/components/nextripe";
+import LogoBoutiquePartener from "@/components/logo-boutique-partener";
+import MenuPtiBoutique from "../evenement/menuptiboutique";
+import CasqueBoutique from "../evenement/casque-boutique";
+import CarouselCasque from "../evenement/carousel-casque";
 export default function Home() {
   return (
     <div className="p-1">
       <HeroSection/>
-      <Focus/>
-      <ActualitesReportages />
-      <Boutiques />
-      <Logos/> 
-      <Occasion/>
-      <Nextripe/>
-      <ContactForm/>
+      <LogoBoutiquePartener/> 
+      <MenuPtiBoutique/>
+      <CasqueBoutique/>
+      <CarouselCasque/>
       <Footer/> 
     </div>
   );

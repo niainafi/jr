@@ -35,7 +35,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#B38E13] text-black py-6 sm:py-8">
+    <footer className="bg-accent text-black py-6 sm:py-8">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-start gap-8 sm:gap-0 px-4">
         {/* Sections texte */}
         <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 sm:items-start">
