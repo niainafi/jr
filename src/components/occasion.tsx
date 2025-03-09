@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import { getOcas } from '@/actions/ocas';
 const motos = [
   { src: '/images/photos/moto.jpg', alt: 'Moto 1', title: 'ROYAL ENFIELD - CLASSIC 500', description: '20 000 KM\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', price: '10 000 000 AR' },
   { src: '/images/photos/ride.jpg', alt: 'Moto 2', title: 'HARLEY DAVIDSON', description: '15 000 KM\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.', price: '12 500 000 AR' },
@@ -9,9 +9,21 @@ const motos = [
   { src: '/images/photos/img-casque-1.jpg', alt: 'Moto 6', title: 'KAWASAKI Z900', description: '3 000 KM\nQuis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.', price: '13 000 000 AR' },
 ];
 
-export default function Occasion() {
+export default async function Occasion() {
+  const ocas = await getOcas()
   return (
     <section className="p-6 md:p-10">
+       <div>
+        {ocas.length > 0 && (
+          ocas.map(((actu : any,index : number) => (
+            <div key={index}>
+              <h1>{actu.title}</h1>
+              <p>{actu.description}</p>
+            </div>
+          )))
+        )}
+      </div>
+
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center">
         NOS OCCASIONS <span className="text-accent">100% VALIDÉES</span> PAR JUST RIDE
       </h2>

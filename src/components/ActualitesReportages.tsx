@@ -1,5 +1,7 @@
 import Container from "./container";
 import Image from "next/image";
+import { getActu } from "@/actions/actu";
+
 
 const articles = [
   {
@@ -23,9 +25,22 @@ const articles = [
   
 ];
 
-export default function ActualitesReportages() {
+
+export default async function ActualitesReportages() {
+  const actus = await getActu()
+  
   return (
     <section className="pb-12 bg-white text-gray-800">
+      <div>
+        {actus.length > 0 && (
+          actus.map(((actu : any,index : number) => (
+            <div key={index}>
+              <h1>{actu.title}</h1>
+              <p>{actu.description}</p>
+            </div>
+          )))
+        )}
+      </div>
       <Container className="lg:-mt-24">
       {/* Titre */}
       <h2 className="relative  text-2xl md:text-3xl font-bold text-center uppercase mb-12 flex flex-row w-full justify-center gap-1">

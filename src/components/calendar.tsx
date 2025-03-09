@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import dayjs from "dayjs";
 import "dayjs/locale/fr"; // Import de la locale française
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import clsx from "clsx";
+import { getMotoOccasion } from "@/actions/occasion";
 
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
@@ -15,6 +16,8 @@ const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi",
 
 function MonthlyCalendar() {
   const [currentMonth,] = useState(dayjs());
+  const [motos,setMotos] = useState([])
+
 
   const firstDayOfMonth = currentMonth.startOf("month");
   const lastDayOfMonth = currentMonth.endOf("month");
@@ -38,8 +41,15 @@ function MonthlyCalendar() {
 //   const prevMonth = () => setCurrentMonth((prev) => prev.subtract(1, "month"));
 //   const resetToCurrentMonth = () => setCurrentMonth(dayjs());
 
+  useEffect(() => {
+    getMotoOccasion().then((data) => {
+      setMotos(data)
+    })
+  },[])
+
   return (
     <div className="max-w-2xl mx-auto p-3 bg-white shadow rounded-sm">
+      {JSON.stringify(motos)}
       {/* Header */}
       <div className="flex justify-between items-center mb-0">
         {/* <button onClick={prevMonth} className="px-3 py-1 bg-gray-300 rounded-md">
