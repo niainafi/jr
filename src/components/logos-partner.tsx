@@ -75,6 +75,7 @@ function ChooseAppointment() {
 import Container from './container';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
 export default function Logos() {
   const logos = [
@@ -155,7 +156,7 @@ function ChooseAppointment() {
     <section className="text-center px-4 sm:px-10 pb-8 pt-[100px] sm:pt-[150px] lg:pt-[50px]">
       <Container className='sm:mt-20'>
       <h2 className="text-2xl font-bold">CHOISISSEZ UN RENDEZ-VOUS</h2>
-      <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
+      {/* <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
         <button className="text-2xl">&lt;</button>
         {appointments.map((appointment, index) => (
           <div key={index} className="text-center max-w-xs sm:max-w-sm p-4">
@@ -165,7 +166,35 @@ function ChooseAppointment() {
           </div>
         ))}
         <button className="text-2xl">&gt;</button>
-      </div>
+      </div> */}
+      <Carousel
+      opts={{
+        align: "start",
+      }}
+      className="w-full"
+    >
+      <CarouselContent className="-ml-1">
+        {appointments.map((appointment, index) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 p-5 flex flex-col rounded-lg gap-4 h-full text-sm">
+              <h3 className="h-9 mt-4">
+              <span className="text-md font-semibold  inline-block mb-2">{appointment.title}</span>
+              <span className="border-b-2 border-accent h-1 w-10 block" />
+              </h3>
+              <div className="text-gray-700 mb-2  leading-relaxed">
+                <p className="text-sm">{appointment.description}</p>
+                <Link className="mt-2 text-xs flex items-center gap-2" href={'#'}><span>Voir plus</span> <span>{'>>>>'}</span></Link>
+              </div>
+            
+            </CarouselItem>
+          ))}
+      </CarouselContent>
+      <CarouselPrevious
+          className="w-12 h-12 bg-accent clip-path-triangle-left"
+      />
+      <CarouselNext
+          className="w-12 h-12 bg-accent clip-path-triangle-right"
+      />
+    </Carousel>
       </Container>
     </section>
   );
