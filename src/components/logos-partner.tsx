@@ -87,14 +87,18 @@ export default function Logos() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center items-center gap-6 py-6 bg-white">
+      <div className="gap-6 py-6 bg-white">
+        <Container className='mt-0 flex items-center'>
+        <div className="w-full flex flex-wrap justify-center items-center gap-x-8">
         {logos.map((logo, index) => (
           <img key={index} className="w-16 sm:w-20 md:w-24 h-auto" src={logo.src} alt={logo.alt} />
         ))}
-        <Link href={'#'} className="bg-accent text-black font-bold rounded-r-full px-4 py-2 flex items-center space-x-2">
-          <span>Voir plus</span>
+        </div>
+        <Link href={'#'} className="bg-accent text-black font-bold rounded-r-full pl-2 h-5 flex items-center space-x-2">
+          <span className='text-nowrap'>Voir plus</span>
           <span className="text-xl">&raquo;&raquo;&raquo;</span>
         </Link>
+        </Container>
       </div>
       <JustRideAcademy />
       <ChooseAppointment />

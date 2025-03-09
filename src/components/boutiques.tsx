@@ -4,6 +4,7 @@ import clsx from "clsx";
 // import Image from "next/image";
 import React, { useState } from "react";
 import SwipperSlide from "./ui/swipper";
+import Container from "./container";
 
 const imagePub = [
   {
@@ -41,7 +42,7 @@ export default function Boutiques() {
   };
 
   return (
-    <section className="mt-20 px-4 sm:px-6 md:px-10 lg:px-24 mb-32">
+    <Container>
       <h1 className="uppercase text-3xl sm:text-4xl font-bold text-center">
         Boutiques
       </h1>
@@ -124,6 +125,6 @@ export default function Boutiques() {
           </aside>
         </div>
       </div>
-    </section>
+    </Container>
   );
 }
