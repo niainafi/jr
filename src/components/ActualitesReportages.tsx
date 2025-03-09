@@ -3,23 +3,24 @@ import Image from "next/image";
 
 const articles = [
   {
-    title: "ACTU INTERNATIONALE",
+    title: 'A LA UNE',
     image: "/images/photos/actu.jpg", 
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
   },
   {
-    title: "RANOMAFANA",
-    image: "/images/photos/ride.jpg", 
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
-  },
-  {
-    title: "AMPEFY",
+    title: "ACTU LOCALE",
     image: "/images/photos/chutes-de-la-lily-ampefy-madagas.jpg", 
     content:
       "Lorem ipsum d dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
   },
+  {
+    title: "ACTU INTERNATIONALE",
+    image: "/images/photos/ride.jpg", 
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+  },
+  
 ];
 
 export default function ActualitesReportages() {
