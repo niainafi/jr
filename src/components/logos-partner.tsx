@@ -149,11 +149,12 @@ function ChooseAppointment() {
   const appointments = [
     { title: "STAGE PILOTAGE DE MOTO EN CIRCUIT", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.", buttonText: "PROGRAMMER" },
     { title: "SESSION MINI SM", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.", buttonText: "PROGRAMMER" },
+    { title: "STAGE D’APPRENTISSAGE DEBUTANT", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.", buttonText: "PROGRAMMER" },
     { title: "STAGE D’APPRENTISSAGE DEBUTANT", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.", buttonText: "PROGRAMMER" }
   ];
 
   return (
-    <section className="text-center px-4 sm:px-10 pb-8 pt-[100px] sm:pt-[150px] lg:pt-[50px]">
+    <section className="text-center px-4 sm:px-10 pb-8 pt-[10px] sm:pt-[10px] lg:pt-[0px]">
       <Container className='sm:mt-20'>
       <h2 className="text-2xl font-bold">CHOISISSEZ UN RENDEZ-VOUS</h2>
       {/* <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
@@ -171,28 +172,36 @@ function ChooseAppointment() {
       opts={{
         align: "start",
       }}
-      className="w-full"
+      className="w-full mt-4"
     >
       <CarouselContent className="-ml-1">
         {appointments.map((appointment, index) => (
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 p-5 flex flex-col rounded-lg gap-4 h-full text-sm">
-              <h3 className="h-9 mt-4">
-              <span className="text-md font-semibold  inline-block mb-2">{appointment.title}</span>
-              <span className="border-b-2 border-accent h-1 w-10 block" />
+              <h3 className="h-9 mt-4 flex flex-col justify-start">
+                <span className="text-md text-start font-bold mb-2">{appointment.title}</span>
+                <span className="border-b-4 border-accent h-1 w-10 block" />
               </h3>
               <div className="text-gray-700 mb-2  leading-relaxed">
-                <p className="text-sm">{appointment.description}</p>
-                <Link className="mt-2 text-xs flex items-center gap-2" href={'#'}><span>Voir plus</span> <span>{'>>>>'}</span></Link>
+                <p className="text-md w-full text-start">{appointment.description}</p>
+                <div className='flex justify-end mr-8'>
+                <Link className="mt-2 text-xs flex gap-2 bg-accent font-bold rounded-md text-black px-1" href={'#'}>
+                  Programmer
+                </Link>
+                </div>
               </div>
             
             </CarouselItem>
           ))}
       </CarouselContent>
       <CarouselPrevious
-          className="w-12 h-12 bg-accent clip-path-triangle-left"
+          previewArrow={
+            <div className="w-8 h-8 bg-black clip-path-triangle-left" />
+          }
       />
       <CarouselNext
-          className="w-12 h-12 bg-accent clip-path-triangle-right"
+          nextArrow={
+            <div className="w-8 h-8 bg-black clip-path-triangle-right" />
+          }
       />
     </Carousel>
       </Container>

@@ -82,6 +82,18 @@
     height: 40px;
   }
 }
+.footer-list{
+  position: relative;
+}
+.footer-list::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  top: 5%;
+  height: 90%;
+  width: 2px;
+  background-color: black;
+}
 
 
 
