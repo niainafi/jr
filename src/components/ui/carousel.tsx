@@ -30,6 +30,12 @@ type CarouselContextProps = {
   canScrollNext: boolean
 } & CarouselProps
 
+type CarouselPreviewProps = React.ComponentProps<typeof Button> & {
+  previewArrow?: React.ReactNode
+}
+type CarouselNextProps = React.ComponentProps<typeof Button> & {
+  nextArrow?: React.ReactNode
+}
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
 
 function useCarousel() {
@@ -196,8 +202,8 @@ CarouselItem.displayName = "CarouselItem"
 
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  CarouselPreviewProps
+>(({ className, variant = "outline", size = "icon", previewArrow ,...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
   console.log(variant, size)
   return (
@@ -217,7 +223,7 @@ const CarouselPrevious = React.forwardRef<
       {...props}
     >
       {/* <ArrowLeft className="h-8 w-8" /> */}
-      <div className="w-12 h-12 bg-[#c09606] clip-path-triangle-left" />
+      {previewArrow ? previewArrow : <div className="w-12 h-12 bg-accent clip-path-triangle-left" />}
     </button>
   )
 })
@@ -225,8 +231,8 @@ CarouselPrevious.displayName = "CarouselPrevious"
 
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  CarouselNextProps
+>(({ className, variant = "outline", size = "icon",nextArrow,...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
   console.log(variant, size)
   return (
@@ -245,7 +251,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <div className="w-12 h-12 bg-[#c09606] clip-path-triangle-right"/>
+      {nextArrow ? nextArrow : <div className="w-12 h-12 bg-accent clip-path-triangle-right"/>}
       {/* <span className="sr-only">Next slide</span> */}
     </button>
   )
