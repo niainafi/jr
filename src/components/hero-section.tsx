@@ -1,15 +1,24 @@
 import React from 'react';
 import Header from './common/layout/header';
+import Image from 'next/image';
 
 export default function HeroSectionOcas() {
   return (
     <div className="relative h-[380px] md:h-[500px] lg:h-[600px] xl:h-[450px]">
-      <div 
+      {/* <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
           background: "url(/images/evenement/acc.jpg) no-repeat center center/cover" 
         }}
         
+      /> */}
+      <Image 
+        src="/images/evenement/acc.jpg"
+        alt="Background événement"
+        className="absolute inset-0 bg-cover bg-center"
+        layout="fill" 
+        objectFit="cover"
+        priority // Charge en priorité pour le LCP
       />
       <div className="absolute inset-0 bg-black opacity-50" />
 
