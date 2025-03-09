@@ -39,7 +39,7 @@ function MonthlyCalendar() {
 //   const resetToCurrentMonth = () => setCurrentMonth(dayjs());
 
   return (
-    <div className="max-w-lg mx-auto p-3 bg-white shadow rounded-sm">
+    <div className="max-w-2xl mx-auto p-3 bg-white shadow rounded-sm">
       {/* Header */}
       <div className="flex justify-between items-center mb-0">
         {/* <button onClick={prevMonth} className="px-3 py-1 bg-gray-300 rounded-md">
