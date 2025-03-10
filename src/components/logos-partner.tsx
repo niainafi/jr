@@ -155,7 +155,7 @@ function ChooseAppointment() {
 
   return (
     <section className="text-center px-4 sm:px-10 pb-8 pt-[10px] sm:pt-[10px] lg:pt-[0px]">
-      <Container className='sm:mt-20'>
+      <Container className='sm:mt-40'>
       <h2 className="text-2xl font-bold">CHOISISSEZ UN RENDEZ-VOUS</h2>
       {/* <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
         <button className="text-2xl">&lt;</button>
