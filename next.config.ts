@@ -3,7 +3,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["justride.mg"],
+    remotePatterns:[
+      {
+        protocol: "https",
+        hostname: "justride.mg",
+        port: "",
+        // pathname: "/images/**",
+      },
+    ]
+    // domains: ["justride.mg"],
   },
 };
 

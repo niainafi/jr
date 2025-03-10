@@ -42,7 +42,7 @@ export default function Boutiques() {
   };
 
   return (
-    <Container>
+    <Container className="mt-8 ">
       <h1 className="uppercase text-3xl sm:text-4xl font-bold text-center">
         Boutiques
       </h1>
