@@ -61,7 +61,8 @@ export default async function Occasion() {
 
 */}
 
-            
+import Link from "next/link";
+         
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -70,7 +71,9 @@ const API_URL = "https://justride.up.railway.app/api/moto-occasion";
 
 
 export default function Occasion() {
-  const [ocas, setOcas] = useState<any[]>([]); // Initialisation du state
+  const [ocas, setOcas] = useState<any[]>([]); 
+  
+  console.log("ocas", ocas);
 
   useEffect(() => {
     const fetchOcas = async () => {
@@ -101,6 +104,7 @@ export default function Occasion() {
                   src={moto.imageUrl}
                   alt={`${moto.marque} - ${moto.modèle}`}
                   width={400}
+                  loading="lazy"
                   height={400} // Hauteur augmentée
                   className="w-full h-96 sm:h-[400px] object-cover transition-transform duration-300 group-hover:scale-110"
 
@@ -125,9 +129,9 @@ export default function Occasion() {
 
       {/* Bouton Voir Plus */}
       <div className="mt-6 flex justify-center md:justify-end">
-        <a href="#" className="bg-accent text-black font-bold rounded-full px-6 py-2 flex items-center space-x-2">
+        <Link href="/occasions" className="bg-accent text-black font-bold rounded-full px-6 py-2 flex items-center space-x-2">
           Voir plus »»»
-        </a>
+        </Link>
       </div>
     </section>
   );
