@@ -112,9 +112,10 @@ export default function Occasion() {
               )}
               <div className="absolute inset-0 bg-accent bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-white text-center">
                 <h3 className="text-lg font-bold">{moto.marque} {moto.modèle}</h3>
-                <p className="text-sm mt-2"><strong>Année :</strong> {moto.année}</p>
-                <p><strong>Prix :</strong> {moto.prix}  AR</p>
-                <p className="text-sm"><strong>Kilométrage :</strong> {moto.kilométrage} 20 000 KM</p>
+                <p className="text-sm mt-2"><strong>Année :</strong> {moto.annee}</p>
+                <p><strong>Prix :</strong> {moto.prix.toLocaleString('fr-MG')} AR</p>
+
+                <p className="text-sm"><strong>Kilométrage :</strong> {moto.kilometrage} KM</p>
                
                 <p className="text-lg font-bold mt-4">
                  

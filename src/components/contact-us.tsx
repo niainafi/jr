@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 
-
-const Map = dynamic(() => import("./map"), {
-  ssr: false,
-});
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({

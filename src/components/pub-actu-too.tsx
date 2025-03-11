@@ -6,7 +6,7 @@ export default function PubActuToo() {
       {[...Array(3)].map((_, index) => (
         <div 
           key={index} 
-          className="relative w-[98%] md:w-[400px] h-[300px] md:h-[420px] border-l-4 border-red-500 mx-auto md:mx-0"
+          className="relative w-[98%] md:w-[600px] h-[300px] md:h-[420px] border-l-4 border-red-500 mx-auto md:mx-0"
         >
           <Image
             src="/images/actualite/votre-pub-ici.jpg"

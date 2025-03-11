@@ -1,81 +1,4 @@
 "use client";
-
-{/* 
-"use client";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-const API_URL = "https://justride.up.railway.app/api/actus"; 
-
-export default function ActualitesReportages() {
-  const [actus, setActus] = useState<any[]>([]); // Initialisation correcte du state
-
-  useEffect(() => {
-    const fetchActus = async () => {
-      try {
-        const { data } = await axios.get(API_URL);
-        setActus(data);
-      } catch (error) {
-        console.error("❌ Erreur de chargement :", error);
-      }
-    };
-
-    fetchActus();
-  }, []);
-
-  return (
-    <section className="pb-12 bg-white text-gray-800">
-      {/* Affichage des actualités récupérées depuis l'API  
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center uppercase mb-12 flex justify-center items-center gap-2">
-          <span>Actualités</span>
-          <span className="relative w-10 h-10">
-            <Image src="/images/actualite/and.webp" alt="actualité &" width={40} height={40} />
-          </span>
-          <span>Reportages</span>
-        </h2>
-
-        Grid pour afficher les articles de l'API 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {actus.length > 0 ? (
-            actus.map((actu, index) => (
-              <div key={index} className="p-1">
-                <div className="relative w-full h-64">
-                  {actu.imageUne && (
-                    <Image
-                      src={actu.imageUne}
-                      alt={actu.title}
-                      className="object-cover w-full h-full"
-                      fill
-                      loading="lazy"
-                    />
-                  )}
-                </div>
-                <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
-                <div className="w-16 h-1 bg-accent my-2"></div>
-                <p className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3">
-                  {actu.description}
-                </p>
-                <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-end">
-                  Voir la suite »»»
-                </a>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-500">Aucune actualité disponible.</p>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-*/}
-
-
-
-
 {/* SANS API
 import Container from "./container";
 import Image from "next/image";
@@ -158,34 +81,37 @@ export default async function ActualitesReportages() {
 */}
 
 
-
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Container from "./container";
 
 const API_URL = "https://justride.up.railway.app/api/actus";
 
 export default function ActualitesReportages() {
+  const [actusALaUne, setActusALaUne] = useState<any[]>([]);
   const [actusInternationales, setActusInternationales] = useState<any[]>([]);
   const [actusLocales, setActusLocales] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchActus = async () => {
       try {
         const { data } = await axios.get(API_URL);
 
-        const internationales = data.filter(
-          (actu: any) => actu.category?.name === "Actus Internationale"
-        );
-        const locales = data.filter(
-          (actu: any) => actu.category?.name === "Actus Locale"
-        );
+        const aLaUne = data.filter((actu: any) => actu.category?.name === "A LA UNE");
+        const internationales = data.filter((actu: any) => actu.category?.name === "Actus Internationale");
+        const locales = data.filter((actu: any) => actu.category?.name === "Actus Locale");
 
+        setActusALaUne(aLaUne);
         setActusInternationales(internationales);
         setActusLocales(locales);
       } catch (error) {
         console.error("❌ Erreur de chargement :", error);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -194,7 +120,7 @@ export default function ActualitesReportages() {
 
   return (
     <section className="pb-12 bg-white text-gray-800">
-      <div className="container mx-auto px-4 lg:-mt-24">
+      <Container className="lg:-mt-24">
         {/* Titre */}
         <h2 className="relative text-2xl md:text-3xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
           <span>Actualités</span>
@@ -204,13 +130,17 @@ export default function ActualitesReportages() {
           <span>Reportages</span>
         </h2>
 
-        {/* Section Actus Internationales */}
-        {actusInternationales.length > 0 && (
-          <div>
-            <h3 className="text-xl font-bold uppercase mb-4">Actualités Internationales</h3>
+        {/* Gestion des erreurs et du chargement */}
+        {loading && <p className="text-center text-gray-500">Chargement des actualités...</p>}
+        {error && <p className="text-center text-red-500">Erreur de chargement des actualités.</p>}
+
+        {/* Section À la Une */}
+        {actusALaUne.length > 0 && (
+          <div className="mb-8">
+            <h3 className="text-xl font-bold uppercase mb-4">À la Une</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {actusInternationales.map((actu, index) => (
-                <div key={index} className="p-1 rounded-md shadow-md">
+              {actusALaUne.map((actu, index) => (
+                <div key={index} className="p-1">
                   <div className="relative w-full h-64">
                     {actu.imageUne && (
                       <Image
@@ -224,10 +154,11 @@ export default function ActualitesReportages() {
                   </div>
                   <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
                   <div className="w-16 h-1 bg-accent my-2"></div>
-                  <p className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3">
-                    {actu.description}
-                  </p>
-                  <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-end">
+                  <div
+                    className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
+                    dangerouslySetInnerHTML={{ __html: actu.description }}
+                  />
+                  <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
                     Voir la suite »»»
                   </a>
                 </div>
@@ -236,38 +167,63 @@ export default function ActualitesReportages() {
           </div>
         )}
 
-        {/* Section Actus Locales */}
-        {actusLocales.length > 0 && (
-          <div className="mt-8">
-            <h3 className="text-xl font-bold uppercase mb-4">Actualités Locales</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {actusLocales.map((actu, index) => (
-                <div key={index} className="p-1 rounded-md shadow-md">
-                  <div className="relative w-full h-64">
-                    {actu.imageUne && (
-                      <Image
-                        src={actu.imageUne}
-                        alt={actu.title}
-                        className="object-cover w-full h-full"
-                        fill
-                        loading="lazy"
-                      />
-                    )}
-                  </div>
-                  <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
-                  <div className="w-16 h-1 bg-accent my-2"></div>
-                  <p className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3">
-                    {actu.description}
-                  </p>
-                  <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-end">
-                    Voir la suite »»»
-                  </a>
+        {/* Section Actus Locales & Internationales côte à côte */}
+        {(actusInternationales.length > 0 || actusLocales.length > 0) && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Actus Internationales - Limité à 2 articles */}
+            {actusInternationales.slice(0, 2).map((actu, index) => (
+              <div key={index} className="p-1 text-center">
+                <div className="relative w-full h-64">
+                  {actu.imageUne && (
+                    <Image
+                      src={actu.imageUne}
+                      alt={actu.title}
+                      className="object-cover w-full h-full"
+                      fill
+                      loading="lazy"
+                    />
+                  )}
                 </div>
-              ))}
-            </div>
+                <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
+                <div className="w-16 h-1 bg-accent my-2 mx-auto"></div>
+                <div
+                  className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
+                  dangerouslySetInnerHTML={{ __html: actu.description }}
+                />
+                <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-end">
+                  Voir la suite »»»
+                </a>
+              </div>
+            ))}
+
+            {/* Actus Locales - Limité à 1 article */}
+            {actusLocales.slice(0, 1).map((actu, index) => (
+              <div key={index} className="p-1 text-center">
+                <div className="relative w-full h-64">
+                  {actu.imageUne && (
+                    <Image
+                      src={actu.imageUne}
+                      alt={actu.title}
+                      className="object-cover w-full h-full"
+                      fill
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+                <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
+                <div className="w-16 h-1 bg-accent my-2 mx-auto"></div>
+                <div
+                  className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
+                  dangerouslySetInnerHTML={{ __html: actu.description }}
+                />
+                <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-center">
+                  Voir la suite »»»
+                </a>
+              </div>
+            ))}
           </div>
         )}
-      </div>
+      </Container>
     </section>
   );
 }

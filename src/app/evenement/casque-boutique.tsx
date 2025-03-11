@@ -1,3 +1,6 @@
+  {/* 
+"use client";
+
 import Image from "next/image";
 
 const helmets = [
@@ -18,7 +21,7 @@ const HelmetGrid = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-12 w-full max-w-screen-xl">
         {helmets.map((helmet) => (
           <div key={helmet.id} className="flex flex-col items-start">
-            {/* Conteneur de l'image pour bien positionner le texte */}
+            {/* Conteneur de l'image pour bien positionner le texte 
             <div className="relative w-[300px]">
               <Image
                 src={helmet.src}
@@ -28,11 +31,11 @@ const HelmetGrid = () => {
                 className="w-auto h-auto"
                 priority
               />
-              {/* Tiret jaune légèrement décalé vers la droite */}
+              {/* Tiret jaune légèrement décalé vers la droite 
               <div className="w-12 h-1 mt-4 bg-accent ml-20"></div>
             </div>
 
-            {/* Texte légèrement décalé vers la droite */}
+            {/* Texte légèrement décalé vers la droite 
             <h2 className="text-lg font-bold pl-20 mt-3">Formula xxxxx</h2>
             <p className="text-gray-600 pl-20 mt-1">00 000 000 Ar</p>
           </div>
@@ -43,3 +46,5 @@ const HelmetGrid = () => {
 };
 
 export default HelmetGrid;
+*/}
+
