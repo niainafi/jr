@@ -82,7 +82,7 @@ export default async function ActualitesReportages() {
 
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { act, useEffect, useState } from "react";
 import axios from "axios";
 import Container from "./container";
 
@@ -158,7 +158,7 @@ export default function ActualitesReportages() {
                     className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
                     dangerouslySetInnerHTML={{ __html: actu.description }}
                   />
-                  <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
+                  <a href={`/actualites/${actu._id}`} className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
                     Voir la suite »»»
                   </a>
                 </div>
@@ -190,9 +190,9 @@ export default function ActualitesReportages() {
                   className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
                   dangerouslySetInnerHTML={{ __html: actu.description }}
                 />
-                <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-end">
-                  Voir la suite »»»
-                </a>
+                <a href={`/actualites/${actu._id}`} className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
+                    Voir la suite »»»
+                  </a>
               </div>
             ))}
 
@@ -216,9 +216,9 @@ export default function ActualitesReportages() {
                   className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
                   dangerouslySetInnerHTML={{ __html: actu.description }}
                 />
-                <a href="#" className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-center">
-                  Voir la suite »»»
-                </a>
+                <a href={`/actualites/${actu._id}`} className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
+                    Voir la suite »»»
+                  </a>
               </div>
             ))}
           </div>

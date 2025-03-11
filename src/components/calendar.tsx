@@ -41,15 +41,10 @@ function MonthlyCalendar() {
 //   const prevMonth = () => setCurrentMonth((prev) => prev.subtract(1, "month"));
 //   const resetToCurrentMonth = () => setCurrentMonth(dayjs());
 
-  useEffect(() => {
-    getMotoOccasion().then((data) => {
-      setMotos(data)
-    })
-  },[])
+
 
   return (
     <div className="max-w-2xl mx-auto p-3 bg-white shadow rounded-sm">
-      {JSON.stringify(motos)}
       {/* Header */}
       <div className="flex justify-between items-center mb-0">
         {/* <button onClick={prevMonth} className="px-3 py-1 bg-gray-300 rounded-md">
