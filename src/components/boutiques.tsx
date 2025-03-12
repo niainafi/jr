@@ -22,14 +22,7 @@ const imagePub = [
 ]
 
 const filters = [
-  { id: 1, name: "Casque" },
-  { id: 2, name: "Blouson" },
-  { id: 3, name: "Gants" },
-  { id: 4, name: "Pantalon" },
-  { id: 5, name: "Chaussures" },
-  { id: 6, name: "Dorsale" },
-  { id: 7, name: "Accessoire" },
-  { id: 8, name: "Technologie" },
+ 
 ] as const;
 
 type Filter = (typeof filters)[number];
@@ -83,7 +76,7 @@ export default function Boutiques() {
             </div>
             <div className="h-52 relative overflow-hidden">
               <img
-                src="/images/photos/img-casque-2.jpg"
+                src="/images/actualite/casquette.jpg"
                 alt="Casque"
                 className="w-full h-full object-cover"
               />
@@ -105,14 +98,14 @@ export default function Boutiques() {
           <div className="flex flex-col gap-4">
             <div className="h-52 relative overflow-hidden">
               <img
-                src="/images/photos/img-casque-1.jpg"
+                src="/images/actualite/boutique-2.jpg"
                 alt="Casque"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="h-52 relative overflow-hidden">
               <img
-                src="/images/photos/img-gant.png"
+                src="/images/actualite/boutique-3.jpg"
                 alt="Gant"
                 className="w-full h-full object-cover"
               />

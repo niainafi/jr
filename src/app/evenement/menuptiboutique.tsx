@@ -177,7 +177,7 @@ export default function MenuPtiBoutique() {
   const [loadingProducts, setLoadingProducts] = useState(false);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 1;
+  const productsPerPage = 6;
 
   const API_URL = "https://justride.up.railway.app/api/category-product";
   const PRODUCT_URL = "https://justride.up.railway.app/api/product/category";
