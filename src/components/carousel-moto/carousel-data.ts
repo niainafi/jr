@@ -3,9 +3,9 @@ import { Moto } from "@/types/types";
 export const data : Moto[] = [
     { 
       id: 1,
-      name: "moto 1", 
+      name: "HIMALAYAN 450", 
       price: "$500", 
-      img: "/images/just-rent/jr-moto7.png",
+      img: "/images/just-rent/himalayna-450.png",
       logos: [
         {
           src: "/images/just-rent/300ppi/himalayan.png",
@@ -43,22 +43,22 @@ export const data : Moto[] = [
       ],
       imagesDetails: [
         {
-          src: "/images/just-rent/liberte-2.jpg",
+          src: "/images/just-rent/450-1.jpg",
         },
         {
-          src: "/images/just-rent/liberte-2.jpg",
+          src: "/images/just-rent/450-3.jpg",
         },
         {
-          src: "/images/just-rent/liberte-2.jpg",
+          src: "/images/just-rent/450-4.jpg",
         },
       ],
       unitAvailable: 10
     },
     { 
       id: 2, 
-      name: "moto 2", 
+      name: "HIMALAYAN 410", 
       price: "$700", 
-      img: "/images/just-rent/classic500.png" ,
+      img: "/images/just-rent/himalayan-410.png" ,
       logos: [
         {
           src: "/images/just-rent/logo-just-rent.png",
@@ -95,22 +95,23 @@ export const data : Moto[] = [
         
       ],
       imagesDetails: [
+        
         {
-          src: "/images/just-rent/classic500.png",
+          src: "/images/just-rent/",
         },
         {
-          src: "/images/just-rent/classic500.png",
+          src: "/images/just-rent/",
         },
         {
-          src: "/images/just-rent/classic500.png",
+          src: "/images/just-rent/",
         },
       ],
       unitAvailable: 10
     },
     { id: 3, 
-      name: "moto 3", 
+      name: "CLASSIC 500", 
       price: "$900", 
-      img: "/images/just-rent/jr-moto7.png" ,
+      img: "/images/just-rent/classic-500.png" ,
       logos: [
         {
           src: "/images/just-rent/logo-just-rent.png",
@@ -148,13 +149,13 @@ export const data : Moto[] = [
       ],
       imagesDetails: [
         {
-          src: "/images/just-rent/classic500.png",
+          src: "/images/just-rent/classic1.jpg",
         },
         {
-          src: "/images/just-rent/classic500.png",
+          src: "/images/just-rent/classic2.jpg",
         },
         {
-          src: "/images/just-rent/classic500.png",
+          src: "/images/just-rent/classic3.jpg",
         },
       ],
       unitAvailable: 10

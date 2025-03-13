@@ -1,10 +1,9 @@
 
-
 import { api } from "@/lib/axios";
 import HeroSection from "@/components/hero-section";
 import  Footer from "@/components/footer";
 async function getActuDetails(id: string) {
-    const res = await api.get(`https://justride.up.railway.app/api/actus/${id}`);
+    const res = await api.get(`https://justride.up.railway.app/api/event/${id}`);
     return res.data; // Récupérer uniquement les données de l'API
 }
 

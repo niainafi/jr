@@ -12,7 +12,7 @@ const menus = [
   { nom: 'Boutique', href: '/boutique' },
   { nom: 'Just Rent', href: '/just-rent' },
   { nom: 'Occasion', href: '/occasions' },
-  { nom: 'Membre', href: '/' },
+  { nom: 'Membre', href: '/membres' },
   { nom: 'Contact', href: '/contactez-nous' },
 ];
 
@@ -42,8 +42,8 @@ export default function Menu() {
         </label>
 
         {/* ✅ Menu mobile (affiché seulement si checkbox cochée) */}
-        <div className="fixed inset-0 bg-black bg-opacity-80 transition-transform transform translate-x-full peer-checked:translate-x-0 z-40">
-          <div className="absolute top-0 right-0 w-64 h-full bg-gray-900 text-white p-6 shadow-lg">
+        <div className="fixed inset-0 bg-black bg-opacity-80 transition-transform transform translate-x-full peer-checked:translate-x-0 z-[100]">
+          <div className="absolute top-0 right-0 w-64 h-full bg-gray-900 text-white p-6 shadow-lg ">
             {/* ✅ Icône de fermeture */}
             <div className="flex justify-end">
               <label htmlFor="menu-toggle" className="cursor-pointer">

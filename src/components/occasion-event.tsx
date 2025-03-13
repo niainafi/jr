@@ -65,9 +65,11 @@ function CardArticle({article}: {article : Artcle}) {
   )
 }
 */}
-import React, { useState, useEffect } from "react";
+
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 import Container from "./container";
 
 const API_URL = "https://justride.up.railway.app/api/category-event";
@@ -84,7 +86,7 @@ export default function OccasionEvent() {
     fetchCategories();
   }, []);
 
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
     try {
       const { data } = await axios.get(API_URL);
       setCategories(data);
@@ -94,13 +96,15 @@ export default function OccasionEvent() {
     } catch (error) {
       setError("Erreur lors du chargement des catégories");
     }
-  };
+  }, []);
 
-  const fetchArticles = async (categoryId) => {
+  const fetchArticles = async (categoryId : any) => {
     try {
       setLoading(true);
       const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);
-      setArticles(data);
+      // Trier les articles par date décroissante
+      const sortedArticles = data.sort((a: any, b: any) => (new Date(b.date) as any) - (new Date(a.date) as any));
+      setArticles(sortedArticles);
       setSelectedCategory(categoryId);
     } catch (error) {
       setError("Erreur lors du chargement des événements");
@@ -112,17 +116,11 @@ export default function OccasionEvent() {
   return (
     <section className="mx-auto pt-5 mb-5">
       <Container>
-        {/* Navigation */}
-        <div className="text-center mb-6">
-          <span className="text-gray-500">Ride | </span>
-          <span className="text-accent font-bold"> Événement </span>
-          <span className="text-gray-500">| Autre</span>
-        </div>
-
-        {/* Catégories */}
         {error && <p className="text-red-500 text-center">{error}</p>}
+        
+        {/* Liste des catégories */}
         <ul className="flex overflow-x-auto sm:justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0">
-          {categories.map((category) => (
+          {categories.map((category : any) => (
             <li
               key={category._id}
               onClick={() => fetchArticles(category._id)}
@@ -133,14 +131,14 @@ export default function OccasionEvent() {
           ))}
         </ul>
 
-        {/* Grille d'articles */}
+        {/* Grille des articles */}
         {loading ? (
           <p className="text-gray-500 text-center mt-6">Chargement des événements...</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2 my-16">
             {articles.length > 0 ? (
-              articles.map((article, index) => (
-                <CardArticle key={index} article={article} />
+              articles.map((article : any) => (
+                <CardArticle key={article._id} article={article} />
               ))
             ) : (
               <p className="text-gray-500 text-center col-span-full">Aucun événement disponible</p>
@@ -152,21 +150,23 @@ export default function OccasionEvent() {
   );
 }
 
-function CardArticle({ article }) {
+function CardArticle({ article }: any) {
   return (
-    <div className="relative h-[23rem] group overflow-hidden shadow-sm rounded-sm transition-transform duration-200">
-      {article.imageUne ? (
-        <Image
-          src={article.imageUne}
-          alt={article.title}
-          fill
-          className="w-full h-full sm:h-64 object-cover"
-        />
-      ) : null}
-      <div className="absolute inset-0 bg-accent opacity-80 transition-transform duration-300 ease-out translate-y-[70%] group-hover:translate-y-0" />
-      <div className="absolute bottom-0 w-full text-center text-white p-3 font-bold text-lg transition-all duration-300 ease-out group-hover:bottom-1/2 group-hover:translate-y-1/2">
-        {article.title}
+    <Link href={`/evenement/${article._id}`} className="block">
+      <div className="relative h-[23rem] group overflow-hidden shadow-sm rounded-sm transition-transform duration-200 cursor-pointer">
+        {article.imageUne && (
+          <Image
+            src={article.imageUne}
+            alt={article.title}
+            fill
+            className="w-full h-full sm:h-64 object-cover"
+          />
+        )}
+        <div className="absolute inset-0 bg-accent opacity-80 transition-transform duration-300 ease-out translate-y-[70%] group-hover:translate-y-0" />
+        <div className="absolute bottom-0 w-full text-center text-white p-3 font-bold text-lg transition-all duration-300 ease-out group-hover:bottom-1/2 group-hover:translate-y-1/2">
+          {article.title}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

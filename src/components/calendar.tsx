@@ -6,7 +6,7 @@ import "dayjs/locale/fr"; // Import de la locale française
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import clsx from "clsx";
-import { getMotoOccasion } from "@/actions/occasion";
+// import { getMotoOccasion } from "@/actions/occasion";
 
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
@@ -16,7 +16,7 @@ const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi",
 
 function MonthlyCalendar() {
   const [currentMonth,] = useState(dayjs());
-  const [motos,setMotos] = useState([])
+  // const [motos,setMotos] = useState([])
 
 
   const firstDayOfMonth = currentMonth.startOf("month");
