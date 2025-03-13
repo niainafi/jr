@@ -277,8 +277,8 @@ const API_URL = "https://justride.up.railway.app/api/category-actus";
 const PRODUCT_URL = "https://justride.up.railway.app/api/actus/category";
 
 export default function MotocrossNews() {
-  const [categories, setCategories] = useState([]);
-  const [articles, setArticles] = useState([]);
+  const [categories, setCategories] = useState<any[]>([]);
+  const [articles, setArticles] = useState<any[]>([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -299,12 +299,12 @@ export default function MotocrossNews() {
     }
   }, []);
 
-  const fetchArticles = async (categoryId) => {
+  const fetchArticles = async (categoryId: any) => {
     try {
       setLoading(true);
       const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);
       // Trier les articles par date décroissante
-      const sortedArticles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const sortedArticles = data.sort((a: any, b: any) => (new Date(b.date) as any) - (new Date(a.date) as any));
       setArticles(sortedArticles);
       setSelectedCategory(categoryId);
     } catch (error) {
@@ -351,7 +351,7 @@ export default function MotocrossNews() {
   );
 }
 
-function CardArticle({ article }) {
+function CardArticle({ article }: any) {
   return (
     <Link href={`/actualites/${article._id}`} className="block">
       <div className="relative h-[23rem] group overflow-hidden shadow-sm rounded-sm transition-transform duration-200 cursor-pointer">

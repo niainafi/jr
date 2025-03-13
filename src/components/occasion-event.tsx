@@ -98,12 +98,12 @@ export default function OccasionEvent() {
     }
   }, []);
 
-  const fetchArticles = async (categoryId) => {
+  const fetchArticles = async (categoryId : any) => {
     try {
       setLoading(true);
       const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);
       // Trier les articles par date décroissante
-      const sortedArticles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const sortedArticles = data.sort((a: any, b: any) => (new Date(b.date) as any) - (new Date(a.date) as any));
       setArticles(sortedArticles);
       setSelectedCategory(categoryId);
     } catch (error) {
@@ -120,7 +120,7 @@ export default function OccasionEvent() {
         
         {/* Liste des catégories */}
         <ul className="flex overflow-x-auto sm:justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0">
-          {categories.map((category) => (
+          {categories.map((category : any) => (
             <li
               key={category._id}
               onClick={() => fetchArticles(category._id)}
@@ -137,7 +137,7 @@ export default function OccasionEvent() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2 my-16">
             {articles.length > 0 ? (
-              articles.map((article) => (
+              articles.map((article : any) => (
                 <CardArticle key={article._id} article={article} />
               ))
             ) : (
@@ -150,7 +150,7 @@ export default function OccasionEvent() {
   );
 }
 
-function CardArticle({ article }) {
+function CardArticle({ article }: any) {
   return (
     <Link href={`/evenement/${article._id}`} className="block">
       <div className="relative h-[23rem] group overflow-hidden shadow-sm rounded-sm transition-transform duration-200 cursor-pointer">

@@ -170,9 +170,9 @@ import Image from "next/image";
 import clsx from "clsx";
 
 export default function MenuPtiBoutique() {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState<null | string>(null);
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [loadingProducts, setLoadingProducts] = useState(false);
   const [error, setError] = useState("");
@@ -183,29 +183,30 @@ export default function MenuPtiBoutique() {
   const PRODUCT_URL = "https://justride.up.railway.app/api/product/category";
 
   useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        setLoadingCategories(true);
+        const { data } = await axios.get(API_URL);
+        setCategories(data);
+        if (data.length > 0) {
+          fetchProducts(data[0]._id);
+        }
+      } catch (error : any) {
+        setError("Erreur lors du chargement des catégories");
+      } finally {
+        setLoadingCategories(false);
+      }
+    };
     fetchCategories();
   }, []);
 
-  const fetchCategories = async () => {
-    try {
-      setLoadingCategories(true);
-      const { data } = await axios.get(API_URL);
-      setCategories(data);
-      if (data.length > 0) {
-        fetchProducts(data[0]._id);
-      }
-    } catch (error) {
-      setError("Erreur lors du chargement des catégories");
-    } finally {
-      setLoadingCategories(false);
-    }
-  };
+ 
 
-  const fetchProducts = async (categoryId) => {
+  const fetchProducts = async (categoryId : string) => {
     try {
       setLoadingProducts(true);
       const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);
-      const filteredProducts = data.filter(product => product.imageUrl); // Filtrer les produits sans image
+      const filteredProducts = data.filter((product: any) => product.imageUrl); // Filtrer les produits sans image
       setProducts(filteredProducts);
       setSelectedCategory(categoryId);
       setCurrentPage(1); // Réinitialiser la pagination
@@ -220,7 +221,7 @@ export default function MenuPtiBoutique() {
   const totalPages = Math.ceil(products.length / productsPerPage);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts: any = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const nextPage = () => {
     if (currentPage < totalPages) {
@@ -267,7 +268,7 @@ export default function MenuPtiBoutique() {
         <div className="flex justify-center items-start min-h-screen mt-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-12 w-full max-w-screen-xl">
             {currentProducts.length > 0 ? (
-              currentProducts.map((product, index) => (
+              currentProducts.map((product : any, index: number) => (
                 <div key={product.id || `product-${index}`} className="flex flex-col items-start">
                   <div className="relative w-[300px]">
                     <Image

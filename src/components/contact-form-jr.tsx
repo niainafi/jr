@@ -73,7 +73,7 @@ export default function ReservationForm() {
 
 
 
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Container from "./container";
 import emailjs from "@emailjs/browser";
 
@@ -92,11 +92,11 @@ export default function ReservationForm() {
     total: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const serviceID = "service_uynssi5"; // Remplace par ton Service ID

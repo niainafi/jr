@@ -17,13 +17,13 @@ async function getActuDetails(id: string) {
 export default async function ActuReportageDetailPageToo({ params }: { params: { id: string } }) {
     const { id } = params;
     if (!id) {
-        return <div className="text-center text-red-500 my-10">Donnée introuvable</div>;
+        return <div className="text-center text-red-500 my-10">{`Donnée introuvable`}</div>;
     }
 
     const actuDetail = await getActuDetails(id);
 
     if (!actuDetail) {
-        return <div className="text-center text-red-500 my-10">Erreur lors du chargement de l'actualité</div>;
+        return <div className="text-center text-red-500 my-10">{`Erreur lors du chargement de l'actualité`}</div>;
     }
 
     return (

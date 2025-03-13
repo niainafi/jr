@@ -23,12 +23,12 @@ const imagePub = [
 
 const filters = [
  
-] as const;
+] as any;
 
 type Filter = (typeof filters)[number];
 
 export default function Boutiques() {
-  const [activeFilter, setActiveFilter] = useState<Filter>(filters[0]);
+  const [activeFilter, setActiveFilter] = useState<any>(filters[0]);
 
   const handleFilterClick = (filter: Filter) => {
     setActiveFilter(filter);
@@ -43,7 +43,7 @@ export default function Boutiques() {
       {/* Filtres avec scroll sur mobile */}
       <div>
         <ul className="flex overflow-x-auto gap-4 sm:gap-3 mt-6 sm:mt-8 pb-2 sm:pb-0">
-          {filters.map((filter, index) => (
+          {filters.map((filter : any, index: number) => (
             <li
               key={index}
               onClick={() => handleFilterClick(filter)}
