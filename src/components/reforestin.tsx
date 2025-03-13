@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Container from "./container";
-
+import Link from "next/link";
 type TimeLeft = {
   days: number;
   hours: number;
@@ -75,13 +75,15 @@ export default function ReforestinEvent() {
         </p>
 
 
-        <div className="mt-6 flex flex-col md:flex-row gap-4">
-          <button className="bg-white text-accent font-bold rounded shadow">
-            INSCRIVEZ - VOUS
-          </button>
-          <button className="bg-accent text-white font-bold px-4 py-2 rounded shadow">
-            LOUEZ VOTRE <span className="text-accent">ROYAL ENFIELD</span>
-          </button>
+        <div className="mt-6 flex space-x-4">
+          <Link href="/contactez-nous" className="bg-white text-accent rounded-md h-5 flex items-center justify-center">
+            <span className="font-bold">INSCRIVEZ</span><span>-VOUS</span>
+          </Link>
+           <Link href="/just-rent" className="bg-white text-accent rounded-md h-5 flex items-center justify-center">
+            <span className="font-bold">LOUEZ</span>
+            <span className="mx-1">VOTRE</span>
+            <span className="font-extrabold">ROYAL ENFIELD</span>
+          </Link>
         </div>
       </div>
     </Container>

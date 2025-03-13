@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Logojustrent() {
   return (
-    <section className="mt-16 relative">
+    <section className="mt-16 mb-10 relative">
       <aside className="absolute right-[6%] -top-32">
         <img
           src="/images/just-rent/logo-just-rent.png"

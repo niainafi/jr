@@ -95,10 +95,20 @@ export default function Logos() {
           <img key={index} className="w-16 sm:w-20 md:w-24 h-auto" src={logo.src} alt={logo.alt} />
         ))}
         </div>
+        {/* 
         <Link href={'#'} className="bg-accent text-black font-bold rounded-r-full pl-2 h-5 flex items-center space-x-2">
           <span className='text-nowrap'>Voir plus</span>
           <span className="text-xl">&raquo;&raquo;&raquo;</span>
         </Link>
+        
+        */}
+        <Link href="/boutique">
+          <button className="bg-accent text-black font-bold rounded-r-full pl-2 h-5 flex items-center space-x-2">
+          <span className='text-nowrap'>Voir plus</span>
+          <span className="text-xl">&raquo;&raquo;&raquo;</span>
+          </button>
+        </Link>
+
         </Container>
       </div>
       <JustRideAcademy />
@@ -184,8 +194,11 @@ function ChooseAppointment() {
               <div className="text-gray-700 mb-2  leading-relaxed">
                 <p className="text-md w-full text-start">{appointment.description}</p>
                 <div className='flex justify-end mr-8'>
-                <Link className="mt-2 text-xs flex gap-2 bg-accent font-bold rounded-md text-black px-1" href={'#'}>
-                  Programmer
+                
+                <Link 
+                    className="mt-2 text-xs flex gap-2 bg-accent font-bold rounded-md text-black px-1" 
+                    href="/contactez-nous">
+                    Programmer
                 </Link>
                 </div>
               </div>

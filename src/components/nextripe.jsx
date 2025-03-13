@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Nextripe() {
   return (
@@ -39,12 +40,24 @@ export default function Nextripe() {
 
         {/* Boutons */}
         <div className="mt-6 flex space-x-4">
-          <button className="bg-accent text-black rounded-md h-5 flex items-center justify-center">
+          {/* <button className="bg-accent text-black rounded-md h-5 flex items-center justify-center">
             <span className="font-bold">INSCRIVEZ</span> <span>-VOUS</span>
           </button>
-          <button className="bg-accent text-black font-bold h-5 rounded shadow-lg flex items-center justify-center">
-          <span className="font-bold">LOUEZ</span> <span>VOTRE</span> <span className="font-extrabold">ROYAL ENFIELD</span>
+          
+          */}
+          <Link href="/contactez-nous" className="bg-accent text-black rounded-md h-5 flex items-center justify-center">
+            <span className="font-bold">INSCRIVEZ</span><span>-VOUS</span>
+          </Link>
+           {/*<button className="bg-accent text-black font-bold h-5 rounded shadow-lg flex items-center justify-center">
+            <span className="font-bold"> LOUEZ</span> <span> VOTRE </span> <span className="font-extrabold"> ROYAL ENFIELD </span>
           </button>
+          */}
+           <Link href="/just-rent" className="bg-accent text-black rounded-md h-5 flex items-center justify-center">
+            <span className="font-bold">LOUEZ</span>
+            <span className="mx-1">VOTRE</span>
+            <span className="font-extrabold">ROYAL ENFIELD</span>
+          </Link>
+
         </div>
       </div>
     </div>

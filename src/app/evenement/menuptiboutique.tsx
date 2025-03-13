@@ -201,7 +201,7 @@ export default function MenuPtiBoutique() {
     }
   };
 
-  const fetchProducts = async (categoryId) => {
+  const fetchProducts = async (categoryId: string | number) => {
     try {
       setLoadingProducts(true);
       const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);

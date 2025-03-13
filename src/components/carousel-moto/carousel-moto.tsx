@@ -26,6 +26,7 @@ export function MotoCarousel() {
   const [count, setCount] = React.useState(data.length);
   const currentItem = React.useMemo(() => data[current - 1], [current]);
 
+
   React.useEffect(() => {
     if (!api) return;
 
