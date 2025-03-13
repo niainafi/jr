@@ -75,7 +75,7 @@ export function MotoCarousel() {
               </div>
             ))}
         </div> */}
-        <div className="mx-auto max-w-[250px] sm:max-w-[600px] md:max-w-[850px] lg:w-full">
+        <div className="mx-auto max-w-[250px] sm:max-w-[600px] md:max-w-[650px] lg:w-full">
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {data.map((item) => (
@@ -85,7 +85,7 @@ export function MotoCarousel() {
                       src={item.img}
                       alt={`Image de ${item.name}`}
                       layout="fill"
-                      objectFit="cover"
+                      objectFit="contain"
                       className="rounded-lg"
                     />
                   </div>
@@ -135,7 +135,7 @@ function MotoInfo({ data }: MotoInfoTypeProps) {
             ))}
           </div>
           <p className="mt-5 uppercase text-3xl">
-            <b>{data.unitAvailable} unité</b> disponible{" "}
+            <b>{data.unitAvailable > 1 ? `${data.unitAvailable} unités` : `${data.unitAvailable} unités`  } </b> disponible{" "}
           </p>
         </div>
       </Container>

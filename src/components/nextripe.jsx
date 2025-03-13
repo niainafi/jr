@@ -38,7 +38,7 @@ export default function Nextripe() {
         </p>
 
         {/* Boutons */}
-        <div className="mt-6 flex space-x-4">
+        <div className="mt-8 flex flex-col md:flex-row gap-8 space-x-0 md:space-x-4">
           <button className="bg-accent text-black rounded-md h-5 flex items-center justify-center">
             <span className="font-bold">INSCRIVEZ</span> <span>-VOUS</span>
           </button>
