@@ -1,8 +1,8 @@
 "use client";
 
-import clsx from "clsx";
+// import clsx from "clsx";
 // import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import SwipperSlide from "./ui/swipper";
 import Container from "./container";
 
@@ -21,18 +21,25 @@ const imagePub = [
   },
 ]
 
-const filters = [
- 
-] as any;
+// const filters = [
+//   { id: 1, name: "Casque" },
+//   { id: 2, name: "Blouson" },
+//   { id: 3, name: "Gants" },
+//   { id: 4, name: "Pantalon" },
+//   { id: 5, name: "Chaussures" },
+//   { id: 6, name: "Dorsale" },
+//   { id: 7, name: "Accessoire" },
+//   { id: 8, name: "Technologie" },
+// ] as const;
 
-type Filter = (typeof filters)[number];
+// type Filter = (typeof filters)[number];
 
 export default function Boutiques() {
-  const [activeFilter, setActiveFilter] = useState<any>(filters[0]);
+  // const [activeFilter, setActiveFilter] = useState<Filter>(filters[0]);
 
-  const handleFilterClick = (filter: Filter) => {
-    setActiveFilter(filter);
-  };
+  // const handleFilterClick = (filter: Filter) => {
+  //   setActiveFilter(filter);
+  // };
 
   return (
     <Container className="mt-8 ">
@@ -42,8 +49,8 @@ export default function Boutiques() {
 
       {/* Filtres avec scroll sur mobile */}
       <div>
-        <ul className="flex overflow-x-auto gap-4 sm:gap-3 mt-6 sm:mt-8 pb-2 sm:pb-0">
-          {filters.map((filter : any, index: number) => (
+        {/* <ul className="flex overflow-x-auto gap-4 sm:gap-3 mt-6 sm:mt-8 pb-2 sm:pb-0">
+          {filters.map((filter, index) => (
             <li
               key={index}
               onClick={() => handleFilterClick(filter)}
@@ -60,7 +67,7 @@ export default function Boutiques() {
               {filter.name}
             </li>
           ))}
-        </ul>
+        </ul> */}
 
         {/* Grid responsive */}
 
@@ -76,7 +83,7 @@ export default function Boutiques() {
             </div>
             <div className="h-52 relative overflow-hidden">
               <img
-                src="/images/actualite/casquette.jpg"
+                src="/images/photos/img-casque-2.jpg"
                 alt="Casque"
                 className="w-full h-full object-cover"
               />
@@ -98,14 +105,14 @@ export default function Boutiques() {
           <div className="flex flex-col gap-4">
             <div className="h-52 relative overflow-hidden">
               <img
-                src="/images/actualite/boutique-2.jpg"
+                src="/images/photos/img-casque-1.jpg"
                 alt="Casque"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="h-52 relative overflow-hidden">
               <img
-                src="/images/actualite/boutique-3.jpg"
+                src="/images/photos/img-gant.png"
                 alt="Gant"
                 className="w-full h-full object-cover"
               />

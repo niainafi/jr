@@ -61,11 +61,11 @@ export default function Occasion() {
       </div>
 
       {/* Bouton Voir Plus */}
-      <div className="mt-6 flex justify-center md:justify-end">
+      {/* <div className="mt-6 flex justify-center md:justify-end">
         <a href="#" className="bg-accent text-black font-bold rounded-full px-6 py-2 flex items-center space-x-2">
           Voir plus »»»
         </a>
-      </div>
+      </div> */}
     </section>
   );
 }
