@@ -55,7 +55,7 @@ export default function ReforestinEvent() {
           alt="Reforest'in Ankadindriana"
           width={500}
           height={500}
-          className="relative z-10 w-full h-full"
+          className="relative  w-full h-full"
         />
       </div>
 
