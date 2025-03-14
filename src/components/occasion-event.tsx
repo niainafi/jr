@@ -74,7 +74,7 @@ import Container from "./container";
 
 const API_URL = "https://justride.up.railway.app/api/category-event";
 const PRODUCT_URL = "https://justride.up.railway.app/api/event/category";
-
+const ITEMS_PER_PAGE = 9; // Nombre d'éléments par page
 export default function OccasionEvent() {
   const [categories, setCategories] = useState([]);
   const [articles, setArticles] = useState([]);
@@ -112,6 +112,7 @@ export default function OccasionEvent() {
       setLoading(false);
     }
   };
+ 
 
   return (
     <section className="mx-auto pt-5 mb-5">
