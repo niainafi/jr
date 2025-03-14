@@ -6,7 +6,7 @@ import HeroSection from "@/components/hero-section";
 import Logos from "@/components/logos-partner";
 import ContactForm from "@/components/contact-form";
 import Occasion from "@/components/occasion";
-import Nextripe from "@/components/nextripe";
+{/* import Nextripe from "@/components/nextripe";*/}
 import PubActu from "@/components/pub-actu";
 import PubActuToo from "@/components/pub-actu-too";
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
       <Logos/> 
       <Occasion/>
       <PubActuToo/>
-      <Nextripe/>
+      {/* <Nextripe/>*/}
       <ContactForm/>
       <Footer/> 
     </div>

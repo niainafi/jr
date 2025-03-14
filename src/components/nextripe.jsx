@@ -1,9 +1,10 @@
+{/* 
 import Image from "next/image";
 import Link from "next/link";
 export default function Nextripe() {
   return (
     <div className="relative h-screen w-full">
-      {/* Image de fond */}
+      {/* Image de fond 
       <div className="absolute inset-0">
         <Image
           src="/images/photos/next2.png" 
@@ -14,9 +15,9 @@ export default function Nextripe() {
         />
       </div>
 
-      {/* Contenu */}
+      {/* Contenu 
       <div className="relative flex flex-col justify-center items-start h-full px-10 text-white">
-        {/* Image du texte NEXT TRIPE */}
+        {/* Image du texte NEXT TRIPE 
         <div className="mb-6">
           <Image 
             src="/images/photos/next.png"
@@ -26,7 +27,7 @@ export default function Nextripe() {
           />
         </div>
 
-        {/* Détails du voyage */}
+        {/* Détails du voyage 
         <h2 className="text-4xl font-bold">
           <span className="text-white">15.05.25</span> <span className="text-gray-300">AMPEFY</span>
         </h2>
@@ -37,7 +38,7 @@ export default function Nextripe() {
           ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
         </p>
 
-        {/* Boutons */}
+        {/* Boutons 
         <div className="mt-8 flex flex-col md:flex-row gap-8 space-x-0 md:space-x-4">
         <Link href="/contactez-nous" className="bg-accent text-black rounded-md h-5 flex items-center justify-center">
             <span className="font-bold">INSCRIVEZ</span><span>-VOUS</span>
@@ -54,4 +55,4 @@ export default function Nextripe() {
     </div>
   );
 }
-
+*/}
