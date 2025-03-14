@@ -282,7 +282,7 @@ export default function MotocrossNews() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const articlesPerPage = 9;
   useEffect(() => {
     fetchCategories();
   }, []);
@@ -314,6 +314,7 @@ export default function MotocrossNews() {
     }
   };
 
+  
   return (
     <section className="mx-auto pt-5 mb-5">
       <Container>
@@ -345,6 +346,7 @@ export default function MotocrossNews() {
               <p className="text-gray-500 text-center col-span-full">Aucune actualité disponible</p>
             )}
           </div>
+          
         )}
       </Container>
     </section>
