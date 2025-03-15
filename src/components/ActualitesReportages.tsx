@@ -89,6 +89,30 @@ import Container from "./container";
 const API_URL = "https://justride.up.railway.app/api/actus";
 
 export default function ActualitesReportages() {
+  
+
+  return (
+    <section className="pb-12 bg-white text-gray-800">
+      <Container className="lg:-mt-24">
+        {/* Titre */}
+        <h2 className="relative text-2xl md:text-3xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
+          <span>Actualités</span>
+          <span className="relative w-10 h-10">
+            {/* <Image src="/images/actualite/and.webp" alt="actualité &" width={40} height={40} /> */}
+            -
+          </span>
+          <span>Reportages</span>
+        </h2>
+        <ActualitesReportagesData />
+
+       
+      </Container>
+    </section>
+  );
+}
+
+
+function ActualitesReportagesData(){
   const [actusALaUne, setActusALaUne] = useState<any[]>([]);
   const [actusInternationales, setActusInternationales] = useState<any[]>([]);
   const [actusLocales, setActusLocales] = useState<any[]>([]);
@@ -118,25 +142,29 @@ export default function ActualitesReportages() {
     fetchActus();
   }, []);
 
-  return (
-    <section className="pb-12 bg-white text-gray-800">
-      <Container className="lg:-mt-24">
-        {/* Titre */}
-        <h2 className="relative text-2xl md:text-3xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
-          <span>Actualités</span>
-          <span className="relative w-10 h-10">
-            <Image src="/images/actualite/and.webp" alt="actualité &" width={40} height={40} />
-          </span>
-          <span>Reportages</span>
-        </h2>
+  console.log('loafff',loading)
 
-        {/* Gestion des erreurs et du chargement */}
-        {loading && <p className="text-center text-gray-500">Chargement des actualités...</p>}
-        {error && <p className="text-center text-red-500">Erreur de chargement des actualités.</p>}
+  if(loading){
+    return(
+      <div className="text-center text-gray-500 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <ActualitesReportageLoading key={index} />
+          ))}
+    </div>
+    )
+  }
 
-        {/* Section À la Une */}
-        {actusALaUne.length > 0 && (
-          <div className="mb-8">
+  if(error){
+    return(
+      <p className="text-center text-red-500">Erreur de chargement des actualités.</p>
+    )
+  }
+
+  return(
+    <>
+       {/* Section À la Une */}
+       {actusALaUne.length > 0 && (
+          <div className="mb-8 min-h-52">
             <h3 className="text-xl font-bold uppercase mb-4">À la Une</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {actusALaUne.map((actu, index) => (
@@ -223,7 +251,31 @@ export default function ActualitesReportages() {
             ))}
           </div>
         )}
-      </Container>
-    </section>
-  );
+    </>
+  )
+
+}
+
+
+function ActualitesReportageLoading(){
+  return (
+    <div className="flex flex-col  animate-pulse gap-3">
+    <div className="w-full h-44 bg-gray-200"></div>
+    <div className="flex-1 space-y-6 py-1">
+      <div className="h-5 rounded bg-gray-200"></div>
+      <div className="space-y-3">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="col-span-2 h-2 rounded bg-gray-200"></div>
+          <div className="col-span-1 h-2 rounded bg-gray-200"></div>
+        </div>
+        <div className="h-2 rounded bg-gray-200"></div>
+        <div className="grid grid-cols-3 gap-4">
+          <div className="col-span-1 h-2 rounded bg-gray-200"></div>
+          <div className="col-span-2 h-2 rounded bg-gray-200"></div>
+        </div>
+        <div className="h-2 rounded bg-gray-200 w-[30%]"></div>
+      </div>
+    </div>
+  </div>
+  )
 }

@@ -13,22 +13,21 @@ export default function HeroSectionOcas() {
         
       /> */}
       <Image 
-        src="/images/evenement/acc.jpg"
+        src="/images/evenement/acc.webp"
         alt="Background événement"
         className="absolute inset-0 bg-cover bg-center"
         layout="fill" 
         objectFit="cover"
-        priority // Charge en priorité pour le LCP
+        priority 
       />
       <div className="absolute inset-0 bg-black opacity-50" />
 
       <Header />
 
-      <div className="relative flex w-full items-center justify-center h-full z-1 bottom-14">
-        <div className='w-[70%] sm:w-[80%] md:w-[70%] lg:w-[50%] flex justify-center'>
+      
+        <div className='absolute top-1/2 translate-y-4 left-1/2 -translate-x-[43%] w-[70%] sm:w-[80%] md:w-[70%] lg:w-[50%] flex justify-center'>
         <HeroTitle />
         </div>
-      </div>
     </div>
   );
 }

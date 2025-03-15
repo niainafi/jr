@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Container from "./container";
 
 export default function PubActu() {
   return (
-    <div className="relative w-full max-w-[1400px] mx-auto mb-0">
+    <Container className="mt-0">
+    <div className="relative w-full mb-0">
       <Image
         src="/images/actualite/fau-pub.jpg"
         alt="Publicité Actualité"
@@ -11,5 +13,6 @@ export default function PubActu() {
         className="w-full h-auto object-cover shadow-lg"
       />
     </div>
+    </Container>
   );
 }

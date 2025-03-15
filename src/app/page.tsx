@@ -9,6 +9,7 @@ import Occasion from "@/components/occasion";
 {/* import Nextripe from "@/components/nextripe";*/}
 import PubActu from "@/components/pub-actu";
 import PubActuToo from "@/components/pub-actu-too";
+import ReforestinEvent from "@/components/reforestin";
 export default function Home() {
   return (
     <div className="p-1">
@@ -16,6 +17,7 @@ export default function Home() {
       <Focus/>
       <ActualitesReportages />
       <PubActu/>
+      <ReforestinEvent />
       <Boutiques />
       <Logos/> 
       <Occasion/>
