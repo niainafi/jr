@@ -125,7 +125,8 @@ export default function ActualitesReportages() {
         <h2 className="relative text-2xl md:text-3xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
           <span>Actualités</span>
           <span className="relative w-10 h-10">
-            <Image src="/images/actualite/and.webp" alt="actualité &" width={40} height={40} />
+            {/* <Image src="/images/actualite/and.webp" alt="actualité &" width={40} height={40} /> */}
+            -
           </span>
           <span>Reportages</span>
         </h2>

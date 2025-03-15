@@ -11,6 +11,9 @@
     --color-text: #181718;
   }
   :root {
+    --font-roboto: "Roboto", sans-serif;
+    --font-geist-sans: "Geist", sans-serif;
+    --font-geist-mono: "Geist Mono", monospace;
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
@@ -63,6 +66,9 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+}
+body {
+  font-family: var(--font-roboto), var(--font-geist-sans), sans-serif;
 }
 .clip-path-triangle-left {
   clip-path: polygon(52% 0, 0 50%, 53% 100%);

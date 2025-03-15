@@ -4,12 +4,36 @@ import FocusIcon from "./icons/focus-icon";
 import YourCalendarIcon from "./icons/vos-calendrier-icon";
 import Calendar from "./calendar";
 import Image from "next/image";
+import clsx from "clsx";
+
+const imageFocus = [
+  {
+    src: "/images/accueil/IMG-20250313-WA0018.webp",
+    alt: "Image-focus",
+  },
+  {
+    src: "/images/accueil/IMG-20250313-WA0017.webp",
+    alt: "Image-focus",
+  },
+  {
+    src: "/images/accueil/IMG-20250313-WA0020.webp",
+    alt: "Image-focus",
+  }
+    
+]
+
+const dataMeteo = {
+  'location': 'Antananarivo',
+  'temperature': '25',
+  'weather': 'Ciel dégagé', 
+}
 
 export default function Focus() {
   return (
-    <section className="mt-10">
-      <Container className="flex flex-col lg:flex-row gap-8 h-auto">
-      <div className="flex gap-[2px] max-w-full relative w-full lg:w-[70%] mr-auto">
+    <section className="-mt-10">
+      <Container className="flex flex-col lg:flex-row gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-7xl 2xl:max-w-8xl">
+        {/* old focus */}
+      {/* <div className="flex gap-[2px] max-w-full relative w-full lg:w-[70%] mr-auto">
         <div className="w-1/3 h-[260px] z-10 absolute -top-14 ">
           <FocusIcon />
         </div>
@@ -61,9 +85,34 @@ export default function Focus() {
             fill
           />
         </div>
-      </div>
+      </div> */}
+
+        <section className="w-full lg:lg:w-[70%]">
+          <h1 className="text-5xl font-bold text-center">{'FOCUS ARRIVAGE'}</h1>
+          <div className="flex flex-col md:flex-row gap-4 mt-10">
+            {
+              imageFocus.map((image, index) => (
+                <div key={index} className={clsx(
+                  index === 1 && 'shadow-[10px_-10px_7px_-2px_rgba(0,_0,_0,_0.2)]'
+                )}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain"
+                    width={300}
+                    height={300}
+                    loading="lazy"
+                    objectFit="contain"
+                  />
+                </div>
+              ))
+
+            }
+          </div>
+        </section>
+
       
-      <aside className="relative top-0 lg:-top-36">
+      <aside className="relative top-0 lg:-top-36 lg:w-[30%]">
       {/* <aside className="absolute z-10 left-1/2 -translate-x-1/2 lg:right-[6%] -top-32 w-[90%] lg:w-[30%]"> */}
             {/* <div className="absolute right-0 lg:-top-5 lg:-translate-y-32"> */}
               
@@ -89,6 +138,9 @@ function YourCalendar() {
         <div className="mt-2">
           <ListEvent />
         </div>
+        <div className="mt-2 mx-auto max-w-2xl">
+          <Meteo data={dataMeteo} />
+        </div>
       </div>
       
      
@@ -107,7 +159,7 @@ function ListEvent() {
   ];
 
   return (
-    <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-sm b700order-yellow-">
+    <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-md b700order-yellow-">
       <ul>
         {events.map((event, index) => (
           <li key={index} className="flex justify-center items-center text-black">
@@ -123,18 +175,42 @@ function ListEvent() {
   );
 }
 
-/*
-function FooterCalendar() {
+function Meteo({
+  data
+}: {
+  data:{
+    location: string,
+    temperature: string,
+    weather: string,
+    
+    }
+}){
   return (
-    <div
-      style={{
-        clipPath: "polygon(100% 0, 100% 15%, 51% 46%, 0 15%, 0 0)",
-      }}
-      className="bg-accent h-44"
-    >
-    </div>
-  );
-}
-*/
+    <div className="bg-blue-400 p-3 w-full h-[100px] rounded-md text-white">
+      <h3 className="text-xs uppercase">{data.location}</h3>
+      <div className="flex justify-between items-center w-[95%] mt-2">
+        <div className="flex flex-row items-center gap-2">
+          <div className="flex relative flex-row items-center h-[45px]">
+            <div className="text-[3rem] relative">
+              {data.temperature}
+            </div>
+            <div className="flex flex-col items-center h-auto">
+            <span className="text-[3rem] h-10 font-thin">°</span>
+            <span className="text-[1.3rem] relative bottom-[11px]">C</span>
+            </div>
 
+            
+            
+          </div>
+          <div className="flex flex-col">
+            <p className="text-sm">{data.weather}</p>
+            <p className="text-sm">Sensação térmica de {data.temperature}°</p>
+          </div>
+        </div>
+        <div className="bg-yellow-400 rounded-full h-10 w-10"/>
+      </div>
+
+    </div>
+  )
+}
 
