@@ -4,7 +4,7 @@ import Container from "./container";
 export default function PubActu() {
   return (
     <Container className="mt-0">
-    <div className="relative w-full max-w-[1400px] mx-auto mb-0">
+    <div className="relative w-full mb-0">
       <Image
         src="/images/actualite/fau-pub.jpg"
         alt="Publicité Actualité"

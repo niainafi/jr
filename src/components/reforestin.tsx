@@ -148,43 +148,62 @@ export default function ReforestinEvent() {
   }
 
   return (
-    <Container className="w-full flex flex-col-reverse md:flex-row bg-accent p-6 md:p-10 relative items-center">
+    <Container>
+    <div className="bg-accent px-5 h-[190px] md:h-[200px] lg:h-[200px] xl:h-[320px] 2xl:xl:h-[350px] flex flex-row">
       {/* Section Image */}
-      <div className="relative w-full md:w-1/2 h-64 md:h-[500px] flex justify-center">
+      <div className="relative w-full md:w-[35%]  flex justify-center min-h-full">
         <Image
-          src="/images/evenement/reforestin.jpg"
+          src="/images/evenement/reforestin.webp"
           alt="Reforest'in Ankadindriana"
           width={500}
-          height={500}
+          height={350}
           className="w-full h-full object-cover"
         />
       </div>
 
       {/* Section Texte */}
-      <div className="bg-accent text-white p-6 md:p-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-        <p className="text-sm uppercase font-bold border-b-2 border-white pb-1 inline-block">08-09 Mars 2025</p>
-        <h2 className="text-xl md:text-2xl font-bold mt-2">REFOREST’IN ANKADINANDRIANA</h2>
-        <p className="text-base md:text-lg font-bold mt-4">Être motard et Eco responsable, c est possible !</p>
-        <p className="text-sm mt-2">
+      <div className="text-white p-2 pl-5 py-4 pr-6 flex flex-col items-center md:items-start text-center md:text-left w-[73%] min-h-full">
+        <div className="flex flex-col w-full">
+        <p className="text-xs uppercase font-bold pb-1 inline-block">08-09 Mars 2025</p>
+        <span className="border-2 bg-white h-1 max-w-[130px] w-full"/>
+        </div>
+        <h2 className="text-sm md:text-xl font-bold my-5">REFOREST’IN ANKADINANDRIANA</h2>
+        <p className="text-base md:text-lg font-bold">Être motard et Eco responsable, c est possible !</p>
+        <p className="text-lg mt-2 max-w-2xl leading-6">
           Fantaro fa isaky ny kilometatra diavinao dia misy fiantraikany amin’ny tontolo iainana. 
           Izao anefa <span className="font-bold">✊</span> manana fahefana isika
         </p>
 
         {/* Countdown Timer */}
-        <p className="text-3xl md:text-4xl font-bold mt-6">
+        <p className="text-3xl md:text-5xl font-bold mt-5">
           {`${timeLeft.days}j ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
         </p>
 
         {/* Boutons */}
-        <div className="mt-6 flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4 w-full md:w-auto">
-          <Link href="/contactez-nous" className="bg-white text-accent rounded-md py-2 px-4 w-full md:w-auto text-center font-bold">
+        <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
+          <Link 
+            href="/contactez-nous" 
+            className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-1">
             INSCRIVEZ-VOUS
           </Link>
-          <Link href="/just-rent" className="bg-white text-accent rounded-md py-2 px-4 w-full md:w-auto text-center font-bold">
-            LOUEZ VOTRE <span className="font-extrabold">ROYAL ENFIELD</span>
+          <Link 
+            href="/just-rent" 
+            className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center gap-1 px-1">
+            <span>LOUEZ VOTRE</span> 
+            <span className="font-extrabold mb-[2px]">
+              <Image 
+                height={35}  
+                width={110}
+                src={'/images/logo/royal-enfield.webp'}
+                alt="just ride moto royal enfield"  
+                objectFit="contain"
+                loading="lazy"
+                />
+              </span>
           </Link>
         </div>
       </div>
+    </div>
     </Container>
   );
 }

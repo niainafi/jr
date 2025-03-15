@@ -101,49 +101,49 @@ export default function Logos() {
         </Link>
         </Container>
       </div>
-      <JustRideAcademy />
+      {/* <JustRideAcademy /> */}
       <ChooseAppointment />
     </>
   );
 }
 
-function JustRideAcademy() {
-  return (
-    <div className="relative h-[120] sm:h-[120px] lg:h-[380px] flex justify-center items-center">
-      <div className="absolute inset-0 bg-contain bg-center w-full h-full">
-        <Image 
-          width={1000} 
-          height={400} 
-          src="/images/back/back-academy.png" 
-          alt="img-bg" 
-          className="w-full h-auto"
-          sizes="(max-width: 640px) 100vw, 
-         (max-width: 1024px) 75vw, 
-         50vw" 
-         layout="responsive" 
-          />
-      </div>
-      <div className='absolute top-1/2 right-0 transform translate-y-[20%] sm:translate-y-[45%] -translate-x-1/2 lg:translate-y-[20%] w-[70px] sm:w-[150px] lg:w-[200px]'>
-        <Image 
-          width={200}
-          height={200}
-          src='/images/logo/js-academy.png' 
-          alt='just-ride-academy' 
-          className='w-full' 
-          />
-      </div>
-      <div className='absolute top-[41%] left-[34%] transform -translate-x-1/2 -translate-y-[40%] sm:translate-y-[35%] lg:-translate-y-1/2 max-w-[200px] sm:max-w-[100px] md:max-w-[400px]  lg:max-w-[700px]'>
-        <Image 
-          width={400}
-          height={200}
-          src='/images/typo-flat/reserveez.png' 
-          alt='reserver' 
-          className='w-full' 
-          />
-      </div>
-    </div>
-  );
-}
+// function JustRideAcademy() {
+//   return (
+//     <div className="relative h-[120] sm:h-[120px] lg:h-[380px] flex justify-center items-center">
+//       <div className="absolute inset-0 bg-contain bg-center w-full h-full">
+//         <Image 
+//           width={1000} 
+//           height={400} 
+//           src="/images/back/back-academy.png" 
+//           alt="img-bg" 
+//           className="w-full h-auto"
+//           sizes="(max-width: 640px) 100vw, 
+//          (max-width: 1024px) 75vw, 
+//          50vw" 
+//          layout="responsive" 
+//           />
+//       </div>
+//       <div className='absolute top-1/2 right-0 transform translate-y-[20%] sm:translate-y-[45%] -translate-x-1/2 lg:translate-y-[20%] w-[70px] sm:w-[150px] lg:w-[200px]'>
+//         <Image 
+//           width={200}
+//           height={200}
+//           src='/images/logo/js-academy.png' 
+//           alt='just-ride-academy' 
+//           className='w-full' 
+//           />
+//       </div>
+//       <div className='absolute top-[41%] left-[34%] transform -translate-x-1/2 -translate-y-[40%] sm:translate-y-[35%] lg:-translate-y-1/2 max-w-[200px] sm:max-w-[100px] md:max-w-[400px]  lg:max-w-[700px]'>
+//         <Image 
+//           width={400}
+//           height={200}
+//           src='/images/typo-flat/reserveez.png' 
+//           alt='reserver' 
+//           className='w-full' 
+//           />
+//       </div>
+//     </div>
+//   );
+// }
 
 function ChooseAppointment() {
   const appointments = [
