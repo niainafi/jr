@@ -12,7 +12,7 @@ const menus = [
   { nom: 'Boutiques', href: '/boutique' },
   { nom: 'Just Rent', href: '/just-rent' },
   { nom: 'Occasions', href: '/occasions' },
-  { nom: 'Membre', href: '/membres' },
+  { nom: 'Cash-back', href: '/cashback' },
   { nom: 'Contact', href: '/contactez-nous' },
 ];
 

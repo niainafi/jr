@@ -17,7 +17,7 @@ export default function FocusDetailCasque() {
         <div className="md:w-1/2 space-y-6">
           <div className="border-2 border-gray-200 rounded-xl p-2">
             <Image
-              src={mainImage}
+              src={mainImage} // Utilisation de mainImage
               alt="Casque principal"
               width={600}
               height={600}
@@ -34,7 +34,7 @@ export default function FocusDetailCasque() {
                   width={300}
                   height={300}
                   className="w-full h-auto rounded-lg cursor-pointer"
-                  onClick={() => handleImageClick(`/images/accueil/noir-mat-moto-${num}.webp`)}
+                  onClick={() => handleImageClick(`/images/accueil/noir-mat-moto-${num}.webp`)} // Appel avec chaîne de caractères
                 />
               </div>
             ))}
@@ -48,66 +48,88 @@ export default function FocusDetailCasque() {
             BELL LITHIUM MIPS Mode CWB goal on MIPS 2
           </h2>
 
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            {/* Caractéristiques */}
-            <div className="space-y-4">
-              {[
-                ["TYPE DE CASQUE", "Intégral"],
-                ["VERNIS DE PROTECTION", "Mat"],
-                ["FERMETURE", "Boucle double D"],
-                ["COQUE", "Polycarbonate / ABS"],
-                ["TAILLES DE COQUES", "3"],
-                ["CALOTINS", "MIPS-B"],
-                ["Pinlock", "Ready"],
-                ["ECRAN", "Incolore"],
-                ["Optique", "Classe 1"],
-                ["Démontage", "Sans outil"],
-                ["SYSTÈME DE VENTILATION", "Réglable"],
-                ["ÉCRAN SOLAIRE", "Rétractable (fumé)"],
-                ["INTERIEUR", "Démontable et lavable"],
-                ["ANTI-BACTÉRIEN", "Ionic"],
-                ["ESPACE PRÉVU POUR LES ÉCOUTEURS", "Intercoms"],
-                ["HOMOLOGATION", "ECE 22 06"],
-                ["ACCESSOIRES FOURNIS", "Écran anti-buée Pinlock incolore"],
-              ].map(([title, value]) => (
-                <div key={title} className="flex">
-                  <dt className="font-semibold">{title} :</dt>
-                  <dd className="text-gray-600 ml-2">{value}</dd>
-                </div>
-              ))}
+          <div className="grid grid-cols-1 gap-4 text-sm">
+            {/* Colonne 1 avec les nouvelles informations */}
+            <div className="">
+              <div className='flex'>
+                <dt className="font-semibold">TYPE DE CASQUE :</dt>
+                <dd className="text-gray-600">Intégral</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">VERNIS DE PROTECTION :</dt>
+                <dd className="text-gray-600">Mat</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">FERMETURE :</dt>
+                <dd className="text-gray-600">Boucle double D</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">COQUE :</dt>
+                <dd className="text-gray-600">Polycarbonate / ABS</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">TAILLES DE COQUES :</dt>
+                <dd className="text-gray-600">3</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">CALOTINS :</dt>
+                <dd className="text-gray-600">MIPS-B</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">Pinlock :</dt>
+                <dd className="text-gray-600">Ready</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">ECRAN :</dt>
+                <dd className="text-gray-600">Incolore</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">Optique :</dt>
+                <dd className="text-gray-600">Classe 1</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">Démontage :</dt>
+                <dd className="text-gray-600">Sans outil</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">SYSTÈME DE VENTILATION :</dt>
+                <dd className="text-gray-600">Réglable</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">ÉCRAN SOLAIRE :</dt>
+                <dd className="text-gray-600">Rétractable (fumé)</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">INTERIEUR :</dt>
+                <dd className="text-gray-600">Démontable et lavable</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">ANTI-BACTÉRIEN :</dt>
+                <dd className="text-gray-600">Ionic</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">ESPACE PRÉVU POUR LES ÉCOUTEURS :</dt>
+                <dd className="text-gray-600">Intercoms</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">HOMOLOGATION :</dt>
+                <dd className="text-gray-600">ECE 22 06</dd>
+              </div>
+              <div className='flex'>
+                <dt className="font-semibold">ACCESSOIRES FOURNIS :</dt>
+                <dd className="text-gray-600">Écran anti-buée Pinlock incolore</dd>
+              </div>
             </div>
           </div>
 
-          {/* Section Référence */}
+          {/* Section Référence avec Pub */}
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="flex-1">
-              <h3 className="text-xl font-bold mb-4">BELL lithium MIPS 1.0 Référence</h3>
-              <p className="mb-4">
-                La BG Lithium MIPS représente plus long terme l’effet. Avec une utilisation 
-                de l’état de base, le MIPS a été utilisé sur les mesures suivantes :
-              </p>
-
-              <ul className="list-disc pl-6 space-y-4">
-                <li>
-                  <strong>Combat et ventilation</strong>
-                  <ul className="list-circle pl-4 mt-2 space-y-2">
-                    <li>Caractère : une maintenance avec effets alimentaires à cellules...</li>
-                    <li>
-                      Une utilisation de l’état de base :
-                      <ul className="list-square pl-4 mt-2">
-                        <li>La batterie : maintenance avec effets alimentaires...</li>
-                        <li>La batterie : maintenance avec effets alimentaires...</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+           
           </div>
         </div>
       </div>
 
-      {/* Nouvelle section Texte + Explication MIPS */}
+      {/* Nouvelle section Texte + Pub */}
       <div className="flex flex-col md:flex-row gap-8 items-start mb-16">
         <div className="md:w-2/3 space-y-6">
           <h2 className="text-3xl font-bold">
@@ -115,11 +137,11 @@ export default function FocusDetailCasque() {
             <span className="text-2xl font-normal">Mais c'est quoi ce MIPS ?</span>
           </h2>
 
-          <div className="space-y-4">
+          <div className="">
             <p className="text-gray-600">
-              Les motards recherchent toujours le meilleur en matière de sécurité et de confort. 
-              Aujourd'hui, Just Ride vous propose le casque Bell Lithium MIPS. Mais avant tout, 
-              c'est quoi le MIPS ?
+              {`èLes motards recherchent toujours le meilleur en matière de sécurité et de confort. 
+              Aujourd'hui, Jusr Ride vous propose le casque Bell Lithium MIPS. Mais avant tout, 
+              c'est quoi le MIPS ?`}
             </p>
 
             <div className="bg-gray-50 p-6 rounded-xl">
@@ -139,10 +161,44 @@ export default function FocusDetailCasque() {
             <h3 className="text-2xl font-bold">Confort et Ventilation</h3>
             <p className="text-gray-600">
               Ce casque ne se contente pas d'être sécuritaire. Il offre aussi un confort optimal 
-              avec un système de ventilation performant pour une aération efficace.
+              grâce à une bonne ventilation, idéale pour les trajets longs ou sous chaleur.
             </p>
+
+            <div className="bg-yellow-100 p-6 rounded-xl">
+              <p className="font-bold text-lg">
+                Prêt à rouler en toute confiance ?<br />
+                Le Bell Lithium MIPS est là pour toi<br />
+                <span className="text-red-600">Il t'attend en Boutique</span>
+              </p>
+            </div>
           </div>
         </div>
+
+        <div className="md:w-1/3 sticky top-8">
+          <Image
+            src="/images/pub/photo.webp"
+            alt="Publicité"
+            width={500}
+            height={900}
+            className="w-full h-auto rounded-xl shadow-lg border-4 border-gray-200"
+          />
+        </div>
+      </div>
+
+      {/* 3 Images en bas avec bordures jaunes */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        {[1, 2, 4].map((num) => (
+          <div key={num} className="border-4 border-yellow-500 rounded-xl p-2">
+            <Image
+              src={`/images/accueil/noir-mat-moto-${num}.webp`}
+              alt={`Variante ${num}`}
+              width={400}
+              height={300}
+              className="w-full h-auto rounded-lg cursor-pointer"
+              onClick={() => handleImageClick(`/images/accueil/noir-mat-moto-${num}.webp`)} // Appel avec chaîne de caractères
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
