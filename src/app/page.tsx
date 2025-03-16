@@ -11,6 +11,7 @@ import PubActu from "@/components/pub-actu";
 import PubActuToo from "@/components/pub-actu-too";
 import ReforestinEvent from "@/components/reforestin";
 import BoutiqueContainer from "@/components/boutique-container";
+import JustRideAcademy from "@/components/just-ride-academy";
 export default function Home() {
   return (
     <div className="p-1">
@@ -20,10 +21,11 @@ export default function Home() {
       <PubActu/>
       <ReforestinEvent />
       <BoutiqueContainer />
+      <JustRideAcademy />
       {/* <Boutiques />
       <Logos/> 
       <Occasion/> */}
-      <PubActuToo/>
+      {/* <PubActuToo/> */}
       {/* <Nextripe/>*/}
       <ContactForm/>
       <Footer/> 
