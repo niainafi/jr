@@ -88,7 +88,7 @@ export default function Focus() {
       </div> */}
 
         <section className="w-full lg:lg:w-[70%]">
-          <h1 className="text-5xl font-bold text-center">{'FOCUS ARRIVAGE'}</h1>
+          <h2 className="text-3xl md:text-4xl font-bold text-center">{'FOCUS ARRIVAGE'}</h2>
           <div className="flex flex-col md:flex-row gap-4 mt-10">
             {
               imageFocus.map((image, index) => (

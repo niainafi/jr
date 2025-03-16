@@ -95,7 +95,7 @@ export default function ActualitesReportages() {
     <section className="pb-12 bg-white text-gray-800">
       <Container className="lg:-mt-24">
         {/* Titre */}
-        <h2 className="relative text-2xl md:text-3xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
+        <h2 className="relative text-3xl md:text-4xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
           <span>Actualités</span>
           <span className="relative w-10 h-10">
             {/* <Image src="/images/actualite/and.webp" alt="actualité &" width={40} height={40} /> */}
@@ -146,7 +146,7 @@ function ActualitesReportagesData(){
 
   if(loading){
     return(
-      <div className="text-center text-gray-500 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+      <div className="text-center text-gray-500 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {Array.from({ length: 3 }).map((_, index) => (
             <ActualitesReportageLoading key={index} />
           ))}

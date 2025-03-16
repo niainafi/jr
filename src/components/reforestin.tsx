@@ -1,5 +1,6 @@
 "use client";
-{/*
+{
+  /*
 "use client";
 
 import { useEffect, useState } from "react";
@@ -91,10 +92,8 @@ export default function ReforestinEvent() {
     </Container>
   );
 }
-*/}
-
-
-
+*/
+}
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -125,6 +124,97 @@ function getTimeLeft(eventDate: number): TimeLeft {
   };
 }
 
+// export default function ReforestinEvent() {
+//   const eventDate = new Date("2025-03-08T00:00:00").getTime();
+//   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
+
+//   useEffect(() => {
+//     setTimeLeft(getTimeLeft(eventDate));
+
+//     const interval = setInterval(() => {
+//       setTimeLeft(getTimeLeft(eventDate));
+//     }, 1000);
+
+//     return () => clearInterval(interval);
+//   }, [eventDate]);
+
+//   if (!timeLeft) {
+//     return (
+//       <div className="flex flex-col items-center justify-center">
+//         <p className="font-bold mt-6">Chargement...</p>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <Container>
+//       <div
+//         className="relative px-5 h-auto lg:h-[200px] xl:h-[320px] 2xl:h-[350px] flex lg:flex-row flex-col 
+//         bg-mobile lg:bg-none lg:bg-accent  lg:bg-opacity-20 z-0 before:absolute before:inset-0 before:bg-accent before:opacity-50 before:z-[-1]"
+//       >
+//         {/* Section Image pour grands écrans */}
+//         <div className="relative hidden w-full md:w-[35%] lg:flex justify-center min-h-full">
+//           <Image
+//             src="/images/evenement/reforestin.webp"
+//             alt="Reforest'in Ankadindriana"
+//             width={500}
+//             height={350}
+//             className="w-full h-full object-cover"
+//           />
+//         </div>
+
+//         {/* Section Texte */}
+//         <div className="text-white py-4 lg:ml-5 flex flex-col items-start md:items-start text-center md:text-left w-full lg:w-[73%] min-h-full">
+//           <div className="flex flex-col w-full items-start">
+//             <p className="text-xs uppercase font-bold pb-1 inline-block">
+//               08-09 Mars 2025
+//             </p>
+//             <span className="border-2 bg-white h-1 max-w-[130px] w-full" />
+//           </div>
+//           <h2 className="text-xl text-start md:text-xl font-bold my-5">{`REFOREST’IN ANKADINANDRIANA`}</h2>
+//           <p className="text-base md:text-lg text-start font-bold">{`Être motard et Eco responsable, c'est possible !`}</p>
+//           <p className="text-lg mt-2 max-w-2xl text-start leading-6">
+//             {`Fantaro fa isaky ny kilometatra diavinao dia misy fiantraikany amin’ny tontolo iainana. `}
+//             Izao anefa <span className="font-bold">✊</span> manana fahefana
+//             isika
+//           </p>
+
+//           {/* Countdown Timer */}
+//           <p className="text-3xl md:text-5xl font-bold mt-5">
+//             {`${timeLeft.days}j ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
+//           </p>
+
+//           {/* Boutons */}
+//           <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
+//             <Link
+//               href="/contactez-nous"
+//               className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-1"
+//             >
+//               INSCRIVEZ-VOUS
+//             </Link>
+//             <Link
+//               href="/just-rent"
+//               className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
+//             >
+//               <span>LOUEZ VOTRE</span>
+//               <span className="font-extrabold mb-[2px]">
+//                 <Image
+//                   height={35}
+//                   width={110}
+//                   src={"/images/logo/royal-enfield.webp"}
+//                   alt="just ride moto royal enfield"
+//                   objectFit="contain"
+//                   loading="lazy"
+//                 />
+//               </span>
+//             </Link>
+//           </div>
+//         </div>
+//       </div>
+//     </Container>
+//   );
+// }
+
 export default function ReforestinEvent() {
   const eventDate = new Date("2025-03-08T00:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
@@ -148,63 +238,67 @@ export default function ReforestinEvent() {
   }
 
   return (
-    <Container>
-    <div className="bg-accent px-5 h-[190px] md:h-[200px] lg:h-[200px] xl:h-[320px] 2xl:xl:h-[350px] flex flex-row">
+    <Container className="my-14">
+    <div className="bg-accent relative px-5 h-auto lg:h-[200px] xl:h-[320px] 2xl:xl:h-[460px] flex lg:flex-row flex-col">
       {/* Section Image */}
-      <div className="relative w-full md:w-[35%]  flex justify-center min-h-full">
+      <div className="relative w-full lg:w-[35%]  flex justify-center min-h-full">
         <Image
           src="/images/evenement/reforestin.webp"
           alt="Reforest'in Ankadindriana"
           width={500}
           height={350}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover lg:object-contain"
         />
       </div>
-
       {/* Section Texte */}
-      <div className="text-white p-2 pl-5 py-4 pr-6 flex flex-col items-center md:items-start text-center md:text-left w-[73%] min-h-full">
-        <div className="flex flex-col w-full">
-        <p className="text-xs uppercase font-bold pb-1 inline-block">08-09 Mars 2025</p>
-        <span className="border-2 bg-white h-1 max-w-[130px] w-full"/>
-        </div>
-        <h2 className="text-sm md:text-xl font-bold my-5">REFOREST’IN ANKADINANDRIANA</h2>
-        <p className="text-base md:text-lg font-bold">Être motard et Eco responsable, c est possible !</p>
-        <p className="text-lg mt-2 max-w-2xl leading-6">
-          Fantaro fa isaky ny kilometatra diavinao dia misy fiantraikany amin’ny tontolo iainana. 
-          Izao anefa <span className="font-bold">✊</span> manana fahefana isika
-        </p>
+      <div className="text-white py-4 lg:ml-5 flex flex-col items-start md:items-start text-center md:text-left w-full lg:w-[73%] min-h-full lg:justify-between">
+        <div>
+          <div className="flex flex-col w-full items-start">
+            <p className="text-xs uppercase font-bold pb-1 inline-block">
+              08-09 Mars 2025
+            </p>
+            <span className="border-2 bg-white h-1 max-w-[130px] w-full" />
+          </div>
+          <h2 className="text-xl text-start md:text-xl font-bold my-5">{`REFOREST’IN ANKADINANDRIANA`}</h2>
+          <p className="text-base md:text-lg text-start font-bold">{`Être motard et Eco responsable, c'est possible !`}</p>
+          <p className="text-lg mt-2 max-w-2xl text-start leading-6">
+            {`Fantaro fa isaky ny kilometatra diavinao dia misy fiantraikany amin’ny tontolo iainana. `}
+            Izao anefa <span className="font-bold">✊</span> manana fahefana
+            isika
+          </p>
 
-        {/* Countdown Timer */}
-        <p className="text-3xl md:text-5xl font-bold mt-5">
-          {`${timeLeft.days}j ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
-        </p>
-
-        {/* Boutons */}
-        <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
-          <Link 
-            href="/contactez-nous" 
-            className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-1">
-            INSCRIVEZ-VOUS
-          </Link>
-          <Link 
-            href="/just-rent" 
-            className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center gap-1 px-1">
-            <span>LOUEZ VOTRE</span> 
-            <span className="font-extrabold mb-[2px]">
-              <Image 
-                height={35}  
-                width={110}
-                src={'/images/logo/royal-enfield.webp'}
-                alt="just ride moto royal enfield"  
-                objectFit="contain"
-                loading="lazy"
+          {/* Countdown Timer */}
+          <p className="text-3xl md:text-5xl text-start font-bold mt-5">
+            {`${timeLeft.days}j ${timeLeft.hours}h ${timeLeft.minutes}m ${timeLeft.seconds}s`}
+          </p>
+          </div>
+          {/* Boutons */}
+          <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
+            <Link
+              href="/contactez-nous"
+              className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-1"
+            >
+              INSCRIVEZ-VOUS
+            </Link>
+            <Link
+              href="/just-rent"
+              className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
+            >
+              <span>LOUEZ VOTRE</span>
+              <span className="font-extrabold mb-[2px]">
+                <Image
+                  height={35}
+                  width={110}
+                  src={"/images/logo/royal-enfield.webp"}
+                  alt="just ride moto royal enfield"
+                  objectFit="contain"
+                  loading="lazy"
                 />
               </span>
-          </Link>
+            </Link>
+          </div>
         </div>
-      </div>
     </div>
     </Container>
   );
 }
-
