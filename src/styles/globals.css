@@ -129,3 +129,11 @@ body {
   background-repeat: no-repeat;
   background-color: var(--accent);
 }
+
+.occasion-img{
+  background-color: var(--color-accent);
+  opacity: 0;
+}
+.occasion-img:hover{
+  opacity: 0.5;
+}

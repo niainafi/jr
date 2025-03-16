@@ -10,6 +10,8 @@ import Occasion from "@/components/occasion";
 import PubActu from "@/components/pub-actu";
 import PubActuToo from "@/components/pub-actu-too";
 import ReforestinEvent from "@/components/reforestin";
+import BoutiqueContainer from "@/components/boutique-container";
+import JustRideAcademy from "@/components/just-ride-academy";
 export default function Home() {
   return (
     <div className="p-1">
@@ -18,10 +20,12 @@ export default function Home() {
       <ActualitesReportages />
       <PubActu/>
       <ReforestinEvent />
-      <Boutiques />
+      <BoutiqueContainer />
+      <JustRideAcademy />
+      {/* <Boutiques />
       <Logos/> 
-      <Occasion/>
-      <PubActuToo/>
+      <Occasion/> */}
+      {/* <PubActuToo/> */}
       {/* <Nextripe/>*/}
       <ContactForm/>
       <Footer/> 
