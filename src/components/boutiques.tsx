@@ -43,9 +43,9 @@ export default function Boutiques() {
 
   return (
     <Container className="mt-8 ">
-      <h1 className="uppercase text-3xl sm:text-4xl font-bold text-center">
+      <h2 className="uppercase text-3xl md:text-4xl font-bold text-center">
         Boutiques
-      </h1>
+      </h2>
 
       {/* Filtres avec scroll sur mobile */}
       <div>

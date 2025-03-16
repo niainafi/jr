@@ -120,3 +120,12 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.bg-mobile {
+  background-image: url('/images/evenement/reforestin.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--accent);
+}
