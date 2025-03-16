@@ -5,19 +5,23 @@ import YourCalendarIcon from "./icons/vos-calendrier-icon";
 import Calendar from "./calendar";
 import Image from "next/image";
 import clsx from "clsx";
+import Link from "next/link";
 
 const imageFocus = [
   {
     src: "/images/accueil/IMG-20250313-WA0018.webp",
     alt: "Image-focus",
+    href: "/focusdetailcasque", 
   },
   {
     src: "/images/accueil/IMG-20250313-WA0017.webp",
     alt: "Image-focus",
+    href: "/focusdetailcasque",
   },
   {
     src: "/images/accueil/IMG-20250313-WA0020.webp",
     alt: "Image-focus",
+    href: "/focusdetailcasque",
   }
     
 ]
@@ -95,6 +99,7 @@ export default function Focus() {
                 <div key={index} className={clsx(
                   index === 1 && 'shadow-[10px_-10px_7px_-2px_rgba(0,_0,_0,_0.2)]'
                 )}>
+                  <Link href={image.href}>
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -103,7 +108,9 @@ export default function Focus() {
                     height={300}
                     loading="lazy"
                     objectFit="contain"
+                
                   />
+                  </Link>
                 </div>
               ))
 
