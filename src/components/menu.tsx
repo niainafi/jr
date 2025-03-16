@@ -9,9 +9,9 @@ import MenuIcon from './icons/menu-icon';
 const menus = [
   { nom: 'Actualités', href: '/actualites' },
   { nom: 'Événements', href: '/evenement' },
-  { nom: 'Boutique', href: '/boutique' },
+  { nom: 'Boutiques', href: '/boutique' },
   { nom: 'Just Rent', href: '/just-rent' },
-  { nom: 'Occasion', href: '/occasions' },
+  { nom: 'Occasions', href: '/occasions' },
   { nom: 'Membre', href: '/membres' },
   { nom: 'Contact', href: '/contactez-nous' },
 ];
