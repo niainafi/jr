@@ -5,11 +5,13 @@ import { Autoplay, EffectCoverflow, Navigation, Pagination, } from "swiper/modul
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+// import "swiper/css/navigation";
 import '@/styles/just-rent-swipper.css';
 import Container from "./container";
-import { FaRegArrowAltCircleLeft } from "react-icons/fa";
-import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+// import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+// import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
 type ImageType = {
     src: string;
@@ -19,14 +21,23 @@ type SwipperSlideProps = {
     images : ImageType[];
 };
 export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
+  const [activeIndex,setActiveIndex] = useState(1);
+  const router = useRouter();
+  // const [enableLoop, setEnableLoop] = useState(false);
+
+  function handleLouerClick() {
+    router.push('/just-rent');
+  }
   return (
-    <Container className="lg:max-w-[120rem]">
+    <Container className="lg:max-w-[120rem] px-0">
     <div className="w-full h-[320px] xl:h-[340px]">
       <Swiper
+        initialSlide={1}
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        loop={true}
+        spaceBetween={130}
+        // loop={enableLoop}
         slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 0,
@@ -40,12 +51,20 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
           prevEl: '.swiper-button-prev',
           enabled: true,
         }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
+        modules={[
+          EffectCoverflow, 
+          Pagination, 
+          // Navigation
+        ]}
         className="swiper_container_jr"
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        onSwiper={(swiper) => {
+          setActiveIndex(swiper.realIndex); 
+        }}
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[400px] xl:h-[400px]">
+            <div className="relative w-full flex flex-col justify-center h-[300px] xl:h-[300px]">
               <Image
                 src={img.src}
                 alt={ img?.alt ?? `Slide ${index + 1}`}
@@ -55,19 +74,26 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
                 priority={index === 0}
                 className="object-contain w-full h-full"
                 />
+              {index === activeIndex ?
+                <button 
+                  type="button"
+                  className="text-white bg-accent mx-auto px-4 rounded-md uppercase text-xs font-bold"
+                  onClick={handleLouerClick}
+                >
+                  {'Louer-moi'}
+                </button> : null
+              }
             </div>
           </SwiperSlide>
         ))}
          <div className="slider-controler">
-          <div className="swiper-button-prev slider-arrow">
-            {/* <ion-icon name="arrow-back-outline"></ion-icon> */}
+          {/* <div className="swiper-button-prev slider-arrow">
             <FaRegArrowAltCircleLeft />
           </div>
           <div className="swiper-button-next slider-arrow">
-            {/* <ion-icon name="arrow-forward-outline"></ion-icon> */}
             <FaRegArrowAltCircleRight />
-          </div>
-          <div className="swiper-pagination"></div>
+          </div> */}
+          <div className="swiper-pagination lg:hidden"></div>
         </div>
       </Swiper>
     </div>

@@ -5,7 +5,7 @@ import { data } from './carousel-moto/carousel-data'
 export default function JustRent() {
   return (
     <Container>
-        <h2>{'JUST RENT'}</h2>
+        <h2 className='text-3xl md:text-4xl text-center font-bold'>{'JUST RENT'}</h2>
         <JustRentSwipperSlide images={data.map((item) => ({ src: item.img }))} />
     </Container>
   )

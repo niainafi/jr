@@ -26,7 +26,7 @@ export default function SwipperSlide({images}: SwipperSlideProps) {
         slidesPerView={1}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        navigation
+        // navigation
         loop
         className="rounded-sm shadow-lg"
       >
