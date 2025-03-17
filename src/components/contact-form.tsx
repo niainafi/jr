@@ -112,16 +112,22 @@ export default function ContactForm() {
 }
 */}
 
-
-
-
-
 import { useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import emailjs from "@emailjs/browser";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
-// Chargement dynamique de la carte pour éviter l'erreur SSR
-const Map = dynamic(() => import("./map"), { ssr: false });
+// 📍 Coordonnées mises à jour pour Just Rent - Corona Plaza, Andranomena
+const position: [number, number] = [-18.850514, 47.477803];
+
+// ✅ Icône personnalisée pour le marqueur rouge
+const customIcon = new L.Icon({
+  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png", // Icône rouge
+  iconSize: [32, 48], // Augmente la taille du marqueur
+  iconAnchor: [16, 48], // Ancre ajustée
+  popupAnchor: [0, -40], // Position du popup ajustée
+});
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -160,7 +166,6 @@ export default function ContactForm() {
     } catch (error) {
       console.error("❌ Erreur complète :", JSON.stringify(error, null, 2));
       console.dir(error);
-
       setMessage("❌ Erreur lors de l'envoi du message. Vérifiez la console.");
     }
 
@@ -217,9 +222,24 @@ export default function ContactForm() {
           {message && <p className="text-center text-gray-600 mt-4">{message}</p>}
         </form>
 
-        {/* Carte dynamique */}
+        {/* 📌 Carte avec le marqueur rouge bien visible */}
         <div className="flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
-          <Map />
+          <MapContainer
+            center={position} // Centrer la carte sur Just Rent
+            zoom={17} // 🔹 Zoom augmenté pour voir plus clairement
+            style={{ width: "100%", height: "100%" }} // Taille ajustée
+          >
+            {/* Fond de carte OpenStreetMap */}
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+
+            {/* 📌 Marqueur personnalisé en rouge pour Just Rent */}
+            <Marker position={position} icon={customIcon}>
+              <Popup>📍 Just Rent - Corona Plaza, Andranomena, Antananarivo</Popup>
+            </Marker>
+          </MapContainer>
         </div>
       </div>
     </div>
