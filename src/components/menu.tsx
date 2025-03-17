@@ -9,10 +9,10 @@ import MenuIcon from './icons/menu-icon';
 const menus = [
   { nom: 'Actualités', href: '/actualites' },
   { nom: 'Événements', href: '/evenement' },
-  { nom: 'Boutique', href: '/boutique' },
+  { nom: 'Boutiques', href: '/boutique' },
   { nom: 'Just Rent', href: '/just-rent' },
-  { nom: 'Occasion', href: '/occasions' },
-  { nom: 'Membre', href: '/membres' },
+  { nom: 'Occasions', href: '/occasions' },
+  { nom: 'Cash-back', href: '/cashback' },
   { nom: 'Contact', href: '/contactez-nous' },
 ];
 

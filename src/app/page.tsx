@@ -13,6 +13,7 @@ import ReforestinEvent from "@/components/reforestin";
 import BoutiqueContainer from "@/components/boutique-container";
 import JustRideAcademy from "@/components/just-ride-academy";
 import JustRent from "@/components/just-rent";
+import RideWatch from "@/components/ride-watch";
 export default function Home() {
   return (
     <div className="p-1">
@@ -24,6 +25,7 @@ export default function Home() {
       <BoutiqueContainer />
       <JustRideAcademy />
       <JustRent />
+      <RideWatch/>
       {/* <Boutiques />
       <Logos/> 
       <Occasion/> */}

@@ -1,12 +1,13 @@
+
 import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
-import ContactForm from "@/components/contact-form";
+import FocusDetailCasque from "@/components/focus-detail-casque";
 export default function Home() {
   return (
     <div className="p-1">
-      <HeroSection/>
-      <ContactForm/>
-      <Footer/> 
+        <HeroSection/>
+        <FocusDetailCasque/>
+        <Footer/> 
     </div>
   );
 }
