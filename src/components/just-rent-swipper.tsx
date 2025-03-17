@@ -58,9 +58,9 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
         ]}
         className="swiper_container_jr"
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        onSwiper={(swiper) => {
-          setActiveIndex(swiper.realIndex); 
-        }}
+        // onSwiper={(swiper) => {
+        //   setActiveIndex(swiper.realIndex); 
+        // }}
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>

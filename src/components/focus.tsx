@@ -1,10 +1,47 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Container from "./container";
 import FocusIcon from "./icons/focus-icon";
 import YourCalendarIcon from "./icons/vos-calendrier-icon";
 import Calendar from "./calendar";
 import Image from "next/image";
 import clsx from "clsx";
+
+type WeattherDisplay = {
+  temperature: string;
+  feelsLike: string;
+  description: string;
+  icon: string;
+}
+
+type WeatherCode = 0 | 1 | 2 | 3 | 45 | 48 | 51 | 53 | 55 | 61 | 63 | 65 | 80 | 81 | 82 | 95 | 99;
+const countryInfo = {
+  name : 'Antananarivo',
+  coords: {
+    lat: -18.908480,
+    long: 47.537510
+  }
+}
+
+const weatherDescriptions = {
+  0: { text: "Ciel dégagé", icon: "☀️" },
+  1: { text: "Faiblement nuageux", icon: "🌤️" },
+  2: { text: "Partiellement nuageux", icon: "⛅" },
+  3: { text: "Nuageux", icon: "☁️" },
+  45: { text: "Brouillard", icon: "🌫️" },
+  48: { text: "Brouillard givrant", icon: "🌫️" },
+  51: { text: "Bruine légère", icon: "🌦️" },
+  53: { text: "Bruine", icon: "🌦️" },
+  55: { text: "Forte bruine", icon: "🌧️" },
+  61: { text: "Pluie légère", icon: "🌧️" },
+  63: { text: "Pluie modérée", icon: "🌧️" },
+  65: { text: "Pluie forte", icon: "🌧️" },
+  80: { text: "Averses légères", icon: "🌦️" },
+  81: { text: "Averses modérées", icon: "🌧️" },
+  82: { text: "Averses fortes", icon: "🌧️" },
+  95: { text: "Orage", icon: "⛈️" },
+  99: { text: "Orage violent", icon: "⛈️" }
+};
 
 const imageFocus = [
   {
@@ -185,32 +222,89 @@ function Meteo({
     
     }
 }){
+  const [weather, setWeather] = useState< WeattherDisplay | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${countryInfo.coords.lat}&longitude=${countryInfo.coords.lat}&current_weather=true`;
+      try {
+        setIsLoading(true);
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const code = data.current_weather.weathercode as WeatherCode;
+        setWeather({
+          temperature: data.current_weather.temperature,
+          feelsLike: data.current_weather.temperature, // Open-Meteo don't give  "ressentie"
+          description: weatherDescriptions[code]?.text || "Inconnu",
+          icon: weatherDescriptions[code]?.icon || "❓"
+        });
+      } catch (error) {
+        console.error("Erreur météo :", error);
+      }finally{
+        setIsLoading(false);
+      }
+    };
+
+    fetchWeather();
+  }, []);
+
+ 
   return (
     <div className="bg-blue-400 p-3 w-full h-[100px] rounded-md text-white">
-      <h3 className="text-xs uppercase">{data.location}</h3>
-      <div className="flex justify-between items-center w-[95%] mt-2">
-        <div className="flex flex-row items-center gap-2">
-          <div className="flex relative flex-row items-center h-[45px]">
-            <div className="text-[3rem] relative">
-              {data.temperature}
-            </div>
-            <div className="flex flex-col items-center h-auto">
-            <span className="text-[3rem] h-10 font-thin">°</span>
-            <span className="text-[1.3rem] relative bottom-[11px]">C</span>
-            </div>
+      {
+        isLoading && (
+          <MeteoLoading />
+        )
+      }
+      {weather && !isLoading && <>
+        <h3 className="text-xs uppercase">{countryInfo.name}</h3>
+        <div className="flex justify-between items-center w-[95%] mt-2">
+          <div className="flex flex-row items-center gap-2">
+            <div className="flex relative flex-row items-center h-[45px]">
+              <div className="text-[3rem] relative">
+                {Math.round(parseFloat(weather.temperature))}
+              </div>
+              <div className="flex flex-col items-center h-auto">
+              <span className="text-[3rem] h-10 font-thin">°</span>
+              <span className="text-[1.3rem] relative bottom-[11px]">C</span>
+              </div>
 
-            
-            
+              
+              
+            </div>
+            <div className="flex flex-col">
+              <p className="text-xs">{weather.description}</p>
+              <p className="text-xs">Sensation thermique de {Math.round(parseFloat(weather.feelsLike))}°</p>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <p className="text-sm">{data.weather}</p>
-            <p className="text-sm">Sensação térmica de {data.temperature}°</p>
+          <div className="text-[2.5rem]">
+            {weather.icon}
           </div>
         </div>
-        <div className="bg-yellow-400 rounded-full h-10 w-10"/>
-      </div>
+      </>}
+      {!weather && !isLoading && (
+        <p className="text-xs">
+          Erreur lors de la récupération des données météo.
+        </p>
+      )}
 
     </div>
   )
 }
 
+function MeteoLoading(){
+  return (
+    <div className="flex flex-col  animate-pulse gap-3">
+    <div className="w-[20%] h-4 bg-gray-200 rounded-sm"></div> 
+    <div className="flex justify-between">
+      <div className="flex flex-row gap-2 w-[50%]">
+        <div className="w-[20%] h-10 bg-gray-200 rounded-sm "></div>
+        <div className="w-[50%] h-10 bg-gray-200 rounded-sm"></div>
+      </div>
+      <div className="w-11 h-11 rounded-full bg-gray-200"></div>
+    </div>   
+  </div>
+  )
+}
