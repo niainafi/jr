@@ -4,7 +4,7 @@
     width: 100%;
   }
 .swiper_container_jr .swiper-slide {
-    width: 22rem;
+    width: 18rem;
     height: 20rem;
     position: relative;
   }
@@ -87,7 +87,9 @@
   .swiper_container_jr .swiper-pagination {
     position: relative;
     width: 15rem !important;
-    bottom: 1rem;
+    height: 1.5rem;
+    bottom: 2.5rem;
+    /* background: #000; */
   }
   
   .swiper_container_jr .swiper-pagination .swiper-pagination-bullet {
@@ -95,5 +97,5 @@
   }
   
  .swiper_container_jr .swiper-pagination .swiper-pagination-bullet-active {
-    background: var(--primary);
+    background: var(--color-accent);
   }
