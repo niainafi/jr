@@ -74,18 +74,30 @@ import Container from "./container";
 
 const API_URL = "https://justride.up.railway.app/api/category-event";
 const PRODUCT_URL = "https://justride.up.railway.app/api/event/category";
-const ITEMS_PER_PAGE = 9; // Nombre d'éléments par page
+
 export default function OccasionEvent() {
-  const [categories, setCategories] = useState([]);
-  const [articles, setArticles] = useState([]);
+  const [categories, setCategories] = useState<any[]>([]);
+  const [articles, setArticles] = useState<any[]>([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    fetchCategories();
+  // ✅ Encapsuler fetchArticles dans useCallback pour éviter les récréations inutiles
+  const fetchArticles = useCallback(async (categoryId: any) => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);
+      const sortedArticles = data.sort((a: any, b: any) => (new Date(b.date) as any) - (new Date(a.date) as any));
+      setArticles(sortedArticles);
+      setSelectedCategory(categoryId);
+    } catch (error) {
+      setError("Erreur lors du chargement des événements");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
+  // ✅ Encapsuler fetchCategories et inclure fetchArticles dans ses dépendances
   const fetchCategories = useCallback(async () => {
     try {
       const { data } = await axios.get(API_URL);
@@ -96,23 +108,12 @@ export default function OccasionEvent() {
     } catch (error) {
       setError("Erreur lors du chargement des catégories");
     }
-  }, []);
+  }, [fetchArticles]); // ✅ Correction ici
 
-  const fetchArticles = async (categoryId : any) => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);
-      // Trier les articles par date décroissante
-      const sortedArticles = data.sort((a: any, b: any) => (new Date(b.date) as any) - (new Date(a.date) as any));
-      setArticles(sortedArticles);
-      setSelectedCategory(categoryId);
-    } catch (error) {
-      setError("Erreur lors du chargement des événements");
-    } finally {
-      setLoading(false);
-    }
-  };
- 
+  // ✅ Ajout de fetchCategories comme dépendance de useEffect
+  useEffect(() => {
+    fetchCategories();
+  }, [fetchCategories]); // ✅ Correction ici
 
   return (
     <section className="mx-auto pt-5 mb-5">
@@ -121,7 +122,7 @@ export default function OccasionEvent() {
         
         {/* Liste des catégories */}
         <ul className="flex overflow-x-auto sm:justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0">
-          {categories.map((category : any) => (
+          {categories.map((category: any) => (
             <li
               key={category._id}
               onClick={() => fetchArticles(category._id)}
@@ -138,7 +139,7 @@ export default function OccasionEvent() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2 my-16">
             {articles.length > 0 ? (
-              articles.map((article : any) => (
+              articles.map((article: any) => (
                 <CardArticle key={article._id} article={article} />
               ))
             ) : (
@@ -151,6 +152,7 @@ export default function OccasionEvent() {
   );
 }
 
+// 📌 Composant pour une carte d'article
 function CardArticle({ article }: any) {
   return (
     <Link href={`/evenement/${article._id}`} className="block">
