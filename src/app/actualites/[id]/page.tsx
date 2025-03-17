@@ -60,21 +60,21 @@ export default async function ActuReportageDetailPage({ params }: { params: any 
             <HeroSection />
 
             {/* 📌 Conteneur principal : Article à droite - Pub fixe à gauche */}
-            <div className="max-w-7xl mx-auto my-12 px-6 flex">
+            <div className="max-w-7xl mx-auto my-12 px-6 flex items-start relative">
                 
                 {/* ✅ Pub FIXE toujours visible à gauche */}
-                <div className="hidden lg:block w-[600px] fixed left-6 top-20">
+                <div className="hidden lg:block w-[600px] sticky top-0 bottom-0">
                     <Image 
                         src="/images/pub/photo.webp" 
                         alt="Publicité" 
                         width={500} 
                         height={700} 
-                        className="w-full rounded-lg shadow-lg object-cover"
+                        className="w-full rounded-lg shadow-lg h-[500px] object-cover"
                     />
                 </div>
 
                 {/* ✅ Détails de l'article (avec un espace pour éviter l'overlap de la pub) */}
-                <div className="w-full lg:ml-[380px]"> 
+                <div className="w-full lg:ml-[40px]"> 
                     <h1 className="text-4xl font-extrabold mb-6 text-gray-900 leading-tight">
                         {actuDetail.title}
                     </h1>
