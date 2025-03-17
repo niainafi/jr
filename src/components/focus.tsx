@@ -284,6 +284,11 @@ function Meteo({
           </div>
         </div>
       </>}
+      {!weather && !isLoading && (
+        <p className="text-xs">
+          Erreur lors de la récupération des données météo.
+        </p>
+      )}
 
     </div>
   )
