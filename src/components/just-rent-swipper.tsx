@@ -29,7 +29,7 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
     router.push('/just-rent');
   }
   return (
-    <Container className="lg:max-w-[120rem] px-0">
+    <Container className="lg:max-w-[120rem] px-0 mt-5">
     <div className="w-full h-[320px] xl:h-[340px]">
       <Swiper
         initialSlide={1}
