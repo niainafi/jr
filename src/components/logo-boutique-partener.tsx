@@ -1,12 +1,22 @@
+
 import React from 'react';
 
 export default function LogoBoutiquePartener() {
   const logos = [
-    { src: "/images/logo/bell-helmets.svg", alt: 'Bell Helmets' },
+    { src: "/images/logo/logospartener/RFX.webp", alt: 'RFX' },
+    { src: "/images/logo/logospartener/AGV.png", alt: 'AGV' },
+    { src: "/images/logo/arai-helmet-vector-logo.svg", alt: 'helmet' },
+    { src: "/images/logo/logospartener/bmc-air-filters.png", alt: 'bmc' },
+    { src: "/images/logo/logospartener/Belgom.png", alt: 'Belgom' },
+    { src: "/images/logo/logospartener/novic.png", alt: 'novic' },
+    { src: "/images/logo/logospartener/oakley.png", alt: 'oakley' },
+    { src: "/images/logo/logospartener/Oxford_Logo.png", alt: 'Oxford' },
+    { src: "/images/logo/logospartener/RST.png", alt: 'RST' },
+    { src: "/images/logo/logospartener/ufoplast.png", alt: 'ufoplast' },
     { src: "/images/logo/fly-racing.png", alt: 'Fly Racing' },
-    { src: "/images/logo/arai-helmet-vector-logo.svg", alt: 'Arai' },
-    { src: "/images/logo/belgom.jpg", alt: 'Belgom' },
-    { src: "/images/logo/gopro-hero.svg", alt: 'GoPro' }
+    { src: "/images/logo/logospartener/Lightech.png", alt: 'Lightech' },
+    { src: "/images/logo/logospartener/Quad Lock.PNG", alt: 'Quad Lock' }
+    
   ];
 
   return (
@@ -21,7 +31,3 @@ export default function LogoBoutiquePartener() {
     </>
   );
 }
-
-
-
-

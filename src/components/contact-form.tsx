@@ -111,17 +111,23 @@ export default function ContactForm() {
   );
 }
 */}
-
-
-
-
-
+ {/*
 import { useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import emailjs from "@emailjs/browser";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
-// Chargement dynamique de la carte pour éviter l'erreur SSR
-const Map = dynamic(() => import("./map"), { ssr: false });
+// 📍 Coordonnées mises à jour pour Just Rent - Corona Plaza, Andranomena
+const position: [number, number] = [-18.850514, 47.477803];
+
+// ✅ Icône personnalisée pour le marqueur rouge
+const customIcon = new L.Icon({
+  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png", // Icône rouge
+  iconSize: [32, 48], // Augmente la taille du marqueur
+  iconAnchor: [16, 48], // Ancre ajustée
+  popupAnchor: [0, -40], // Position du popup ajustée
+});
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -160,7 +166,6 @@ export default function ContactForm() {
     } catch (error) {
       console.error("❌ Erreur complète :", JSON.stringify(error, null, 2));
       console.dir(error);
-
       setMessage("❌ Erreur lors de l'envoi du message. Vérifiez la console.");
     }
 
@@ -172,7 +177,7 @@ export default function ContactForm() {
       <h2 className="text-3xl font-bold mb-14 text-center sm:text-left">NOUS CONTACTER</h2>
 
       <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 justify-between">
-        {/* Formulaire */}
+        {/* Formulaire 
         <form ref={formRef} onSubmit={sendEmail} className="flex-1 space-y-4">
           <input
             type="text"
@@ -202,7 +207,7 @@ export default function ContactForm() {
             className="w-full p-3 border rounded-lg h-32 resize-none focus:ring-2 focus:ring-gray-500"
           />
 
-          {/* Bouton ENVOYER aligné à droite */}
+          {/* Bouton ENVOYER aligné à droite 
           <div className="w-full flex justify-end">
             <button
               type="submit"
@@ -213,15 +218,92 @@ export default function ContactForm() {
             </button>
           </div>
 
-          {/* Message de confirmation */}
+          {/* Message de confirmation 
           {message && <p className="text-center text-gray-600 mt-4">{message}</p>}
         </form>
 
-        {/* Carte dynamique */}
+        {/* 📌 Carte avec le marqueur rouge bien visible 
         <div className="flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
-          <Map />
+          <MapContainer
+            center={position} // Centrer la carte sur Just Rent
+            zoom={17} // 🔹 Zoom augmenté pour voir plus clairement
+            style={{ width: "100%", height: "100%" }} // Taille ajustée
+          >
+            {/* Fond de carte OpenStreetMap 
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+
+            {/* 📌 Marqueur personnalisé en rouge pour Just Rent 
+            <Marker position={position} icon={customIcon}>
+              <Popup>📍 Just Rent - Corona Plaza, Andranomena, Antananarivo</Popup>
+            </Marker>
+          </MapContainer>
         </div>
       </div>
     </div>
   );
 }
+*/}
+
+
+import dynamic from "next/dynamic";
+import { useEffect, useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+// ✅ Charger `react-leaflet` sans SSR
+const MapContainer = dynamic(() => import("react-leaflet").then(mod => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import("react-leaflet").then(mod => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import("react-leaflet").then(mod => mod.Marker), { ssr: false });
+const Popup = dynamic(() => import("react-leaflet").then(mod => mod.Popup), { ssr: false });
+
+let L: any = null; // Variable pour `leaflet`
+
+// 📍 Coordonnées pour Just Rent - Corona Plaza, Andranomena
+const position: [number, number] = [-18.850514, 47.477803];
+
+export default function ContactForm() {
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [customIcon, setCustomIcon] = useState<any>(null);
+
+  // ✅ Charger `leaflet` uniquement côté client après le rendu
+  useEffect(() => {
+    import("leaflet").then((leaflet) => {
+      L = leaflet; // Assigne `leaflet` à la variable globale
+      const newIcon = new L.Icon({
+        iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+        iconSize: [32, 48],
+        iconAnchor: [16, 48],
+        popupAnchor: [0, -40],
+      });
+      setCustomIcon(newIcon);
+    });
+  }, []);
+
+  return (
+    <div className="max-w-5xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl font-bold mb-14 text-center sm:text-left">NOUS CONTACTER</h2>
+
+      <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 justify-between">
+        {/* Carte avec le marqueur rouge bien visible */}
+        <div className="flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
+          <MapContainer center={position} zoom={17} style={{ width: "100%", height: "100%" }}>
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {customIcon && (
+              <Marker position={position} icon={customIcon}>
+                <Popup>📍 Just Rent - Corona Plaza, Andranomena, Antananarivo</Popup>
+              </Marker>
+            )}
+          </MapContainer>
+        </div>
+      </div>
+    </div>
+  );
+}
+
