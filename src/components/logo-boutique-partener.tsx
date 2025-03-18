@@ -43,7 +43,7 @@ import Image from "next/image";
 export default function LogoBoutiquePartener() {
   const logos = [
     { src: "/images/logo/logospartener/RFX.webp", alt: "RFX" },
-    { src: "/images/logo/logospartener/AGV.png", alt: "AGV" },
+    { src: "/images/logo/logospartener/AGV copie.png", alt: "AGV" },
     { src: "/images/logo/arai-helmet-vector-logo.svg", alt: "helmet" },
     { src: "/images/logo/logospartener/bmc-air-filters.png", alt: "bmc" },
     { src: "/images/logo/logospartener/Belgom.png", alt: "Belgom" },
@@ -55,7 +55,7 @@ export default function LogoBoutiquePartener() {
     { src: "/images/logo/fly-racing.png", alt: "Fly Racing" },
     { src: "/images/logo/logospartener/Lightech.png", alt: "Lightech" },
     { src: "/images/logo/logospartener/Quad Lock.PNG", alt: "Quad Lock" },
-    { src: "/images/logo/logospartener/LOGO_TU_frame.svg", alt: "LOGO_TU" },
+    { src: "/images/logo/logospartener/tucano.png", alt: "tucano" },
   ];
 
   return (

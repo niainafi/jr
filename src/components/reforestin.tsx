@@ -95,34 +95,7 @@ export default function ReforestinEvent() {
 */
 }
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Container from "./container";
-import Link from "next/link";
 
-type TimeLeft = {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-};
-
-function getTimeLeft(eventDate: number): TimeLeft {
-  const now = new Date().getTime();
-  const difference = eventDate - now;
-
-  if (difference <= 0) {
-    // Si l'événement est passé, afficher 0
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  }
-
-  return {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((difference % (1000 * 60)) / 1000),
-  };
-}
 
 // export default function ReforestinEvent() {
 //   const eventDate = new Date("2025-03-08T00:00:00").getTime();
@@ -214,7 +187,34 @@ function getTimeLeft(eventDate: number): TimeLeft {
 //     </Container>
 //   );
 // }
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Container from "./container";
+import Link from "next/link";
 
+type TimeLeft = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+function getTimeLeft(eventDate: number): TimeLeft {
+  const now = new Date().getTime();
+  const difference = eventDate - now;
+
+  if (difference <= 0) {
+    // Si l'événement est passé, afficher 0
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((difference % (1000 * 60)) / 1000),
+  };
+}
 export default function ReforestinEvent() {
   const eventDate = new Date("2025-03-08T00:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
@@ -239,7 +239,7 @@ export default function ReforestinEvent() {
 
   return (
     <Container className="my-14">
-    <div className="bg-accent relative px-5 h-auto lg:h-[200px] xl:h-[320px] 2xl:xl:h-[460px] flex lg:flex-row flex-col">
+    <div className="bg-accent relative px-5 h-auto lg:h-[150px] xl:h-[220px] 2xl:xl:h-[360px] flex lg:flex-row flex-col">
       {/* Section Image */}
       <div className="relative w-full lg:w-[35%]  flex justify-center min-h-full">
         <Image

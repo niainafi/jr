@@ -3,11 +3,13 @@ import React from "react";
 const RideWatch = () => {
   return (
     <section className="bg-white py-8 md:py-10 px-6 font-roboto w-full">
-      <div className="max-w-8xl mx-auto">
+      <div className="max-w-8xl mx-auto ">
         {/* Titre avec plus d'espace en bas */}
         <h2 className="text-3xl font-bold uppercase text-center mb-8 md:mb-10">Ride & Watch</h2>
 
-        <div className="flex flex-col md:flex-row items-stretch h-auto min-h-[350px] md:min-h-[400px]">
+        <div className="flex flex-col md:flex-row items-stretch h-[850px] sm:h-[950px] md:h-[690px] lg:h-[200px] xl:h-[650px] 2xl:h-[450px] overflow-hidden">
+
+
           {/* Vidéo YouTube - 60% de la largeur */}
           <div className="md:w-3/5 relative">
             <iframe

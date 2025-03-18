@@ -319,7 +319,7 @@ export default function FocusDetailCasque() {
               <p className="font-bold text-lg">
                 {`Prêt à rouler en toute confiance ?`}<br />
                 {`Le Bell Lithium MIPS est là pour toi`}<br />
-                <span className="text-red-600">
+                <span className="">
                   {`Il t'attend en Boutique`}
                 </span>
               </p>
