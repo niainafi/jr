@@ -86,8 +86,7 @@ export default function ReservationForm() {
     </Container>
   );
 }
-*/}
-import { ChangeEvent, FormEvent, useState } from "react";
+*/}import { ChangeEvent, FormEvent, useState } from "react";
 import Container from "./container";
 import emailjs from "@emailjs/browser";
 
@@ -127,8 +126,6 @@ export default function ReservationForm() {
     "HIMALAYAN 410",
     "CLASSIC 500",
   ];
-
-  const nbMotosOptions = ["1 Moto", "2 Motos", "3 Motos", "4 Motos"];
 
   // Fonction pour calculer la durée en jours entre la date de début et la date de fin
   const calculateDuration = (start: string, end: string): string => {
@@ -211,14 +208,16 @@ export default function ReservationForm() {
                   <option key={idx} value={option}>{option}</option>
                 ))}
               </select>
-              <select value={moto.nbMotos} onChange={(e) => handleMotoChange(index, "nbMotos", e.target.value)} className="p-3 border rounded-lg w-full bg-white">
-                {nbMotosOptions.map((option, idx) => (
-                  <option key={idx} value={option}>{option}</option>
-                ))}
-              </select>
+              <input
+                type="number"
+                min="1"
+                value={moto.nbMotos.replace(" Motos", "").replace(" Moto", "")} // Nettoie l'affichage
+                onChange={(e) => handleMotoChange(index, "nbMotos", `${e.target.value} Motos`)}
+                className="p-3 border rounded-lg w-full bg-white"
+              />
             </div>
           ))}
-          <button type="button" onClick={addMotoSelection} className="p-2 bg-blue-500 text-white rounded">Ajouter une moto</button>
+          <button type="button" onClick={addMotoSelection} className="p-2 bg-accent text-white rounded">Ajouter une moto</button>
         </div>
 
         <div className="grid grid-cols-3 gap-2">
