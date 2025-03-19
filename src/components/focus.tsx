@@ -1,6 +1,5 @@
 "use client";
- 
-"use client";
+
 import React, { useEffect, useState } from "react";
 import Container from "./container";
 import FocusIcon from "./icons/focus-icon";
@@ -9,6 +8,12 @@ import Calendar from "./calendar";
 import Image from "next/image";
 import clsx from "clsx";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, } from "swiper/modules";
+
+import "swiper/css/pagination";
+import '@/styles/swipper.css';
+// import "swiper/css/navigation";
 
 type WeattherDisplay = {
   temperature: string;
@@ -61,7 +66,17 @@ const imageFocus = [
     src: "/images/accueil/IMG-20250313-WA0020.webp",
     alt: "Image-focus",
     href: "/focusdetailcasque",
-  }
+  },
+  {
+    src: "/images/accueil/IMG-20250313-WA0018.webp",
+    alt: "Image-focus",
+    href: "/focusdetailcasque", 
+  },
+  {
+    src: "/images/accueil/IMG-20250313-WA0017.webp",
+    alt: "Image-focus",
+    href: "/focusdetailcasque",
+  },
     
 ]
 
@@ -78,29 +93,42 @@ export default function Focus() {
        
         <section className="w-full lg:lg:w-[70%]">
           <h2 className="text-3xl md:text-4xl font-bold text-center">{'FOCUS ARRIVAGE'}</h2>
-          <div className="flex flex-col md:flex-row gap-4 mt-10">
+          {/* <div className="flex flex-col md:flex-row gap-4 mt-10"> */}
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={30}
+            slidesPerView={3}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            // navigation
+            loop
+            className="rounded-sm shadow-lg"
+          >
             {
               imageFocus.map((image, index) => (
                 <div key={index} className={clsx(
-                  index === 1 && 'shadow-[10px_-10px_7px_-2px_rgba(0,_0,_0,_0.2)]'
+                  // index === 1 && 'shadow-[10px_-10px_7px_-2px_rgba(0,_0,_0,_0.2)]'
                 )}>
-                  <Link href={image.href}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-contain"
-                    width={300}
-                    height={300}
-                    loading="lazy"
-                    objectFit="contain"
-                
-                  />
-                  </Link>
+                  <SwiperSlide key={index}>
+                    <Link href={image.href}>
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-contain"
+                        width={300}
+                        height={300}
+                        loading="lazy"
+                        objectFit="contain"
+                    
+                      />
+                    </Link>
+                  </SwiperSlide>
                 </div>
               ))
 
             }
-          </div>
+          {/* </div> */}
+          </Swiper>
         </section>
       <aside className="relative top-0 lg:-top-36 lg:w-[30%]">
         <YourCalendar />

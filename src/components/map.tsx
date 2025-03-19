@@ -2,8 +2,9 @@
 
 
 import { useEffect, useRef, useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 export default function Map() {
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -19,7 +20,7 @@ export default function Map() {
   return (
     <div ref={mapRef} className="w-full h-full rounded-lg">
       <MapContainer
-        center={[-18.8792, 47.5079]}
+        center={[-18.850346261691552, 47.47786921339237]}
         zoom={13}
         className="w-full h-full rounded-lg"
       >
@@ -27,11 +28,71 @@ export default function Map() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
+        <Marker position={[-18.850346261691552, 47.47786921339237]} icon={customIcon}>
+          <Popup>📍{`Just Ride`}</Popup>
+        </Marker>
       </MapContainer>
     </div>
   );
 }
 
+const customIcon = new L.Icon({
+  iconUrl: "/images/marker/business.png", 
+  iconSize: [30, 40], 
+  iconAnchor: [20, 40], 
+  popupAnchor: [0, -40],
+});
 
 
+
+// import React from 'react'
+// import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
+
+// const containerStyle = {
+//   width: '400px',
+//   height: '400px',
+// }
+
+// const center = {
+//   lat: -3.745,
+//   lng: -38.523,
+// }
+
+// function MyComponent() {
+//   const { isLoaded } = useJsApiLoader({
+//     id: 'google-map-script',
+//     googleMapsApiKey: '',
+//   })
+
+//   const [map, setMap] = React.useState(null)
+
+//   const onLoad = React.useCallback(function callback(map : any) {
+//     // This is just an example of getting and using the map instance!!! don't just blindly copy!
+//     const bounds = new window.google.maps.LatLngBounds(center)
+//     map.fitBounds(bounds)
+
+//     setMap(map)
+//   }, [])
+
+//   const onUnmount = React.useCallback(function callback(map) {
+//     setMap(null)
+//   }, [])
+
+//   return isLoaded ? (
+//     <GoogleMap
+//       mapContainerStyle={containerStyle}
+//       center={center}
+//       zoom={10}
+//       onLoad={onLoad}
+//       onUnmount={onUnmount}
+//     >
+//       {/* Child components, such as markers, info windows, etc. */}
+//       <></>
+//     </GoogleMap>
+//   ) : (
+//     <></>
+//   )
+// }
+
+// export default React.memo(MyComponent)
 

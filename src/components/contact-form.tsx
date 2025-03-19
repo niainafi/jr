@@ -252,6 +252,7 @@ export default function ContactForm() {
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import dynamic from "next/dynamic";
+import MyMap from "./map";
 
 // 📌 Chargement dynamique de la carte pour éviter l'erreur SSR
 {/* const MapComponent = dynamic(() => import("./map"), { ssr: false });*/}
@@ -316,11 +317,18 @@ export default function ContactForm() {
           {message && <p className="text-center text-gray-600 mt-4">{message}</p>}
         </form>
 
+        
+
         {/* 📌 Carte OpenStreetMap 
         <div className="flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
           <MapComponent />
         </div>
         */}
+       
+        <div className="flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
+          <MyMap />
+        </div>
+       
       </div>
     </div>
   );
