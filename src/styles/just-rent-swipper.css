@@ -1,19 +1,56 @@
-.swiper_container_jr {
-    /* height: 52rem; */
+
+
+@media (min-width:641px)  {
+  .swiper_container_jr {
+    /* height: 67rem; */
     position: relative;
     width: 100%;
   }
-.swiper_container_jr .swiper-slide {
-    width: 18rem;
-    height: 20rem;
-    position: relative;
-  }
-
-.swiper_container_jr .swiper-slide img {
+  .swiper_container_jr .swiper-slide {
     width: 38rem;
     height: 20rem;
+    position: relative;
+}
+ 
+  .swiper_container_jr .swiper-slide img {
+    width: 38rem;
+    height: 20rem;
+  }
+}
+@media (max-width:320px)  {
+  .swiper_container_jr {
+    /* height: 67rem; */
+    position: relative;
+    width: 100%;
+  }
+  .swiper_container_jr .swiper-slide {
+    width: 28rem;
+    height: 40rem;
+    position: relative;
+  }
+  .swiper_container_jr .swiper-slide img {
+    width: 25rem;
+    height: 20rem;
+  }
+
+}
+
+@media (min-width:1025px) {
+  .swiper_container_jr {
+    height: 67rem;
+  }
+  .swiper_container_jr .swiper-slide img {
+    width: 59rem;
+    height: 40rem;
     object-fit: contain;
   }
+  .swiper_container_jr .swiper-slide {
+    width: 28rem;
+    height: 30rem;
+    position: relative;
+  }
+}
+
   
 .swiper_container_jr  .swiper-slide-shadow-left,
 .swiper_container_jr .swiper-slide-shadow-right {
