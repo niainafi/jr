@@ -252,7 +252,7 @@ export default function ContactForm() {
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import dynamic from "next/dynamic";
-import MyMap from "./map";
+const MyMap = dynamic(() => import("./map"), { ssr: false });
 
 // 📌 Chargement dynamique de la carte pour éviter l'erreur SSR
 {/* const MapComponent = dynamic(() => import("./map"), { ssr: false });*/}
