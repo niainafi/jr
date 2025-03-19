@@ -26,9 +26,9 @@ export default function Home() {
       <JustRideAcademy />
       <JustRent />
       <RideWatch/>
-      {/* <Boutiques />
-      <Logos/> 
-      <Occasion/> */}
+      {/* <Boutiques />*/}
+      {/*<Logos/>*/}
+      {/*<Occasion/> */}
       {/* <PubActuToo/> */}
       {/* <Nextripe/>*/}
       <ContactForm/>
