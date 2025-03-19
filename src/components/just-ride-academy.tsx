@@ -306,6 +306,7 @@ export default function JustRideAcademy() {
 function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -375,35 +376,43 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
       </div>
 
       {/* ✅ Modal de réservation */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-md shadow-lg w-[90%] max-w-md">
-            <h3 className="text-xl font-bold mb-4">Réserver {data.title}</h3>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <input
-                type="email"
-                placeholder="Votre email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="p-2 border rounded-md w-full"
-              />
-              <div className="flex justify-between">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-gray-300 rounded-md"
-                >
-                  Annuler
-                </button>
-                <button type="submit" className="px-4 py-2 bg-accent text-white rounded-md">
-                  Envoyer
-                </button>
-              </div>
-            </form>
-          </div>
+{showModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white p-6 rounded-md shadow-lg w-[90%] max-w-md">
+      <h3 className="text-xl font-bold mb-4">Réserver {data.title}</h3>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <input
+          type="email"
+          placeholder="Votre email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="p-2 border rounded-md w-full"
+        />
+        <textarea
+          placeholder="Votre message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+          className="p-2 border rounded-md w-full h-24 resize-none"
+        />
+        <div className="flex justify-between">
+          <button
+            type="button"
+            onClick={() => setShowModal(false)}
+            className="px-4 py-2 bg-gray-300 rounded-md"
+          >
+            Annuler
+          </button>
+          <button type="submit" className="px-4 py-2 bg-accent text-white rounded-md">
+            Envoyer
+          </button>
         </div>
-      )}
+      </form>
+    </div>
+  </div>
+)}
+
     </>
   );
 }
