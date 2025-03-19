@@ -29,8 +29,8 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
     router.push('/just-rent');
   }
   return (
-    <Container className="lg:max-w-[120rem] px-0 mt-5">
-    <div className="w-full h-[320px] xl:h-[340px]">
+    <Container className="lg:max-w-full px-0 mt-5 2xl:max-w-full pb:10 lg:pb-28">
+    <div className="w-full h-[350px] xl:h-[350px]">
       <Swiper
         initialSlide={1}
         effect={'coverflow'}
@@ -64,7 +64,7 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full flex flex-col justify-center h-[300px] xl:h-[300px]">
+            <div className="relative w-full flex flex-col justify-center h-[320px] xl:h-[570px] xl:w-[570px] ">
               <Image
                 src={img.src}
                 alt={ img?.alt ?? `Slide ${index + 1}`}
@@ -73,11 +73,12 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
                 height={500}
                 priority={index === 0}
                 className="object-contain w-full h-full"
+                
                 />
               {index === activeIndex ?
                 <button 
                   type="button"
-                  className="text-white bg-accent mx-auto px-4 rounded-md uppercase text-xs font-bold"
+                  className="text-white bg-accent mx-auto px-4 rounded-md uppercase text-xs lg:text-sm font-bold"
                   onClick={handleLouerClick}
                 >
                   {'Louer-moi'}
