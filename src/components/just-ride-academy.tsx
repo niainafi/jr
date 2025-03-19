@@ -260,10 +260,11 @@ const justRideData = [
     packSeance: null,
   },
 ];
-
+{/* 
 export default function JustRideAcademy() {
   return (
     <Container>
+
       <h2 className="uppercase text-3xl md:text-4xl font-bold text-center mb-16">
         Just Ride Academy
       </h2>
@@ -275,6 +276,31 @@ export default function JustRideAcademy() {
     </Container>
   );
 }
+  */}
+
+
+  export default function JustRideAcademy() {
+    return (
+      <Container>
+        <div className="flex items-center justify-center mb-16">
+          <img 
+            src="/images/logo/logo-just-ride-academy.png" 
+            alt="Just Ride Academy Logo" 
+            style={{ width: '2.5cm', height: 'auto', marginRight: '10px' }} // Redimensionner l'image et espacement
+          />
+          <h2 className="uppercase text-3xl md:text-4xl font-bold text-center">
+            Just Ride Academy
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+          {justRideData.map((data, index) => (
+            <CardJRA key={index} data={data} />
+          ))}
+        </div>
+      </Container>
+    );
+  }
+  
 
 // ✅ Composant pour la carte d'un stage
 function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
