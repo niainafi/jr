@@ -1,4 +1,6 @@
 "use client";
+ 
+"use client";
 import React, { useEffect, useState } from "react";
 import Container from "./container";
 import FocusIcon from "./icons/focus-icon";
@@ -73,61 +75,7 @@ export default function Focus() {
   return (
     <section className="-mt-10">
       <Container className="flex flex-col lg:flex-row gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-7xl 2xl:max-w-8xl">
-        {/* old focus */}
-      {/* <div className="flex gap-[2px] max-w-full relative w-full lg:w-[70%] mr-auto">
-        <div className="w-1/3 h-[260px] z-10 absolute -top-14 ">
-          <FocusIcon />
-        </div>
-        <div className="w-1/3 h-[240px] relative overflow-hidden">
-          <Image
-            src="/images/photos/focus1.jpg"
-            alt="Image-focus"
-            className="w-full h-full object-cover"
-            fill
-          />
-        </div>
-        <div className="w-1/3 h-[240px] relative overflow-hidden">
-          <Image
-            src="/images/photos/focus3.jpg"
-            alt="Image-focus"
-            className="w-full h-full object-cover"
-            fill
-          />
-        </div>
-        <div className="w-1/3 h-[300px] relative overflow-hidden">
-          <Image
-            src="/images/photos/focus2.jpg"
-            alt="Image-focus"
-            className="w-full h-full object-cover scale-150"
-            fill
-          />
-          <div
-            className="absolute bottom-4 left-0 right-0 mx-auto  bg-accent text-black font-bold text-center py-3 px-4"
-            style={{
-              clipPath: "polygon(0% 13.8%, 100% 5.3%, 100% 88%, 0% 95.5%)",
-            }}
-          >
-            900 000 Ar
-          </div>
-        </div>
-        <div className="w-1/3 h-[240px] relative overflow-hidden">
-          <Image
-            src="/images/photos/focus3.jpg"
-            alt="Image-focus"
-            className="w-full h-full object-cover"
-            fill
-          />
-        </div>
-        <div className="w-1/3 h-[240px] relative overflow-hidden">
-          <Image
-            src="/images/photos/focus1.jpg"
-            alt="Image-focus"
-            className="w-full h-full object-cover"
-            fill
-          />
-        </div>
-      </div> */}
-
+       
         <section className="w-full lg:lg:w-[70%]">
           <h2 className="text-3xl md:text-4xl font-bold text-center">{'FOCUS ARRIVAGE'}</h2>
           <div className="flex flex-col md:flex-row gap-4 mt-10">
@@ -154,13 +102,7 @@ export default function Focus() {
             }
           </div>
         </section>
-
-      
       <aside className="relative top-0 lg:-top-36 lg:w-[30%]">
-      {/* <aside className="absolute z-10 left-1/2 -translate-x-1/2 lg:right-[6%] -top-32 w-[90%] lg:w-[30%]"> */}
-            {/* <div className="absolute right-0 lg:-top-5 lg:-translate-y-32"> */}
-              
-            {/* </div> */}
         <YourCalendar />
       </aside>
       </Container>
@@ -186,10 +128,6 @@ function YourCalendar() {
           <Meteo data={dataMeteo} />
         </div>
       </div>
-      
-     
-    
-
     </div>
   );
 }
@@ -315,3 +253,5 @@ function MeteoLoading(){
   </div>
   )
 }
+
+

@@ -1,5 +1,5 @@
 "use client";
- {/*
+{/*
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -82,7 +82,7 @@ export default function ContactForm() {
             className="w-full p-3 border rounded-lg h-32 resize-none focus:ring-2 focus:ring-gray-500"
           />
 
-          {/* Bouton ENVOYER aligné à droite 
+          {/* Bouton ENVOYER aligné à droite  
           <div className="w-full flex justify-end">
             <button
               type="submit"
@@ -248,7 +248,7 @@ export default function ContactForm() {
 */}
 
 
-
+ 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import dynamic from "next/dynamic";
@@ -316,7 +316,7 @@ export default function ContactForm() {
           {message && <p className="text-center text-gray-600 mt-4">{message}</p>}
         </form>
 
-        {/* 📌 Carte OpenStreetMap */}
+        {/* 📌 Carte OpenStreetMap  */}
         <div className="flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
           <MapComponent />
         </div>
@@ -324,6 +324,7 @@ export default function ContactForm() {
     </div>
   );
 }
+
 
 
 
