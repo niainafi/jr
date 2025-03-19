@@ -1,21 +1,21 @@
 "use client";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
-
+import Link from "next/link";
 const socialMedias = [
   {
     name: "Facebook",
     icon: (
       <FaFacebook size={20} className="hover:text-gray-300 cursor-pointer" />
     ),
-    url: "https://www.facebook.com/justrent.fr",
+    url: "https://www.facebook.com/profile.php?id=61558253842790",
   },
   {
     name: "Instagram",
     icon: (
       <FaInstagram size={20} className="hover:text-gray-300 cursor-pointer" />
     ),
-    url: "https://www.instagram.com/justrent.fr/",
+    url: "https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2F_u%2Fjustrentmada%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR1EnRDOPbyA6jqZi20tNeGrCCwapcjLpECfslPoFCSJVvBfknXtsiJcu-Y_aem_7vuR6iVp3sdRymS9o6jOfA&h=AT2aacOFBx1jAQV_seKNixi5t-dF2_rj8kgtOGVkWkcx14n6Z8-UGqMNRIJuwKgIo-KIEReUlKBaqVQMsv_f7yqlei2u1IO_V6l2ObjYB_BhbJ4bj5UYZRt60hsrjSJF8Wwc7eX37A7uie-S",
   },
   {
     name: "LinkedIn",
@@ -29,7 +29,7 @@ const socialMedias = [
     icon: (
       <FaYoutube size={20} className="hover:text-gray-300 cursor-pointer" />
     ),
-    url: "https://www.youtube.com/@justrent.fr",
+    url: "https://www.youtube.com/@justridemada",
   },
 ];
 export default function Footer() {
@@ -39,16 +39,28 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-10 items-start lg:items-center justify-between gap-10 md:gap-8 ml-5 sm:ml-10">
           {/* Colonne gauche */}
           <ul className="flex flex-col font-sans text-base font-normal footer-list ml-10 lg:ml-0 w-full">
-            <li className="hover:text-gray-700 cursor-pointer">Actualités</li>
-            <li className="hover:text-gray-700 cursor-pointer">Événements</li>
-            <li className="hover:text-gray-700 cursor-pointer">Boutique</li>
+            <li className="hover:text-gray-700 cursor-pointer">
+              <Link href="/actualites">Actualités</Link>
+            </li>
+            <li className="hover:text-gray-700 cursor-pointer">
+              <Link href="/evenement">Événements</Link>
+            </li>
+            <li className="hover:text-gray-700 cursor-pointer">
+              <Link href="/boutique">Boutique</Link>
+            </li>
           </ul>
 
           {/* Colonne centrale */}
           <ul className="flex flex-col font-sans text-base font-normal footer-list w-full">
-            <li className="hover:text-gray-700 cursor-pointer">Just Rent</li>
-            <li className="hover:text-gray-700 cursor-pointer">Membre</li>
-            <li className="hover:text-gray-700 cursor-pointer">Contact</li>
+            <li className="hover:text-gray-700 cursor-pointer">
+              <Link href="/just-rent">Just Rent</Link>
+            </li>
+            <li className="hover:text-gray-700 cursor-pointer">
+              <Link href="/cashback">Cash-Back</Link>
+            </li>
+            <li className="hover:text-gray-700 cursor-pointer">
+              <Link href="/contactez-nous">Contact</Link>
+            </li> 
           </ul>
 
           {/* Réseaux sociaux */}
