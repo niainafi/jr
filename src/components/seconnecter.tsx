@@ -120,7 +120,7 @@ export default function Seconnecter() {
         </div>
       </div>
       
-      {/* Right Section - Login Form (Always Visible) */}
+      {/* Login Form  */}
       <div className="md:w-[35%] w-full relative flex items-center justify-center p-6 md:p-8 overflow-hidden rounded-[30px] h-[65vh] md:h-[70vh] bg-transparent">
         <Image 
           src="/images/cash back/back cashback.png" 

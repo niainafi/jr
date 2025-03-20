@@ -246,9 +246,6 @@ export default function ContactForm() {
   );
 }
 */}
-
-
- 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import dynamic from "next/dynamic";
