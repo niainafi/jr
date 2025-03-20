@@ -9,6 +9,7 @@
     --color-accent: #c09606;
     --color-bg: rgb(255, 255, 255);
     --color-text: #181718;
+    --color-accent1: #f7d461;
   }
   :root {
     --font-roboto: "Roboto", sans-serif;

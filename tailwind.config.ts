@@ -28,8 +28,11 @@ export default {
   			},
   			accent: {
   				DEFAULT: 'var(--color-accent)',
-  				foreground: 'hsl(var(--accent-foreground))'
+  				foreground: 'hsl(var(--color-accent1))'
   			},
+			accent1:{
+				DEFAULT: 'var(--color-accent1)',
+			},
   			text: 'var(--color-text)',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
