@@ -145,12 +145,29 @@ import axios from "axios";
 import Image from "next/image";
 import clsx from "clsx";
 
+type CardImageProps = {
+    selectedImage?: string;
+    product : Product
+}
+
+type Product = {
+    _id: string;
+    name: string;
+    imageUrl: string;
+    category: string;
+    price: number;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+};
+
 export default function MenuPtiBoutique() {
   const [categories, setCategories] = useState<any[]>([]);
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState<null | string>(null);
   const [loadingCategories, setLoadingCategories] = useState(true);
-  const [loadingProducts, setLoadingProducts] = useState(false);
+  const [loadingProducts, setLoadingProducts] = useState(true);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
@@ -158,7 +175,9 @@ export default function MenuPtiBoutique() {
   const API_URL = "https://justride.up.railway.app/api/category-product";
   const PRODUCT_URL = "https://justride.up.railway.app/api/product/category";
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(null); // État pour l'image sélectionnée
+
+
+  // État pour l'image sélectionnée
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -211,9 +230,7 @@ export default function MenuPtiBoutique() {
     }
   };
 
-  const handleImageClick = (imageUrl: string) => {
-    setSelectedImage(imageUrl); // Met à jour l'image sélectionnée
-  };
+ 
 
   return (
     <section className="mt-5 px-4 sm:px-6 md:px-10 lg:px-24 mb-32">
@@ -247,54 +264,13 @@ export default function MenuPtiBoutique() {
       {!loadingProducts && (
         <div className="flex justify-center items-start min-h-screen mt-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-12 w-full max-w-screen-xl">
-            {currentProducts.length > 0 ? (
+            {currentProducts.length > 0 && (
               currentProducts.map((product : any, index: number) => (
-                <div key={product.id || `product-${index}`} className="flex flex-col items-start">
-                  <div className="relative w-[300px]">
-                    {/* Affichage de l'image principale du produit */}
-                    <Image
-                      src={selectedImage || product.imageUrl} // Si aucune image sélectionnée, affiche l'image du produit
-                      alt={product.name}
-                      width={300}
-                      height={product.category === "Pantalon" ? 500 : 300}
-                      className="w-auto h-auto"
-                      priority
-                    />
-                    <div className="w-12 h-1 mt-4 bg-accent ml-20"></div>
-                  </div>
-                  <h2 className="text-lg font-bold pl-20 mt-3">{product.name}</h2>
-
-                  {/* Petites images sous chaque produit */}
-                  <div className="flex justify-between mt-4">
-                    <Image
-                      src="/images/boutique/casque17.png"
-                      alt="Casque 17"
-                      width={50}
-                      height={50}
-                      className="rounded cursor-pointer"
-                      onClick={() => handleImageClick("/images/boutique/casque17.png")} // Sélectionne cette image en grand
-                    />
-                    <Image
-                      src="/images/boutique/casque12.png"
-                      alt="Casque 12"
-                      width={50}
-                      height={50}
-                      className="rounded cursor-pointer"
-                      onClick={() => handleImageClick("/images/boutique/casque12.png")} // Sélectionne cette image en grand
-                    />
-                    <Image
-                      src="/images/boutique/casque11.png"
-                      alt="Casque 11"
-                      width={50}
-                      height={50}
-                      className="rounded cursor-pointer"
-                      onClick={() => handleImageClick("/images/boutique/casque11.png")} // Sélectionne cette image en grand
-                    />
-                  </div>
-                </div>
+                <CardImage key={index} product={product} />
               ))
-            ) : (
-              <p className="text-gray-500 col-span-full text-center">Aucun produit disponible</p>
+            )}
+            {currentProducts.length === 0 && (
+              <p className="text-gray-500 text-center mt-6">Aucun produit trouvé pour cette catégorie.</p>
             )}
           </div>
         </div>
@@ -309,5 +285,62 @@ export default function MenuPtiBoutique() {
         </div>
       )}
     </section>
+  );
+}
+
+
+function CardImage({ product }: CardImageProps) {
+  const [selectedImage, setSelectedImage] = useState<string>(product.imageUrl); 
+  const [images, setImages] = useState<string[]>(['/images/boutique/casque17.png','/images/boutique/casque12.png','/images/boutique/casque11.png']);
+
+  useEffect(() => {
+    if (product.imageUrl) {
+      setSelectedImage(product.imageUrl);
+    }
+  },[product.imageUrl]);
+  const handleImageClick = (imageUrl: string,curentSelectedImageUrl: string) => {
+    setSelectedImage(imageUrl); 
+    setImages(prev => {
+      const newImages = [...prev];
+      const index = newImages.indexOf(imageUrl);
+      newImages[index] = curentSelectedImageUrl;
+      return newImages;
+    });
+  };
+  return (
+    <div className="flex flex-col items-start">
+      <div className="relative w-[300px]">
+        {/* Affichage de l'image principale du produit */}
+        <Image
+          src={selectedImage} 
+          alt={product.name}
+          width={300}
+          height={product.category === "Pantalon" ? 500 : 300}
+          className="w-auto h-auto object-contain"
+          priority
+        />
+        <div className="w-12 h-1 mt-4 bg-accent ml-20"></div>
+      </div>
+      <h2 className="text-lg font-bold pl-20 mt-3 text-nowrap">{product.name}</h2>
+
+      {/* Petites images sous chaque produit */}
+      <div className="flex justify-between mt-4">
+        {
+          images.map(img => (
+            <div key={img} className="w-1/4">
+              <Image
+                src={img}
+                alt={product.name}
+                width={100}
+                height={100}
+                className="w-full h-auto cursor-pointer"
+                onClick={() => handleImageClick(img,selectedImage)}
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
   );
 }

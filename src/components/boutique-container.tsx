@@ -29,18 +29,22 @@ export default function BoutiqueContainer() {
                     <CardPub key={index} data={data} />
                 ))}
             </div>
-            <div className='col-span-3 flex flex-col gap-5'>
+            <div className='col-span-3 flex flex-col gap-1'>
+                <div className='flex flex-col gap-2'>
                 <Boutiques />
-                <Link href={'/boutique'} className="bg-accent ml-auto text-black font-bold rounded-r-full pl-2 h-5 flex items-center space-x-2">
+                <Link href={'/boutique'} className="bg-accent ml-auto text-black font-bold rounded-r-full pl-2 h-5 flex items-center space-x-2 w-auto">
                     <span className='text-nowrap'>Voir plus</span>
                     <span className="text-xl">&raquo;&raquo;&raquo;</span>
                 </Link>
+                </div>
                 {/* <Logos /> */}
+                <div className='flex flex-col gap-2'>
                 <Occasion />
                 <Link href={'/occasions'} className="bg-accent ml-auto text-black font-bold rounded-r-full pl-2 h-5 flex items-center space-x-2">
                     <span className='text-nowrap'>Voir plus</span>
                     <span className="text-xl">&raquo;&raquo;&raquo;</span>
                 </Link>
+                </div>
             </div>
         </div>
     </Container>
