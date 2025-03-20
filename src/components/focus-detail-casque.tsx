@@ -448,11 +448,9 @@ export default function FocusDetailCasque() {
              </span>
            </h2>
  
-           <div className="">
+           <div className="space-y-6">
              <p className="text-gray-600">
-               {`Les motards recherchent toujours le meilleur en matière de sécurité et de confort. 
-               Aujourd'hui, Just Ride vous propose le casque Bell Lithium MIPS. Mais avant tout, 
-               c'est quoi le MIPS ?`}
+               Les motards recherchent toujours le meilleur en matière de sécurité et de confort. Aujourd’hui, Just Ride vous propose le casque Bell Lithium MIPS. Mais avant tout, c’est quoi le MIPS ?
              </p>
  
              <div className="bg-gray-50 p-6 rounded-xl">
@@ -460,32 +458,23 @@ export default function FocusDetailCasque() {
                  Le MIPS, ou Système de Protection Multi-directionnelle :
                </p>
                <p className="text-gray-600">
-                 {`Une technologie qui réduit les forces de rotation en cas d'impact oblique, 
-                 offrant une protection supplémentaire à la tête.`}
+                 Une technologie qui réduit les forces de rotation en cas d’impact oblique, offrant une protection supplémentaire à la tête.
                </p>
              </div>
  
              <h3 className="text-2xl font-bold">Bell Lithium MIPS : La Référence</h3>
              <p className="text-gray-600">
-               {`Le Bell Lithium MIPS combine sécurité et confort. Avec son design soigné, 
-               il intègre le MIPS pour réduire les risques de lésions en cas de choc.`}
+               Le Bell Lithium MIPS combine sécurité et confort. Avec son design soigné, il intègre le MIPS pour réduire les risques de lésions en cas de choc.
              </p>
  
              <h3 className="text-2xl font-bold">Confort et Ventilation</h3>
              <p className="text-gray-600">
-               {`Ce casque ne se contente pas d'être sécuritaire. Il offre aussi un confort optimal 
-               grâce à une bonne ventilation, idéale pour les trajets longs ou sous chaleur.`}
+               Ce casque ne se contente pas d’être sécuritaire. Il offre aussi un confort optimal grâce à une bonne ventilation, idéale pour les trajets longs ou sous chaleur.
              </p>
  
-             <div className="p-6">
-               <p className="font-bold text-lg">
-                 {`Prêt à rouler en toute confiance ?`}<br />
-                 {`Le Bell Lithium MIPS est là pour toi`}<br />
-                 <span className="">
-                   {`Il t'attend en Boutique`}
-                 </span>
-               </p>
-             </div>
+             <p className="text-gray-600">
+               Le Bell Lithium MIPS est un excellent choix pour allier sécurité et confort sans compromis. Prêt à rouler en toute confiance ? Le Bell Lithium MIPS est là pour toi, il t’attend en Boutique.
+             </p>
            </div>
          </div>
  
