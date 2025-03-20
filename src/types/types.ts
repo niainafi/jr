@@ -23,3 +23,12 @@ export type CaracteristiqueType = {
     imagesDetails: ImageDetail[];
     unitAvailable: number;
   }
+
+
+  export type User = {
+    id:string;
+    username: string;
+    email: string;
+    role: string;
+    carte:string;
+  }
