@@ -8,6 +8,7 @@ import { useState } from "react";
 import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useUserStore } from "@/store/user";
+// import { redirect } from "next/navigation";
 
 const slides = [
   {
@@ -51,7 +52,7 @@ type FormData = z.infer<typeof schema>;
 
 export default function Seconnecter() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const {setUser} = useUserStore();
+  // const {setUser} = useUserStore();
 
   const {
     register,
@@ -67,9 +68,10 @@ export default function Seconnecter() {
       
      const res  = await axios.post('https://justride.up.railway.app/api/auth/login',data) 
      if(res.status === 200){
-      setUser(res.data.user)
+      // setUser(res.data.user)
       if(typeof window !== 'undefined') {
         localStorage.setItem('token', JSON.stringify(res.data.token));
+        window.location.href = '/profile'
       }
      }
     } catch (error) {
