@@ -22,10 +22,11 @@ export const useUserStore = create<UserStore>((set) => ({
               },
             }
           );
-          console.log("getMe ::", response.data);
-          const data = response.data;
-          set({ user: data });
-          return data;
+          if(response.status === 200) {
+            const data = response.data;
+            set({ user: data });
+            return data;
+          }
         }
       }
     } catch (error) {
