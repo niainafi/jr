@@ -452,7 +452,7 @@ function ListEvent() {
           <li key={index} className="flex justify-center items-center text-black">
             <span className="text-xs mr-1">{event.date}:</span>
             <span className="font-bold text-sm px-2"> {event.title}</span>
-            <a href="#" className="text-gray-500 text-xs hover:text-black transition">
+            <a href="/just-rent" className="text-gray-500 text-xs hover:text-black transition">
               Voir la suite &raquo;&raquo;&raquo;
             </a>
           </li>
