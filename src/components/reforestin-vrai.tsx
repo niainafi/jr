@@ -113,80 +113,80 @@ export default function ReforestinEventVrai() {
       </Swiper>
 
       {/* Deuxième Carousel */}
-      <Swiper
-        navigation={{
-          nextEl: ".swiper-button-next2",
-          prevEl: ".swiper-button-prev2",
-        }}
-        modules={[Navigation]}
-        className="relative mt-12"
-      >
-        {events.map((event, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-accent relative px-5 h-auto lg:h-[120px] xl:h-[180px] 2xl:h-[300px] flex lg:flex-row-reverse flex-col">
-              {/* Section Image */}
-              <div className="relative w-full lg:w-[35%] flex justify-center min-h-full">
+        <Swiper
+  navigation={{
+    nextEl: ".swiper-button-next2",
+    prevEl: ".swiper-button-prev2",
+  }}
+  modules={[Navigation]}
+  className="relative mt-12"
+>
+  {events.map((event, index) => (
+    <SwiperSlide key={index}>
+      <div className="bg-accent relative px-5 h-auto lg:h-[120px] xl:h-[180px] 2xl:h-[300px] flex flex-col lg:flex-row-reverse">
+        {/* Section Image */}
+        <div className="relative w-full lg:w-[35%] flex justify-center min-h-full">
+          <Image
+            src={event.image}
+            alt={event.title}
+            width={500}
+            height={350}
+            className="w-full h-full object-cover lg:object-contain"
+          />
+        </div>
+        {/* Section Texte */}
+        <div className="text-white py-4 lg:mr-5 flex flex-col items-start text-center md:text-left w-full lg:w-[63%] min-h-full lg:justify-between ml-0 lg:ml-[2cm]">
+          <div className="flex flex-col w-full items-start">
+            <p className="text-xs uppercase font-bold pb-1 inline-block">
+              {event.date}
+            </p>
+            <span className="border-2 bg-white h-1 max-w-[130px] w-full" />
+          </div>
+          <h2 className="text-xl text-start md:text-xl font-bold my-5">
+            {event.title}
+          </h2>
+          <p className="text-lg mt-2 max-w-2xl text-start leading-6">
+            {event.description}
+          </p>
+          {/* Boutons */}
+          <div className="mt-4 flex flex-col md:flex-row md:space-x-4 justify-start md:space-y-0 w-full">
+            <Link
+              href="/contactez-nous"
+              className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-4 py-2"
+            >
+              INSCRIVEZ-VOUS
+            </Link>
+            <Link
+              href="/just-rent"
+              className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-4 py-2"
+            >
+              <span>LOUEZ VOTRE</span>
+              <span className="font-extrabold mb-[2px]">
                 <Image
-                  src={event.image}
-                  alt={event.title}
-                  width={500}
-                  height={350}
-                  className="w-full h-full object-cover lg:object-contain"
+                  height={35}
+                  width={110}
+                  src={"/images/logo/royal-enfield.webp"}
+                  alt="just ride moto royal enfield"
+                  objectFit="contain"
+                  loading="lazy"
                 />
-              </div>
-              {/* Section Texte */}
-              <div className="text-white py-4 lg:mr-5 flex flex-col items-start md:items-start text-center md:text-left w-full lg:w-[73%] min-h-full lg:justify-between ml-[2cm]">
-                <div className="">
-                  <div className="flex flex-col w-full items-start">
-                    <p className="text-xs uppercase font-bold pb-1 inline-block">
-                      {event.date}
-                    </p>
-                    <span className="border-2 bg-white h-1 max-w-[130px] w-full" />
-                  </div>
-                  <h2 className="text-xl text-start md:text-xl font-bold my-5">
-                    {event.title}
-                  </h2>
-                  <p className="text-lg mt-2 max-w-2xl text-start leading-6">
-                    {event.description}
-                  </p>
-                </div>
-                {/* Boutons */}
-                <div className="mt-4 flex flex-col md:flex-row justify- space-y-3 md:space-y-0 md:space-x-4 w-full">
-                  <Link
-                    href="/contactez-nous"
-                    className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-1"
-                  >
-                    INSCRIVEZ-VOUS
-                  </Link>
-                  <Link
-                    href="/just-rent"
-                    className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
-                  >
-                    <span>LOUEZ VOTRE</span>
-                    <span className="font-extrabold mb-[2px]">
-                      <Image
-                        height={35}
-                        width={110}
-                        src={"/images/logo/royal-enfield.webp"}
-                        alt="just ride moto royal enfield"
-                        objectFit="contain"
-                        loading="lazy"
-                      />
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-        {/* Flèches de navigation blanches sans rond */}
-        <div className="swiper-button-prev2 text-white absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-2">
-          <FaChevronLeft size={30} />
+              </span>
+            </Link>
+          </div>
         </div>
-        <div className="swiper-button-next2 text-white absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-2">
-          <FaChevronRight size={30} />
-        </div>
-      </Swiper>
+      </div>
+    </SwiperSlide>
+  ))}
+  {/* Flèches de navigation blanches sans rond */}
+  <div className="swiper-button-prev2 text-white absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-2">
+    <FaChevronLeft size={30} />
+  </div>
+  <div className="swiper-button-next2 text-white absolute right-0 top-1/2 transform -translate-y-1/2 z-10 p-2">
+    <FaChevronRight size={30} />
+  </div>
+</Swiper>
+
+
     </Container>
   );
 }
