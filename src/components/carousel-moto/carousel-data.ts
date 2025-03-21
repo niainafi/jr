@@ -14,7 +14,7 @@ export const data : Moto[] = [
           src: "/images/just-rent/classic-500-logo.png",
         }
       ],
-      subtitle: `l'aventure sans limite a Madagascar`,
+      subtitle: `L'aventure sans limite à Madagascar`,
       description: `Taillée pour l'exploration, la Himalayan 450 est la moto idéale pour affronter les routes variées de Madagascar.
       Que ce soit sur les sentiers accidentés des Hautes Terres, les pistes sablonneuses du littoral ou les routes sinueuses des forêts tropicales, cette aventurière robuste offre un parfait équilibre entre puissance, confort et maniabilité.
       Son moteur fiable de 450cc, sa suspension adaptée aux terrains difficiles et son autonomie impressionnante en font la compagne idéale pour les baroudeurs et amateurs de sensations fortes.`,
@@ -67,7 +67,7 @@ export const data : Moto[] = [
           src: "/images/just-rent/logo-just-rent.png",
         }
       ],
-      subtitle: `l'aventure sans limite a Madagascar`,
+      subtitle: `L'aventure sans limite à Madagascar`,
       description: `Taillée pour l'exploration, la Himalayan 450 est la moto idéale pour affronter les routes variées de Madagascar.
       Que ce soit sur les sentiers accidentés des Hautes Terres, les pistes sablonneuses du littoral ou les routes sinueuses des forêts tropicales, cette aventurière robuste offre un parfait équilibre entre puissance, confort et maniabilité.
       Son moteur fiable de 450cc, sa suspension adaptée aux terrains difficiles et son autonomie impressionnante en font la compagne idéale pour les baroudeurs et amateurs de sensations fortes.`,
@@ -120,7 +120,7 @@ export const data : Moto[] = [
           src: "/images/just-rent/logo-just-rent.png",
         }
       ],
-      subtitle: `l'aventure sans limite a Madagascar`,
+      subtitle: `L'aventure sans limite à Madagascar`,
       description: `Taillée pour l'exploration, la Himalayan 450 est la moto idéale pour affronter les routes variées de Madagascar.
       Que ce soit sur les sentiers accidentés des Hautes Terres, les pistes sablonneuses du littoral ou les routes sinueuses des forêts tropicales, cette aventurière robuste offre un parfait équilibre entre puissance, confort et maniabilité.
       Son moteur fiable de 450cc, sa suspension adaptée aux terrains difficiles et son autonomie impressionnante en font la compagne idéale pour les baroudeurs et amateurs de sensations fortes.`,

@@ -1,5 +1,5 @@
  "use client";
-{/* 
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
@@ -133,7 +133,7 @@ export default function MenuPtiBoutique() {
         </div>
       )}
 
-      {/* Pagination 
+      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-6 space-x-4">
           <button onClick={prevPage} disabled={currentPage === 1} className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50">Précédent</button>
@@ -167,7 +167,7 @@ function CardImage({ product }: CardImageProps) {
   return (
     <div className="flex flex-col items-start">
       <div className="relative w-[300px]">
-        {/* Affichage de l'image principale du produit 
+        {/* Affichage de l'image principale du produit */}
         <Image
           src={selectedImage} 
           alt={product.name}
@@ -180,29 +180,14 @@ function CardImage({ product }: CardImageProps) {
       </div>
       <h2 className="text-lg font-bold pl-20 mt-3 text-nowrap">{product.name}</h2>
 
-      {/* Petites images sous chaque produit 
-      <div className="flex justify-between mt-4">
-        {
-          images.map(img => (
-            <div key={img} className="w-1/4">
-              <Image
-                src={img}
-                alt={product.name}
-                width={100}
-                height={100}
-                className="w-full h-auto cursor-pointer"
-                onClick={() => handleImageClick(img,selectedImage)}
-                loading="lazy"
-              />
-            </div>
-          ))
-        }
-      </div>
+      
     </div>
   );
 }
-  */}
+ 
   
+
+    {/* mety tsisy devis
   import React, { useState, useEffect } from "react";
   import axios from "axios";
   import Image from "next/image";
@@ -333,7 +318,7 @@ function CardImage({ product }: CardImageProps) {
           </div>
         )}
   
-        {/* Pagination */}
+        {/* Pagination 
         {totalPages > 1 && (
           <div className="flex justify-center mt-6 space-x-4">
             <button onClick={prevPage} disabled={currentPage === 1} className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50">Précédent</button>
@@ -368,7 +353,7 @@ function CardImage({ product }: CardImageProps) {
     return (
       <div className="border border-gray-300 rounded-lg p-4 flex flex-col items-center">
         <div className="relative w-[300px]">
-          {/* Affichage de l'image principale du produit avec bordure fine */}
+          {/* Affichage de l'image principale du produit avec bordure fine 
           <Image
             src={selectedImage} 
             alt={product.name}
@@ -377,18 +362,18 @@ function CardImage({ product }: CardImageProps) {
             className="w-auto h-auto object-contain"
             priority
           />
-          {/* Titre sous l'image*/} 
+          {/* Titre sous l'image 
           <div className="mt-2 text-center">
             <h2 className="text-lg font-bold">{product.name}</h2>
             <div className="w-12 h-1 mt-2 mx-auto bg-accent"></div>
           </div>
         </div>
   
-        {/* Petites images sous chaque produit, ajustées à 1/2 de la taille */}
+        {/* Petites images sous chaque produit, ajustées à 1/2 de la taille 
         <div className="flex justify-between mt-4 space-x-2">
           {
             images.map(img => (
-              <div key={img} className="w-1/3"> {/* Modifier la taille à 1/3 pour trois petites images */}
+              <div key={img} className="w-1/3"> {/* Modifier la taille à 1/3 pour trois petites images 
                 <Image
                   src={img}
                   alt={product.name}
@@ -399,13 +384,19 @@ function CardImage({ product }: CardImageProps) {
                   loading="lazy"
                 />
               </div>
+              
             ))
           }
         </div>
+        
       </div>
     );
   }
-  
+  */}
+
+
+
+
   {/* 
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
@@ -643,3 +634,4 @@ function CardImage({ product, handleRequestQuote }: CardImageProps & { handleReq
 }
 
 */}
+
