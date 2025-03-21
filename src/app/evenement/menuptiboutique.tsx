@@ -1,5 +1,5 @@
  "use client";
-{/* 
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
@@ -133,7 +133,7 @@ export default function MenuPtiBoutique() {
         </div>
       )}
 
-      {/* Pagination 
+      {/* Pagination*/} 
       {totalPages > 1 && (
         <div className="flex justify-center mt-6 space-x-4">
           <button onClick={prevPage} disabled={currentPage === 1} className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50">Précédent</button>
@@ -167,7 +167,7 @@ function CardImage({ product }: CardImageProps) {
   return (
     <div className="flex flex-col items-start">
       <div className="relative w-[300px]">
-        {/* Affichage de l'image principale du produit 
+        {/* Affichage de l'image principale du produit */}
         <Image
           src={selectedImage} 
           alt={product.name}
@@ -180,7 +180,7 @@ function CardImage({ product }: CardImageProps) {
       </div>
       <h2 className="text-lg font-bold pl-20 mt-3 text-nowrap">{product.name}</h2>
 
-      {/* Petites images sous chaque produit 
+      {/* Petites images sous chaque produit */}
       <div className="flex justify-between mt-4">
         {
           images.map(img => (
@@ -201,7 +201,8 @@ function CardImage({ product }: CardImageProps) {
     </div>
   );
 }
-  */}
+ 
+
   {/* 
   import React, { useState, useEffect } from "react";
   import axios from "axios";
@@ -406,8 +407,8 @@ function CardImage({ product }: CardImageProps) {
     );
   }
   */}
-  
-  import React, { useState, useEffect, useRef } from "react";
+  {/*
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Image from "next/image";
 import clsx from "clsx";
@@ -578,13 +579,13 @@ export default function MenuPtiBoutique() {
         </div>
       )}
 
-      {/* ✅ Modal de demande de devis */}
+      {/* ✅ Modal de demande de devis 
       {showRequestForm && selectedProduct && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-md shadow-lg w-[90%] max-w-md">
             <h3 className="text-xl font-bold mb-4">Demander un devis pour {selectedProduct.name}</h3>
             <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 justify-between">
-              {/* Formulaire */}
+              {/* Formulaire 
               <form ref={formRef} onSubmit={handleFormSubmit} className="flex-1 space-y-4">
                 <input type="text" name="from_name" placeholder="Votre nom" required className="w-full p-3 border rounded-lg" />
                 <input type="email" name="from_email" placeholder="Votre email" required className="w-full p-3 border rounded-lg" />
@@ -623,7 +624,7 @@ function CardImage({ product, handleRequestQuote }: CardImageProps & { handleReq
       </div>
       <h3 className="font-semibold text-xl my-2">{product.name}</h3>
 
-      {/* Affichage des 3 petites images */}
+      {/* Affichage des 3 petites images 
       <div className="flex justify-center space-x-4 mt-4">
         {images.map((image, index) => (
           <div key={index} className="w-16 h-16 rounded-lg overflow-hidden cursor-pointer">
@@ -640,5 +641,5 @@ function CardImage({ product, handleRequestQuote }: CardImageProps & { handleReq
       </button>
     </div>
   );
-}
+}*/}
 
