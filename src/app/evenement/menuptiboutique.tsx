@@ -167,14 +167,16 @@ function CardImage({ product }: CardImageProps) {
   return (
     <div className="flex flex-col items-start">
       <div className="relative w-[300px]">
-        {/* Affichage de l'image principale du produit */}
+        {/* Affichage de l'image principale du produit product.category === "Blouson" ? 500 : */}
         <Image
           src={selectedImage} 
           alt={product.name}
           width={300}
-          height={product.category === "Pantalon" ? 500 : 300}
-          className="w-auto h-auto object-contain"
+          height={300} 
+          className="w-[350px] h-[300px] object-contain"
+          
           priority
+          
         />
         <div className="w-12 h-1 mt-4 bg-accent ml-20"></div>
       </div>
@@ -397,7 +399,7 @@ function CardImage({ product }: CardImageProps) {
 
 
 
-  {/* 
+  {/* tsy mety nefa misy devis
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Image from "next/image";
