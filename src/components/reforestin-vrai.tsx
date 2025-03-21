@@ -149,16 +149,16 @@ export default function ReforestinEventVrai() {
             {event.description}
           </p>
           {/* Boutons */}
-          <div className="mt-4 flex flex-col md:flex-row md:space-x-4 justify-start md:space-y-0 w-full">
+          <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
             <Link
               href="/contactez-nous"
-              className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-4 py-2"
+              className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-1"
             >
               INSCRIVEZ-VOUS
             </Link>
             <Link
               href="/just-rent"
-              className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-4 py-2"
+              className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
             >
               <span>LOUEZ VOTRE</span>
               <span className="font-extrabold mb-[2px]">
