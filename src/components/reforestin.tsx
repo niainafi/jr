@@ -374,7 +374,7 @@ export default function ReforestinEvent() {
       >
         {events.map((event, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-accent relative px-5 h-auto lg:h-[150px] xl:h-[220px] 2xl:h-[360px] flex lg:flex-row flex-col">
+            <div className="bg-accent relative px-5 h-auto lg:h-[150px] xl:h-[250px] 2xl:h-[360px] flex lg:flex-row flex-col">
               {/* Section Image */}
               <div className="relative w-full lg:w-[35%] flex justify-center min-h-full">
                 <Image
