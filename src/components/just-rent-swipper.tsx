@@ -54,7 +54,7 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
         modules={[
           EffectCoverflow, 
           Pagination, 
-          // Navigation
+          
         ]}
         className="swiper_container_jr"
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}

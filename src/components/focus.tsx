@@ -443,9 +443,6 @@ function YourCalendar() {
 function ListEvent() {
   const events = [
     { date: "05.01.25", title: "Rides Ampefy" },
-    { date: "05.01.25", title: "Rides Ampefy" },
-    { date: "05.01.25", title: "Rides Ampefy" },
-    { date: "05.01.25", title: "Rides Ampefy" },
   ];
 
   return (
@@ -456,7 +453,7 @@ function ListEvent() {
             <span className="text-xs mr-1">{event.date}:</span>
             <span className="font-bold text-sm px-2"> {event.title}</span>
             <a href="#" className="text-gray-500 text-xs hover:text-black transition">
-              Voir suite &raquo;&raquo;&raquo;
+              Voir la suite &raquo;&raquo;&raquo;
             </a>
           </li>
         ))}
