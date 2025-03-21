@@ -81,7 +81,7 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
                   className="text-white bg-accent mx-auto px-4 rounded-md uppercase text-xs lg:text-sm font-bold"
                   onClick={handleLouerClick}
                 >
-                  {'Louer-moi'}
+                  {'Louez-moi'}
                 </button> : null
               }
             </div>

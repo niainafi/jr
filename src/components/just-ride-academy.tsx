@@ -235,7 +235,7 @@ const justRideData = [
   {
     title: "Stage de conduite – Niveau Intermédiaire",
     description:
-      "Ce stage de 2 heures est destiné aux motocyclistes souhaitant perfectionner leur conduite sur route. L'objectif est de limiter les risques et de réduire les accidents en améliorant la maîtrise de la moto.",
+      "Ce stage de 2 heures est destiné aux motocyclistes souhaitant perfectionner leur conduite sur route. L'objectif est de limiter les risques et de réduire les accidents en améliorant la maîtrise de la moto.    Au programme : perfectionnement des gestes techniques, du freinage,des trajectoires, de la maniabilité,de la position de conduite et du regard.",
     image: "/images/just-ride/2_stage.jpg",
     link: "/evenement/stage-conduite-intermediaire",
     priceOnSeance: 300000,
@@ -244,7 +244,7 @@ const justRideData = [
   {
     title: "Stage de pilotage – Niveau Intermédiaire et Plus",
     description:
-      "Ce stage de 1h30 est conçu pour les motards ayant déjà un niveau intermédiaire ou plus et souhaitant apprendre les bases du pilotage sur circuit.",
+      "Ce stage de 1h30 est conçu pour les motards ayant déjà un niveau intermédiaire ou plus et souhaitant apprendre les bases du pilotage sur circuit. Au programme : apprendre à poser le genou, perfectionner vos trajectoires, comprendre les points de corde et les codes à respecter,  ainsi que les bases du pilotage sportif pour maîtriser vos motos sportives et roadsters.",
     image: "/images/just-ride/3_stage.jpg",
     link: "/evenement/stage-pilotage",
     priceOnSeance: 325000,
@@ -253,7 +253,7 @@ const justRideData = [
   {
     title: "Session Mini SM YCF – Niveau Intermédiaire et Plus",
     description:
-      "Cette session est idéale pour les motards de niveau intermédiaire et plus qui souhaitent s'amuser sur le circuit SRK tout en pilotant des mini SM YCF !",
+      "Cette session est idéale pour les motards de niveau intermédiaire et plus qui souhaitent s'amuser sur le circuit SRK tout en pilotant des mini SM YCF !Tenue obligatoire adaptée pour le circuit. Cette session est placée sous le signe du fun et de l'amusement , parfait pour passer un bon moment entre amis ou passionnés.Durée : 4*15min  ",
     image: "/images/just-ride/4_stage.jpg",
     link: "/evenement/session-mini-sm-ycf",
     priceOnSeance: 325000,

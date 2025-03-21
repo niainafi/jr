@@ -97,13 +97,13 @@ export const data : Moto[] = [
       imagesDetails: [
         
         {
-          src: "/images/just-rent/",
+          src: "/images/just-rent/himalayan1-411.jpg",
         },
         {
-          src: "/images/just-rent/",
+          src: "/images/just-rent/himalayan2-411.jpg",
         },
         {
-          src: "/images/just-rent/",
+          src: "/images/just-rent/himalayan3-411.jpg",
         },
       ],
       unitAvailable: 10
