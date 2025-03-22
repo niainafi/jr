@@ -162,9 +162,9 @@ function CardArticle({ article }: any) {
           <h3 className="text-lg">{article.title}</h3>
           <p className="text-sm mt-2 hidden group-hover:block">
             {truncateDescription(article.description)}
-            <Link href={`/actualites/${article._id}`} className="text-white-300 ml-2">
+            {/* <Link href={`/actualites/${article._id}`} className="text-white-300 ml-2">
               Lire la suite
-            </Link>
+            </Link> */}
           </p>
         </div>
       </div>
