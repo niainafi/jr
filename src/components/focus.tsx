@@ -342,12 +342,12 @@ const imageFocus = [
   {
     src: "/images/accueil/IMG-20250313-WA0017.webp",
     alt: "Image-focus",
-    href: "/focusdetailcasque",
+    href: "/focusdetailpantalon",
   },
   {
     src: "/images/accueil/IMG-20250313-WA0020.webp",
     alt: "Image-focus",
-    href: "/focusdetailcasque",
+    href: "/focusdetailblouson",
   },
   {
     src: "/images/accueil/IMG-20250313-WA0029.jpg",
