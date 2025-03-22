@@ -71,6 +71,9 @@
 body {
   font-family: var(--font-roboto), var(--font-geist-sans), sans-serif;
 }
+dd,dt{
+  display: inline;
+}
 .clip-path-triangle-left {
   clip-path: polygon(52% 0, 0 50%, 53% 100%);
 }
