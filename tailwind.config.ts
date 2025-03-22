@@ -10,6 +10,7 @@ export default {
   theme: {
   	extend: {
 		screens:{
+			'xs': '480px',
 			'8xl':"1920px"
 		},
 		maxWidth: {
