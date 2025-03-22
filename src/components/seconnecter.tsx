@@ -17,13 +17,13 @@ const slides = [
     content: (
       <>
         <p className="mt-12 text-base md:text-lg leading-relaxed">
-          Tu n’as pas encore ta carte de fidélité Cashback Just Ride ? C’est le moment de la récupérer ! Lors de ton prochain achat à la boutique Just Ride*, ta carte Cashback te sera remise et tu pourras commencer à accumuler des remises directement sur ton compte.
+          {`Tu n’as pas encore ta carte de fidélité Cashback Just Ride ? C’est le moment de la récupérer ! Lors de ton prochain achat à la boutique Just Ride*, ta carte Cashback te sera remise et tu pourras commencer à accumuler des remises directement sur ton compte.`}
         </p>
         <p className="mt-8 text-base md:text-lg leading-relaxed">
-          Déjà membre ? Connecte-toi avec ton login et ton mot de passe pour voir la somme que tu as déjà accumulée. Et ce n’est pas tout ! En tant que membre, tu bénéficies aussi d’avantages exclusifs : avant-premières, remises spéciales avec nos partenaires, promotions prolongées et accès VIP à nos événements !
+          {`Déjà membre ? Connecte-toi avec ton login et ton mot de passe pour voir la somme que tu as déjà accumulée. Et ce n’est pas tout ! En tant que membre, tu bénéficies aussi d’avantages exclusifs : avant-premières, remises spéciales avec nos partenaires, promotions prolongées et accès VIP à nos événements !`}
         </p>
         <p className="mt-8 text-base md:text-lg leading-relaxed font-bold">
-          Alors, qu'attends-tu ? Si tu n'as pas encore ta carte, viens vite à Just Ride et rejoins notre programme de fidélité !
+          {`Alors, qu'attends-tu ? Si tu n'as pas encore ta carte, viens vite à Just Ride et rejoins notre programme de fidélité !`}
         </p>
       </>
     ),
@@ -40,15 +40,15 @@ const slides = [
           <p className="font-bold">
           <span>1. Obtention et Validité de la Carte</span>
           </p>
-            La carte est disponible en <span className="font-bold">trois niveaux de remise : 5%, 7% et 10%.</span><br/>
-            Pour obtenir la carte <span className="font-bold">5%</span>, un premier achat d’un minimum de <span className="font-bold">300 000 ariary</span> en une seule fois est requis.<br/>
-            Pour obtenir la carte <span className="font-bold">7%</span>, un premier achat d’un minimum de <span className="font-bold">500 000 ariary</span> en une seule fois est requis.<br/>
+            {`La carte est disponible en`} <span className="font-bold">trois niveaux de remise : 5%, 7% et 10%.</span><br/>
+            Pour obtenir la carte <span className="font-bold">5%</span>,{` un premier achat d’un minimum de`} <span className="font-bold">300 000 ariary</span> en une seule fois est requis.<br/>
+            Pour obtenir la carte <span className="font-bold">7%</span>, {`un premier achat d’un minimum de `}<span className="font-bold">500 000 ariary</span> en une seule fois est requis.<br/>
             est requis.
-            Pour obtenir la carte <span className="font-bold">10%</span>, un premier achat d’un minimum de <span className="font-bold">1 000 000</span> ariary en une seule fois est requis.<br/>
-            La carte est <span className="font-bold">nominative</span>, valable<span className="font-bold"> uniquement pour l’année en cours</span> et ne peut être cédée à un tiers.
+            Pour obtenir la carte <span className="font-bold">10%</span>, {`un premier achat d’un minimum de`}<span className="font-bold">1 000 000</span> ariary en une seule fois est requis.<br/>
+            La carte est <span className="font-bold">nominative</span>, valable<span className="font-bold">{`uniquement pour l’année en cours`}</span> et ne peut être cédée à un tiers.
 
         </div>
-      </>
+      </> 
     ),
   },
   {
@@ -57,16 +57,16 @@ const slides = [
     content: (
       <>
         <p className="mt-12 text-base md:text-lg leading-relaxed">
-          La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :
+          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
         </p>
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
           <span>2. Évolution de la Carte</span>
           </p>
-           Il est possible d’<span className="font-bold">upgrader</span> sa carte en fonction du total des achats effectués sur l’année :
-           Pour passer de la carte<span className="font-bold"> 5% à 7%</span>, il faut atteindre un<span className="font-bold"> cumul d’achats d’au moins 1 500 000 ariary</span> sur l’année.
-           Pour passer de la carte <span className="font-bold">7% à 10%</span>, il faut atteindre un <span className="font-bold">cumul d’achats d’au moins 3 000 000 ariary</span> sur l’année.
-           L’upgrade est automatique dès que le seuil est atteint.
+           {`Il est possible d’`}<span className="font-bold">upgrader</span> {`sa carte en fonction du total des achats effectués sur l’année :`}
+           Pour passer de la carte<span className="font-bold"> 5% à 7%</span>, il faut atteindre un<span className="font-bold"> {`cumul d’achats d’au moins 1 500 000 ariary`}</span>{` sur l’année.`}
+           Pour passer de la carte <span className="font-bold">7% à 10%</span>, il faut atteindre un <span className="font-bold">{`cumul d’achats d’au moins 3 000 000 ariary`}</span>{` sur l’année.`}
+           {`L’upgrade est automatique dès que le seuil est atteint.`}
         </div>
       </>
     ),
@@ -77,7 +77,7 @@ const slides = [
     content: (
       <>
         <p className="mt-12 text-base md:text-lg leading-relaxed">
-          La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :
+          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
         </p>
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
@@ -103,7 +103,7 @@ const slides = [
     content: (
       <>
         <p className="mt-12 text-base md:text-lg leading-relaxed">
-          La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :
+          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
         </p>
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
@@ -112,8 +112,8 @@ const slides = [
           <p>À chaque achat, un pourcentage correspondant à votre carte est crédité sur votre compte cashback.</p>
           <p>Ce montant peut être utilisé comme<span className="font-bold"> réduction sur un prochain achat</span>, mais <span className="font-bold"> ne peut pas être cumulé avec une remise immédiate.</span></p>
           <p><span className="font-bold">Exemple</span> : Vous achetez une veste à <span className="font-bold">900 000 ariary</span> avec une carte <span className="font-bold">10% → </span>Vous recevez <span className="font-bold">90 000 ariary</span> en cashback.</p>
-          <p>Lors d’un achat ultérieur à <span className="font-bold">500 000 ariary</span>, si vous utilisez vos <span className="font-bold">90 000 ariary</span> de cashback, vous ne pourrez <span className="font-bold">pas bénéficier de la remise 10% sur cet achat.</span></p>
-          <p>Vous devez<span className="font-bold"> choisir entre cumuler du cashback ou l’utiliser.</span></p>
+          <p>{`Lors d’un achat ultérieur à`} <span className="font-bold">500 000 ariary</span>, si vous utilisez vos <span className="font-bold">90 000 ariary</span> de cashback, vous ne pourrez <span className="font-bold">pas bénéficier de la remise 10% sur cet achat.</span></p>
+          <p>Vous devez<span className="font-bold"> {`choisir entre cumuler du cashback ou l’utiliser.`}</span></p>
 
         </div>
       </>
@@ -125,7 +125,7 @@ const slides = [
     content: (
       <>
         <p className="mt-12 text-base md:text-lg leading-relaxed">
-          La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :
+          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
         </p>
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
