@@ -1,127 +1,227 @@
 "use client";
+
 import { useState } from "react";
- import Image from "next/image";
+import Image from "next/image";
+import Container from "./container";
+
+export default function FocusDetailCasque() {
+  const [mainImage, setMainImage] = useState<string>(
+    "/images/accueil/noir-mat-moto-1.webp"
+  );
+  const [images, setImages] = useState<string[]>([
+    '/images/accueil/noir-mat-moto-2.webp',
+    '/images/accueil/noir-mat-moto-4.webp',
+  ]);
+
+  const handleImageClick = (imageSrc: string,currentSelectedImageUrl: string) => {
+    setMainImage(imageSrc);
+    setImages(prev => {
+      const newImages = [...prev];
+      const index = newImages.indexOf(imageSrc);
+      newImages[index] = currentSelectedImageUrl;
+      return newImages;
+    });
+  };
  
- export default function FocusDetailBlouson() {
-   const [mainImage, setMainImage] = useState<string>("/images/accueil/noir-mat-moto-1.webp");
- 
-   const handleImageClick = (imageSrc: string) => {
-     setMainImage(imageSrc);
-   };
- 
-   return (
-     <div className="max-w-5xl mx-auto px-4 py-8">
-       {/* Section Principale */}
-       <div className="flex flex-col md:flex-row gap-8 mb-12">
-         {/* Colonne Gauche - Images*/}
-         <div className="md:w-1/2 space-y-6">
-           <div className="p-2">
-             <Image
-               src={mainImage} // Utilisation de mainImage
-               alt="Casque principal"
-               width={600}
-               height={600}
-               className="w-full h-full object-contain"
-             />
-           </div>
- 
-           <div className="grid grid-cols-2 gap-4">
-             {[2, 4].map((num) => (
-               <div key={num} className="p-2">
-                 <Image
-                   src={`/images/accueil/noir-mat-moto-${num}.webp`}
-                   alt={`Détails casque ${num}`}
-                   width={300}
-                   height={300}
-                   className="w-full h-auto cursor-pointer"
-                   onClick={() => handleImageClick(`/images/accueil/noir-mat-moto-${num}.webp`)} // Appel avec chaîne de caractères
-                 />
-               </div>
-             ))}
-           </div>
-         </div>
- 
-         {/* Colonne Droite - Texte */}
-         <div className="md:w-1/2 space-y-6">
-           <h1 className="text-4xl font-bold">RST Alpha 5 : Sécurité et Confort pour Tous les Motards</h1>
-           <h2 className="text-2xl font-semibold text-gray-700">
+
+  return (
+    <Container className="2xl:max-w-7xl mt-10 mb-10">
+      <div className="flex flex-col gap-5 mb-12 w-full lg:max-w-xl">
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">{`CASQUE BELL LITHIUM MIPS`}</h1>
+        <span className="w-[34%] h-2 bg-accent rounded-md"></span>
+      </div>
+      {/* Section Principale */}
+      <div className="flex flex-col md:flex-row gap-8 mb-12">
+        {/* Colonne Gauche - Images*/}
+        <div className="md:w-1/2 space-y-6">
+          <div className="p-2 w-[20rem] h-[20rem] lg:w-[30rem] lg:h-[30rem]">
+            <Image
+              src={mainImage} // Utilisation de mainImage
+              alt="Casque principal"
+              width={600}
+              height={600}
+              className="w-full h-full object-contain"
+            />
+          </div>
+
+          <div className="grid grid-cols-2">
+            {images.map((img,i) => (
+              <div key={i} className="p-2 w-[10rem] h-[10rem]">
+                <Image
+                  src={img}
+                  alt={`Détails casque ${i}`}
+                  width={300}
+                  height={300}
+                  className="w-full h-auto cursor-pointer"
+                  onClick={() =>
+                    handleImageClick(
+                      img,
+                      mainImage
+                    )
+                  } // Appel avec chaîne de caractères
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Colonne Droite - Texte */}
+        <div className="md:w-1/2 space-y-6 lg:mt-14">
+          {/* Nouveau texte structuré en paragraphes */}
+          <div className="text-gray-600">
+            <dl className="">
+              <div className="flex gap-1">
+                <dt className="font-bold">{`TYPE DE CASQUE :`}</dt>
+                <dd>{`Intégral`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold">{`VERNIS DE PROTECTION :`}</dt>
+                <dd>{`Mat`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold">{`FERMETURE :`}</dt>
+                <dd>{`Boucle double D`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold">{`COQUE :`}</dt>
+                <dd>{`Polycarbonate / AES`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold">{`TAILLES DE COQUES :`}</dt>
+                <dd>{`CALOTINS: MIPS®`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold block">{`ÉCRAN :`}</dt>
+                <div>
+                  <dd className="block">{`Incolore`}</dd>
+                  <dd className="block">{`Pinlock ready`}</dd>
+                  <dd className="block">{`Optique de classe 1`}</dd>
+                  <dd className="block">{`Démontage sans outil`}</dd>
+                </div>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold">{`SYSTÈME DE VENTILATION :`}</dt>
+                <dd>{`Réglable`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold">{`ÉCRAN SOLAIRE RÉTRACTABLE :`}</dt>
+                <dd>{`Fumé`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold block">{`INTÉRIEUR :`}</dt>
+                <div>
+                  <dd className="block">{`Démontable et lavable`}</dd>
+                  <dd className="block">{`Anti-bactérien ionici™`}</dd>
+                </div>
+              </div>
+
+              <div className="inline lg:flex gap-1">
+                <dt className="font-bold">{`ESPACE PRÉVU POUR LES ÉCOUTEURS DES INTERCOM : `}</dt>
+                <dd>{`Oui`}</dd>
+              </div>
+
+              <div className="flex gap-1">
+                <dt className="font-bold">{`HOMOLOGATION : `}</dt>
+                <dd>{`ECE 22 Ø6`}</dd>
+              </div>
+
+              <div className="inline gap-1">
+                <dt className="font-bold">{`ACCESSOIRES FOURNIS : `}</dt>
+                <dd>{`Écran anti-buée Pinlock Incolore`}</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      {/* Nouvelle section Texte + Pub */}
+      <div className="flex flex-col md:flex-row gap-10 items-start mb-16">
+        <div className="md:w-1/2 space-y-6">
+          <h2 className="text-2xl font-bold inline space-x-1">
+            <span>{`BELL LITHIUM MIPS`}</span>
+            <span>
+              {`Mais c'est quoi ce MIPS`} ?
+            </span>
+          </h2>
+
+          <div className="space-y-6">
+            <p>
+              {`Les motards recherchent toujours le meilleur en matière de
+              sécurité et de confort. Aujourd’hui, Just Ride vous propose le
+              casque Bell Lithium MIPS. Mais avant tout, c’est quoi le MIPS ?`}
+            </p>
+
             
-           </h2>
- 
-           {/* Nouveau texte structuré en paragraphes */}
-           <div className="space-y-4 text-gray-600">
-             <p>Quand on roule à moto, une bonne veste est essentielle pour allier protection et confort. La RST Alpha 5 est conçue pour offrir aux motards une sécurité optimale sans négliger le style et la praticité.</p>
-             
-           </div>
-         </div>
-       </div>
- 
-       {/* Nouvelle section Texte + Pub */}
-       <div className="flex flex-col md:flex-row gap-8 items-start mb-16">
-         <div className="md:w-2/3 space-y-6">
-           <h2 className="text-3xl font-bold">
-             BELL LITHIUM MIPS<br />
-             <span className="text-2xl font-normal">
-               {`Mais c'est quoi ce MIPS`} ?
-             </span>
-           </h2>
- 
-           <div className="space-y-6">
-             <p className="text-gray-600">
-               Les motards recherchent toujours le meilleur en matière de sécurité et de confort. Aujourd’hui, Just Ride vous propose le casque Bell Lithium MIPS. Mais avant tout, c’est quoi le MIPS ?
-             </p>
- 
-             <div className="bg-gray-50 p-6 rounded-xl">
-               <p className="font-semibold text-lg mb-2">
-                 Le MIPS, ou Système de Protection Multi-directionnelle :
-               </p>
-               <p className="text-gray-600">
-                 Une technologie qui réduit les forces de rotation en cas d’impact oblique, offrant une protection supplémentaire à la tête.
-               </p>
-             </div>
- 
-             <h3 className="text-2xl font-bold">Bell Lithium MIPS : La Référence</h3>
-             <p className="text-gray-600">
-               Le Bell Lithium MIPS combine sécurité et confort. Avec son design soigné, il intègre le MIPS pour réduire les risques de lésions en cas de choc.
-             </p>
- 
-             <h3 className="text-2xl font-bold">Confort et Ventilation</h3>
-             <p className="text-gray-600">
-               Ce casque ne se contente pas d’être sécuritaire. Il offre aussi un confort optimal grâce à une bonne ventilation, idéale pour les trajets longs ou sous chaleur.
-             </p>
- 
-             <p className="text-gray-600">
-               Le Bell Lithium MIPS est un excellent choix pour allier sécurité et confort sans compromis. Prêt à rouler en toute confiance ? Le Bell Lithium MIPS est là pour toi, il t’attend en Boutique.
-             </p>
-           </div>
-         </div>
- 
-         <div className="md:w-1/3 sticky top-8">
-           <Image
-             src="/images/pub/photo.webp"
-             alt="Publicité"
-             width={500}
-             height={900}
-             className="w-full h-auto rounded-xl shadow-lg border-4 border-gray-200"
-           />
-         </div>
-       </div>
- 
-       {/* 3 Images en bas avec bordures jaunes*/}
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-         {[1, 2, 4].map((num) => (
-           <div key={num} className="border-4 border-accent rounded-xl p-2">
-             <Image
-               src={`/images/accueil/noir-mat-moto-${num}.webp`}
-               alt={`Variante ${num}`}
-               width={400}
-               height={300}
-               className="w-full h-auto cursor-pointer"
-               onClick={() => handleImageClick(`/images/accueil/noir-mat-moto-${num}.webp`)}
-             />
-           </div>
-         ))}
-       </div>
-     </div>
-   );
- }
+              <p>
+                {`Le MIPS, ou Système de Protection Multi-directionnelle
+                Une technologie qui réduit les forces de rotation en cas
+                d’impact oblique, offrant une protection supplémentaire à la
+                tête.`}
+              </p>
+            
+
+            <h3 className="text-2xl font-bold">
+              {`Bell Lithium MIPS : La Référence`}
+            </h3>
+            <p>
+              {`Le Bell Lithium MIPS combine sécurité et confort. Avec son design
+              soigné, il intègre le MIPS pour réduire les risques de lésions en
+              cas de choc.`}
+            </p>
+
+            <h3 className="text-2xl font-bold">{`Confort et Ventilation`}</h3>
+            <p>
+              {`Ce casque ne se contente pas d’être sécuritaire. Il offre aussi un
+              confort optimal grâce à une bonne ventilation, idéale pour les
+              trajets longs ou sous chaleur.`}
+            </p>
+
+            <p>
+              {`Le Bell Lithium MIPS est un excellent choix pour allier sécurité
+              et confort sans compromis. Prêt à rouler en toute confiance ? Le
+              Bell Lithium MIPS est là pour toi, il t’attend en Boutique.`}
+            </p>
+          </div>
+        </div>
+
+        <div className="md:w-1/2 relative flex items-center justify-end">
+        <div className="absolute sm:-top-[2rem] lg:-top-[9rem]">
+          <Image
+            src="/images/pub/faux-pub-long.webp"
+            alt="Publicité"
+            width={500}
+            height={900}
+            className="w-full h-[47rem] shadow-lg border-1 border-gray-200"
+          />
+          </div>
+        </div>
+      </div>
+
+      {/* 3 Images en bas avec bordures jaunes*/}
+      <div className="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 mt-24 mb-12">
+        {[1, 2, 4].map((num) => (
+          <div key={num} className="border-2 border-accent rounded-sm p-2">
+            <Image
+              src={`/images/accueil/noir-mat-moto-${num}.webp`}
+              alt={`Variante ${num}`}
+              width={400}
+              height={300}
+              className="w-full h-auto cursor-pointer"
+              // onClick={() =>
+              //   handleImageClick(`/images/accueil/noir-mat-moto-${num}.webp`)
+              // }
+            />
+          </div>
+        ))}
+      </div>
+    </Container>
+  );
+}
