@@ -19,8 +19,11 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Just Ride",
-  description: "Just Ride Madagascar",
+  title: {
+    default: "Actualités, Événements & Passion Moto - Just Ride Madagascar",
+    template: "%s - Just Ride Madagascar",
+  },
+  description: "Rejoignez la communauté des passionnés de moto à Madagascar ! Suivez les actualités, explorez les événements et trouvez la moto idéale avec JustRide.",
   icons: {
     icon: "/favicon.png",
   }
