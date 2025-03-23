@@ -6,11 +6,11 @@ import Container from "./container";
 
 export default function FocusDetailBelltrois() {
   const [mainImage, setMainImage] = useState<string>(
-    "/images/accueil/noir-mat-moto-1.webp"
+    "/images/accueil/bell.jpg"
   );
   const [images, setImages] = useState<string[]>([
-    '/images/accueil/noir-mat-moto-2.webp',
-    '/images/accueil/noir-mat-moto-4.webp',
+    '/images/accueil/bell.jpg',
+    '/images/accueil/bell.jpg',
   ]);
 
   const handleImageClick = (imageSrc: string,currentSelectedImageUrl: string) => {
@@ -70,9 +70,9 @@ export default function FocusDetailBelltrois() {
           {/* Nouveau texte structuré en paragraphes */}
           <div className="text-gray-600">
             
-              <div className="flex gap-1">
-              Certains casques sont simplement iconiques. <span className="font-bold">Le Bell Moto 3 </span>, c’est un bout d’histoire du tout-terrain, un symbole des belles années du motocross et de l’adrénaline pure. Né dans les années 70, il a protégé les têtes des plus grands pilotes, traversé les époques et revient aujourd’hui avec un look rétro intact, mais avec des matériaux et une sécurité aux standards actuels.
-              Coque en fibre composite ultra-légère, intérieur en mousse EPS à densité multiple, une ventilation optimisée et une visière réglable typique des casques cross old-school… Tout est là ! Que tu roules en scrambler, en enduro ou en vintage, le Bell Moto 3 est le casque parfait pour les puristes et les nostalgiques du tout-terrain old school. Enfile-le, démarre ta bécane et ride comme une légende !
+              <div className="">
+              <p>Certains casques sont simplement iconiques. <span className="font-bold">Le Bell Moto 3 </span>,{` c’est un bout d’histoire du tout-terrain, un symbole des belles années du motocross et de l’adrénaline pure. Né dans les années 70, il a protégé les têtes des plus grands pilotes, traversé les époques et revient aujourd’hui avec un look rétro intact, mais avec des matériaux et une sécurité aux standards actuels.`}</p><br/>
+              <p>Coque en <span className="font-bold">fibre composite ultra-légère</span>, intérieur en <span className="font-bold">mousse EPS à densité multiple</span>, une <span className="font-bold">ventilation optimisée</span> et une visière réglable typique des casques cross old-school… Tout est là ! Que tu roules en scrambler, en enduro ou en vintage, le <span className="font-bold">Bell Moto 3</span> est le casque parfait pour les puristes et les nostalgiques du tout-terrain old school.<span className="font-bold"> Enfile-le, démarre ta bécane et ride comme une légende !</span></p>
               </div>
 
               </div>
@@ -83,14 +83,14 @@ export default function FocusDetailBelltrois() {
       <div className="flex flex-col md:flex-row gap-10 items-start mb-16">
         <div className="md:w-1/2 space-y-6">
           <h2 className="text-2xl font-bold inline space-x-1">
-            <span>{`BELL LITHIUM MIPS`}</span>
+            <span>{`Bell Moto 3`}</span>
             <span>
-              {`Mais c'est quoi ce MIPS`} ?
+              {``}
             </span>
           </h2>
 
-          <div className="space-y-6">
-            <p>
+          <div className="space-y-6 min-h-[30rem]">
+            {/* <p>
               {`Les motards recherchent toujours le meilleur en matière de
               sécurité et de confort. Aujourd’hui, Just Ride vous propose le
               casque Bell Lithium MIPS. Mais avant tout, c’est quoi le MIPS ?`}
@@ -125,7 +125,7 @@ export default function FocusDetailBelltrois() {
               {`Le Bell Lithium MIPS est un excellent choix pour allier sécurité
               et confort sans compromis. Prêt à rouler en toute confiance ? Le
               Bell Lithium MIPS est là pour toi, il t’attend en Boutique.`}
-            </p>
+            </p> */}
           </div>
         </div>
 
@@ -147,7 +147,7 @@ export default function FocusDetailBelltrois() {
         {[1, 2, 4].map((num) => (
           <div key={num} className="border-2 border-accent rounded-sm p-2">
             <Image
-              src={`/images/accueil/noir-mat-moto-${num}.webp`}
+              src={`/images/accueil/bell.jpg`}
               alt={`Variante ${num}`}
               width={400}
               height={300}

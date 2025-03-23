@@ -1,13 +1,12 @@
 
 import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
-import FocusDetailCasque from "@/components/focus-detail-casque";
-import FocusDetailVeste from "@/components/focus-detail-veste";
+import FocusDetailJack from "@/components/focus-detail-jack";
 export default function Home() {
   return (
     <div className="p-1">
         <HeroSection/>
-        <FocusDetailVeste/>
+        <FocusDetailJack/>
         <Footer/> 
     </div>
   );
