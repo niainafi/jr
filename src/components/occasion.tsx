@@ -130,7 +130,7 @@ function OccasionData(){
           ocas.map((moto, index) => (
             <div
               key={index}
-              className="relative group overflow-hidden shadow-lg rounded-sm h-[170px] xl:h-[240px]"
+              className="relative group overflow-hidden shadow-lg rounded-sm h-[500px] xl:h-[240px]"
             >
               {moto.imageUrl && (
                 <Image
@@ -138,9 +138,7 @@ function OccasionData(){
                   alt={`${moto.marque} - ${moto.modèle}`}
                   width={400}
                   loading="lazy"
-                  objectFit="cover"
-                  objectPosition="center"
-                  height={180} // Hauteur augmentée
+                  height={600}
                   className="w-full object-cover h-full"
                   // className="w-full h-[400px] sm:h-[400px] object-contain transition-transform duration-300 group-hover:scale-110"
                 />
