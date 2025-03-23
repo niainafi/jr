@@ -7,7 +7,7 @@ const RideWatch = () => {
         {/* Titre avec plus d'espace en bas */}
         <h2 className="text-3xl font-bold uppercase text-center mb-8 md:mb-10">Ride & Watch</h2>
 
-        <div className="flex flex-col lg:flex-row items-stretch h-[720px] sm:h-[950px] md:h-[990px] lg:h-[200px] xl:h-[650px] 2xl:h-[450px] overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-stretch h-[720px] sm:h-[950px] md:h-[990px] lg:h-[200px] xl:h-[490px] 2xl:h-[450px] overflow-hidden">
 
 
           {/* Vidéo YouTube - 60% de la largeur */}
