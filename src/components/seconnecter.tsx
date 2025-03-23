@@ -8,6 +8,7 @@ import { useState } from "react";
 import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useUserStore } from "@/store/user";
+import { useRouter } from "next/navigation";
 // import { redirect } from "next/navigation";
 
 const slides = [
@@ -152,6 +153,7 @@ type FormData = z.infer<typeof schema>;
 
 export default function Seconnecter() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const router = useRouter();
   // const {setUser} = useUserStore();
 
   const {
@@ -170,8 +172,9 @@ export default function Seconnecter() {
      if(res.status === 200){
       // setUser(res.data.user)
       if(typeof window !== 'undefined') {
-        localStorage.setItem('token', JSON.stringify(res.data.token));
-        window.location.href = '/profile'
+        localStorage.setItem('token', res.data.token);
+        router.push('/profile')
+        
       }
      }
     } catch (error) {

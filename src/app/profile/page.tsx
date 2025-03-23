@@ -7,16 +7,20 @@ import Footer from "@/components/footer";
 import ProfilLayout from '@/components/layouts/profil-layout'
 import { useUserStore } from '@/store/user'
 // const ProfilLayout = dynamic(() => import('@/components/layouts/profil-layout'), { ssr: false })
-const UserProfilInfo = dynamic(() => import('@/components/user-profil-info'), { ssr: false })
+// const UserProfilInfo = dynamic(() => import('@/components/user-profil-info'), { ssr: false })
+import UserProfilInfo from '@/components/user-profil-info'
+
+
 export default function ProflePage() {
 
 
   return (
-
-    <ProfilLayout>
+    <>
     <HeroSection/>
-    <UserProfilInfo />
-    <Footer/>
+    <ProfilLayout>
+      <UserProfilInfo />
     </ProfilLayout>
+    <Footer/>
+    </>
   )
 }
