@@ -189,7 +189,16 @@ function CardImage({ product }: CardImageProps) {
  
   
 
-    {/* mety tsisy devis
+  
+
+
+// ... (composant CardImage identique)
+// ... (le composant CardImage reste inchangé)
+
+
+
+
+{/* mety tsisy devis
   import React, { useState, useEffect } from "react";
   import axios from "axios";
   import Image from "next/image";
