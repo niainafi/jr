@@ -173,7 +173,7 @@ export default function Occasion() {
                 <p className="text-sm"><strong>Description :</strong> {moto.description}</p>
                 <button
                   onClick={() => openModal(moto)}
-                  className="mt-4 bg-white text-black py-2 px-6 rounded-lg border-2 border-accent hover:bg-accent hover:text-white transition-colors"
+                  className="mt-4 bg-white text-black py-2 px-6 rounded-lg border-2 border-accent text-accent transition-colors"
                 >
                   Demander un devis
                 </button>

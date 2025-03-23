@@ -107,14 +107,45 @@ import { api } from "@/lib/axios";
 import HeroSection from "@/components/hero-section";
 import Footer from "@/components/footer";
 import Image from "next/image";
+import { Metadata, ResolvingMetadata } from "next";
+import {cache } from "react";
 
-async function getActuDetails(id: string) {
+type Props = {
+    params: Promise<{ id: string }>
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}  
+
+const getActuDetails = cache(async (id: string) => {
     const res = await api.get(`https://justride.up.railway.app/api/actus/${id}`);
     return res.data;
-}
+})
 
-export default async function ActuReportageDetailPage({ params }: { params: any }) {
-    const { id } = params;
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+  ): Promise<Metadata> {
+    // read route params
+    const { id } = await params
+   
+    const actuDetail = await getActuDetails(id);
+    
+    // optionally access and extend (rather than replace) parent metadata
+    
+   
+    return {
+      title: actuDetail.title,
+      openGraph: {
+        images: [
+            {
+                url: actuDetail.imageUne,
+            }
+        ],
+      },
+    }
+  }
+
+export default async function ActuReportageDetailPage({ params }: Props) {
+    const { id } = await params;
     if (!id) {
         return <div className="text-center text-gray-500 mt-10">Aucune donnée disponible</div>;
     }

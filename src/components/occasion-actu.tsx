@@ -72,8 +72,8 @@ export default function MotocrossNews() {
   }, [fetchCategories]); // ✅ fetchCategories est maintenant bien pris en compte
 
   return (
-    <section className="mx-auto pt-5 mb-5">
-      <Container>
+    <section className="mx-auto mb-5">
+      <Container className="mt-10">
         {/* Affichage des erreurs s'il y en a */}
         {error && <p className="text-red-500 text-center">{error}</p>}
 
@@ -94,9 +94,9 @@ export default function MotocrossNews() {
 
         {/* Affichage des articles sous forme de cartes */}
         {loading ? (
-          <p className="text-gray-500 text-center mt-6">Chargement des actualités...</p>
+          <p className="text-gray-500 text-center mt-6 min-h-[20rem]">Chargement des actualités...</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2 my-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2 my-14">
             {articles.length > 0 ? (
               articles.map((article) => (
                 <CardArticle key={article._id} article={article} />
