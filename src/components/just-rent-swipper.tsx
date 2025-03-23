@@ -36,7 +36,21 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        spaceBetween={130}
+        spaceBetween={280}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 200,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
         // loop={enableLoop}
         slidesPerView={'auto'}
         coverflowEffect={{
@@ -64,7 +78,7 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full flex flex-col justify-center h-[320px] xl:h-[570px] xl:w-[570px] ">
+            <div className="relative w-full flex flex-col justify-center h-[320px] xl:h-[540px] xl:w-[570px] ">
               <Image
                 src={img.src}
                 alt={ img?.alt ?? `Slide ${index + 1}`}

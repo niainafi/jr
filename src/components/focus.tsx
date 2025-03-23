@@ -368,21 +368,48 @@ const dataMeteo = {
 }
 
 export default function Focus() {
+  const totalImages = imageFocus.length; 
+  const [isReady, setIsReady] = useState(false);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsReady(true);
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, [totalImages]);
+
+  useEffect(() => {
+    let loadedImages = 0;
+    imageFocus.forEach((image) => {
+      const img = new window.Image();
+      img.src = image.src;
+      img.onload = () => {
+        loadedImages++;
+        if (loadedImages === imageFocus.length) {
+          setIsReady(true); 
+        }
+      };
+    });
+  }, []);
   return (
     <section className="-mt-10">
       <Container className="flex flex-col lg:flex-row gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-7xl 2xl:max-w-8xl">
         <section className="w-full lg:w-[70%]">
-          <h2 className="text-3xl md:text-4xl font-bold text-center">{'FOCUS ARRIVAGE'}</h2>
-          <Swiper
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">{'FOCUS ARRIVAGE'}</h2>
+          {!isReady ? (
+            <div><FocusLoading/></div>
+          ):
+          (
+            <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={30}
-            slidesPerView={1}  // Affiche une seule image sur mobile par défaut
+            slidesPerView={2} 
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             loop
             breakpoints={{
-              640: {  // Pour les écrans plus larges (tablettes)
-                slidesPerView: 1,
+              640: { 
+                slidesPerView: 3,
               },
               1024: {  // Pour les grands écrans (ordinateurs)
                 slidesPerView: 3,  // Affiche 3 images sur les grands écrans
@@ -392,22 +419,24 @@ export default function Focus() {
           >
             {
               imageFocus.map((image, index) => (
-                <SwiperSlide key={image.src}>
-                  <Link href={image.href}>
+                <SwiperSlide key={image.src} className="h-auto">
+                  <Link href={image.href} className="w-[18.75rem] h-[18.75rem] bg-black">
                     <Image
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-full object-contain"
+                      className="w-auto h-auto object-contain"
                       width={300}
                       height={300}
-                      loading="lazy"
-                      objectFit="contain"
+                      loading="eager"
+                      priority
                     />
                   </Link>
                 </SwiperSlide>
               ))
             }
           </Swiper>
+          )
+          }
         </section>
         
         <aside className="relative top-0 lg:-top-36 lg:w-[30%]">
@@ -462,8 +491,17 @@ function ListEvent() {
   );
 }
 
-function Meteo({ data }: { data: { location: string, temperature: string, weather: string } }) {
-  const [weather, setWeather] = useState<WeattherDisplay | null>(null);
+function Meteo({
+  data
+}: {
+  data:{
+    location: string,
+    temperature: string,
+    weather: string,
+    
+    }
+}){
+  const [weather, setWeather] = useState< WeattherDisplay | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -473,16 +511,17 @@ function Meteo({ data }: { data: { location: string, temperature: string, weathe
         setIsLoading(true);
         const response = await fetch(url);
         const data = await response.json();
+
         const code = data.current_weather.weathercode as WeatherCode;
         setWeather({
           temperature: data.current_weather.temperature,
-          feelsLike: data.current_weather.temperature, // Open-Meteo don't give "ressentie"
+          feelsLike: data.current_weather.temperature, // Open-Meteo don't give  "ressentie"
           description: weatherDescriptions[code]?.text || "Inconnu",
           icon: weatherDescriptions[code]?.icon || "❓"
         });
       } catch (error) {
         console.error("Erreur météo :", error);
-      } finally {
+      }finally{
         setIsLoading(false);
       }
     };
@@ -490,6 +529,7 @@ function Meteo({ data }: { data: { location: string, temperature: string, weathe
     fetchWeather();
   }, []);
 
+ 
   return (
     <div className="bg-blue-400 p-3 w-full h-[100px] rounded-md text-white">
       {
@@ -506,25 +546,62 @@ function Meteo({ data }: { data: { location: string, temperature: string, weathe
                 {Math.round(parseFloat(weather.temperature))}
               </div>
               <div className="flex flex-col items-center h-auto">
-                <span className="text-[3rem] h-10 font-thin">°</span>
-                <span className="text-[1.3rem] relative bottom-[11px]">C</span>
+              <span className="text-[3rem] h-10 font-thin">°</span>
+              <span className="text-[1.3rem] relative bottom-[11px]">C</span>
               </div>
+
+              
+              
             </div>
-            <div className="flex flex-col justify-between">
-              <span className="text-md font-bold">{weather.description}</span>
-              <span className="text-xs font-thin">{weather.feelsLike}°C Ressentie</span>
+            <div className="flex flex-col">
+              <p className="text-xs">{weather.description}</p>
+              <p className="text-xs">Sensation thermique de {Math.round(parseFloat(weather.feelsLike))}°</p>
             </div>
           </div>
-          <div className="text-4xl">
+          <div className="text-[2.5rem]">
             {weather.icon}
           </div>
         </div>
       </>}
+      {!weather && !isLoading && (
+        <p className="text-xs">
+          Erreur lors de la récupération des données météo.
+        </p>
+      )}
+
     </div>
-  );
+  )
 }
 
-function MeteoLoading() {
-  return <div>Loading...</div>;
+function MeteoLoading(){
+  return (
+    <div className="flex flex-col  animate-pulse gap-3">
+    <div className="w-[20%] h-4 bg-gray-200 rounded-sm"></div> 
+    <div className="flex justify-between">
+      <div className="flex flex-row gap-2 w-[50%]">
+        <div className="w-[20%] h-10 bg-gray-200 rounded-sm "></div>
+        <div className="w-[50%] h-10 bg-gray-200 rounded-sm"></div>
+      </div>
+      <div className="w-11 h-11 rounded-full bg-gray-200"></div>
+    </div>   
+  </div>
+  )
+}
+
+function FocusLoading(){
+  return (
+    <div className="flex flex-col  animate-pulse gap-3">
+    <div className="w-full sm:hidden grid grid-cols-2 gap-3">
+      <div className="bg-gray-200 rounded-sm h-[10rem] w-full"></div>
+      <div className="bg-gray-200 rounded-sm w-full h-[10rem]"></div>
+    </div>
+    <div className="w-full hidden sm:grid grid-cols-3 gap-3">
+      <div className="bg-gray-200 rounded-sm h-[18.75rem] w-full"></div>
+      <div className="bg-gray-200 rounded-sm h-[18.75rem] w-full"></div>
+      <div className="bg-gray-200 rounded-sm h-[18.75rem] w-full"></div>
+      
+    </div>
+  </div>
+  )
 }
 

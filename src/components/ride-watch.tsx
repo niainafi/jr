@@ -7,11 +7,11 @@ const RideWatch = () => {
         {/* Titre avec plus d'espace en bas */}
         <h2 className="text-3xl font-bold uppercase text-center mb-8 md:mb-10">Ride & Watch</h2>
 
-        <div className="flex flex-col md:flex-row items-stretch h-[850px] sm:h-[950px] md:h-[690px] lg:h-[200px] xl:h-[650px] 2xl:h-[450px] overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-stretch h-[720px] sm:h-[950px] md:h-[990px] lg:h-[200px] xl:h-[650px] 2xl:h-[450px] overflow-hidden">
 
 
           {/* Vidéo YouTube - 60% de la largeur */}
-          <div className="md:w-3/5 relative">
+          <div className="lg:w-3/5 relative">
             <iframe
               className="w-full h-full aspect-video shadow-lg"
               src="https://www.youtube.com/embed/Fn60q0sDI_U"
@@ -22,7 +22,7 @@ const RideWatch = () => {
           </div>
 
           {/* Texte de présentation - 40% de la largeur - Aligné à gauche */}
-          <div className="md:w-2/5 bg-accent text-white p-6 flex flex-col justify-start items-start text-left shadow-lg pt-6 md:pt-10">
+          <div className="lg:w-2/5 bg-accent text-white p-6 flex flex-col justify-start items-start text-left shadow-lg pt-6 md:pt-10">
             <h3 className="text-2xl font-bold">Vivez la moto autrement !</h3>
 
             {/* ✅ Ligne sous le titre descendue */}
