@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import React from 'react'
 
 export const metadata: Metadata = {
-    title: "Cashback Moto",
-    description: "Gérez vos informations personnelles et retrouvez votre historique d'activités sur Just Ride Madagascar.",
+    title: "Profile",
+    description: "",
   };
   
 
-export default function CashBackLayout({
+export default function ProfileLayout({
     children,
   }: Readonly<{
     children: React.ReactNode;
