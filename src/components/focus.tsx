@@ -342,22 +342,22 @@ const imageFocus = [
   {
     src: "/images/accueil/IMG-20250313-WA0017.webp",
     alt: "Image-focus",
-    href: "/focusdetailpantalon",
+    href: "/focusdetailblouson",
   },
   {
     src: "/images/accueil/IMG-20250313-WA0020.webp",
     alt: "Image-focus",
-    href: "/focusdetailblouson",
+    href: "/focusdetailpantalon",
   },
   {
-    src: "/images/accueil/IMG-20250313-WA0029.jpg",
+    src: "/images/accueil/bell.jpg",
     alt: "Image-focus",
-    href: "/focusdetailcasque", 
+    href: "/focusdetailbelltrois", 
   },
   {
-    src: "/images/accueil/IMG-20250313-WA0019.jpg",
+    src: "/images/accueil/veste.jpg",
     alt: "Image-focus",
-    href: "/focusdetailcasque",
+    href: "/focusdetailveste",
   },
 ];
 

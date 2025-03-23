@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Container from "./container";
 
-export default function FocusDetailPantalon() {
+export default function FocusDetailBelltrois() {
   const [mainImage, setMainImage] = useState<string>(
     "/images/accueil/noir-mat-moto-1.webp"
   );
@@ -27,7 +27,7 @@ export default function FocusDetailPantalon() {
   return (
     <Container className="2xl:max-w-7xl mt-10 mb-10">
       <div className="flex flex-col gap-5 mb-12 w-full lg:max-w-xl">
-        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">{`RST Pantalon 5RL : Confort et Sécurité sur la Route`}</h1>
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">{`Bell Moto 3 : Le Mythe Renaît sur les Routes`}</h1>
         <span className="w-[34%] h-2 bg-accent rounded-md"></span>
       </div>
       {/* Section Principale */}
@@ -69,76 +69,13 @@ export default function FocusDetailPantalon() {
         <div className="md:w-1/2 space-y-6 lg:mt-14">
           {/* Nouveau texte structuré en paragraphes */}
           <div className="text-gray-600">
-            <dl className="">
+            
               <div className="flex gap-1">
-                <dt className="font-bold">{`TYPE DE CASQUE :`}</dt>
-                <dd>{`Intégral`}</dd>
+              Certains casques sont simplement iconiques. <span className="font-bold">Le Bell Moto 3 </span>, c’est un bout d’histoire du tout-terrain, un symbole des belles années du motocross et de l’adrénaline pure. Né dans les années 70, il a protégé les têtes des plus grands pilotes, traversé les époques et revient aujourd’hui avec un look rétro intact, mais avec des matériaux et une sécurité aux standards actuels.
+              Coque en fibre composite ultra-légère, intérieur en mousse EPS à densité multiple, une ventilation optimisée et une visière réglable typique des casques cross old-school… Tout est là ! Que tu roules en scrambler, en enduro ou en vintage, le Bell Moto 3 est le casque parfait pour les puristes et les nostalgiques du tout-terrain old school. Enfile-le, démarre ta bécane et ride comme une légende !
               </div>
 
-              <div className="flex gap-1">
-                <dt className="font-bold">{`VERNIS DE PROTECTION :`}</dt>
-                <dd>{`Mat`}</dd>
               </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold">{`FERMETURE :`}</dt>
-                <dd>{`Boucle double D`}</dd>
-              </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold">{`COQUE :`}</dt>
-                <dd>{`Polycarbonate / AES`}</dd>
-              </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold">{`TAILLES DE COQUES :`}</dt>
-                <dd>{`CALOTINS: MIPS®`}</dd>
-              </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold block">{`ÉCRAN :`}</dt>
-                <div>
-                  <dd className="block">{`Incolore`}</dd>
-                  <dd className="block">{`Pinlock ready`}</dd>
-                  <dd className="block">{`Optique de classe 1`}</dd>
-                  <dd className="block">{`Démontage sans outil`}</dd>
-                </div>
-              </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold">{`SYSTÈME DE VENTILATION :`}</dt>
-                <dd>{`Réglable`}</dd>
-              </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold">{`ÉCRAN SOLAIRE RÉTRACTABLE :`}</dt>
-                <dd>{`Fumé`}</dd>
-              </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold block">{`INTÉRIEUR :`}</dt>
-                <div>
-                  <dd className="block">{`Démontable et lavable`}</dd>
-                  <dd className="block">{`Anti-bactérien ionici™`}</dd>
-                </div>
-              </div>
-
-              <div className="inline lg:flex gap-1">
-                <dt className="font-bold">{`ESPACE PRÉVU POUR LES ÉCOUTEURS DES INTERCOM : `}</dt>
-                <dd>{`Oui`}</dd>
-              </div>
-
-              <div className="flex gap-1">
-                <dt className="font-bold">{`HOMOLOGATION : `}</dt>
-                <dd>{`ECE 22 Ø6`}</dd>
-              </div>
-
-              <div className="inline gap-1">
-                <dt className="font-bold">{`ACCESSOIRES FOURNIS : `}</dt>
-                <dd>{`Écran anti-buée Pinlock Incolore`}</dd>
-              </div>
-            </dl>
-          </div>
         </div>
       </div>
 

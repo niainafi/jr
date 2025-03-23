@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Container from "./container";
 
-export default function FocusDetailCasque() {
+export default function FocusDetailBlouson() {
   const [mainImage, setMainImage] = useState<string>(
     "/images/accueil/noir-mat-moto-1.webp"
   );
