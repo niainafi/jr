@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Container from "./container";
 
-export default function FocusDetailPantalon() {
+export default function FocusDetailVeste() {
   const [mainImage, setMainImage] = useState<string>(
     "/images/accueil/noir-mat-moto-1.webp"
   );
@@ -27,7 +27,7 @@ export default function FocusDetailPantalon() {
   return (
     <Container className="2xl:max-w-7xl mt-10 mb-10">
       <div className="flex flex-col gap-5 mb-12 w-full lg:max-w-xl">
-        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">{`RST Pantalon 5RL : Confort et Sécurité sur la Route`}</h1>
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">{`CASQUE BELL LITHIUM MIPS`}</h1>
         <span className="w-[34%] h-2 bg-accent rounded-md"></span>
       </div>
       {/* Section Principale */}
