@@ -152,7 +152,7 @@ export default async function ActuReportageDetailPage({ params }: { params: any 
                 {/* ✅ Pub FIXE maintenant à droite */}
                 <div className="hidden lg:block w-[600px] sticky top-0 bottom-0">
                     <Image 
-                        src="/images/pub/photo.webp" 
+                        src="/images/pub/faux-pub-long.webp" 
                         alt="Publicité" 
                         width={500} 
                         height={700} 

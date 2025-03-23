@@ -350,14 +350,14 @@ const imageFocus = [
     href: "/focusdetailpantalon",
   },
   {
-    src: "/images/accueil/bell.jpg",
+    src: "/images/accueil/casquebell3.jpg",
     alt: "Image-focus",
     href: "/focusdetailbelltrois", 
   },
   {
     src: "/images/accueil/veste.jpg",
     alt: "Image-focus",
-    href: "/focusdetailveste",
+    href: "/focusdetailjack",
   },
 ];
 
