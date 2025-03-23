@@ -30,9 +30,11 @@
 
 //   </div>;
 // }
+'use client'
 
 import { useUserStore } from "@/store/user";
 import { useState, useEffect } from "react";
+import Loading from "./ui/loading";
 
 interface User {
   username: string;
@@ -44,28 +46,30 @@ interface User {
   carte?: string;
 }
 
+
 export default function UserProfilInfo() {
   const { isLoading, getMe, user } = useUserStore() as { user?: User; isLoading: boolean; getMe: (token: string) => void };
-  const [stateToken, setStateToken] = useState<string | undefined>();
+  
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
+      console.log("token", token);
+
       if (token) {
-        setStateToken(token);
+        getMe(token);
+        
       }
     }
   }, []);
 
-  useEffect(() => {
-    if (stateToken) {
-      console.log("stateToken pass", stateToken);
-      getMe(stateToken);
-    }
-  }, [stateToken]);
 
   if (isLoading) {
-    return <div className="text-center text-accent text-2xl font-semibold">Loading...</div>;
+    return(
+      <div className="flex justify-center items-center w-full text-2xl h-[30vh]  font-semibold">
+      <Loading />
+    </div>
+    )
   }
 
   const defaultUser: User = {
