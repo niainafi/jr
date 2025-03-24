@@ -454,7 +454,7 @@ function YourCalendar() {
         <div className="relative mx-auto max-w-2xl">
           <YourCalendarIcon />
           <h3 className="absolute bottom-2 left-10 uppercase font-semibold">
-            Event - Rides - Sorties - Courses
+            Events - Rides - Sorties - Courses
           </h3>
         </div>
         <Calendar />
