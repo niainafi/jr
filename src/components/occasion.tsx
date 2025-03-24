@@ -80,10 +80,10 @@ export default function Occasion() {
     <section
     // className="p-6 md:p-10"
     >
-      <h3 className="text-base md:text-xl xl:text-2xl font-bold text-gray-900 mt-5 mb-8 xl:mt-7 xl:mb-10">
+      <h2 className="text-base md:text-xl text-center xl:text-2xl font-bold text-gray-900 mt-5 mb-8 xl:mt-7 xl:mb-10">
         NOS OCCASIONS <span className="">100% VALIDÉES</span> PAR
         JUST RIDE
-      </h3>
+      </h2>
       <OccasionData />
       
     </section>

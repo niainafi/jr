@@ -134,9 +134,11 @@ export default function Boutiques() {
  // import clsx from "clsx";
 // import Image from "next/image";
 import React from "react";
-import SwipperSlide from "./ui/swipper";
-import Container from "./container";
+// import SwipperSlide from "./ui/swipper";
+// import Container from "./container";
 import Image from 'next/image';
+import { FaPlus } from "react-icons/fa";
+import Link from "next/link";
 
 const imagePub = [
   {
@@ -203,10 +205,10 @@ export default function Boutiques() {
 
         {/* Grid responsive */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 h-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 h-auto">
           {/* Colonne 1 */}
-          <div className="flex flex-col gap-2 h-[320px] xl:h-[340px]">
-            <div className="h-52 relative overflow-hidden">
+          <div className="hidden xl:flex flex-col gap-2 h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px]">
+            <div className="h-52  relative overflow-hidden">
               {/*<img
                 src="/images/photos/img-casque-1.jpg"
                 alt="Casque"
@@ -240,7 +242,7 @@ export default function Boutiques() {
           </div>
 
           {/* Colonne 2 */}
-          <div className="h-[320px] xl:h-[340px]">
+          <div className="hidden xl:block h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px]">
             <div className="w-full h-full relative overflow-hidden">
               {/*
               <img
@@ -260,7 +262,7 @@ export default function Boutiques() {
           </div>
 
           {/* Colonne 3 */}
-          <div className="flex flex-col gap-2 h-[320px] xl:h-[340px]">
+          <div className="flex flex-col gap-2 h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px]">
             <div className="h-52 relative overflow-hidden">
               {/*
               <img
@@ -296,9 +298,31 @@ export default function Boutiques() {
           </div>
             {/* Colonne 4 */}
           
-          <aside className="w-full h-full relative overflow-hidden">
+          {/* <aside className="w-full h-full relative overflow-hidden">
             <SwipperSlide images={imagePub} />
-          </aside>
+          </aside> */}
+          <div className="h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px] relative overflow-hidden">
+              <Image
+                src="/images/photos/img-casque-1.jpg"
+                alt="Casque"
+                width={500}        
+                height={700}       
+                className="w-full h-full object-cover"
+              />
+              <Link 
+                  href="/boutique"
+                 className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50"
+                 >
+                {/* voir plus */}
+                
+                  <FaPlus width={100} height={100} className="text-accent absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 w-[100px] h-[100px]" />
+                
+                <span className="uppercase absolute top-1/2 left-1/2 -translate-x-1/2  lg:translate-y-[150%] font-[800] text-accent mt-16">
+                  Voir plus
+                </span>
+                
+              </Link>
+            </div>
         </div>
       </div>
     </>

@@ -304,6 +304,14 @@ type WeattherDisplay = {
   icon: string;
 }
 
+type Event = {
+  date: string;
+  title: string;
+  location: string;
+  category: string;
+}
+
+
 type WeatherCode = 0 | 1 | 2 | 3 | 45 | 48 | 51 | 53 | 55 | 61 | 63 | 65 | 80 | 81 | 82 | 95 | 99;
 const countryInfo = {
   name: 'Antananarivo',
@@ -393,8 +401,8 @@ export default function Focus() {
   }, []);
   return (
     <section className="-mt-10">
-      <Container className="flex flex-col lg:flex-row gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-7xl 2xl:max-w-8xl">
-        <section className="w-full lg:w-[70%]">
+      <Container className="flex flex-col xl:flex-row gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-7xl 2xl:max-w-8xl">
+        <section className="w-full xl:w-[70%]">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">{'FOCUS ARRIVAGE'}</h2>
           {!isReady ? (
             <div><FocusLoading/></div>
@@ -439,7 +447,7 @@ export default function Focus() {
           }
         </section>
         
-        <aside className="relative top-0 lg:-top-36 lg:w-[30%]">
+        <aside className="relative top-0 xl:-top-36 xl:w-[30%]">
           <YourCalendar />
         </aside>
       </Container>
@@ -453,7 +461,7 @@ function YourCalendar() {
       <div className="bg-accent p-2 w-full">
         <div className="relative mx-auto max-w-2xl">
           <YourCalendarIcon />
-          <h3 className="absolute bottom-2 left-10 uppercase font-semibold">
+          <h3 className="absolute bottom-2 left-10 uppercase font-semibold text-sm md:text-base">
             Events - Rides - Sorties - Courses
           </h3>
         </div>
@@ -468,27 +476,74 @@ function YourCalendar() {
     </div>
   );
 }
-
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("fr-FR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "2-digit"
+  }).replace(/\//g, "."); // Remplace les "/" par "."
+}
 function ListEvent() {
   const events = [
-    { date: "05.01.25", title: "Rides Ampefy" },
-  ];
+    { date: "2025-02-09", title: "Grand Prix IMC", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-03-23", title: "Motocross KAWASAKI", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-04-05", title: "Motocross DISCODIN", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-04-20", title: "Grand Prix de l'Est", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-06-28", title: "Grand Prix Ilakaka", location: "Ilakaka", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-08-10", title: "Motocross Nosy Be", location: "Nosy Be", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-09-28", title: "Grand Prix de Manakara", location: "Manakara", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-12-07", title: "MX King Of Bira", location: "Antsirabe", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-12-14", title: "MX GAME", location: "MX Track", category: "Course du championnat MOTOCROSS" },
+    { date: "2025-03-02", title: "Triple Crown 1", location: "MX Park", category: "Course hors championnat MOTOCROSS" },
+    { date: "2025-07-20", title: "Triple Crown 2", location: "MX Track", category: "Course hors championnat MOTOCROSS" },
+    { date: "2025-10-12", title: "Triple Crown 3", location: "MX Tamatave", category: "Course hors championnat MOTOCROSS" },
+    { date: "2025-11-16", title: "Triple Crown 4", location: "MX Track", category: "Course hors championnat MOTOCROSS" },
+    { date: "2025-08-16", title: "MX of African Nation", location: "KENYA", category: "Autre catégorie" },
+    { date: "2025-02-23", title: "Endurance CRAM Mahitsy", location: "Mahitsy", category: "Course du championnat ENDURO" },
+    { date: "2025-05-04", title: "XC ACERBIS", location: "Antananarivo", category: "Course du championnat ENDURO" },
+    { date: "2025-05-18", title: "Enduro SHERCO", location: "Antananarivo", category: "Course du championnat ENDURO" },
+    { date: "2025-06-15", title: "Enduro Ambatondrazaka", location: "Ambatondrazaka", category: "Course du championnat ENDURO" }, 
+    { date: "2025-07-13", title: "Endurance GAS GAS", location: "Antsirabe", category: "Course du championnat ENDURO" },
+    { date: "2025-08-17", title: "Endurance Majunga", location: "Mahajanga", category: "Course du championnat ENDURO" },
+    { date: "2025-11-02", title: "Endurance Mananjary", location: "Mananjary", category: "Course du championnat ENDURO" },
+    { date: "2025-03-08", title: "4H HONDA", location: "Antananarivo", category: "Course hors championnat ENDURO" },
+    { date: "2025-09-07", title: "MEC", location: "Antananarivo", category: "Course hors championnat ENDURO" }
+];
+function getUpcomingEvents(events : Event[]): Event[] {
+  const today = new Date(); // Date actuelle
+  return events.filter(event => new Date(event.date) >= today);
+}
+// Exemple d'utilisation : trier les événements par date
+// events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+const upcomingSortedEvents = getUpcomingEvents(events).sort((a, b) => 
+  new Date(a.date).getTime() - new Date(b.date).getTime()
+);
 
-  return (
-    <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-md">
-      <ul>
-        {events.map((event, index) => (
-          <li key={index} className="flex justify-center items-center text-black">
-            <span className="text-xs mr-1">{event.date}:</span>
-            <span className="font-bold text-sm px-2"> {event.title}</span>
-            <a href="/just-rent" className="text-gray-500 text-xs hover:text-black transition">
-              Voir la suite &raquo;&raquo;&raquo;
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+console.log(events);
+
+
+const [showAll, setShowAll] = useState(false);
+
+return (
+  <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-md">
+    <ul>
+      {(showAll ? upcomingSortedEvents : [upcomingSortedEvents[0]]).map((event, index) => (
+        <li key={index} className="flex justify-between items-center text-black py-2 px-2 border-b">
+          <span className="text-xs mr-1">{formatDate(event.date)}:</span>
+          <span className="font-bold text-sm px-2 mr-auto">{event.title}</span>
+        </li>
+      ))}
+    </ul>
+    {(
+      <button 
+        onClick={() => setShowAll(prev => !prev)}
+        className="block text-center w-full py-2 text-gray-500 hover:text-black transition text-sm">
+        {!showAll ? <span>Voir plus &raquo;&raquo;&raquo;</span>: <span>Voir moins &raquo;&raquo;&raquo;</span>} 
+      </button>
+    )}
+  </div>
+);
 }
 
 function Meteo({

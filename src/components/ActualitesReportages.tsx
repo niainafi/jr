@@ -93,7 +93,7 @@ export default function ActualitesReportages() {
 
   return (
     <section className="pb-12 bg-white text-gray-800">
-      <Container className="lg:-mt-24">
+      <Container className="xl:-mt-24">
         {/* Titre */}
         <h2 className="relative text-3xl md:text-4xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
           <span>Actualités</span>
