@@ -191,7 +191,7 @@ export default function ReservationForm() {
 
   return (
     <Container>
-      <h2 className="text-3xl font-bold mb-10">ME RÉSERVEZ</h2>
+      <h2 className="text-3xl font-bold mb-10">ME RÉSERVER</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-4">
           <input type="text" name="nom" placeholder="Nom" value={formData.nom} onChange={handleDateChange} className="p-3 border rounded-lg w-full" required />

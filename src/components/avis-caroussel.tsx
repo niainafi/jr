@@ -5,22 +5,22 @@ import Image from "next/image";
 
 const reviews = [
   {
-    name: "RAKOTO",
+    name: "Jean Yves",
     text: " Je roule avec la Himalayan 450 depuis quelques mois sur les routes de Madagascar, et c'est un vrai bijou ! Que ce soit sur les pavés de Tana, les pistes en latérite des Hautes Terres ou les routes côtières sableuses, elle ne m’a jamais déçu. Sa suspension…  !...",
     rating: 5,
   },
   {
-    name: "JEAN H",
+    name: "Bertrand Desaintes ",
     text: "Enfin une moto adaptée à Madagascar ! Je fais souvent la route Tana-Majunga, et la Himalayan 450 est parfaite pour ça. Elle est confortable même après plusieurs heures de route, et le moteur ne chauffe pas trop malgré les grosses…  ...",
     rating: 5,
   },
   {
-    name: "SOLO",
+    name: "Marie Annie",
     text: "J’ai testé pas mal de motos sur les pistes du Sud, et la Himalayan 450 est la meilleure pour ce type de terrain. Elle passe partout : sable, pierres, boue… et sans jamais caler ! Le garde au sol est idéal pour éviter les obstacles, et la hauteur de selle me permet d’avoir une… ...",
     rating: 5,
   },
   {
-    name: "SOLO",
+    name: "Rakotomalala",
     text: "J’ai testé pas mal de motos sur les pistes du Sud, et la Himalayan 450 est la meilleure pour ce type de terrain. Elle passe partout : sable, pierres, boue… et sans jamais caler ! Le garde au sol est idéal pour éviter les obstacles, et la hauteur de selle me permet d’avoir une… ...",
     rating: 5,
   },
