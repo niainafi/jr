@@ -1,4 +1,5 @@
-"use client"; // Assure que ce fichier est exécuté côté client
+"use client";
+
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import Loading from "../ui/loading";

@@ -230,7 +230,7 @@ export default function Boutiques() {
               />
               */}
               <Image
-                src="/images/photos/img-casque-2.jpg"
+                src="/images/actualite/casquette.jpg"
                 alt="Casque"
                 width={500}        
                 height={700}       
@@ -270,7 +270,7 @@ export default function Boutiques() {
               />
               */}
                <Image
-                src="/images/photos/img-casque-1.jpg"
+                src="/images/actualite/boutique-3.jpg"
                 alt="Casque"
                 width={500}        
                 height={700}       
@@ -286,7 +286,7 @@ export default function Boutiques() {
               />
               */}
               <Image
-                src="/images/photos/img-gant.png"
+                src="/images/actualite/boutique-2.jpg"
                 alt="Casque"
                 width={500}        
                 height={700}       

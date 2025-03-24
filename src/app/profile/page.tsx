@@ -1,4 +1,4 @@
-
+"use client";
 // import UserProfilInfo from '@/components/user-profil-info'
 import dynamic from 'next/dynamic'
 import React, { useEffect } from 'react'
@@ -18,7 +18,7 @@ export default function ProflePage() {
     <>
     <HeroSection/>
     <ProfilLayout>
-      <UserProfilInfo />
+    <UserProfilInfo />
     </ProfilLayout>
     <Footer/>
     </>

@@ -1,3 +1,4 @@
+"use client";
 // import { useUserStore } from "@/store/user";
 // import { useState, useEffect } from "react";
 
@@ -30,7 +31,7 @@
 
 //   </div>;
 // }
-'use client'
+
 
 import { useUserStore } from "@/store/user";
 import { useState, useEffect } from "react";
@@ -95,9 +96,9 @@ export default function UserProfilInfo() {
           />
           <h3 className="mt-6 text-2xl font-semibold text-gray-900">{displayedUser.username}</h3>
           <p className="text-gray-600 text-lg">{displayedUser.email}</p>
-          <p className="mt-2 text-gray-500 text-lg">Rôle: {displayedUser.role}</p>
+          {/*<p className="mt-2 text-gray-500 text-lg">Rôle: {displayedUser.role}</p>*/}
           <p className="mt-2 text-gray-500 text-lg">Carte: <span className="font-semibold capitalize">{displayedUser.carte}</span></p>
-          <p className="mt-4 text-xl font-semibold text-accent">Balance: {displayedUser.balance?.toLocaleString()}</p>
+          <p className="mt-4 text-xl font-semibold text-accent"><span className="text-gray-500 ">Votre solde Cash-Back est de:</span> {displayedUser.balance?.toLocaleString()} Ar </p>
           <p className="text-gray-400 text-sm mt-2">Membre depuis: {new Date(displayedUser.createdAt || "").toLocaleDateString()}</p>
         </div>
       </div>
