@@ -293,6 +293,8 @@ import clsx from "clsx";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { GrFormPreviousLink } from "react-icons/gr";
+import { GrFormNextLink } from "react-icons/gr";
 
 import "swiper/css/pagination";
 import '@/styles/swipper.css';
@@ -374,7 +376,31 @@ const dataMeteo = {
   'temperature': '25',
   'weather': 'Ciel dégagé', 
 }
-
+const events = [
+  { date: "2025-02-09", title: "Grand Prix IMC", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-03-23", title: "Motocross KAWASAKI", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-04-05", title: "Motocross DISCODIN", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-04-20", title: "Grand Prix de l'Est", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-06-28", title: "Grand Prix Ilakaka", location: "Ilakaka", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-08-10", title: "Motocross Nosy Be", location: "Nosy Be", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-09-28", title: "Grand Prix de Manakara", location: "Manakara", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-12-07", title: "MX King Of Bira", location: "Antsirabe", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-12-14", title: "MX GAME", location: "MX Track", category: "Course du championnat MOTOCROSS" },
+  { date: "2025-03-02", title: "Triple Crown 1", location: "MX Park", category: "Course hors championnat MOTOCROSS" },
+  { date: "2025-07-20", title: "Triple Crown 2", location: "MX Track", category: "Course hors championnat MOTOCROSS" },
+  { date: "2025-10-12", title: "Triple Crown 3", location: "MX Tamatave", category: "Course hors championnat MOTOCROSS" },
+  { date: "2025-11-16", title: "Triple Crown 4", location: "MX Track", category: "Course hors championnat MOTOCROSS" },
+  { date: "2025-08-16", title: "MX of African Nation", location: "KENYA", category: "Autre catégorie" },
+  { date: "2025-02-23", title: "Endurance CRAM Mahitsy", location: "Mahitsy", category: "Course du championnat ENDURO" },
+  { date: "2025-05-04", title: "XC ACERBIS", location: "Antananarivo", category: "Course du championnat ENDURO" },
+  { date: "2025-05-18", title: "Enduro SHERCO", location: "Antananarivo", category: "Course du championnat ENDURO" },
+  { date: "2025-06-15", title: "Enduro Ambatondrazaka", location: "Ambatondrazaka", category: "Course du championnat ENDURO" }, 
+  { date: "2025-07-13", title: "Endurance GAS GAS", location: "Antsirabe", category: "Course du championnat ENDURO" },
+  { date: "2025-08-17", title: "Endurance Majunga", location: "Mahajanga", category: "Course du championnat ENDURO" },
+  { date: "2025-11-02", title: "Endurance Mananjary", location: "Mananjary", category: "Course du championnat ENDURO" },
+  { date: "2025-03-08", title: "4H HONDA", location: "Antananarivo", category: "Course hors championnat ENDURO" },
+  { date: "2025-09-07", title: "MEC", location: "Antananarivo", category: "Course hors championnat ENDURO" }
+];
 export default function Focus() {
   const totalImages = imageFocus.length; 
   const [isReady, setIsReady] = useState(false);
@@ -465,9 +491,9 @@ function YourCalendar() {
             Events - Rides - Sorties - Courses
           </h3>
         </div>
-        <Calendar />
+        <Calendar<Event> events={events} />
         <div className="mt-2">
-          <ListEvent />
+          <EventsList events={events} />
         </div>
         <div className="mt-2 mx-auto max-w-2xl">
           <Meteo data={dataMeteo} />
@@ -484,67 +510,99 @@ function formatDate(dateString: string): string {
       year: "2-digit"
   }).replace(/\//g, "."); // Remplace les "/" par "."
 }
-function ListEvent() {
-  const events = [
-    { date: "2025-02-09", title: "Grand Prix IMC", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-03-23", title: "Motocross KAWASAKI", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-04-05", title: "Motocross DISCODIN", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-04-20", title: "Grand Prix de l'Est", location: "Terrain IMC Ambohidava", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-06-28", title: "Grand Prix Ilakaka", location: "Ilakaka", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-08-10", title: "Motocross Nosy Be", location: "Nosy Be", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-09-28", title: "Grand Prix de Manakara", location: "Manakara", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-12-07", title: "MX King Of Bira", location: "Antsirabe", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-12-14", title: "MX GAME", location: "MX Track", category: "Course du championnat MOTOCROSS" },
-    { date: "2025-03-02", title: "Triple Crown 1", location: "MX Park", category: "Course hors championnat MOTOCROSS" },
-    { date: "2025-07-20", title: "Triple Crown 2", location: "MX Track", category: "Course hors championnat MOTOCROSS" },
-    { date: "2025-10-12", title: "Triple Crown 3", location: "MX Tamatave", category: "Course hors championnat MOTOCROSS" },
-    { date: "2025-11-16", title: "Triple Crown 4", location: "MX Track", category: "Course hors championnat MOTOCROSS" },
-    { date: "2025-08-16", title: "MX of African Nation", location: "KENYA", category: "Autre catégorie" },
-    { date: "2025-02-23", title: "Endurance CRAM Mahitsy", location: "Mahitsy", category: "Course du championnat ENDURO" },
-    { date: "2025-05-04", title: "XC ACERBIS", location: "Antananarivo", category: "Course du championnat ENDURO" },
-    { date: "2025-05-18", title: "Enduro SHERCO", location: "Antananarivo", category: "Course du championnat ENDURO" },
-    { date: "2025-06-15", title: "Enduro Ambatondrazaka", location: "Ambatondrazaka", category: "Course du championnat ENDURO" }, 
-    { date: "2025-07-13", title: "Endurance GAS GAS", location: "Antsirabe", category: "Course du championnat ENDURO" },
-    { date: "2025-08-17", title: "Endurance Majunga", location: "Mahajanga", category: "Course du championnat ENDURO" },
-    { date: "2025-11-02", title: "Endurance Mananjary", location: "Mananjary", category: "Course du championnat ENDURO" },
-    { date: "2025-03-08", title: "4H HONDA", location: "Antananarivo", category: "Course hors championnat ENDURO" },
-    { date: "2025-09-07", title: "MEC", location: "Antananarivo", category: "Course hors championnat ENDURO" }
-];
-function getUpcomingEvents(events : Event[]): Event[] {
-  const today = new Date(); // Date actuelle
-  return events.filter(event => new Date(event.date) >= today);
-}
-// Exemple d'utilisation : trier les événements par date
-// events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-const upcomingSortedEvents = getUpcomingEvents(events).sort((a, b) => 
-  new Date(a.date).getTime() - new Date(b.date).getTime()
-);
+// function ListEvent({events}: {events: Event[]}) {
+  
+ 
+// function getUpcomingEvents(events : Event[]): Event[] {
+//   const today = new Date(); // Date actuelle
+//   return events.filter(event => new Date(event.date) >= today);
+// }
+// // Exemple d'utilisation : trier les événements par date
+// // events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+// const events = getUpcomingEvents(events).sort((a, b) => 
+//   new Date(a.date).getTime() - new Date(b.date).getTime()
+// );
 
-console.log(events);
+// console.log(events);
 
 
-const [showAll, setShowAll] = useState(false);
+// const [showAll, setShowAll] = useState(false);
 
-return (
-  <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-md">
-    <ul>
-      {(showAll ? upcomingSortedEvents : [upcomingSortedEvents[0]]).map((event, index) => (
-        <li key={index} className="flex justify-between items-center text-black py-2 px-2 border-b">
-          <span className="text-xs mr-1">{formatDate(event.date)}:</span>
-          <span className="font-bold text-sm px-2 mr-auto">{event.title}</span>
-        </li>
-      ))}
-    </ul>
-    {(
-      <button 
-        onClick={() => setShowAll(prev => !prev)}
-        className="block text-center w-full py-2 text-gray-500 hover:text-black transition text-sm">
-        {!showAll ? <span>Voir plus &raquo;&raquo;&raquo;</span>: <span>Voir moins &raquo;&raquo;&raquo;</span>} 
-      </button>
-    )}
-  </div>
-);
-}
+// return (
+//   <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-md">
+//     <ul>
+//       {(showAll ? events : events.slice(0,2)).map((event, index) => (
+//         <li key={index} className="flex justify-between items-center text-black py-2 px-2 border-b">
+//           <span className="text-xs mr-1">{formatDate(event.date)}:</span>
+//           <span className="font-bold text-sm px-2 mr-auto">{event.title}</span>
+//         </li>
+//       ))}
+//     </ul>
+//     {(
+//       <button 
+//         onClick={() => setShowAll(prev => !prev)}
+//         className="block text-center w-full py-2 text-gray-500 hover:text-black transition text-sm">
+//         {!showAll ? <span>Voir plus &raquo;&raquo;&raquo;</span>: <span>Voir moins &raquo;&raquo;&raquo;</span>} 
+//       </button>
+//     )}
+//   </div>
+// );
+// }
+const EventsList = ({ events }: { events: Event[] }) => {
+  const itemsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(events.length / itemsPerPage);
+  const paginatedEvents = events.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  return (
+    <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-md">
+      <ul>
+        {paginatedEvents.map((event, index) => (
+          <li
+            key={index}
+            className="flex justify-between items-center text-black py-2 px-2 border-b"
+          >
+            <span className="text-xs mr-1">{formatDate(event.date)}:</span>
+            <span className="font-bold text-sm px-2 mr-auto">{event.title}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-between items-center px-2 py-2">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+          className={clsx(
+            'text-gray-500 text-sm p-1 rounded-full bg-gray-100 hover:bg-gray-200',
+            currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:text-black"
+          ) }
+        >
+          <GrFormPreviousLink className="w-7 h-7"/>
+        </button>
+
+        <span className="text-sm">
+          Page {currentPage} sur {totalPages}
+        </span>
+
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+          className={clsx(
+            'text-gray-500 text-sm p-1 rounded-full bg-gray-100 hover:bg-gray-200',
+            currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:text-black"
+          ) }
+        >
+          <GrFormNextLink className="w-7 h-7"/>
+        </button>
+      </div>
+    </div>
+  );
+};
 
 function Meteo({
   data

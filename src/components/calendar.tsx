@@ -108,7 +108,7 @@ dayjs.locale("fr");
 
 const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
 
-function MonthlyCalendar() {
+function MonthlyCalendar<T extends Record<string,any>>({events}: {events: T[]}) {
   const [currentMonth] = useState(dayjs());
 
   const firstDayOfMonth = currentMonth.startOf("month");
@@ -148,12 +148,14 @@ function MonthlyCalendar() {
         {days.map((day, index) => {
           const isCurrentMonth = day.month() === currentMonth.month();
           const isToday = day.isSame(dayjs(), "day");
+          const currentEvent = events.find((event) => event.date === day.format("YYYY-MM-DD"));
 
           return (
             <div
               key={index}
               className={clsx(
                 "text-center border p-2 w-13 h-13 relative",
+                currentEvent && "bg-accent text-white font-bold",
                 isToday && "bg-blue-500 text-white font-bold",
                 isCurrentMonth ? "text-gray-400" : "bg-gray-100"
               )}
