@@ -14,6 +14,8 @@ import BoutiqueContainer from "@/components/boutique-container";
 import JustRideAcademy from "@/components/just-ride-academy";
 import JustRent from "@/components/just-rent";
 import RideWatch from "@/components/ride-watch";
+import TroisPub from "@/components/trois-pub";
+
 export default function Home() {
   return (
     <div className="p-1">
@@ -23,6 +25,7 @@ export default function Home() {
       <PubActu/>
       <ReforestinEvent />
       <BoutiqueContainer />
+      <TroisPub />
       <JustRideAcademy />
       <JustRent />
       <RideWatch/>

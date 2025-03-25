@@ -13,17 +13,17 @@ import '@/styles/swipper.css';
 
 const imageFocus = [
   {
-    src: "/images/pub/faux-pub-horizontal.webp",
+    src: "/images/pub/fauxpub1.jpg",
     alt: "Image-focus",
     href: "#", 
   },
   {
-    src: "/images/pub/faux-pub-horizontal.webp",
+    src: "/images/pub/fauxpub2.jpg",
     alt: "Image-focus",
     href: "#",
   },
   {
-    src: "/images/pub/faux-pub-horizontal.webp",
+    src: "/images/pub/fauxpub3.jpg",
     alt: "Image-focus",
     href: "#",
   },
@@ -78,7 +78,7 @@ export default function PubActu() {
             loop
             breakpoints={{
               640: { 
-                slidesPerView: 2,
+                slidesPerView: 1,
               },
               1024: {  // Pour les grands écrans (ordinateurs)
                 slidesPerView: 2,  // Affiche 3 images sur les grands écrans
@@ -89,16 +89,21 @@ export default function PubActu() {
             {
               imageFocus.map((image, index) => (
                 <SwiperSlide key={index} className="h-auto">
-                  <Link href={image.href} className="w-full block h-[10.75rem] bg-black">
+                  <Link href={image.href} className="w-full block ">
+                  <div className="flex justify-center items-center">
+
+                  {/* responsive amle sary niala className="w-full object-fill h-[15rem] lg:h-[19rem] sm:h-[20rem] md:h-[20rem]"*/}
                     <Image
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-full object-fill"
-                      width={300}
-                      height={300}
+                      
+                      width={700}
+                      height={350}
                       loading="eager"
                       priority
+                      className="w-full object-cover mix-blend-multiply"
                     />
+                    </div>
                   </Link>
                 </SwiperSlide>
               ))

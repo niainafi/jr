@@ -226,7 +226,7 @@ const justRideData = [
   {
     title: "Initiation à la conduite de Moto",
     description:
-      "Ce stage est conçu pour les débutants souhaitant acquérir les compétences nécessaires à la maîtrise d’une moto. Chaque séance d'initiation dure 2 heures et vous permettra de vous familiariser avec les bases de la conduite. Le stage se déroule à CTmotors Andraharo, avec la possibilité de choisir un package de 4 séances pour une progression optimale.",
+      "Ce stage est conçu pour les débutants souhaitant acquérir les compétences nécessaires à la maîtrise d’une moto.<br /> Chaque séance d'initiation dure 2 heures et vous permettra de vous familiariser avec les bases de la conduite.<br />Le stage se déroule à CTmotors Andraharo, avec la possibilité de choisir un package de 4 séances pour une progression optimale.",
     image: "/images/just-ride/1_stage.jpg",
     link: "/evenement/initiation-conduite-moto",
     priceOnSeance: 250000,
@@ -235,7 +235,7 @@ const justRideData = [
   {
     title: "Stage de conduite – Niveau Intermédiaire",
     description:
-      "Ce stage de 2 heures est destiné aux motocyclistes souhaitant perfectionner leur conduite sur route. L'objectif est de limiter les risques et de réduire les accidents en améliorant la maîtrise de la moto.    Au programme : perfectionnement des gestes techniques, du freinage,des trajectoires, de la maniabilité,de la position de conduite et du regard.",
+      "Ce stage de 2 heures est destiné aux motocyclistes souhaitant perfectionner leur conduite sur route. L'objectif est de limiter les risques et de réduire les accidents en améliorant la maîtrise de la moto.<br />Au programme : perfectionnement des gestes techniques, du freinage,des trajectoires, de la maniabilité,de la position de conduite et du regard.",
     image: "/images/just-ride/2_stage.jpg",
     link: "/evenement/stage-conduite-intermediaire",
     priceOnSeance: 300000,
@@ -244,7 +244,7 @@ const justRideData = [
   {
     title: "Stage de pilotage – Niveau Intermédiaire et Plus",
     description:
-      "Ce stage de 1h30 est conçu pour les motards ayant déjà un niveau intermédiaire ou plus et souhaitant apprendre les bases du pilotage sur circuit. Au programme : apprendre à poser le genou, perfectionner vos trajectoires, comprendre les points de corde et les codes à respecter,  ainsi que les bases du pilotage sportif pour maîtriser vos motos sportives et roadsters.",
+      "Ce stage de 1h30 est conçu pour les motards ayant déjà un niveau intermédiaire ou plus et souhaitant apprendre les bases du pilotage sur circuit.<br />Au programme : apprendre à poser le genou, perfectionner vos trajectoires, comprendre les points de corde et les codes à respecter,ainsi que les bases du pilotage sportif pour maîtriser vos motos sportives et roadsters.",
     image: "/images/just-ride/3_stage.jpg",
     link: "/evenement/stage-pilotage",
     priceOnSeance: 325000,
@@ -253,7 +253,7 @@ const justRideData = [
   {
     title: "Session Mini SM YCF – Niveau Intermédiaire et Plus",
     description:
-      "Cette session est idéale pour les motards de niveau intermédiaire et plus qui souhaitent s'amuser sur le circuit SRK tout en pilotant des mini SM YCF !Tenue obligatoire adaptée pour le circuit. Cette session est placée sous le signe du fun et de l'amusement , parfait pour passer un bon moment entre amis ou passionnés.Durée : 4*15min  ",
+      "Cette session est idéale pour les motards de niveau intermédiaire et plus qui souhaitent s'amuser sur le circuit SRK tout en pilotant des mini SM YCF !Tenue obligatoire adaptée pour le circuit.<br />Cette session est placée sous le signe du fun et de l'amusement, parfait pour passer un bon moment entre amis ou passionnés.<br />Durée:  4*15min",
     image: "/images/just-ride/4_stage.jpg",
     link: "/evenement/session-mini-sm-ycf",
     priceOnSeance: 325000,
@@ -350,7 +350,14 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
             <div className="relative z-10 flex flex-col justify-between text-white pt-3 h-full w-full">
               <div className="flex flex-col gap-5">
                 <h3 className="uppercase text-base font-bold leading-4">{data.title}</h3>
-                <p className="text-sm leading-4 opacity-0 group-hover:opacity-100">{data.description}</p>
+
+                 {/* Affichage de la description avec dangerouslySetInnerHTML */}
+                <p 
+                  className="text-sm leading-4 opacity-0 group-hover:opacity-100"
+                  dangerouslySetInnerHTML={{ __html: data.description }} 
+                />
+                
+                {/*<p className="text-sm leading-4 opacity-0 group-hover:opacity-100">{data.description}</p>*/}
                 <div className="opacity-0 group-hover:opacity-100">
                   {data.priceOnSeance && (
                     <p className="text-sm leading-4">
