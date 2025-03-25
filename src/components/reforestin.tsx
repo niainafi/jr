@@ -338,26 +338,28 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const events = [
   {
-    date: "08-09 Mars 2025",
-    title: "REFOREST’IN ANKADINANDRIANA",
+    image: "/images/evenement/DGR.jpg",
+    title: "DGR",
     description:
-      "Être motard et Eco responsable, c'est possible ! Fantaro fa isaky ny kilometatra diavinao dia misy fiantraikany amin’ny tontolo iainana. Izao anefa ✊ manana fahefana isika",
-    image: "/images/evenement/reforestin.webp",
+      "Cette année, nous célébrons une décennie de soutien au cancer de la prostate et à la santé mentale des hommes avec Movember, et 12 ans de partenariat avec le remarquable fabricant de motos, Triumph Motorcycles, qui continue de soutenir nos collectes de fonds avec certains des prix les plus impressionnants de tout événement caritatif. Chaque année, des milliers de motards s'habillent de leurs plus beaux vêtements et conduisent leur moto de style classique pour deux des plus grandes causes au monde, le cancer de la prostate et la santé mentale des hommes, collecte de fonds pour Movember.",
   },
   {
-    date: "15-16 Avril 2025",
-    title: "GRAND RALLYE DES MOTARDS",
-    description:
-      "Un événement incontournable pour les passionnés de moto ! Rejoignez-nous pour une aventure exceptionnelle sur les routes malgaches.",
-    image: "/images/evenement/reforestin.webp",
+    image: "/images/evenement/BADASS.jpg",
+    title: "évènement BADASS",
+    description: 
+    <div className="flex flex-col gap-3">
+      <p>{`On se bouge`}</p>
+      <p>{`Ultra excité d'accueillir cette Édition 2 de GASY METALHEAD SHOW !!!`}</p>
+      <p><span>{`Certain aussi que ce line-up de dingue fera trembler la fosse du Local Coffee-Bar-Cult avec l'arrivée du groupe mauricien`}</span> <span className="text-blue-700">Ryōshi</span> . Ils se partageront la scène avec bien sur<span/><span className="text-blue-800"> LohArano | GREY | WEST Bullet </span> </p>
+      <p>{`Du rock et du métal pour lancer les hostilités`} </p> 
+      <p>{`Rendez-vous en Avril !`}</p>
+
+    </div>
+      
+
+
   },
-  {
-    date: "20-21 Mai 2025",
-    title: "TOURISME À MOTO",
-    description:
-      "Découvrez Madagascar autrement, en sillonnant ses routes à moto. Un mélange unique entre aventure et découverte culturelle !",
-    image: "/images/evenement/reforestin.webp",
-  },
+ 
 ];
 
 export default function ReforestinEvent() {
@@ -390,25 +392,26 @@ export default function ReforestinEvent() {
                 <div>
                   <div className="flex flex-col w-full items-start">
                     <p className="text-xs uppercase font-bold pb-1 inline-block">
-                      {event.date}
+                      {}
                     </p>
                     <span className="border-2 bg-white h-1 max-w-[130px] w-full" />
                   </div>
-                  <h2 className="text-xl text-start md:text-xl font-bold my-5">
+                  <h2 className="text-xl text-start md:text-xl uppercase font-bold my-5">
                     {event.title}
                   </h2>
-                  <p className="text-lg mt-2 max-w-2xl text-start leading-6">
+                  <div className="text-lg mt-2 max-w-2xl text-start leading-6">
                     {event.description}
-                  </p>
+                  </div>
                 </div>
                 {/* Boutons */}
                 <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
-                  <Link
+                  
+                  {/*<Link
                     href="/contactez-nous"
                     className="bg-white text-accent rounded-md w-full md:w-auto text-center font-bold px-1"
                   >
                     INSCRIVEZ-VOUS
-                  </Link>
+                  </Link>*/}
                   <Link
                     href="/just-rent"
                     className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
