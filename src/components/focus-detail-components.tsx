@@ -231,14 +231,15 @@ import { useState } from "react";
 import Image from "next/image";
 import Container from "./container";
 import PubFocus from "./pub-focus";
+import { DataFocusType } from "@/data/data-focus";
 
-export default function FocusDetailCasque() {
+export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
   const [mainImage, setMainImage] = useState<string>(
-    "/images/accueil/noir-mat-moto-1.webp"
+    focus.pictures[0].src
   );
   const [images, setImages] = useState<string[]>([
-    '/images/accueil/noir-mat-moto-2.webp',
-    '/images/accueil/noir-mat-moto-4.webp',
+    focus.pictures[1].src,
+    focus.pictures[2].src,
   ]);
 
   const handleImageClick = (imageSrc: string, currentSelectedImageUrl: string) => {
@@ -256,7 +257,7 @@ export default function FocusDetailCasque() {
       {/* Titre avec tiret sous le titre */}
       <div className="flex w-full justify-center">
       <div className="flex flex-col gap-5 mb-12 lg:max-w-xl">
-        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">{`CASQUE BELL LITHIUM MIPS`}</h1>
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">{focus.title}</h1>
         <span className="w-[34%] h-2 bg-accent rounded-md"></span>
       </div>
       </div>
@@ -283,7 +284,7 @@ export default function FocusDetailCasque() {
                 alt={`Détails casque ${i}`}
                 width={300}
                 height={300}
-                className="w-full h-auto cursor-pointer"
+                className="w-full h-full cursor-pointer"
                 onClick={() => handleImageClick(img, mainImage)}
               />
             </div>
@@ -293,171 +294,12 @@ export default function FocusDetailCasque() {
 
       {/* Section Texte + Pub avec centrage */}
       <div className="w-full space-y-6 mb-16">
-
-        <div className="space-y-6">
-        <div className="text-gray-600">
-            <dl className="grid grid-cols-1 md:grid-cols-2">
-              <div className="flex gap-1 flex-col">
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`TYPE DE CASQUE :`}</dt>
-                  <dd>{`Intégral`}</dd>
-                </div>
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`VERNIS DE PROTECTION :`}</dt>
-                  <dd>{`Mat`}</dd>
-                </div>
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`FERMETURE :`}</dt>
-                  <dd>{`Boucle double D`}</dd>
-                </div>
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`COQUE :`}</dt>
-                  <dd>{`Polycarbonate / AES`}</dd>
-                </div>
-                
-                
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`TAILLES DE COQUES :`}</dt>
-                  <dd>{`CALOTINS: MIPS®`}</dd>
-                </div>
-                <div className="flex gap-1">
-                  <dt className="font-bold block">{`ÉCRAN :`}</dt>
-                  <div>
-                    <dd className="block">{`Incolore`}</dd>
-                    <dd className="block">{`Pinlock ready`}</dd>
-                    <dd className="block">{`Optique de classe 1`}</dd>
-                    <dd className="block">{`Démontage sans outil`}</dd>
-                  </div>
-                </div>
-              </div>
-
-
-              <div className="flex gap-1 flex-col">
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`SYSTÈME DE VENTILATION :`}</dt>
-                  <dd>{`Réglable`}</dd>
-                </div>
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`ÉCRAN SOLAIRE RÉTRACTABLE :`}</dt>
-                  <dd>{`Fumé`}</dd>
-                </div>
-
-                <div className="flex gap-1">
-                  <dt className="font-bold block">{`INTÉRIEUR :`}</dt>
-                  <div>
-                    <dd className="block">{`Démontable et lavable`}</dd>
-                    <dd className="block">{`Anti-bactérien ionici™`}</dd>
-                  </div>
-                </div>
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`ESPACE PRÉVU POUR LES ÉCOUTEURS DES INTERCOM : `}</dt>
-                  <dd>{`Oui`}</dd>
-                </div>
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`HOMOLOGATION : `}</dt>
-                  <dd>{`ECE 22 Ø6`}</dd>
-                </div>
-
-                <div className="inline space-x-1">
-                  <dt className="font-bold">{`ACCESSOIRES FOURNIS : `}</dt>
-                  <dd>{`Écran anti-buée Pinlock Incolore`}</dd>
-                </div>
-              </div>
-            </dl>
-          </div>
-        </div>
+          {focus.spefification}
       </div>
 
       {/* Nouvelle section Texte + Pub */}
-      <div className="flex flex-col md:flex-row gap-10 items-start">
-        <div className="w-full space-y-6">
-          <h2 className="text-2xl font-bold inline space-x-1">
-            <span>{`BELL LITHIUM MIPS`}</span>
-            <span>
-              {`Mais c'est quoi ce MIPS`} ?
-            </span>
-          </h2>
-
-          <div className="space-y-6">
-            <p>
-              {`Les motards recherchent toujours le meilleur en matière de
-              sécurité et de confort. Aujourd’hui, Just Ride vous propose le
-              casque Bell Lithium MIPS. Mais avant tout, c’est quoi le MIPS ?`}
-            </p>
-
-            
-              <p>
-                {`Le MIPS, ou Système de Protection Multi-directionnelle
-                Une technologie qui réduit les forces de rotation en cas
-                d’impact oblique, offrant une protection supplémentaire à la
-                tête.`}
-              </p>
-            
-
-            <h3 className="text-2xl font-bold">
-              {`Bell Lithium MIPS : La Référence`}
-            </h3>
-            <p>
-              {`Le Bell Lithium MIPS combine sécurité et confort. Avec son design
-              soigné, il intègre le MIPS pour réduire les risques de lésions en
-              cas de choc.`}
-            </p>
-
-            <h3 className="text-2xl font-bold">{`Confort et Ventilation`}</h3>
-            <p>
-              {`Ce casque ne se contente pas d’être sécuritaire. Il offre aussi un
-              confort optimal grâce à une bonne ventilation, idéale pour les
-              trajets longs ou sous chaleur.`}
-            </p>
-
-            <p>
-              {`Le Bell Lithium MIPS est un excellent choix pour allier sécurité
-              et confort sans compromis. Prêt à rouler en toute confiance ? Le
-              Bell Lithium MIPS est là pour toi, il t’attend en Boutique.`}
-            </p>
-          </div>
-
-
-          <p>
-            {`Les motards recherchent toujours le meilleur en matière de
-            sécurité et de confort. Aujourd’hui, Just Ride vous propose le
-            casque Bell Lithium MIPS. Mais avant tout, c’est quoi le MIPS ?`}
-          </p>
-
-          <p>
-            {`Le MIPS, ou Système de Protection Multi-directionnelle,
-            est une technologie qui réduit les forces de rotation en cas
-            d’impact oblique, offrant une protection supplémentaire à la
-            tête.`}
-          </p>
-
-          <h3 className="text-2xl font-bold">{`Bell Lithium MIPS : La Référence`}</h3>
-          <p>
-            {`Le Bell Lithium MIPS combine sécurité et confort. Avec son design
-            soigné, il intègre le MIPS pour réduire les risques de lésions en
-            cas de choc.`}
-          </p>
-
-          <h3 className="text-2xl font-bold">{`Confort et Ventilation`}</h3>
-          <p>
-            {`Ce casque ne se contente pas d’être sécuritaire. Il offre aussi un
-            confort optimal grâce à une bonne ventilation, idéale pour les
-            trajets longs ou sous chaleur.`}
-          </p>
-
-          <p>
-            {`Le Bell Lithium MIPS est un excellent choix pour allier sécurité
-            et confort sans compromis. Prêt à rouler en toute confiance ? Le
-            Bell Lithium MIPS est là pour toi, il t’attend en Boutique.`}
-          </p>
-        </div>
+      <div className="flex flex-col md:flex-row gap-10 items-start w-full">
+        {focus.description}
       </div>
 
       {/* 3 Images en bas avec bordures jaunes et centrées */}

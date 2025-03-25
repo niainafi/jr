@@ -295,6 +295,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { GrFormPreviousLink } from "react-icons/gr";
 import { GrFormNextLink } from "react-icons/gr";
+import { dataFocus } from "@/data/data-focus";
 
 import "swiper/css/pagination";
 import '@/styles/swipper.css';
@@ -404,6 +405,7 @@ const events = [
 export default function Focus() {
   const totalImages = imageFocus.length; 
   const [isReady, setIsReady] = useState(false);
+  
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -414,12 +416,12 @@ export default function Focus() {
 
   useEffect(() => {
     let loadedImages = 0;
-    imageFocus.forEach((image) => {
+    dataFocus.forEach((image) => {
       const img = new window.Image();
-      img.src = image.src;
+      img.src = image.coverPicure;
       img.onload = () => {
         loadedImages++;
-        if (loadedImages === imageFocus.length) {
+        if (loadedImages === dataFocus.length) {
           setIsReady(true); 
         }
       };
@@ -427,8 +429,8 @@ export default function Focus() {
   }, []);
   return (
     <section className="-mt-10">
-      <Container className="flex flex-col xl:flex-row gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-7xl 2xl:max-w-8xl">
-        <section className="w-full xl:w-[70%]">
+      <Container className="flex flex-col xl:flex-row xl:justify-between gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-8xl 2xl:max-w-8xl">
+        <section className="w-full xl:w-[65%]">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">{'FOCUS ARRIVAGE'}</h2>
           {!isReady ? (
             <div><FocusLoading/></div>
@@ -452,12 +454,12 @@ export default function Focus() {
             className="rounded-sm shadow-lg"
           >
             {
-              imageFocus.map((image, index) => (
-                <SwiperSlide key={image.src} className="h-auto">
-                  <Link href={image.href} className="w-[18.75rem] h-[18.75rem] bg-black">
+              dataFocus.map((image, index) => (
+                <SwiperSlide key={image.id} className="h-auto">
+                  <Link href={`/focus/${image.slug}`} className="w-[18.75rem] h-[18.75rem] bg-black">
                     <Image
-                      src={image.src}
-                      alt={image.alt}
+                      src={image.coverPicure}
+                      alt={'focus image'}
                       className="w-auto h-auto object-contain"
                       width={300}
                       height={300}
@@ -487,7 +489,7 @@ function YourCalendar() {
       <div className="bg-accent p-2 w-full">
         <div className="relative mx-auto max-w-2xl">
           <YourCalendarIcon />
-          <h3 className="absolute bottom-2 left-10 uppercase font-semibold text-sm md:text-base">
+          <h3 className="absolute bottom-2 left-10 uppercase font-semibold text-sm 2xl:text-base">
             Events - Rides - Sorties - Courses
           </h3>
         </div>

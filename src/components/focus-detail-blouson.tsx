@@ -113,7 +113,7 @@ export default function FocusDetailPantalon() {
              </p>
          </div>
         </div>
-        <div className="md:w-1/2 relative flex items-center justify-end">
+        {/* <div className="md:w-1/2 relative flex items-center justify-end">
                 <div className="absolute sm:-top-[2rem] lg:-top-[9rem]">
                   <Image
                     src="/images/pub/faux-pub-long.webp"
@@ -123,7 +123,7 @@ export default function FocusDetailPantalon() {
                     className="w-full h-[47rem] shadow-lg border-1 border-gray-200"
                   />
                   </div>
-                </div>
+                </div> */}
       </div>
 
       {/* 3 Images en bas avec bordures jaunes*/}
