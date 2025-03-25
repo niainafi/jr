@@ -8,7 +8,7 @@ export default function EnTouteLiberte() {
           width={440}
           height={100}
           alt='just ride en toute liberte' 
-          src={'/images/just-rent/merci.png'}
+          src={'/images/just-rent/mercii.png'}
           className='h-full object-cover w-[70%]'
           objectFit='cover'
           />
