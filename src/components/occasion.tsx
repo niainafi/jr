@@ -19,9 +19,8 @@ export default function Occasion() {
     <section
     // className="p-6 md:p-10"
     >
-      <h2 className="text-base md:text-xl text-center xl:text-2xl font-bold text-gray-900 mt-5 mb-8 xl:mt-7 xl:mb-10">
-        NOS OCCASIONS <span className="">100% VALIDÉES</span> PAR
-        JUST RIDE
+         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mt-5">
+        NOS OCCASIONS <span className="text-accent">100% VALIDÉES</span> PAR JUST RIDE
       </h2>
       <OccasionData />
       
@@ -69,7 +68,7 @@ function OccasionData(){
           ocas.map((moto, index) => (
             <div
               key={index}
-              className="relative group overflow-hidden shadow-lg rounded-sm h-[500px] xl:h-[240px]"
+              className="relative group overflow-hidden shadow-lg rounded-sm h-[500px] xl:h-[400px]"
             >
               {moto.imageUrl && (
                 <Image
@@ -117,8 +116,8 @@ function OccasionData(){
                       <Image
                         src="/images/boutique/dispo.png"
                         alt="Disponible"
-                        width={50} // Adjust the size as needed
-                        height={50} // Adjust the size as needed
+                        width={0} // Adjust the size as needed
+                        height={0} // Adjust the size as needed
                         className="inline-block ml-2"
                       />
                     )}
