@@ -6,7 +6,7 @@ const RideWatch = () => {
       <div className="max-w-8xl mx-auto ">
         {/* Titre avec plus d'espace en bas */}
         <h2 className="text-3xl font-bold uppercase text-center mb-8 md:mb-10">Ride & Watch</h2>
-
+                
         <div className="flex flex-col lg:flex-row items-stretch h-[720px] sm:h-[950px] md:h-[990px] lg:h-[200px] xl:h-[490px] 2xl:h-[450px] overflow-hidden">
 
 
@@ -32,15 +32,15 @@ const RideWatch = () => {
 
             {/* ✅ Texte descendu */}
             <p className="text-lg leading-relaxed mt-6 md:mt-10">
-              Sur notre chaîne YouTube, on teste, analyse et met en scène les motos avec passion et expertise.
-              Test drives, unboxings, vidéos funs et instructives, tout y est pour allier plaisir et technicité.
-              Que vous soyez curieux ou passionné, embarquez avec nous et découvrez la moto sous un nouvel angle !
+              {`Sur notre chaîne YouTube, on teste, analyse et met en scène les motos avec passion et expertise.`}<br />
+              {`Test drives, unboxings, vidéos funs et instructives, tout y est pour allier plaisir et technicité.`}<br />
+              {`Que vous soyez curieux ou passionné, embarquez avec nous et découvrez la moto sous un nouvel angle !`}
             </p>
             
             {/* ✅ Abonnement descendu */}
-            <p className="mt-6 md:mt-10 font-bold text-lg">
-              Abonne-toi pour ne rien manquer : <br />
-              tests, lancements, unboxings et toutes les nouveautés moto !
+            <p className="mt-6 md:mt-8 font-bold text-lg">
+              {`Abonne-toi pour ne rien manquer :`} <br />
+              {`tests, lancements, unboxings et toutes les nouveautés moto !`}
             </p>
 
             {/* ✅ Bouton "Voir toutes les vidéos" bien positionné en bas à droite */}

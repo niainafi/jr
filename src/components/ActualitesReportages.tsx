@@ -123,6 +123,12 @@ function ActualitesReportagesData(){
     const fetchActus = async () => {
       try {
         const { data } = await axios.get(API_URL);
+         // Trier les actualités par date, du plus récent au plus ancien
+         const sortedData = data.sort((a: any, b: any) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          return dateB.getTime() - dateA.getTime(); // Tri décroissant (récent en premier)
+        });
 
         const aLaUne = data.filter((actu: any) => actu.category?.name === "A LA UNE");
         const internationales = data.filter((actu: any) => actu.category?.name === "Actus Internationale");

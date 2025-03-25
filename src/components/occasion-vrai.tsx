@@ -173,6 +173,29 @@ export default function Occasion() {
 
                 <p className="text-sm"><strong>Kilométrage :</strong> {moto.kilometrage} KM</p>
                 <p className="text-sm"><strong>Description :</strong> {moto.description}</p>
+                <p className="text-sm font-medium text-gray-700">
+                  <span className="text-red-500 font-bold"></span>
+                  {moto.vendu ? (
+                    <Image
+                      src="/images/boutique/vendu.png"
+                      alt="Vendu"
+                      width={100}  // Adjust the size as needed
+                      height={100} // Adjust the size as needed
+                      className="inline-block"
+                    />
+                  ) : (
+                    <Image
+                      src="/images/boutique/dispo.png"
+                      alt="Disponible"
+                      width={50}  // Adjust the size as needed
+                      height={50} // Adjust the size as needed
+                      className="inline-block"
+                    />
+                  )}
+                </p>
+
+
+                
                 <button
                   onClick={() => openModal(moto)}
                   className="mt-4 bg-white text-black py-2 px-6 rounded-lg border-2 border-accent text-accent transition-colors"
