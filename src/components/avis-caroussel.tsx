@@ -55,7 +55,7 @@ export function Avis() {
               
                 <div className="w-16 h-16 overflow-hidden rounded-full">
                   <Image
-                    src="/images/photos/focus1.jpg"
+                    src="/images/accueil/profile.webp"
                     alt="img-focus"
                     className="w-full h-full object-cover"
                     width={64}
