@@ -36,7 +36,7 @@ export default function Footer() {
   return (
     <footer className="bg-accent text-black py-6 sm:py-8">
       <div className="mx-auto max-w-8xl w-full">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-10 items-start lg:items-center justify-between gap-10 md:gap-8 ml-5 sm:ml-10">
+        <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-10 items-start xl:items-center justify-between gap-10 md:gap-8 ml-5 sm:ml-10">
           {/* Colonne gauche */}
           <ul className="flex flex-col font-sans text-base font-normal footer-list ml-10 lg:ml-0 w-full">
             <li className="hover:text-gray-700 cursor-pointer">
@@ -82,7 +82,7 @@ export default function Footer() {
           </div>
 
           {/* Section droite : Suivez-nous & Pub */}
-          <aside className="flex flex-col items-start  col-span-2 lg:col-span-2 w-full">
+          <aside className="flex flex-col items-start ml-auto col-span-2 lg:col-span-2 w-full">
             <div className="flex flex-col lg:items-end">
               <h2 className="text-xl">
                 <span className="font-bold">SUIVEZ</span>-<span>NOUS</span>
