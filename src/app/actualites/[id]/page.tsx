@@ -246,16 +246,22 @@ export default async function ActuReportageDetailPage({ params }: Props) {
     
         // Récupérer les détails de l'article en fonction de l'ID
         const actuDetail = await getActuDetails(id);
+
+        if(!actuDetail){
+            return(
+                <div>{`Une erreur s'est produit`}</div>
+            )
+        }
     
         return (
             <>
                 <HeroSection />
     
                 {/* Conteneur principal de l'article avec une mise en page flexible */}
-                <div className="max-w-7xl mx-auto my-12 px-6 flex flex-col lg:flex-row items-start relative">
+                <div className="max-w-7xl mx-auto my-12 px-6 flex flex-col xl:flex-row xl:items-start items-center relative">
                     
                     {/* Contenu principal de l'article */}
-                    <div className="w-full lg:w-[70%] lg:mr-[40px] mb-6 lg:mb-0">
+                    <div className="w-full md:w-[80%] lg:w-[70%] lg:mr-[40px] mb-6 lg:mb-0">
                         <h1 className="text-4xl font-extrabold mb-6 text-gray-900 leading-tight">
                             {actuDetail.title}
                         </h1>
@@ -292,13 +298,13 @@ export default async function ActuReportageDetailPage({ params }: Props) {
                     </div>
     
                     {/* Pub pour les écrans plus petits que 1280px (affichée en bas de l'article sur les tablettes et téléphones) */}
-                    <div className="lg:hidden block w-full mt-6">
+                    <div className="xl:hidden block w-[70%] mt-6">
                         <Image
                             src="/images/pub/faux-pub-long.webp"
                             alt="Publicité"
                             width={500}
                             height={700}
-                            className="w-full rounded-lg shadow-lg h-[700px] object-cover"
+                            className="w-full rounded-lg shadow-lg h-full object-contain"
                             style={{ objectFit: 'cover' }} // Maintien l'aspect sans déformation
                         />
                     </div>
