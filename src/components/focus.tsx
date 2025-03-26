@@ -636,6 +636,7 @@ function Meteo({
         });
       } catch (error) {
         console.error("Erreur météo :", error);
+        setWeather(null)
       }finally{
         setIsLoading(false);
       }
