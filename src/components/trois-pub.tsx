@@ -15,7 +15,7 @@ const TroisPub = () => {
             alt={`Variante ${num}`}
             width={600}
             height={300}
-            className="w-full h-[360px] md:h-[360px] lg:h-[230px] xl:h-[360px] object-cover"
+            className="w-full h-[400px] sm:h-[360px] md:h-[360px] lg:h-[230px] xl:h-[300px] object-cover"
           />
         </div>
         
