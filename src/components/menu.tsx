@@ -52,7 +52,7 @@ export default function Menu() {
             </div>
 
             {/* ✅ Liens du menu */}
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-6 space-y-4 relative z-20">
               {menus.map((menu, index) => (
                 <li key={index} className="hover:text-accent transition">
                   <MenuItem nom={menu.nom} href={menu.href} />
