@@ -374,9 +374,9 @@ export default function ReforestinEvent() {
       >
         {events.map((event, index) => (
           <SwiperSlide key={index} >
-            <div className="bg-accent relative px-5 md:h-[600px] lg:h-[400px] xl:h-[400px] 2xl:h-[400px] flex lg:flex-row md:flex-row flex-col">
+            <div className="bg-accent relative px-5 md:h-[470px] lg:h-[400px] xl:h-[400px] 2xl:h-[400px] flex lg:flex-row md:flex-row  flex-col">
               {/* Section Image */}
-              <div className="relative w-full md:w-[58%] sm:w-1/2 lg:w-[35%] flex justify-center min-h-full">
+              <div className="relative w-full md:w-[58%] sm:w-full lg:w-[35%] flex justify-center min-h-full">
                 <Image
                   src={event.image}
                   alt={event.title}
@@ -386,7 +386,7 @@ export default function ReforestinEvent() {
                 />
               </div>
               {/* Section Texte */}
-              <div className="text-white py-4 lg:ml-5 sm:ml-5 md:ml-5 flex flex-col items-start md:items-start text-center md:text-left w-full lg:w-[73%] min-h-[400px] sm:w-1/2  lg:justify-between">
+              <div className="text-white py-4 lg:ml-5 sm:ml-5 md:ml-5 flex flex-col items-start md:items-start text-center md:text-left w-full lg:w-[73%] min-h-[400px] sm:w-[95%]  lg:justify-between">
                 <div>
                   <div className="flex flex-col w-full items-start">
                     <p className="text-xs uppercase font-bold pb-1 inline-block">
