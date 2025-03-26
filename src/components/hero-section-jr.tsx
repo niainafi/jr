@@ -20,7 +20,7 @@ export default function HeroSectionjr() {
 
       <Header />
 
-      <div className="relative flex w-full items-center justify-center h-full z-10">
+      <div className="relative flex w-full items-center justify-center h-full z-1">
         {/* Contenu supplémentaire ici */}
       </div>
     </section>

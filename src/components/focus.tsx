@@ -299,6 +299,7 @@ import { dataFocus } from "@/data/data-focus";
 
 import "swiper/css/pagination";
 import '@/styles/swipper.css';
+import axios, { AxiosError } from "axios";
 
 type WeattherDisplay = {
   temperature: string;
@@ -624,18 +625,25 @@ function Meteo({
       const url = `https://api.open-meteo.com/v1/forecast?latitude=${countryInfo.coords.lat}&longitude=${countryInfo.coords.lat}&current_weather=true`;
       try {
         setIsLoading(true);
-        const response = await fetch(url);
-        const data = await response.json();
+        const response = await axios.get(url);
+        // const data = await response.json();
+        const data = response.data
+        console.log("data metoooo",response)
 
         const code = data.current_weather.weathercode as WeatherCode;
-        setWeather({
-          temperature: data.current_weather.temperature,
-          feelsLike: data.current_weather.temperature, // Open-Meteo don't give  "ressentie"
-          description: weatherDescriptions[code]?.text || "Inconnu",
-          icon: weatherDescriptions[code]?.icon || "❓"
-        });
+        if(data){
+          setWeather({
+            temperature: data.current_weather.temperature,
+            feelsLike: data.current_weather.temperature, // Open-Meteo don't give  "ressentie"
+            description: weatherDescriptions[code]?.text || "Inconnu",
+            icon: weatherDescriptions[code]?.icon || "❓"
+          });
+        }
       } catch (error) {
         console.error("Erreur météo :", error);
+        if(error instanceof AxiosError){
+          console.log('err axios')
+        }
         setWeather(null)
       }finally{
         setIsLoading(false);

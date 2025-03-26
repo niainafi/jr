@@ -50,8 +50,8 @@ export default function OccasionEvent() {
   }, [fetchCategories]); // ✅ Correction ici
 
   return (
-    <section className="mx-auto pt-5 mb-5">
-      <Container>
+    <section className="mx-auto">
+      <Container className="mt-2">
         {error && <p className="text-red-500 text-center">{error}</p>}
         
         {/* Liste des catégories */}
