@@ -225,13 +225,16 @@ export default function ReforestinEventVrai() {
   import { Navigation } from "swiper/modules";
   import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
   
-  const events = [
+  const events1 = [
     {
       image: "/images/evenement/DGR.jpg",
       title: "DGR",
       description:
         "Cette année, nous célébrons une décennie de soutien au cancer de la prostate et à la santé mentale des hommes avec Movember, et 12 ans de partenariat avec le remarquable fabricant de motos, Triumph Motorcycles, qui continue de soutenir nos collectes de fonds avec certains des prix les plus impressionnants de tout événement caritatif. Chaque année, des milliers de motards s'habillent de leurs plus beaux vêtements et conduisent leur moto de style classique pour deux des plus grandes causes au monde, le cancer de la prostate et la santé mentale des hommes, collecte de fonds pour Movember.",
     },
+   
+  ];
+  const events2 = [
     {
       image: "/images/evenement/BADASS.jpg",
       title: "évènement BADASS",
@@ -251,7 +254,7 @@ export default function ReforestinEventVrai() {
   
   export default function ReforestinEvent() {
     return (
-      <Container className="my-14">
+      <Container className="mt-14 mb-0">
         {/* Premier Carousel */}
         <Swiper
           navigation={{
@@ -261,7 +264,7 @@ export default function ReforestinEventVrai() {
           modules={[Navigation]}
           className="relative"
         >
-          {events.map((event, index) => (
+          {events1.map((event, index) => (
             <SwiperSlide key={index} >
               <div className="bg-accent relative px-5 md:h-[600px] lg:h-[400px] xl:h-[400px] 2xl:h-[400px] flex lg:flex-row md:flex-row flex-col">
                 {/* Section Image */}
@@ -301,7 +304,7 @@ export default function ReforestinEventVrai() {
                     </Link>*/}
                     <Link
                       href="/just-rent"
-                      className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
+                      className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-col py-2 gap-0  sm:py-0 sm:flex-row items-center justify-center sm:gap-1 px-1"
                     >
                       <span>LOUEZ VOTRE</span>
                       <span className="font-extrabold mb-[2px]">
@@ -337,7 +340,7 @@ export default function ReforestinEventVrai() {
         modules={[Navigation]}
         className="relative mt-10"
       >
-        {events.map((event, index) => (
+        {events2.map((event, index) => (
           <SwiperSlide key={index}>
             <div className="bg-accent relative px-5 md:h-[600px] lg:h-[400px] xl:h-[400px] 2xl:h-[400px] flex lg:flex-row-reverse md:flex-row-reverse flex-col">
               {/* Section Image */}
@@ -365,7 +368,7 @@ export default function ReforestinEventVrai() {
                   </div>
               </div>
                {/* Boutons */}
-               <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
+               <div className="mt-4 flex flex-col md:flex-row justify-start space-y-3 md:space-y-0 md:space-x-4 w-full">
                     
                     {/*<Link
                       href="/contactez-nous"
@@ -375,7 +378,7 @@ export default function ReforestinEventVrai() {
                     </Link>*/}
                     <Link
                       href="/just-rent"
-                      className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
+                      className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-col py-2 gap-0  sm:py-0 sm:flex-row items-center justify-center sm:gap-1 px-1"
                     >
                       <span>LOUEZ VOTRE</span>
                       <span className="font-extrabold mb-[2px]">
