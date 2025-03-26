@@ -7,7 +7,7 @@ const TroisPub = () => {
 
   return (
     <Container>
-      <div className='grid grid-cols-1  lg:grid-cols-4 md:grid-cols-1 w-full gap-2'>
+      <div className='grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2  md:grid-cols-2 w-full gap-2'>
       {imageNumbers.map((num) => (
         <div key={num} className="border-2 rounded-sm overflow-hidden">
           <Image
@@ -15,7 +15,7 @@ const TroisPub = () => {
             alt={`Variante ${num}`}
             width={600}
             height={300}
-            className="w-full h-[200px] md:h-[250px] lg:h-[360px] object-cover"
+            className="w-full h-[360px] md:h-[360px] lg:h-[230px] xl:h-[360px] object-cover"
           />
         </div>
         
