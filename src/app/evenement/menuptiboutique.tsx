@@ -501,6 +501,10 @@ export default function MenuPtiBoutique() {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
+  useEffect(() =>{
+    console.log("product cd:",products)
+  },[products])
+
   const API_URL = "https://justride.up.railway.app/api/category-product";
   const PRODUCT_URL = "https://justride.up.railway.app/api/product/category";
 
@@ -619,19 +623,34 @@ function CardImage({ product }: CardImageProps) {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  console.log("Product:", product);
 
   useEffect(() => {
     if (product.imageUrl) {
       setSelectedImage(product.imageUrl);
     }
-    if (product.additionalImages && product.additionalImages.length > 0) {
-      setImages(product.additionalImages);
+    if (product.extraImages && product.extraImages.length > 0) {
+      setImages(product.extraImages);
     }
-  }, [product.imageUrl, product.additionalImages]);
+  }, [product.imageUrl, product.extraImages]);
 
-  const handleImageClick = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
-  };
+  // const handleImageClick = (imageUrl: string,selectedImage) => {
+  //   setSelectedImage(imageUrl);
+  // };
+  const handleImageClick = (imageUrl: string,curentSelectedImageUrl: string) => {
+    
+    setSelectedImage(imageUrl); 
+    setImages(prev => {
+      const newImages = [...prev];
+      const index = newImages.indexOf(imageUrl);
+      newImages[index] = curentSelectedImageUrl;
+      return newImages;
+    });
+  }
+  useEffect(() =>{
+    console.log("selecetedimages: ",selectedImage)
+    console.log("images",images)
+  },[selectedImage,images])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -659,21 +678,28 @@ function CardImage({ product }: CardImageProps) {
   };
 
   return (
-    <div className="border border-gray-300 rounded-lg p-4 flex flex-col items-center">
-      <div className="relative w-[300px]">
+    <div className="border w-full md:w-[300px] pb-4  border-gray-300 rounded-lg flex flex-col items-center">
+      <div className="relative w-full group flex justify-center">
         <Image
           src={selectedImage}
           alt={product.name}
           width={300}
           height={300}
-          className="w-[350px] h-[300px] object-contain"
+          className="w-[250px] h-[250px] md:w-[350px] md:h-[300px] object-contain"
           priority
         />
+        <div className="absolute  inset-0 z-0 bg-accent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
+        <div className="absolute p-4 inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <p className="text-sm">
+          {product.description}
+          </p>
+        </div>
+        </div>
         <div className="mt-2 text-center">
           <h2 className="text-lg font-bold">{product.name}</h2>
           <div className="w-12 h-1 mt-2 mx-auto bg-accent"></div>
         </div>
-      </div>
+      
 
       <div className="flex justify-between mt-4 space-x-2">
         {images.length > 0 ? (
@@ -685,31 +711,17 @@ function CardImage({ product }: CardImageProps) {
                 width={50}
                 height={50}
                 className="w-full h-auto cursor-pointer"
-                onClick={() => handleImageClick(img)}
+                onClick={() => handleImageClick(img,selectedImage)}
                 loading="lazy"
               />
             </div>
           ))
-        ) : (
-          // Afficher les extraImages récupérées de l'API si disponibles
-          product.extraImages && product.extraImages.length > 0 ? (
-            product.extraImages.map((img, index) => (
-              <div key={index} className="w-[30%]">
-                <Image
-                  src={img}
-                  alt={`Extra Image ${index + 1} de ${product.name}`}
-                  width={50}
-                  height={50}
-                  className="w-full h-auto cursor-pointer"
-                  onClick={() => handleImageClick(img)}
-                  loading="lazy"
-                />
-              </div>
-            ))
-          ) : (
-            <p className="text-gray-500"></p>
-          )
-        )}
+        ) :(
+          <div className="min-h-[3.85rem]">
+
+          </div>
+        )} 
+       
       </div>
 
       {/* Bouton de réservation */}
