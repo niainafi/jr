@@ -205,9 +205,9 @@ export default function Boutiques() {
 
         {/* Grid responsive */}
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 h-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4  gap-2 h-auto">
           {/* Colonne 1 */}
-          <div className="hidden xl:flex flex-col gap-2 h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px]">
+          <div className="hidden  sm:flex flex-col gap-2 h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px]">
             <div className="h-52  relative overflow-hidden">
               {/*<img
                 src="/images/photos/img-casque-1.jpg"
@@ -242,7 +242,7 @@ export default function Boutiques() {
           </div>
 
           {/* Colonne 2 */}
-          <div className="hidden xl:block h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px]">
+          <div className="hidden sm:block h-[250px] lg:h-[270px] xl:h-[280px] 2xl:h-[340px]">
             <div className="w-full h-full relative overflow-hidden">
               {/*
               <img
