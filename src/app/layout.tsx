@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import ScreenSize from "@/components/screen-size";
-
+import { Toaster } from 'sonner';
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
@@ -41,7 +41,7 @@ export default function RootLayout({
         className={`${roboto.variable} ${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
         {children}
-        
+        <Toaster position="top-center" richColors/>
         <ScreenSize />
       </body>
     </html>

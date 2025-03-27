@@ -127,7 +127,7 @@ export default function Occasion() {
   useEffect(() => {
     if(selectedMoto){
 
-      setValue('subject',`Demande de devis - ${selectedMoto.marque} ${selectedMoto.modèle}`)
+      setValue('subject',`Demande de devis - ${selectedMoto.marque} ${selectedMoto.modele}`)
     }
   },[selectedMoto,setValue])
 
@@ -145,10 +145,10 @@ export default function Occasion() {
     try {
       console.log('formRef.current,', formRef.current)
       console.log("📤 Tentative d'envoi avec EmailJS...");
-      const response = await emailjs.sendForm(
+      const response = await emailjs.send(
         "service_uynssi5", // Ton Service ID EmailJS
         "template_id2orp9", // Ton Template ID EmailJS
-        formRef.current,
+        data,
         "m5HSHEwIFpginPQvC" // Ta Public Key EmailJS
       );
 

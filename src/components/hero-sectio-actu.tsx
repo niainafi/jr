@@ -27,7 +27,7 @@ import Image from 'next/image';
 
 export default function HeroSectionOcas() {
   return (
-    <div className="relative h-[380px] md:h-[500px] lg:h-[600px] xl:h-[450px]">
+    <div className="relative h-[380px] md:h-[500px] lg:h-[550px] xl:h-[450px]">
       {/* <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 

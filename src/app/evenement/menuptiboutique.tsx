@@ -568,7 +568,8 @@ export default function MenuPtiBoutique() {
       {loadingCategories && <p className="text-gray-500 text-center">Chargement des catégories...</p>}
 
       {!loadingCategories && categories.length > 0 && (
-        <ul className="flex overflow-x-auto  gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0">
+        
+        <ul className="flex overflow-x-auto justify-center items-center xl:justify-start xl:items-start 2xl:justify-center 2xl:items-center 2xl:px-0  gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0" >
           {categories.map((category) => (
             <li
               key={category._id}
@@ -579,6 +580,7 @@ export default function MenuPtiBoutique() {
             </li>
           ))}
         </ul>
+        
       )}
 
       {loadingProducts && <p className="text-gray-500 text-center mt-6">Chargement des produits...</p>}

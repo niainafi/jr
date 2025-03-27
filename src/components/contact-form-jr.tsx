@@ -92,6 +92,16 @@ export default function ReservationForm() {
 import { ChangeEvent, FormEvent, useState } from "react";
 import Container from "./container";
 import emailjs from "@emailjs/browser";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { E164Number, isValidPhoneNumber } from "libphonenumber-js";
+import ErrorMessage from "./error-message";
+import PhoneInput from "react-phone-number-input";
+import 'react-phone-number-input/style.css'
+import '@/styles/phone-number.css'
+import { toast } from "sonner";
+
 
 // Définition du type pour formData afin de garantir la cohérence des données
 interface MotoSelection {
@@ -100,29 +110,41 @@ interface MotoSelection {
 }
 
 interface FormDataType {
-  nom: string;
-  prenom: string;
-  passeport: string;
-  contact: string;
   motos: MotoSelection[];
   dateDebut: string;
   dateFin: string;
   duree: string;
 }
 
+const regexPassport = /^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$/;
+const formSchema = z.object({
+  nom: z.string().min(1, "Nom est requis"),
+  prenom: z.string().min(1, "Prénom est requis"),
+  passeport: z.string().optional(),
+    // .refine((value) => regexPassport.test(value)),
+  email: z.string().email("Email invalide"),
+});
+
+type FormData = z.infer<typeof formSchema>;
+
 export default function ReservationForm() {
   // Initialisation de l'état avec un typage explicite
   const [formData, setFormData] = useState<FormDataType>({
-    nom: "",
-    prenom: "",
-    passeport: "",
-    contact: "",
     motos: [{ moto: "HIMALAYAN 450", nbMotos: "1 Moto" }],
-    dateDebut: "",
-    dateFin: "",
+    dateDebut: new Date().toISOString().split("T")[0],
+    dateFin: new Date().toISOString().split("T")[0],
     duree: "",
   });
+  const [phoneNumber, setPhoneNumber] = useState<E164Number>();
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    mode: "onChange",
+  });
 
   const motosOptions = ["HIMALAYAN 450", "HIMALAYAN 410", "CLASSIC 500"];
   const maxQuantities: { [key: string]: number } = {
@@ -130,7 +152,6 @@ export default function ReservationForm() {
     "HIMALAYAN 410": 1,
     "CLASSIC 500": 4,
   };
-
 
   // Fonction pour calculer la durée en jours entre la date de début et la date de fin
   const calculateDuration = (start: string, end: string): string => {
@@ -177,7 +198,6 @@ export default function ReservationForm() {
     });
   };
 
-
   // Gestion du changement de quantité de moto avec une validation
   const handleQuantityChange = (index: number, value: string) => {
     const moto = formData.motos[index].moto;
@@ -193,10 +213,13 @@ export default function ReservationForm() {
 
     setFormData((prevState) => {
       const updatedMotos = [...prevState.motos];
-      updatedMotos[index].nbMotos = `${quantity} Moto${quantity > 1 ? "s" : ""}`;
+      updatedMotos[index].nbMotos = `${quantity} Moto${
+        quantity > 1 ? "s" : ""
+      }`;
       return { ...prevState, motos: updatedMotos };
     });
   };
+
   const addMotoSelection = () => {
     setFormData((prevState) => ({
       ...prevState,
@@ -205,24 +228,26 @@ export default function ReservationForm() {
   };
 
   // Fonction pour envoyer les données via EmailJS
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit = async (data: FormData) => {
     const serviceID = "service_uynssi5";
     const templateID = "template_m5neixf";
     const userID = "m5HSHEwIFpginPQvC";
 
     const emailParams = {
+      ...data,
       ...formData,
+      telephone: phoneNumber,
       motos: formData.motos.map((m) => `${m.moto} (${m.nbMotos})`).join("\n"),
     };
 
+    console.log("Données à envoyer :", emailParams);
+
     try {
       await emailjs.send(serviceID, templateID, emailParams, userID);
-      alert("Réservation envoyée avec succès !");
+      toast.success("Réservation envoyée avec succès !");
     } catch (error) {
       console.error("Erreur d'envoi :", error);
-      alert("Une erreur s'est produite. Veuillez réessayer.");
+      toast.error("Une erreur s'est produite. Veuillez réessayer.");
     }
   };
 
@@ -230,7 +255,7 @@ export default function ReservationForm() {
     <Container>
       <h2 className="text-3xl font-bold mb-10">ME RÉSERVER</h2>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-1 sm:grid-cols-2 gap-6"
       >
         <div className="space-y-4">
@@ -239,51 +264,69 @@ export default function ReservationForm() {
             <input
               id="nom"
               type="text"
-              name="nom"
+              {...register("nom")}
               placeholder="Votre nom"
-              value={formData.nom}
-              onChange={handleDateChange}
               className="p-3 border rounded-lg w-full"
               required
             />
+            {errors.nom && <ErrorMessage message={errors.nom.message} />}
           </div>
           <div>
             <label htmlFor="prenom">Prenoms</label>
             <input
               type="text"
-              name="prenom"
               id="prenom"
               placeholder="Votre prenoms"
-              value={formData.prenom}
-              onChange={handleDateChange}
+              {...register("prenom")}
               className="p-3 border rounded-lg w-full"
               required
             />
+            {errors.prenom && <ErrorMessage message={errors.prenom.message} />}
           </div>
           <div>
             <label htmlFor="passport">Passeport</label>
             <input
               type="text"
-              name="passeport"
               id="passport"
               placeholder="Votre numero passeport"
-              value={formData.passeport}
-              onChange={handleDateChange}
+              {...register("passeport")}
               className="p-3 border rounded-lg w-full"
             />
+            {errors.passeport && (
+              <ErrorMessage message={errors.passeport.message} />
+            )}
           </div>
           <div>
-            <label htmlFor="contact">Contact</label>
+            <label htmlFor="contact">Téléphone</label>
+            {/* <input
+              type="text"
+              id="contact"
+              placeholder="Numero téléphone"
+              {...register("telephone")}
+              className="p-3 border rounded-lg w-full"
+              required
+            /> */}
+            <PhoneInput 
+              id="contact"
+              defaultCountry="MG"
+              value={phoneNumber}
+              onChange={(value) => setPhoneNumber(value)}
+            />
+            {/* {errors.telephone && (
+              <ErrorMessage message={errors.telephone.message} />
+            )} */}
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
             <input
               type="text"
-              name="contact"
-              id="contact"
-              placeholder="Numero Contact"
-              value={formData.contact}
-              onChange={handleDateChange}
+              id="email"
+              placeholder="votre email"
+              {...register("email")}
               className="p-3 border rounded-lg w-full"
               required
             />
+            {errors.email && <ErrorMessage message={errors.email.message} />}
           </div>
         </div>
 
@@ -327,27 +370,39 @@ export default function ReservationForm() {
           </div>
           {formData.motos.map((moto, index) => (
             <div key={index} className="flex gap-2 w-full">
-              <div className="w-full">
-                <label htmlFor="type-moto"> Moto</label>
-                <select
-                  id="type-moto"
-                  value={moto.moto}
-                  onChange={(e) =>
-                    handleMotoChange(index, "moto", e.target.value)
-                  }
-                  className="p-3 border rounded-lg w-full bg-white"
-                >
-                  {motosOptions.map((option, idx) => (
-                    <option key={idx} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-                <input type="number" min="1" max={maxQuantities[moto.moto]} value={moto.nbMotos.replace(" Motos", "").replace(" Moto", "")} onChange={(e) => handleQuantityChange(index, e.target.value)} className="p-3 border rounded-lg w-full bg-white" />
-              </div>
-              <div className="w-full">
-                
-                
+              <div className="w-full flex">
+                <div className="w-full">
+                  <label htmlFor="type-moto"> Moto</label>
+                  <select
+                    id="type-moto"
+                    value={moto.moto}
+                    onChange={(e) =>
+                      handleMotoChange(index, "moto", e.target.value)
+                    }
+                    className="p-3 border rounded-lg w-full bg-white"
+                  >
+                    {motosOptions.map((option, idx) => (
+                      <option key={idx} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="w-full">
+                  <label htmlFor="nombre">Nombre(s)</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max={maxQuantities[moto.moto]}
+                    value={moto.nbMotos
+                      .replace(" Motos", "")
+                      .replace(" Moto", "")}
+                    onChange={(e) =>
+                      handleQuantityChange(index, e.target.value)
+                    }
+                    className="p-3 border rounded-lg w-full bg-white"
+                  />
+                </div>
               </div>
             </div>
           ))}

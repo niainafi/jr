@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
@@ -18,6 +18,10 @@ export default function MotocrossNews() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  // 🔹 États pour la pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 6;
+
   // Fonction pour récupérer les articles d'une catégorie spécifique
   const fetchArticles = useCallback(async (categoryId: any) => {
     try {
@@ -26,7 +30,8 @@ export default function MotocrossNews() {
 
       // Trier les articles par date décroissante (du plus récent au plus ancien)
       const sortedArticles = data.sort(
-        (a: any, b: any) => (new Date(b.date) as any) - (new Date(a.date) as any)
+        (a: any, b: any) =>
+          (new Date(b.date) as any) - (new Date(a.date) as any)
       );
 
       setArticles(sortedArticles);
@@ -43,19 +48,18 @@ export default function MotocrossNews() {
     try {
       const { data } = await axios.get(API_URL);
       setCategories(data);
-  // Modification des noms des catégories avec un "s" au pluriel
-  const updatedCategories = data.map((category: any) => {
-    if (category.name === "Actus Internationale") {
-      category.name = "Actus Internationales";
-    }
-    if (category.name === "Actus Locale") {
-      category.name = "Actus Locales";
-    }
-      return category;
-    });
+      // Modification des noms des catégories avec un "s" au pluriel
+      const updatedCategories = data.map((category: any) => {
+        if (category.name === "Actus Internationale") {
+          category.name = "Actus Internationales";
+        }
+        if (category.name === "Actus Locale") {
+          category.name = "Actus Locales";
+        }
+        return category;
+      });
 
-    setCategories(updatedCategories);
-
+      setCategories(updatedCategories);
 
       // Charger directement les articles de la première catégorie
       if (data.length > 0) {
@@ -71,6 +75,28 @@ export default function MotocrossNews() {
     fetchCategories();
   }, [fetchCategories]); // ✅ fetchCategories est maintenant bien pris en compte
 
+  // 🔹 Calcul des articles à afficher sur la page actuelle
+  const currentArticles = articles.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+  // 🔹 Gestion de la pagination
+  // const nextPage = () => {
+  //   if (currentPage < Math.ceil(articles.length / articlesPerPage)) {
+  //     setCurrentPage((prev) => prev + 1);
+  //   }
+  // };
+
+  // const prevPage = () => {
+  //   if (currentPage > 1) {
+  //     setCurrentPage((prev) => prev - 1);
+  //   }
+  // };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <section className="mx-auto mb-5">
       <Container className="mt-10">
@@ -78,13 +104,15 @@ export default function MotocrossNews() {
         {error && <p className="text-red-500 text-center">{error}</p>}
 
         {/* Liste des catégories cliquables */}
-        <ul className="flex overflow-x-auto sm:justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0">
+        <ul className="flex overflow-x-auto sm:justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0 relative z-[2]">
           {categories.map((category) => (
             <li
               key={category._id}
               onClick={() => fetchArticles(category._id)}
               className={`cursor-pointer px-3 text-lg font-normal ${
-                selectedCategory === category._id ? 'font-bold underline text-accent' : ''
+                selectedCategory === category._id
+                  ? "font-bold underline text-accent"
+                  : ""
               }`}
             >
               {category.name}
@@ -94,16 +122,41 @@ export default function MotocrossNews() {
 
         {/* Affichage des articles sous forme de cartes */}
         {loading ? (
-          <p className="text-gray-500 text-center mt-6 min-h-[20rem]">Chargement des actualités...</p>
+          <p className="text-gray-500 text-center mt-6 min-h-[20rem]">
+            Chargement des actualités...
+          </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2 my-14">
+          <div className="my-14 min-h-[10vh]">
             {articles.length > 0 ? (
-              articles.map((article) => (
+              <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-2">
+                {currentArticles.map((article) => (
                 <CardArticle key={article._id} article={article} />
-              ))
+              ))}
+              </div>
+              <div className="flex justify-center mt-8">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 bg-gray-300 rounded-md mx-2"
+              >
+                Précédent
+              </button>
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage * ITEMS_PER_PAGE >= articles.length}
+                className="px-4 py-2 bg-gray-300 rounded-md mx-2"
+              >
+                Suivant
+              </button>
+            </div>
+              </>
             ) : (
-              <p className="text-gray-500 text-center col-span-full">Aucune actualité disponible</p>
+              <p className="text-gray-500 text-center col-span-full">
+                Aucune actualité disponible
+              </p>
             )}
+            
           </div>
         )}
       </Container>
@@ -138,9 +191,8 @@ function CardArticle({ article }: any) {
   return (
     <Link href={`/actualites/${article._id}`} className="block">
       <div className="relative h-[23rem] group overflow-hidden shadow-sm rounded-sm transition-transform duration-200 cursor-pointer">
-        
         {/* 📌 Affichage de la date en haut à gauche SUR l’image */}
-        <div className="absolute top-3 left-3 bg-accent bg-opacity-60 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md backdrop-blur-sm z-10">
+        <div className="absolute top-3 left-3 bg-accent bg-opacity-60 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md backdrop-blur-sm z-[2]">
           {formattedDate}
         </div>
 
