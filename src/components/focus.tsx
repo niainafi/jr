@@ -718,14 +718,14 @@ import Calendar from "./calendar";
 import Image from "next/image";
 import clsx from "clsx";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
+;
 import { Autoplay, Pagination } from "swiper/modules";
 import { GrFormPreviousLink } from "react-icons/gr";
 import { GrFormNextLink } from "react-icons/gr";
 import { dataFocus } from "@/data/data-focus";
 
-import "swiper/css/pagination";
-import "@/styles/swipper.css";
+
+
 import axios, { AxiosError } from "axios";
 import { events } from "@/data/data-event";
 import { Events } from "@/store/events/type";
@@ -817,7 +817,7 @@ const imageFocus = [
     alt: "Image-focus",
     href: "/focusdetailjack",
   },
-
+  
 ];
 
 const dataMeteo = {
@@ -844,55 +844,82 @@ export default function Focus() {
     });
   }, []);
   return (
-    <section className="-mt-10">
+    <section className="">
       <Container className="flex flex-col xl:flex-row xl:justify-between gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-8xl 2xl:max-w-8xl">
-        <section className="w-full xl:w-[65%]">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
-            {"FOCUS ARRIVAGE"}
-          </h2>
-          {!isReady ? (
-            <div>
-              <FocusLoading />
+        <section className="w-full xl:w-[65%] pb-0 slide-in-from-top-1/2 sm:pb-5 lg:pb-10 xl:pb-15 2xl:pb-20">
+        <h2 className="text-3xl md:text-4xl font-bold text-left text-accent mb-10">
+          {"FOCUS ARRIVAGE"}
+        </h2>
+
+      {/* Première ligne avec 3 images */}
+      <div className="flex gap-6 justify-between mb-5 lg:mb-5 sm:mb-0">
+          {[
+            {
+              src: "/images/accueil/IMG-20250313-WA0018.webp",
+              alt: "Image-focus",
+              href: "/focusdetailcasque",
+            },
+            {
+              src: "/images/accueil/IMG-20250313-WA0017.webp",
+              alt: "Image-focus",
+              href: "/focusdetailblouson",
+            },
+            {
+              src: "/images/accueil/IMG-20250313-WA0020.webp",
+              alt: "Image-focus",
+              href: "/focusdetailpantalon",
+            },
+          ].map((image, index) => (
+            <div key={index} className="flex justify-center items-center rounded-md shadow-md">
+              <Link href={image.href} className="w-full h-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-auto h-auto object-contain"
+                  width={300}
+                  height={300}
+                  loading="eager"
+                  priority
+                />
+              </Link>
             </div>
-          ) : (
-            <Swiper
-              modules={[Autoplay, Pagination]}
-              spaceBetween={30}
-              slidesPerView={2}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              pagination={{ clickable: true }}
-              loop
-              breakpoints={{
-                640: {
-                  slidesPerView: 3,
-                },
-                1024: {
-                  // Pour les grands écrans (ordinateurs)
-                  slidesPerView: 3, // Affiche 3 images sur les grands écrans
-                },
-              }}
-              className="rounded-sm shadow-lg"
-            >
-              {dataFocus.map((image, index) => (
-                <SwiperSlide key={image.id} className="h-auto">
-                  <Link
-                    href={`/focus/${image.slug}`}
-                    className="w-[18.75rem] h-[18.75rem] bg-black"
-                  >
-                    <Image
-                      src={image.coverPicure}
-                      alt={"focus image"}
-                      className="w-auto h-auto object-contain"
-                      width={300}
-                      height={300}
-                      loading="eager"
-                      priority
-                    />
-                  </Link>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          )}
+          ))}
+        </div>
+
+        {/* Deuxième ligne avec 3 autres images */}
+        <div className="flex gap-6 justify-between mb-36 sm:mb-10 ">
+          {[
+            {
+              src: "/images/accueil/casquebell3.jpg",
+              alt: "Image-focus",
+              href: "/focusdetailbelltrois",
+            },
+            {
+              src: "/images/accueil/veste.jpg",
+              alt: "Image-focus",
+              href: "/focusdetailjack",
+            },
+            {
+              src: "/images/accueil/veste.jpg",
+              alt: "Image-focus",
+              href: "/focusdetailjack",
+            },
+          ].map((image, index) => (
+            <div key={index} className="flex justify-center items-center rounded-md shadow-md">
+              <Link href={image.href} className="w-full h-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-auto h-auto object-contain"
+                  width={300}
+                  height={300}
+                  loading="eager"
+                  priority
+                />
+              </Link>
+            </div>
+          ))}
+        </div> 
         </section>
 
         <aside className="relative top-0 xl:-top-36 xl:w-[30%]">

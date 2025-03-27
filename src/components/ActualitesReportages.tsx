@@ -175,6 +175,7 @@ function ActualitesReportagesData(){
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {actusALaUne.map((actu, index) => (
                 <div key={index} className="p-1">
+                  <a href={`/actualites/${actu._id}`} className="block">
                   <div className="relative w-full h-64">
                     {actu.imageUne && (
                       <Image
@@ -186,7 +187,10 @@ function ActualitesReportagesData(){
                       />
                     )}
                   </div>
-                  <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
+                  </a>
+                  <a href={`/actualites/${actu._id}`} className="block">
+                   <h3 className="mt-4 font-bold text-lg uppercase hover:text-accent">{actu.title}</h3>
+                   </a>
                   <div className="w-16 h-1 bg-accent my-2"></div>
                   <div
                     className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
@@ -207,6 +211,8 @@ function ActualitesReportagesData(){
             {/* Actus Internationales - Limité à 2 articles */}
             {actusInternationales.slice(0, 2).map((actu, index) => (
               <div key={index} className="p-1 text-center">
+
+          <a href={`/actualites/${actu._id}`} className="block">
                 <div className="relative w-full h-64">
                   {actu.imageUne && (
                     <Image
@@ -218,8 +224,11 @@ function ActualitesReportagesData(){
                     />
                   )}
                 </div>
-                <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
-                <div className="w-16 h-1 bg-accent my-2 mx-auto"></div>
+                </a>
+                <a href={`/actualites/${actu._id}`} className="block">
+                  <h3 className="mt-4 font-bold text-lg uppercase hover:text-accent">{actu.title}</h3>
+                </a>
+                  <div className="w-16 h-1 bg-accent my-2 mx-auto"></div>
                 <div
                   className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
                   dangerouslySetInnerHTML={{ __html: actu.description }}
@@ -232,7 +241,9 @@ function ActualitesReportagesData(){
 
             {/* Actus Locales - Limité à 1 article */}
             {actusLocales.slice(0, 1).map((actu, index) => (
+              
               <div key={index} className="p-1 text-center">
+                <a href={`/actualites/${actu._id}`} className="block">
                 <div className="relative w-full h-64">
                   {actu.imageUne && (
                     <Image
@@ -244,7 +255,10 @@ function ActualitesReportagesData(){
                     />
                   )}
                 </div>
-                <h3 className="mt-4 font-bold text-lg uppercase">{actu.title}</h3>
+                </a>
+                <a href={`/actualites/${actu._id}`} className="block">
+                  <h3 className="mt-4 font-bold text-lg uppercase hover:text-accent">{actu.title}</h3>
+                </a>
                 <div className="w-16 h-1 bg-accent my-2 mx-auto"></div>
                 <div
                   className="text-sm text-gray-600 text-justify text-ellipsis line-clamp-3"
@@ -261,8 +275,6 @@ function ActualitesReportagesData(){
   )
 
 }
-
-
 function ActualitesReportageLoading(){
   return (
     <div className="flex flex-col  animate-pulse gap-3">

@@ -680,6 +680,7 @@ function CardImage({ product }: CardImageProps) {
   return (
     <div className="border w-full md:w-[300px] pb-4  border-gray-300 rounded-lg flex flex-col items-center">
       <div className="relative w-full group flex justify-center">
+        {/*
         <Image
           src={selectedImage}
           alt={product.name}
@@ -688,6 +689,18 @@ function CardImage({ product }: CardImageProps) {
           className="w-[250px] h-[250px] md:w-[350px] md:h-[300px] object-contain"
           priority
         />
+      */}
+
+
+        <Image
+          src={selectedImage}
+          alt={product.name}
+          width={300}
+          height={300}
+          className="w-full h-auto md:w-[350px] md:h-[300px] object-contain"
+          priority
+        />
+
         <div className="absolute  inset-0 z-0 bg-accent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
         <div className="absolute p-4 inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="text-sm">
@@ -700,7 +713,7 @@ function CardImage({ product }: CardImageProps) {
           <div className="w-12 h-1 mt-2 mx-auto bg-accent"></div>
         </div>
       
-
+ {/*
       <div className="flex justify-between mt-4 space-x-2">
         {images.length > 0 ? (
           images.map((img, index) => (
@@ -723,6 +736,33 @@ function CardImage({ product }: CardImageProps) {
         )} 
        
       </div>
+*/}
+
+
+        <div className="flex justify-between mt-4 space-x-2">
+        {images.length > 0 ? (
+          images.map((img, index) => (
+            <div key={index} className="w-[30%]">
+              <Image
+                src={img}
+                alt={`Image ${index + 1} de ${product.name}`}
+                width={230}  
+                height={230} 
+                className="w-full h-full object-cover cursor-pointer" 
+                onClick={() => handleImageClick(img, selectedImage)}
+                loading="lazy"
+              />
+            </div>
+          ))
+        ) : (
+          <div className="min-h-[3.85rem]"></div>
+        )}
+      </div>
+
+
+
+
+
 
       {/* Bouton de réservation */}
       <button

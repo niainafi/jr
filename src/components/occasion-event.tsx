@@ -52,6 +52,10 @@ export default function OccasionEvent() {
   return (
     <section className="mx-auto">
       <Container className="mt-2">
+          {/* Titre ajouté */}
+          <h2 className='uppercase text-center text-3xl md:text-4xl font-bold pt-10 mb-16'>
+          Souvenirs
+        </h2>
         {error && <p className="text-red-500 text-center">{error}</p>}
         
         {/* Liste des catégories */}

@@ -22,8 +22,8 @@ export default function Home() {
       <HeroSection/>
       <Focus/>
       <ActualitesReportages />
-      <PubActu/>
       <ReforestinEvent />
+      <PubActu/>
       <BoutiqueContainer />
       <TroisPub />
       <JustRideAcademy />
