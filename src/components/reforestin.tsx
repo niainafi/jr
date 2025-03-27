@@ -363,6 +363,9 @@ const events = [
 export default function ReforestinEvent() {
   return (
     <Container className="my-14">
+       <h2 className='uppercase  text-center text-3xl md:text-4xl font-bold mb-16'>
+            Event à venir
+        </h2>
       {/* Premier Carousel */}
       <Swiper
         navigation={{
@@ -374,9 +377,9 @@ export default function ReforestinEvent() {
       >
         {events.map((event, index) => (
           <SwiperSlide key={index} >
-            <div className="bg-accent relative px-5 md:h-[470px] lg:h-[400px] xl:h-[400px] 2xl:h-[400px] flex lg:flex-row md:flex-row  flex-col">
+            <div className="bg-accent relative px-5  h-[950px] sm:h-[1050px] md:h-[550px] lg:h-[400px] xl:h-[490px] 2xl:h-[450px] flex lg:flex-row md:flex-row  flex-col">
               {/* Section Image */}
-              <div className="relative w-full md:w-[58%] sm:w-full lg:w-[35%] flex justify-center min-h-full">
+              <div className="relative w-full md:w-[58%] sm:w-full lg:w-[35%] flex justify-center">
                 <Image
                   src={event.image}
                   alt={event.title}
