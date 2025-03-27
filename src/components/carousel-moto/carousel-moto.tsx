@@ -113,7 +113,10 @@ export function MotoCarousel() {
 
 function MotoInfo({ data }: MotoInfoTypeProps) {
   return (
-    <section className="bg-accent  px-4 py-4" aria-labelledby={`${data.name}-title`}>
+    <section
+      className="bg-accent  px-4 py-4"
+      aria-labelledby={`${data.name}-title`}
+    >
       <Container>
         <h1 className="font-bold text-2xl uppercase">{data.name}</h1>
         <h3 className="font-bold text-xl mt-3">{data.subtitle}</h3>
@@ -134,7 +137,11 @@ function MotoInfo({ data }: MotoInfoTypeProps) {
             ))}
           </div>
           <p className="mt-5 uppercase text-3xl">
-            <b>{data.unitAvailable > 1 ? `${data.unitAvailable} unités` : `${data.unitAvailable} unités`  } </b> disponible{" "}
+            <b>
+            </b>{" "}
+            Parc à motos : {data.unitAvailable > 1
+                ? `${data.unitAvailable} unités`
+                : `${data.unitAvailable} unités`}{" "}{" "}
           </p>
         </div>
       </Container>
