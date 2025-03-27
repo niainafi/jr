@@ -117,18 +117,20 @@ export default function ReservationForm() {
     prenom: "",
     passeport: "",
     contact: "",
-    motos: [{ moto: "Royal Enfield Himalayan 411", nbMotos: "1 Moto" }],
+    motos: [{ moto: "HIMALAYAN 450", nbMotos: "1 Moto" }],
     dateDebut: "",
     dateFin: "",
     duree: "",
   });
 
-  const motosOptions = [
-    // "Royal Enfield Himalayan 411",
-    "HIMALAYAN 450",
-    "HIMALAYAN 410",
-    "CLASSIC 500",
-  ];
+
+  const motosOptions = ["HIMALAYAN 450", "HIMALAYAN 410", "CLASSIC 500"];
+  const maxQuantities: { [key: string]: number } = {
+    "HIMALAYAN 450": 10,
+    "HIMALAYAN 410": 1,
+    "CLASSIC 500": 4,
+  };
+
 
   // Fonction pour calculer la durée en jours entre la date de début et la date de fin
   const calculateDuration = (start: string, end: string): string => {
@@ -166,10 +168,35 @@ export default function ReservationForm() {
     setFormData((prevState) => {
       const updatedMotos = [...prevState.motos];
       updatedMotos[index][field] = value;
+
+      // Réinitialisation de la quantité lorsqu'on change de type de moto
+      if (field === "moto") {
+        updatedMotos[index].nbMotos = "1 Moto";
+      }
       return { ...prevState, motos: updatedMotos };
     });
   };
 
+
+  // Gestion du changement de quantité de moto avec une validation
+  const handleQuantityChange = (index: number, value: string) => {
+    const moto = formData.motos[index].moto;
+    const max = maxQuantities[moto] || 1;
+    let quantity = parseInt(value, 10);
+
+    // Validation de la quantité (min: 1, max: limite définie)
+    if (isNaN(quantity) || quantity < 1) {
+      quantity = 1;
+    } else if (quantity > max) {
+      quantity = max;
+    }
+
+    setFormData((prevState) => {
+      const updatedMotos = [...prevState.motos];
+      updatedMotos[index].nbMotos = `${quantity} Moto${quantity > 1 ? "s" : ""}`;
+      return { ...prevState, motos: updatedMotos };
+    });
+  };
   const addMotoSelection = () => {
     setFormData((prevState) => ({
       ...prevState,
@@ -316,25 +343,11 @@ export default function ReservationForm() {
                     </option>
                   ))}
                 </select>
+                <input type="number" min="1" max={maxQuantities[moto.moto]} value={moto.nbMotos.replace(" Motos", "").replace(" Moto", "")} onChange={(e) => handleQuantityChange(index, e.target.value)} className="p-3 border rounded-lg w-full bg-white" />
               </div>
               <div className="w-full">
-                <label htmlFor="quantity">Quantité</label>
-                <input
-                  id="quantity"
-                  type="number"
-                  min="1"
-                  value={moto.nbMotos
-                    .replace(" Motos", "")
-                    .replace(" Moto", "")} // Nettoie l'affichage
-                  onChange={(e) =>
-                    handleMotoChange(
-                      index,
-                      "nbMotos",
-                      `${e.target.value} Motos`
-                    )
-                  }
-                  className="p-3 border rounded-lg w-full bg-white"
-                />
+                
+                
               </div>
             </div>
           ))}

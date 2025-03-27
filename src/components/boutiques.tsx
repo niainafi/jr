@@ -317,8 +317,8 @@ export default function Boutiques() {
                 
                   <FaPlus width={100} height={100} className="text-accent absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 w-[100px] h-[100px]" />
                 
-                <span className="uppercase absolute top-1/2 left-1/2 -translate-x-1/2  lg:translate-y-[150%] font-[800] text-accent mt-16">
-                  Voir plus
+                <span className="uppercase absolute top-1/2 left-1/2 -translate-x-1/2  lg:translate-y-[150%] font-[800] text-accent mt-16 whitespace-nowrap">
+                  Entrer dans notre univers
                 </span>
                 
               </Link>

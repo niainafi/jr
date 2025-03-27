@@ -68,7 +68,7 @@ export function Avis() {
                 </div>
                 <div className="text-gray-700 mb-2  leading-relaxed">
                   <p className="text-sm">{review.text}</p>
-                  <Link className="mt-2 text-xs flex items-center gap-2" href={'#'}><span>Voir plus</span> <span>{'>>>>'}</span></Link>
+                  <Link className="mt-2 text-xs flex items-center gap-2" href={'#'}><span></span> <span>{''}</span></Link>
                 </div>
                 <div className="flex space-x-1">
                   {Array.from({ length: review.rating }).map((_, i) => (

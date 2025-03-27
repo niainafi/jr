@@ -217,8 +217,9 @@ export default function Occasion() {
                 </p>
 
                 <p className="text-sm">
-                  <strong>Kilométrage :</strong> {moto.kilometrage} KM
-                </p>
+  <strong>Kilométrage :</strong> {new Intl.NumberFormat('fr-FR', { useGrouping: true }).format(moto.kilometrage)} KM
+</p>
+
                 <p className="text-sm">
                   <strong>Description :</strong> {moto.description}
                 </p>
