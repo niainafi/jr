@@ -231,7 +231,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Container from "./container";
 import PubFocus from "./pub-focus";
-
+import emailjs from "@emailjs/browser";
 export default function FocusDetailCasque() {
   const [mainImage, setMainImage] = useState<string>(
     "/images/accueil/noir-mat-moto-1.webp"
@@ -240,6 +240,12 @@ export default function FocusDetailCasque() {
     '/images/accueil/noir-mat-moto-2.webp',
     '/images/accueil/noir-mat-moto-4.webp',
   ]);
+
+
+  const [showModal, setShowModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
 
   const handleImageClick = (imageSrc: string, currentSelectedImageUrl: string) => {
     setMainImage(imageSrc);
@@ -250,6 +256,33 @@ export default function FocusDetailCasque() {
       return newImages;
     });
   };
+
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      await emailjs.send(
+        "service_uynssi5", // Ton SERVICE_ID
+        "template_id2orp9", // Ton TEMPLATE_ID
+        {
+          to_name: "Just Ride Academy",
+          from_email: email,
+          message: `Demande de devis pour casque Bell Lithium MIPS : ${message}`,
+        },
+        "m5HSHEwIFpginPQvC" // Ton PUBLIC_KEY
+      );
+
+      alert("✅ Demande envoyée avec succès !");
+      setShowModal(false);
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error("❌ Erreur lors de l'envoi :", error);
+      alert("❌ Une erreur est survenue. Veuillez réessayer.");
+    }
+  };
+
 
   return (
     <Container className="2xl:max-w-7xl mt-10 mb-10 flex flex-col items-center">
@@ -290,6 +323,64 @@ export default function FocusDetailCasque() {
           ))}
         </div>
       </div>
+
+      <button
+        className="mt-6 border border-blue- bg-accent text-white h-10 px-6 rounded-md flex items-center justify-center text-xs"
+        onClick={() => setShowModal(true)}
+      >
+        <span className="font-bold uppercase">Demander un devis</span>
+      </button>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-md shadow-lg w-[90%] max-w-md relative">
+            <button
+              className="absolute top-2 right-2 text-gray-600 hover:text-red-600"
+              onClick={() => setShowModal(false)}
+            >
+              ✖
+            </button>
+
+            <h2 className="text-xl font-bold text-center mb-4">Demande de devis</h2>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium">Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  placeholder="Votre email"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium">Message</label>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  placeholder="Votre message..."
+                  rows={4}
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-accent text-white font-bold py-2 rounded-md hover:bg-opacity-80"
+              >
+                Envoyer
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+
+      
 
       {/* Section Texte + Pub avec centrage */}
       <div className="w-full space-y-6 mb-16">
@@ -462,6 +553,10 @@ export default function FocusDetailCasque() {
 
       {/* 3 Images en bas avec bordures jaunes et centrées */}
       <PubFocus />
+
+
+      
+
     </Container>
   );
 }
