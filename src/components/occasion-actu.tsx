@@ -18,6 +18,11 @@ export default function MotocrossNews() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+
+   // 🔹 États pour la pagination
+   const [currentPage, setCurrentPage] = useState(1);
+   const articlesPerPage = 6;
+
   // Fonction pour récupérer les articles d'une catégorie spécifique
   const fetchArticles = useCallback(async (categoryId: any) => {
     try {
@@ -70,6 +75,28 @@ export default function MotocrossNews() {
   useEffect(() => {
     fetchCategories();
   }, [fetchCategories]); // ✅ fetchCategories est maintenant bien pris en compte
+
+
+  // 🔹 Calcul des articles à afficher sur la page actuelle
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+  const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
+
+  // 🔹 Gestion de la pagination
+  const nextPage = () => {
+    if (currentPage < Math.ceil(articles.length / articlesPerPage)) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
+
+
 
   return (
     <section className="mx-auto mb-5">

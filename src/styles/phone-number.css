@@ -1,0 +1,25 @@
+.PhoneInput{
+    border: 1px solid #d8d6d6;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    padding: 1px;
+}
+.PhoneInput:focus-within {
+    border: 2px solid #080808; 
+}
+.PhoneInput > input{
+    border: none;
+    outline: none;
+    padding: 13px;
+
+}
+.PhoneInput > input:focus{
+    border: none;
+    outline: none;
+}
+.PhoneInput > .PhoneInputCountry{
+    margin-left: 2px;
+    border-right: 1px solid #ccc;
+    padding: 13px;
+}

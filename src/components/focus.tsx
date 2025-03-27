@@ -726,6 +726,7 @@ import { dataFocus } from "@/data/data-focus";
 
 
 
+
 import axios, { AxiosError } from "axios";
 import { events } from "@/data/data-event";
 import { Events } from "@/store/events/type";
@@ -845,81 +846,30 @@ export default function Focus() {
   }, []);
   return (
     <section className="">
-      <Container className="flex flex-col xl:flex-row xl:justify-between gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-8xl 2xl:max-w-8xl">
+      <Container className="flex flex-col xl:flex-row xl:justify-between gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-8xl 2xl:max-w-8xl mt-8 ">
         <section className="w-full xl:w-[65%] pb-0 slide-in-from-top-1/2 sm:pb-5 lg:pb-10 xl:pb-15 2xl:pb-20">
         <h2 className="text-3xl md:text-4xl font-bold text-left text-accent mb-10">
           {"FOCUS ARRIVAGE"}
         </h2>
 
-      {/* Première ligne avec 3 images */}
-      <div className="flex gap-6 justify-between mb-5 lg:mb-5 sm:mb-0">
-          {[
-            {
-              src: "/images/accueil/IMG-20250313-WA0018.webp",
-              alt: "Image-focus",
-              href: "/focusdetailcasque",
-            },
-            {
-              src: "/images/accueil/IMG-20250313-WA0017.webp",
-              alt: "Image-focus",
-              href: "/focusdetailblouson",
-            },
-            {
-              src: "/images/accueil/IMG-20250313-WA0020.webp",
-              alt: "Image-focus",
-              href: "/focusdetailpantalon",
-            },
-          ].map((image, index) => (
-            <div key={index} className="flex justify-center items-center rounded-md shadow-md">
-              <Link href={image.href} className="w-full h-full">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-auto h-auto object-contain"
-                  width={300}
-                  height={300}
-                  loading="eager"
-                  priority
-                />
-              </Link>
-            </div>
-          ))}
-        </div>
-
-        {/* Deuxième ligne avec 3 autres images */}
-        <div className="flex gap-6 justify-between mb-36 sm:mb-10 ">
-          {[
-            {
-              src: "/images/accueil/casquebell3.jpg",
-              alt: "Image-focus",
-              href: "/focusdetailbelltrois",
-            },
-            {
-              src: "/images/accueil/veste.jpg",
-              alt: "Image-focus",
-              href: "/focusdetailjack",
-            },
-            {
-              src: "/images/accueil/veste.jpg",
-              alt: "Image-focus",
-              href: "/focusdetailjack",
-            },
-          ].map((image, index) => (
-            <div key={index} className="flex justify-center items-center rounded-md shadow-md">
-              <Link href={image.href} className="w-full h-full">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-auto h-auto object-contain"
-                  width={300}
-                  height={300}
-                  loading="eager"
-                  priority
-                />
-              </Link>
-            </div>
-          ))}
-        </div> 
+          {/* Première ligne avec 3 images */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-5 lg:mb-5 sm:mb-0">
+            {dataFocus.map((image, index) => (
+              <div key={index} className="flex justify-center items-center rounded-md shadow-md">
+                <Link href={`focus/${image.slug}`} className="w-full h-full">
+                  <Image
+                    src={image.coverPicure}
+                    alt={'Image focus'}
+                    className="w-auto h-auto object-contain"
+                    width={300}
+                    height={300}
+                    loading="eager"
+                    priority
+                  />
+                </Link>
+              </div>
+            ))}
+          </div>
         </section>
 
         <aside className="relative top-0 xl:-top-36 xl:w-[30%]">
