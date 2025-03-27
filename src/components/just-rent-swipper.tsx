@@ -29,7 +29,7 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
     router.push('/just-rent');
   }
   return (
-    <Container className="lg:max-w-full px-0 mt-5 2xl:max-w-full pb:10 lg:pb-28">
+    <Container className="lg:max-w-full px-0 mt-5 2xl:max-w-full pb:10 lg:pb-0">
     <div className="w-full h-[350px] xl:h-[300px] 2xl:h-[350px]">
       <Swiper
         initialSlide={1}
@@ -43,13 +43,17 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
             spaceBetween: 200,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 40,
           },
           1024: {
             slidesPerView: 3,
-            spaceBetween: 50,
+            spaceBetween: 40,
           },
+          1280: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          }
         }}
         // loop={enableLoop}
         slidesPerView={'auto'}
@@ -78,7 +82,7 @@ export default function JustRentSwipperSlide({images}: SwipperSlideProps) {
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full flex flex-col justify-center items-center h-[320px] xl:h-[500px] 2xl:h-[540px] lg:w-[500px] xl:w-[570px] ">
+            <div className="relative w-full flex flex-col justify-center items-center h-[320px] xl:h-[500px] 2xl:h-[540px] lg:w-[300px] xl:w-[300px] 2xl:w-[570px] ">
               <Image
                 src={img.src}
                 alt={ img?.alt ?? `Slide ${index + 1}`}
