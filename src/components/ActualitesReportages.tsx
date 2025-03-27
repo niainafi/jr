@@ -193,7 +193,7 @@ function ActualitesReportagesData(){
                     dangerouslySetInnerHTML={{ __html: actu.description }}
                   />
                   <a href={`/actualites/${actu._id}`} className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
-                    Voir la suite »»»
+                    Lire la suite »»»
                   </a>
                 </div>
               ))}
@@ -225,7 +225,7 @@ function ActualitesReportagesData(){
                   dangerouslySetInnerHTML={{ __html: actu.description }}
                 />
                 <a href={`/actualites/${actu._id}`} className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
-                    Voir la suite »»»
+                    Lire la suite »»»
                   </a>
               </div>
             ))}
@@ -251,7 +251,7 @@ function ActualitesReportagesData(){
                   dangerouslySetInnerHTML={{ __html: actu.description }}
                 />
                 <a href={`/actualites/${actu._id}`} className="mt-4 text-sm font-semibold text-gray-700 hover:text-accent flex justify-items-start">
-                    Voir la suite »»»
+                    Lire la suite »»»
                   </a>
               </div>
             ))}

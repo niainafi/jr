@@ -79,8 +79,8 @@ export const data : Moto[] = [
           value: '41mm',
         },
        {
-          name: "abs",
-          value: "déconnectable",
+          name: "ABS",
+          value: "Déconnectable",
         }, 
         {
           name: "Pneu avant",

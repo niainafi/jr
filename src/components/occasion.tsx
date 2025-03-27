@@ -97,8 +97,9 @@ function OccasionData(){
                   <strong>Prix :</strong> {moto.prix.toLocaleString("fr-MG")} AR
                 </p>
                 <p className="text-xs lg:text-sm">
-                  <strong>Kilométrage :</strong> {moto.kilometrage} KM
-                </p>
+  <strong>Kilométrage :</strong> {new Intl.NumberFormat('fr-FR', { useGrouping: true }).format(moto.kilometrage)} KM
+</p>
+
                 {/* Affichage du statut Vendu/Disponible */}
                 <p className="mt-3 flex justify-center items-center space-x-2">
                     <span className="text-red-500 font-bold">
