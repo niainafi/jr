@@ -302,7 +302,7 @@ export default async function ActuReportageDetailPage({ params }: Props) {
                         <Image
                             src="/images/pub/faux-pub-long.webp"
                             alt="Publicité"
-                            width={500}
+                            width={300}
                             height={700}
                             className="w-full rounded-lg shadow-lg h-full object-contain"
                             style={{ objectFit: 'cover' }} // Maintien l'aspect sans déformation
