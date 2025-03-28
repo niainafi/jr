@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
         port: "",
         // pathname: "/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "myapi.justride.mg",
+        port: "",
+        // pathname: "/images/**",
+      },
+
+      
     ]
     // domains: ["justride.mg"],
   },

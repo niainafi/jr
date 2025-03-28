@@ -197,6 +197,8 @@ function ActualitesReportagesData(){
                   </a>
                   <a href={`/actualites/${actu._id}`} className="block">
                    <h3 className="mt-4 font-bold text-lg uppercase hover:text-accent">{actu.title}</h3>
+                   <h3 className="mt-4 font-bold text-lg uppercase hover:text-accent">{actu.imageUne}</h3>
+                   
                    </a>
                   <div className="w-16 h-1 bg-accent my-2"></div>
                   <div
