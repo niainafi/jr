@@ -819,6 +819,7 @@ const imageFocus = [
     href: "/focusdetailjack",
   },
   
+  
 ];
 
 const dataMeteo = {
@@ -847,7 +848,7 @@ export default function Focus() {
   return (
     <section className="">
       <Container className="flex flex-col xl:flex-row xl:justify-between gap-8 h-auto w-full mx-auto sm:max-w-xl md:max-w-3xl lg:max-w-8xl 2xl:max-w-8xl mt-8 ">
-        <section className="w-full xl:w-[65%] pb-0 slide-in-from-top-1/2 sm:pb-5 lg:pb-10 xl:pb-15 2xl:pb-20">
+        <section className="w-full xl:w-[65%] pb-0 slide-in-from-top-1/2 sm:pb-5 lg:pb-10 xl:pb-15 2xl:pb-32">
         <h2 className="text-3xl md:text-4xl font-bold text-left text-accent mb-10">
           {"FOCUS ARRIVAGE"}
         </h2>
@@ -935,7 +936,7 @@ const EventsList = ({ events }: { events?: Events[] }) => {
     },[currentMonth,events]
   )
 
-  const itemsPerPage = 2; 
+  const itemsPerPage = 3; 
   const totalPages = useMemo(() => upComingEvents ? Math.ceil(upComingEvents.length / itemsPerPage) : 0,[upComingEvents])
   const safeCurrentPage = useMemo(() => Math.min(currentPage, totalPages),[currentPage,totalPages]) 
 
@@ -962,7 +963,25 @@ const EventsList = ({ events }: { events?: Events[] }) => {
         ))}
       </ul>
 
-      {/* Pagination Controls */}
+        {/* Pagination Controls */}
+          <div className="flex justify-center items-center px-2 py-2">
+            <button
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+              className={clsx(
+                "text-gray-500 text-sm px-3 py-1 rounded bg-gray-100 hover:bg-gray-200",
+                currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:text-black"
+              )}
+            >
+              Voir plus
+            </button>
+          </div>
+
+
+
+      {/* Pagination Controls
       <div className="flex justify-between items-center px-2 py-2">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -979,6 +998,7 @@ const EventsList = ({ events }: { events?: Events[] }) => {
 
         <span className="text-sm">
           Page {currentPage} sur {totalPages}
+          
         </span>
 
         <button
@@ -996,6 +1016,7 @@ const EventsList = ({ events }: { events?: Events[] }) => {
           <GrFormNextLink className="w-7 h-7" />
         </button>
       </div>
+      */}
     </div>
   );
 };
