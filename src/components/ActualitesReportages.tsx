@@ -168,15 +168,22 @@ function ActualitesReportagesData(){
 
   return(
     <>
+
        {/* Section À la Une */}
        {actusALaUne.length > 0 && (
           <div className="mb-8 min-h-52">
+            
             <h3 className="text-xl font-bold uppercase mb-4">À la Une</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {actusALaUne.map((actu, index) => (
                 <div key={index} className="p-1">
                   <a href={`/actualites/${actu._id}`} className="block">
                   <div className="relative w-full h-64">
+
+                    {/* Ajout de la date en haut à gauche */}
+                    <div className="absolute top-0 left-0 bg-accent bg-opacity-60 text-white text-xs px-2 py-1 rounded-br-lg">
+                      {new Date(actu.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+                    </div>
                     {actu.imageUne && (
                       <Image
                         src={actu.imageUne}
@@ -214,6 +221,10 @@ function ActualitesReportagesData(){
 
           <a href={`/actualites/${actu._id}`} className="block">
                 <div className="relative w-full h-64">
+                  {/* Ajout de la date sur l'image  mety*/}
+    <div className="absolute top-2 left-2 bg-accent bg-opacity-70 text-white text-xs px-2 py-1 rounded-br-lg z-10">
+      {new Date(actu.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+    </div>
                   {actu.imageUne && (
                     <Image
                       src={actu.imageUne}
@@ -245,6 +256,10 @@ function ActualitesReportagesData(){
               <div key={index} className="p-1 text-center">
                 <a href={`/actualites/${actu._id}`} className="block">
                 <div className="relative w-full h-64">
+            {/* Ajout de la date sur l'image  mety*/}
+          <div className="absolute top-2 left-2 bg-accent bg-opacity-70 text-white text-xs px-2 py-1 rounded-br-lg z-10">
+            {new Date(actu.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+          </div>
                   {actu.imageUne && (
                     <Image
                       src={actu.imageUne}
