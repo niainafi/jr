@@ -117,7 +117,11 @@ export default function UserProfilInfo() {
       try {
         const response = await fetch("https://justride.up.railway.app/api/transactions");
         const data = await response.json();
-        setTransactions(data);
+        
+        // Filtrer les transactions par l'email de l'utilisateur (par exemple, 'manoa@gmail.com')
+        const filteredTransactions = data.filter((transaction: Transaction) => transaction.user.email === "manoa@gmail.com");
+        
+        setTransactions(filteredTransactions);
       } catch (error) {
         console.error("Erreur lors de la récupération des transactions", error);
       } finally {
@@ -164,19 +168,22 @@ export default function UserProfilInfo() {
           <p className="text-gray-400 text-sm mt-2">Membre depuis: {new Date(displayedUser.createdAt || "").toLocaleDateString()}</p>
         </div>
 
-        <h3 className="text-2xl font-bold text-accent mt-8 mb-4">Transactions</h3>
+        <h3 className="text-2xl font-bold text-accent mt-8 mb-4">Transactions de {displayedUser.username}</h3>
         {isLoadingTransactions ? (
           <Loading />
         ) : (
           <div className="space-y-4">
-            {transactions.map((transaction) => (
-              <div key={transaction._id} className="p-4 bg-gray-100 rounded-lg shadow-md">
-                <h4 className="text-xl font-semibold">{transaction.description}</h4>
-                <p className="text-sm text-gray-500">Montant: {transaction.amount.toLocaleString()} Ar</p>
-                <p className="text-sm text-gray-500">Date: {new Date(transaction.createdAt).toLocaleDateString()}</p>
-              </div>
-            ))}
-            {transactions.length === 0 && <p>Aucune transaction trouvée.</p>}
+            {transactions.length > 0 ? (
+              transactions.map((transaction) => (
+                <div key={transaction._id} className="p-4 bg-gray-100 rounded-lg shadow-md">
+                  <h4 className="text-xl font-semibold">{transaction.description}</h4>
+                  <p className="text-sm text-gray-500">Montant: {transaction.amount.toLocaleString()} Ar</p>
+                  <p className="text-sm text-gray-500">Date: {new Date(transaction.createdAt).toLocaleDateString()}</p>
+                </div>
+              ))
+            ) : (
+              <p>Aucune transaction trouvée pour cet utilisateur.</p>
+            )}
           </div>
         )}
       </div>
