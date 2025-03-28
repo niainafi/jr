@@ -292,7 +292,7 @@ export default async function ActuReportageDetailPage({ params }: Props) {
                             alt="Publicité"
                             width={300}
                             height={700}
-                            className="w-full rounded-lg shadow-lg  object-cover"
+                            className="w-full rounded-lg shadow-lg  object-contain"
                             style={{ objectFit: 'cover' }} // Maintien l'aspect sans déformation
                         />
                     </div>
