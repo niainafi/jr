@@ -342,11 +342,14 @@ const events = [
     title: "DGR",
     description:
       "Cette année, nous célébrons une décennie de soutien au cancer de la prostate et à la santé mentale des hommes avec Movember, et 12 ans de partenariat avec le remarquable fabricant de motos, Triumph Motorcycles, qui continue de soutenir nos collectes de fonds avec certains des prix les plus impressionnants de tout événement caritatif. Chaque année, des milliers de motards s'habillent de leurs plus beaux vêtements et conduisent leur moto de style classique pour deux des plus grandes causes au monde, le cancer de la prostate et la santé mentale des hommes, collecte de fonds pour Movember.",
+      link: "/just-rent",
+    buttonText: "LOUEZ VOTRE",
+    buttonIcon: "/images/logo/royal-enfield.webp",
   },
   {
     image: "/images/evenement/BADASS.jpg",
     title: "évènement BADASS",
-    description: 
+    description: (
     <div className="flex flex-col gap-3">
       <p>{`On se bouge`}</p>
       <p>{`Ultra excité d'accueillir cette Édition 2 de GASY METALHEAD SHOW !!!`}</p>
@@ -355,9 +358,10 @@ const events = [
       <p>{`Rendez-vous en Avril !`}</p>
 
     </div>
-
+  ),
+  link: "https://www.facebook.com/photo?fbid=957012709953924&set=a.382154170773117",
+  buttonText: "Lien de l'event BADASS",
   },
- 
 ];
 
 export default function ReforestinEvent() {
@@ -414,10 +418,11 @@ export default function ReforestinEvent() {
                     INSCRIVEZ-VOUS
                   </Link>*/}
                   <Link
-                    href="/just-rent"
+                    href={event.link}
                     className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
                   >
-                    <span>LOUEZ VOTRE</span>
+                     <span>{event.buttonText}</span>
+                     {event.buttonIcon && (
                     <span className="font-extrabold mb-[2px]">
                       <Image
                         height={35}
@@ -428,6 +433,7 @@ export default function ReforestinEvent() {
                         loading="lazy"
                       />
                     </span>
+                    )}
                   </Link>
                 </div>
               </div>

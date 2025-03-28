@@ -377,20 +377,11 @@ export default function ReforestinEventVrai() {
                       INSCRIVEZ-VOUS
                     </Link>*/}
                     <Link
-                      href="/just-rent"
+                      href="https://www.facebook.com/photo?fbid=957012709953924&set=a.382154170773117"
                       className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-col py-2 gap-0  sm:py-0 sm:flex-row items-center justify-center sm:gap-1 px-1"
                     >
-                      <span>LOUEZ VOTRE</span>
-                      <span className="font-extrabold mb-[2px]">
-                        <Image
-                          height={35}
-                          width={110}
-                          src={"/images/logo/royal-enfield.webp"}
-                          alt="just ride moto royal enfield"
-                          objectFit="contain"
-                          loading="lazy"
-                        />
-                      </span>
+                      <span>{`Lien de l'event BADASS`}</span>
+                     
                     </Link>
                   </div>
               </div>
