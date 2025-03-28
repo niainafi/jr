@@ -269,7 +269,7 @@ function ErrorMessage({message}:{message?:string}){
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useUserStore } from "@/store/user";
@@ -299,7 +299,7 @@ const slides = [
     title: "CONDITIONS GÉNÉRALES DE LA CARTE DE FIDÉLITÉ \"CASHBACK BY JUST RIDE\"",
     content: (
       <>
-        <p className="mt-12 text-base md:text-lg leading-relaxed">
+        <p className="mt-0 text-base md:text-lg leading-relaxed">
           La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :
         </p>
         <div className="mt-8 text-base md:text-lg leading-relaxed">
@@ -419,6 +419,7 @@ type FormData = z.infer<typeof schema>;
 export default function Seconnecter() {
   const [activeSlide, setActiveSlide] = useState(0);
   const router = useRouter();
+  const [showModal,setShowModal] = useState<boolean>(false)
   // const {setUser} = useUserStore();
 
   const {
@@ -430,6 +431,17 @@ export default function Seconnecter() {
     resolver: zodResolver(schema),
   });
 
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showModal]);
   const onSubmit = async (data: FormData) => {
     try {
       
@@ -455,7 +467,7 @@ export default function Seconnecter() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-10 my-16 bg-white text-black items-center justify-center px-4 md:px-0">
-      <div className="lg:w-1/2 w-full h-auto md:h-[30rem] lg:h-[32rem] 2xl:h-[45rem] flex flex-col justify-between text-left max-w-xl">
+      <div className="lg:w-1/2 w-full h-auto md:h-[34rem] lg:h-[32rem] 2xl:h-[45rem] flex flex-col justify-between text-left max-w-xl">
         <div>
         <h1 className="text-3xl md:text-4xl font-bold leading-tight">
           {slides[activeSlide].title}
@@ -463,10 +475,42 @@ export default function Seconnecter() {
           {slides[activeSlide].content}
         </div>
         <div className="flex items-center gap-4 mt-6 ml-auto">
-          <button onClick={() => setActiveSlide(activeSlide === 0 ? 1 : 0)} className="bg-accent text-white px-2  rounded-xl font-bold">
-            {activeSlide === 0 ? "CONDITIONS GÉNÉRALES" : "RETOUR"}
+          <button 
+            type="button"
+            onClick={() => setShowModal(true)} 
+            className="bg-accent text-white px-2  rounded-xl font-bold"
+            >
+            {"CONDITIONS GÉNÉRALES"}
           </button>
-          <div className="flex space-x-2">
+          {/* modal */}
+          {showModal && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white p-6 rounded-md shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl relative">
+
+                  <h2 className="text-xl lg:text-2xl font-bold mb-4">
+                    Condition general
+                  </h2>
+                  <div className="h-[60vh] w-full overflow-auto">
+                    {slides.slice(1).map((e) => (
+                      <div key={e.id}>
+                        <>{e.content}</>
+                      </div>
+                    ))}
+
+                  </div>
+                  <div className="w-full flex justify-end items-end mt-3">
+                  <button 
+                    className=""
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Fermer
+                  </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          {/* <div className="flex space-x-2">
             {slides.map((_,index) => (
               <div
                 key={index}
@@ -474,7 +518,7 @@ export default function Seconnecter() {
                 onClick={() => setActiveSlide(index)}
               ></div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
       
