@@ -488,7 +488,7 @@ export default function Seconnecter() {
                 <div className="bg-white p-6 rounded-md shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-2xl relative">
 
                   <h2 className="text-xl lg:text-2xl font-bold mb-4">
-                    Condition general
+                    {`Conditions Générales de la Carte de Fidélité "Cashback by Just Ride"`}
                   </h2>
                   <div className="h-[60vh] w-full overflow-auto">
                     {slides.slice(1).map((e) => (
