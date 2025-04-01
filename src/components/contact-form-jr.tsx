@@ -159,7 +159,11 @@ export default function ReservationForm() {
     const endDate = new Date(end);
     if (!isNaN(startDate.getTime()) && !isNaN(endDate.getTime())) {
       const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+      // Ajouter 1 jour pour inclure la date de début
+    diffDays += 1;
+
       return `${diffDays} Jours`;
     }
     return "";

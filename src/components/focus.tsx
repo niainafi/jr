@@ -891,7 +891,7 @@ function YourCalendar() {
       <div className="bg-accent p-2 w-full">
         <div className="relative mx-auto max-w-2xl">
           <YourCalendarIcon />
-          <h3 className="absolute bottom-2 left-10 uppercase font-semibold text-sm 2xl:text-base">
+          <h3 className="absolute bottom-2 left-10 uppercase font-semibold text-[0.5rem] 2xl:text-base">
             Events - Rides - Sorties - Courses
           </h3>
         </div>
