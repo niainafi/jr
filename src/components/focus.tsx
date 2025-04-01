@@ -732,6 +732,12 @@ import { events } from "@/data/data-event";
 import { Events } from "@/store/events/type";
 import { useEventStore } from "@/store/events";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+// Activer les plugins
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 type WeattherDisplay = {
   temperature: string;
@@ -906,6 +912,7 @@ function YourCalendar() {
     </div>
   );
 }
+{/*
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date
@@ -916,6 +923,13 @@ function formatDate(dateString: string): string {
     })
     .replace(/\//g, "."); // Remplace les "/" par "."
 }
+    
+// ✅ Correction de l'affichage des dates pour Antananarivo (GMT+3)
+function formatDate(dateString: string): string {
+  const date = dayjs.utc(dateString).tz("Indian/Antananarivo"); // Correction du fuseau
+  return date.format("DD.MM.YY"); // Format correct pour éviter le décalage
+}
+
 
 const EventsList = ({ events }: { events?: Events[] }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -946,6 +960,47 @@ const EventsList = ({ events }: { events?: Events[] }) => {
   ),[safeCurrentPage,upComingEvents])
 
   console.log("paginated eve", paginatedEvents);
+
+*/}
+
+// ✅ Correction de l'affichage des dates pour Antananarivo (GMT+3)
+function formatDate(dateString: string): string {
+  const date = dayjs.utc(dateString).tz("Indian/Antananarivo", true); // Correction du fuseau
+  return date.format("DD.MM.YY (dddd)"); // Format correct pour éviter le décalage
+}
+
+const EventsList = ({ events }: { events?: Events[] }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const { currentMonth } = useEventStore();
+
+  const upComingEvents = useMemo(() => {
+    return events?.filter((e) => {
+      const eventDate = dayjs.utc(e.date).tz("Indian/Antananarivo", true); 
+      return (
+        eventDate.month() === currentMonth.month() &&
+        eventDate.year() === currentMonth.year()
+      );
+    });
+  }, [currentMonth, events]);
+  
+
+  const itemsPerPage = 3;
+  const totalPages = useMemo(
+    () => (upComingEvents ? Math.ceil(upComingEvents.length / itemsPerPage) : 0),
+    [upComingEvents]
+  );
+  const safeCurrentPage = useMemo(() => Math.min(currentPage, totalPages), [currentPage, totalPages]);
+
+  const paginatedEvents = useMemo(
+    () =>
+      upComingEvents?.slice(
+        (safeCurrentPage - 1) * itemsPerPage,
+        safeCurrentPage * itemsPerPage
+      ),
+    [safeCurrentPage, upComingEvents]
+  );
+
+  console.log("Paginated Events:", paginatedEvents);
 
   return (
     <div className="max-w-2xl mx-auto py-2 bg-white shadow rounded-md">
