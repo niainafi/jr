@@ -966,7 +966,7 @@ const EventsList = ({ events }: { events?: Events[] }) => {
 // ✅ Correction de l'affichage des dates pour Antananarivo (GMT+3)
 function formatDate(dateString: string): string {
   const date = dayjs.utc(dateString).tz("Indian/Antananarivo", true); // Correction du fuseau
-  return date.format("DD.MM.YY (dddd)"); // Format correct pour éviter le décalage
+  return date.format("DD.MM.YY"); // Format correct pour éviter le décalage
 }
 
 const EventsList = ({ events }: { events?: Events[] }) => {

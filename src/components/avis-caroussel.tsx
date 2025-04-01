@@ -12,7 +12,7 @@ const reviews = [
  
  
   {
-    name: "Bertrand Desaintes ",
+    name: "Bertrand Dessaintes ",
     text: "Après plusieurs essais sur différents types de terrains, la Himalayan 410 se révèle être une moto solide et fiable. Sa conduite est fluide même sur les terrains les plus accidentés, et le moteur de 410 cm³ offre un bon compromis entre puissance et confort. Elle est simple à entretenir et à réparer, ce qui est un vrai plus pour une moto d’aventure. La stabilité dans les virages est un vrai atout pour les trajets longs. Une très bonne moto pour les amateurs de road trips et d'aventures tout-terrain !",
     rating: 5,
   },
