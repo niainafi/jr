@@ -1161,7 +1161,7 @@ function CardImage({ product }: CardImageProps) {
           alt={product.name}
           width={300}
           height={300}
-          className="w-full h-auto md:w-[350px] md:h-[300px] object-contain"
+          className="w-full h-[350px] md:w-[350px] md:h-[300px] object-contain"
           priority
         />
 
