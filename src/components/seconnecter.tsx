@@ -300,7 +300,7 @@ const slides = [
     content: (
       <>
         <p className="mt-0 text-base md:text-lg leading-relaxed">
-          La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :
+          La carte <span className="font-bold">Cashback by Just Ride</span> vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :
         </p>
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
