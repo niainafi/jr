@@ -6,24 +6,27 @@ import Image from "next/image";
 const reviews = [
   {
     name: "Jean Yves",
-    text: " Je roule avec la Himalayan 450 depuis quelques mois sur les routes de Madagascar, et c'est un vrai bijou ! Que ce soit sur les pavés de Tana, les pistes en latérite des Hautes Terres ou les routes côtières sableuses, elle ne m’a jamais déçu. Sa suspension…  !...",
+    text: "La Classic 500 a un charme indéniable grâce à son design rétro et son moteur robuste. Elle ne se destine pas aux performances exceptionnelles, mais pour un usage quotidien et des trajets sur routes variées, elle fait largement le job. Son moteur de 499 cm³ offre un couple agréable, et elle se montre fiable, même après plusieurs années d’utilisation. Cependant, elle peut manquer un peu de puissance sur autoroute ou pour des trajets rapides. Mais si vous cherchez une moto fiable avec du caractère, la Classic 500 est une excellente option.",
     rating: 5,
   },
+ 
+ 
   {
     name: "Bertrand Desaintes ",
-    text: "Enfin une moto adaptée à Madagascar ! Je fais souvent la route Tana-Majunga, et la Himalayan 450 est parfaite pour ça. Elle est confortable même après plusieurs heures de route, et le moteur ne chauffe pas trop malgré les grosses…  ...",
-    rating: 5,
-  },
-  {
-    name: "Marie Annie",
-    text: "J’ai testé pas mal de motos sur les pistes du Sud, et la Himalayan 450 est la meilleure pour ce type de terrain. Elle passe partout : sable, pierres, boue… et sans jamais caler ! Le garde au sol est idéal pour éviter les obstacles, et la hauteur de selle me permet d’avoir une… ...",
+    text: "Après plusieurs essais sur différents types de terrains, la Himalayan 410 se révèle être une moto solide et fiable. Sa conduite est fluide même sur les terrains les plus accidentés, et le moteur de 410 cm³ offre un bon compromis entre puissance et confort. Elle est simple à entretenir et à réparer, ce qui est un vrai plus pour une moto d’aventure. La stabilité dans les virages est un vrai atout pour les trajets longs. Une très bonne moto pour les amateurs de road trips et d'aventures tout-terrain !",
     rating: 5,
   },
   {
     name: "Rakotomalala",
-    text: "J’ai testé pas mal de motos sur les pistes du Sud, et la Himalayan 450 est la meilleure pour ce type de terrain. Elle passe partout : sable, pierres, boue… et sans jamais caler ! Le garde au sol est idéal pour éviter les obstacles, et la hauteur de selle me permet d’avoir une… ...",
+    text: "En tant qu'amateur de randonnées à moto à Madagascar, la Himalayan 450 est une véritable révélation. Elle gère parfaitement les terrains accidentés, que ce soit les pistes rocheuses ou les routes boueuses des campagnes. Le moteur est puissant sans être trop agressif, ce qui permet de la conduire confortablement sur des distances longues. La position de conduite est très agréable, et le confort est au rendez-vous même après plusieurs heures de conduite. Sa capacité à affronter différents types de terrain, tout en offrant une expérience de conduite fluide, en fait une moto de choix pour les explorateurs",
     rating: 5,
   },
+  {
+    name: "Marie Annie",
+    text: "J'ai testé pas mal de motos sur les pistes de Madagascar, et la Himalayan 450 est la meilleure pour ce type de terrain. Elle passe partout : sable, pierres, boue… et sans jamais caler ! Le garde au sol est idéal pour éviter les obstacles, et la hauteur de selle me permet d’avoir une bonne visibilité tout en restant à l’aise. Le moteur de 450 cm³ délivre une puissance bien dosée, ce qui la rend aussi efficace sur route que sur chemin difficile. C'est une moto vraiment polyvalente, idéale pour les aventuriers !",
+    rating: 5,
+  },
+ 
 ];
 export default function AvisConditions() {
 
