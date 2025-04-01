@@ -141,7 +141,7 @@ function MotoInfo({ data }: MotoInfoTypeProps) {
             </b>{" "}
             Parc à motos : {data.unitAvailable > 1
                 ? `${data.unitAvailable} unités`
-                : `${data.unitAvailable} unités`}{" "}{" "}
+                : `${data.unitAvailable} unité`}{" "}{" "}
           </p>
         </div>
       </Container>

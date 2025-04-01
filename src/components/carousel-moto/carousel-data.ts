@@ -104,7 +104,7 @@ export const data : Moto[] = [
           src: "/images/just-rent/himalayan3-411.jpg",
         },
       ],
-      unitAvailable: 10
+      unitAvailable: 1
     },
     { id: 3, 
       name: "CLASSIC 500", 
@@ -154,6 +154,6 @@ export const data : Moto[] = [
           src: "/images/just-rent/classic3.jpg",
         },
       ],
-      unitAvailable: 10
+      unitAvailable: 4
     },
   ];
