@@ -1041,7 +1041,7 @@ export default function MenuPtiBoutique() {
       )}
 
       {!loadingCategories && categories.length > 0 && (
-        <ul className="flex overflow-x-auto justify-center items-center xl:justify-start xl:items-start 2xl:justify-center 2xl:items-center 2xl:px-0 gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0">
+        <ul className="flex overflow-x-auto justify-start items-start xl:justify-start xl:items-start 2xl:justify-center 2xl:items-center 2xl:px-0 gap-4 sm:gap-6 mt-6 sm:mt-8 sm:pb-0">
           {categories.map((category) => (
             <li
               key={category._id}
