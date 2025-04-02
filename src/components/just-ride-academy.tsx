@@ -216,6 +216,12 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Container from "./container";
 import emailjs from "@emailjs/browser";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import ErrorMessage from "./error-message";
+import axios from "axios";
+import { toast } from "sonner";
 
 // ✅ Fonction pour formater le prix en Ariary
 const formatPrice = (price: number | null) => {
@@ -301,35 +307,46 @@ export default function JustRideAcademy() {
     );
   }
   
+const formSchema = z.object({
+  from_email: z.string().email("L'email doit être valide."),
+  message: z.string().min(1, "Le message est requis."),
+});
 
+export type FormData = z.infer<typeof formSchema>;
 // ✅ Composant pour la carte d'un stage
 function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+   const {
+      register,
+      handleSubmit,
+      setValue,
+      reset,
+      formState: { errors ,isSubmitting},
+    } = useForm<FormData>({
+      resolver: zodResolver(formSchema),
+      mode: "onChange",
+    });
 
-    // Envoyer l'email avec EmailJS
+  const onSubmit = async (formData: FormData) => {
     try {
-      await emailjs.send(
-        "service_uynssi5", // Ton Service ID EmailJS
-        "template_id2orp9", // Ton Template ID EmailJS
-        {
-          to_name: "Just Ride Academy",
-          from_email: email,
-          message: `Demande de réservation pour ${data.title}`,
-        },
-        "m5HSHEwIFpginPQvC" // Ta Public Key EmailJS
-      );
-
-      alert("✅ Demande envoyée avec succès !");
-      setShowModal(false);
-      setEmail("");
+      const dataToSend = {
+        ...formData,
+        subject: `Demande de réservation pour ${data.title}`,
+      };
+      const send = await axios.post("/api/me-reserver", dataToSend);
+      if (send.status === 200) {
+        toast.success("Votre reservation a été envoyé avec succès.");
+        reset();
+        setShowModal(false);
+      } else {
+        toast.error("Une erreur est survenue lors de l'envoi du message.");
+      }
     } catch (error) {
       console.error("❌ Erreur lors de l'envoi :", error);
-      alert("❌ Une erreur est survenue. Veuillez réessayer.");
+      toast.error("Une erreur est survenue lors de l'envoi du message.");
     }
   };
 
@@ -349,24 +366,32 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
             <div className="absolute inset-0 z-0 bg-accent opacity-80" />
             <div className="relative z-10 flex flex-col justify-between text-white pt-3 h-full w-full">
               <div className="flex flex-col gap-5">
-                <h3 className="uppercase text-base font-bold leading-4">{data.title}</h3>
+                <h3 className="uppercase text-base font-bold leading-4">
+                  {data.title}
+                </h3>
 
-                 {/* Affichage de la description avec dangerouslySetInnerHTML */}
-                <p 
+                {/* Affichage de la description avec dangerouslySetInnerHTML */}
+                <p
                   className="text-sm leading-4 opacity-0 group-hover:opacity-100"
-                  dangerouslySetInnerHTML={{ __html: data.description }} 
+                  dangerouslySetInnerHTML={{ __html: data.description }}
                 />
-                
+
                 {/*<p className="text-sm leading-4 opacity-0 group-hover:opacity-100">{data.description}</p>*/}
                 <div className="opacity-0 group-hover:opacity-100">
                   {data.priceOnSeance && (
                     <p className="text-sm leading-4">
-                      {`1 séance : `} <strong className="text-base">{formatPrice(data.priceOnSeance)}</strong>
+                      {`1 séance : `}{" "}
+                      <strong className="text-base">
+                        {formatPrice(data.priceOnSeance)}
+                      </strong>
                     </p>
                   )}
                   {data.packSeance && (
                     <p className="text-sm leading-4">
-                      {`Package de 4 séances : `} <strong className="text-base">{formatPrice(data.packSeance)}</strong>
+                      {`Package de 4 séances : `}{" "}
+                      <strong className="text-base">
+                        {formatPrice(data.packSeance)}
+                      </strong>
                     </p>
                   )}
                 </div>
@@ -375,7 +400,7 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
                 className="opacity-0 group-hover:opacity-100 ml-auto bg-white h-6 text-accent px-3 rounded-md flex items-center justify-center text-xs"
                 onClick={() => setShowModal(true)}
               >
-                <span className="font-bold uppercase">{'Réserver'}</span>
+                <span className="font-bold uppercase">{"Réserver"}</span>
               </button>
             </div>
           </div>
@@ -383,43 +408,57 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
       </div>
 
       {/* ✅ Modal de réservation */}
-{showModal && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white p-6 rounded-md shadow-lg w-[90%] max-w-md">
-      <h3 className="text-xl font-bold mb-4">Réserver {data.title}</h3>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="email"
-          placeholder="Votre email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="p-2 border rounded-md w-full"
-        />
-        <textarea
-          placeholder="Votre message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-          className="p-2 border rounded-md w-full h-24 resize-none"
-        />
-        <div className="flex justify-between">
-          <button
-            type="button"
-            onClick={() => setShowModal(false)}
-            className="px-4 py-2 bg-gray-300 rounded-md"
-          >
-            Annuler
-          </button>
-          <button type="submit" className="px-4 py-2 bg-accent text-white rounded-md">
-            Envoyer
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-)}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-md shadow-lg w-[90%] max-w-md">
+            <h3 className="text-xl font-bold mb-4">Réserver {data.title}</h3>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col gap-4"
+            >
+              <div className="mb-3">
+                <input
+                  type="email"
+                  placeholder="Votre email"
+                  {...register("from_email")}
+                  required
+                  className="p-2 border rounded-md w-full"
+                />
+                {errors.from_email && (
+                  <ErrorMessage message={errors.from_email.message} />
+                )}
+              </div>
+              <div className="mb-3">
+                <textarea
+                  placeholder="Votre message"
+                  {...register("message")}
+                  required
+                  className="p-2 border rounded-md w-full h-24 resize-none"
+                />
+                {errors.message && (
+                  <ErrorMessage message={errors.message.message} />
+                )}
+              </div>
 
+              <div className="flex justify-between">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="px-4 py-2 bg-gray-300 rounded-md"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-accent text-white rounded-md"
+                >
+                  {isSubmitting ? "Envoi..." : "Envoyer"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 }
