@@ -212,7 +212,7 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
 
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Container from "./container";
 import emailjs from "@emailjs/browser";
@@ -308,7 +308,9 @@ export default function JustRideAcademy() {
   }
   
 const formSchema = z.object({
+  from_name: z.string().min(1, "Le nom est requis."),
   from_email: z.string().email("L'email doit être valide."),
+  subject: z.string().min(1, "Le sujet est requis."),
   message: z.string().min(1, "Le message est requis."),
 });
 
@@ -330,6 +332,13 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
       mode: "onChange",
     });
 
+     useEffect(() => {
+        if(data){
+    
+          setValue('subject',`Demande de réservation pour ${data.title}`)
+        }
+      },[data,setValue])
+
   const onSubmit = async (formData: FormData) => {
     try {
       const dataToSend = {
@@ -349,6 +358,11 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
       toast.error("Une erreur est survenue lors de l'envoi du message.");
     }
   };
+
+  function closeModal(){
+    setShowModal(false);
+    reset()
+  }
 
   return (
     <>
@@ -412,50 +426,70 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-md shadow-lg w-[90%] max-w-md">
             <h3 className="text-xl font-bold mb-4">Réserver {data.title}</h3>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-4"
-            >
-              <div className="mb-3">
-                <input
-                  type="email"
-                  placeholder="Votre email"
-                  {...register("from_email")}
-                  required
-                  className="p-2 border rounded-md w-full"
-                />
-                {errors.from_email && (
-                  <ErrorMessage message={errors.from_email.message} />
-                )}
-              </div>
-              <div className="mb-3">
-                <textarea
-                  placeholder="Votre message"
-                  {...register("message")}
-                  required
-                  className="p-2 border rounded-md w-full h-24 resize-none"
-                />
-                {errors.message && (
-                  <ErrorMessage message={errors.message.message} />
-                )}
-              </div>
-
-              <div className="flex justify-between">
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-gray-300 rounded-md"
-                >
-                  Annuler
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-accent text-white rounded-md"
-                >
-                  {isSubmitting ? "Envoi..." : "Envoyer"}
-                </button>
-              </div>
-            </form>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                          <div className="mb-3">
+                          <input
+                            type="text"
+                            placeholder="Votre nom"
+                            {...register("from_name")}
+                            className="w-full p-3 border rounded-lg "
+                          />
+                          {errors.from_name && (
+                            <ErrorMessage message={errors.from_name.message} />
+                          )}
+                          </div>
+                          <div className="mb-3">
+                          <input
+                            type="email"
+                            placeholder="Votre email"
+                            {...register("from_email")}
+                            className="w-full p-3 border rounded-lg"
+                          />
+                          {errors.from_email && (
+                            <ErrorMessage message={errors.from_email.message} />
+                          )}
+                          </div>
+                          <div className="mb-3">
+                          <input
+                            type="text"
+                            placeholder="Sujet"
+                            {...register("subject")}
+                            className="w-full p-3 border rounded-lg mb-3"
+                            disabled
+                          />
+                          {errors.subject && (
+                            <ErrorMessage message={errors.subject.message} />
+                          )}
+                          </div>
+                          <div className="mb-3">
+                          <textarea
+                            placeholder="Votre message"
+                            {...register("message")}
+                            className="w-full p-3 border rounded-lg h-32 resize-none"
+                          />
+                          {errors.message && (
+                            <ErrorMessage message={errors.message.message} />
+                          )}
+                          </div>
+            
+                          <div className="flex justify-end gap-4 items-center">
+                           
+                            <button
+                              type="button"
+                              onClick={closeModal}
+                              className="bg-gray-300 text-black py-2 px-4 rounded-lg"
+                            >
+                              Annuler
+                            </button>
+                            <button
+                              type="submit"
+                              className="bg-accent text-white py-2 px-4 rounded-lg"
+                              disabled={isSubmitting}
+                            >
+                              {isSubmitting ? "Envoi..." : "ENVOYER"}
+                            </button>
+                          </div>
+                        </form>
           </div>
         </div>
       )}

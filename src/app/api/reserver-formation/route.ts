@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
 const bodyData = z.object({
+  from_name: z.string(),
   from_email: z.string().email(),
   subject: z.string(),
   message: z.string(),
@@ -21,7 +22,7 @@ export async function POST(request: NextRequest) {
         host: process.env.NEXT_EMAIL_HOST!,
         from: process.env.NEXT_EMAIL_USER! ,
         to: process.env.NEXT_EMAIL_USER!,
-        senderName: validateData.from_email.split('@')[0],
+        senderName: validateData.from_name,
         pass: process.env.NEXT_EMAIL_PASS!,
         port: 587,
         subject: validateData.subject,
@@ -34,6 +35,8 @@ export async function POST(request: NextRequest) {
         },
         html: `
         <p>Bonjour Just Ride</p>
+        <p>${validateData.subject}</p>
+        <p>Nom : ${validateData.from_name}</p>
         <p>Email:  ${validateData.from_email}</p>
         <p>Message:  ${validateData.message}</p>
 

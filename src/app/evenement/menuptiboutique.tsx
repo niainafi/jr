@@ -1,5 +1,6 @@
- "use client";
-{/*
+"use client";
+{
+  /*
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
@@ -186,13 +187,11 @@ function CardImage({ product }: CardImageProps) {
     </div>
   );
 }
-*/}
-  
+*/
+}
 
-  
-
-
-{/*
+{
+  /*
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
@@ -539,11 +538,11 @@ function CardImage({ product }: CardImageProps) {
     </div>
   );
 }
-*/}
+*/
+}
 
-
-
-{/*
+{
+  /*
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -911,19 +910,18 @@ function CardImage({ product }: CardImageProps) {
       )}
     </div>
   );
-}*/}
-
-
-
-
-
-
-
+}*/
+}
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import emailjs from "@emailjs/browser";
+import { set, z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import ErrorMessage from "@/components/error-message";
 
 type CardImageProps = {
   product: Product;
@@ -1032,7 +1030,9 @@ export default function MenuPtiBoutique() {
     <section className="mt-5 px-4 sm:px-6 md:px-10 lg:px-24 mb-32">
       {error && <p className="text-red-500 text-center">{error}</p>}
       {loadingCategories && (
-        <p className="text-gray-500 text-center">Chargement des catégories...</p>
+        <p className="text-gray-500 text-center">
+          Chargement des catégories...
+        </p>
       )}
 
       {!loadingCategories && categories.length > 0 && (
@@ -1052,7 +1052,9 @@ export default function MenuPtiBoutique() {
       )}
 
       {loadingProducts && (
-        <p className="text-gray-500 text-center mt-6">Chargement des produits...</p>
+        <p className="text-gray-500 text-center mt-6">
+          Chargement des produits...
+        </p>
       )}
 
       {!loadingProducts && (
@@ -1097,12 +1099,34 @@ export default function MenuPtiBoutique() {
   );
 }
 
+const formSchema = z.object({
+  from_name: z.string().min(1, "Le nom est requis."),
+  from_email: z.string().email("L'email doit être valide."),
+  subject: z.string().min(1, "Le sujet est requis."),
+  message: z.string().min(1, "Le message est requis."),
+});
+
+export type FormData = z.infer<typeof formSchema>;
+
 function CardImage({ product }: CardImageProps) {
   const [selectedImage, setSelectedImage] = useState<string>(product.imageUrl);
-  const [images, setImages] = useState<string[]>(product.additionalImages || []);
+  const [images, setImages] = useState<string[]>(
+    product.additionalImages || []
+  );
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    mode: "onChange",
+  });
 
   useEffect(() => {
     if (product.imageUrl) {
@@ -1113,7 +1137,16 @@ function CardImage({ product }: CardImageProps) {
     }
   }, [product.imageUrl, product.extraImages]);
 
-  const handleImageClick = (imageUrl: string, currentSelectedImageUrl: string) => {
+  useEffect(() => {
+    if (product.name) {
+      setValue("subject", `Demande de devis pour ${product.name}`);
+    }
+  }, [product, setValue]);
+
+  const handleImageClick = (
+    imageUrl: string,
+    currentSelectedImageUrl: string
+  ) => {
     setSelectedImage(imageUrl);
     setImages((prev) => {
       const newImages = [...prev];
@@ -1123,28 +1156,25 @@ function CardImage({ product }: CardImageProps) {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  function closeModal() {
+    setShowModal(false);
+  }
+  const onSubmit = async (formData: FormData) => {
     try {
-      await emailjs.send(
-        "service_uynssi5",
-        "template_id2orp9",
-        {
-          to_name: "Just Ride Academy",
-          from_email: email,
-          message: `Demande de devis pour ${product.name}`,
-        },
-        "m5HSHEwIFpginPQvC"
-      );
-
-      alert("✅ Demande envoyée avec succès !");
-      setShowModal(false);
-      setEmail("");
-      setMessage("");
+      const dataToSend = {
+        ...formData,
+      };
+      const send = await axios.post("/api/demande-devis", dataToSend);
+      if (send.status === 200) {
+        toast.success("Votre demande de devis a été envoyé avec succès.");
+        reset();
+        setShowModal(false);
+      } else {
+        toast.error("Une erreur est survenue lors de l'envoi du message.");
+      }
     } catch (error) {
       console.error("❌ Erreur lors de l'envoi :", error);
-      alert("❌ Une erreur est survenue. Veuillez réessayer.");
+      toast.error("Une erreur est survenue lors de l'envoi du message.");
     }
   };
 
@@ -1203,36 +1233,66 @@ function CardImage({ product }: CardImageProps) {
             <h3 className="text-xl font-bold mb-4">
               Demande de devis pour {product.name}
             </h3>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <input
-                type="email"
-                placeholder="Votre email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="p-2 border rounded-md w-full"
-              />
-              <textarea
-                placeholder="Votre message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                className="p-2 border rounded-md w-full h-24 resize-none"
-              />
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  placeholder="Votre nom"
+                  {...register("from_name")}
+                  className="w-full p-3 border rounded-lg "
+                />
+                {errors.from_name && (
+                  <ErrorMessage message={errors.from_name.message} />
+                )}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  placeholder="Votre email"
+                  {...register("from_email")}
+                  className="w-full p-3 border rounded-lg"
+                />
+                {errors.from_email && (
+                  <ErrorMessage message={errors.from_email.message} />
+                )}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  placeholder="Sujet"
+                  {...register("subject")}
+                  className="w-full p-3 border rounded-lg mb-3"
+                  disabled
+                />
+                {errors.subject && (
+                  <ErrorMessage message={errors.subject.message} />
+                )}
+              </div>
+              <div className="mb-3">
+                <textarea
+                  placeholder="Votre message"
+                  {...register("message")}
+                  className="w-full p-3 border rounded-lg h-32 resize-none"
+                />
+                {errors.message && (
+                  <ErrorMessage message={errors.message.message} />
+                )}
+              </div>
 
-              <div className="flex justify-between">
+              <div className="flex justify-end gap-4 items-center">
                 <button
                   type="button"
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-gray-300 rounded-md"
+                  onClick={closeModal}
+                  className="bg-gray-300 text-black py-2 px-4 rounded-lg"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-accent text-white rounded-md"
+                  className="bg-accent text-white py-2 px-4 rounded-lg"
+                  disabled={isSubmitting}
                 >
-                  Envoyer
+                  {isSubmitting ? "Envoi..." : "ENVOYER"}
                 </button>
               </div>
             </form>
@@ -1242,16 +1302,3 @@ function CardImage({ product }: CardImageProps) {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-  
