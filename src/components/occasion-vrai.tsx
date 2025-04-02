@@ -81,6 +81,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./error-message";
+import { toast } from "sonner";
 
 const API_URL = "https://justride.up.railway.app/api/moto-occasion";
 
@@ -106,7 +107,7 @@ export default function Occasion() {
     handleSubmit,
     setValue,
     reset,
-    formState: { errors },
+    formState: { errors ,isSubmitting},
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -132,41 +133,20 @@ export default function Occasion() {
   },[selectedMoto,setValue])
 
   const sendEmail = async (data: FormData) => {
-    // e.preventDefault();
-    setLoading(true);
-    setMessage("");
-
-    if (!formRef.current) {
-      console.error("❌ Le formulaire est introuvable !");
-      setLoading(false);
-      return;
-    }
-
-    try {
-      console.log('formRef.current,', formRef.current)
-      console.log("📤 Tentative d'envoi avec EmailJS...");
-      const response = await emailjs.send(
-        "service_uynssi5", // Ton Service ID EmailJS
-        "template_id2orp9", // Ton Template ID EmailJS
-        data,
-        "m5HSHEwIFpginPQvC" // Ta Public Key EmailJS
-      );
-
-      console.log("✅ Réponse EmailJS :", response);
-      if (response.status === 200) {
-        setMessage("✅ Votre message a bien été envoyé !");
-        formRef.current.reset();
-        reset()
-        setIsModalOpen(false); // Ferme le modal après l'envoi
-      } else {
-        setMessage("❌ Une erreur est survenue.");
+    try{
+      const send = await axios.post('/api/demande-devis', data);
+      if(send.status === 200){
+        toast.success("Votre devis a été envoyé avec succès.");
+        reset();
+        closeModal();
+      }else{
+        toast.error("Une erreur est survenue lors de l'envoi du message.");
       }
-    } catch (error) {
-      console.error("❌ Erreur :", error);
-      setMessage("❌ Erreur lors de l'envoi.");
+    }catch(error){
+      console.log(error);
+      toast.error("Une erreur est survenue lors de l'envoi du message.");
     }
-
-    setLoading(false);
+   
   };
 
   const openModal = (moto: any) => {
@@ -313,20 +293,21 @@ export default function Occasion() {
               )}
               </div>
 
-              <div className="flex justify-between items-center">
-                <button
-                  type="submit"
-                  className="bg-accent text-white py-2 px-4 rounded-lg"
-                  disabled={loading}
-                >
-                  {loading ? "Envoi..." : "ENVOYER"}
-                </button>
+              <div className="flex justify-end gap-4 items-center">
+               
                 <button
                   type="button"
                   onClick={closeModal}
                   className="bg-gray-300 text-black py-2 px-4 rounded-lg"
                 >
                   Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="bg-accent text-white py-2 px-4 rounded-lg"
+                  disabled={loading}
+                >
+                  {isSubmitting ? "Envoi..." : "ENVOYER"}
                 </button>
               </div>
             </form>
