@@ -365,7 +365,7 @@ export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
           />
         </div>
 
-        {/* Section des images supplémentaires */}
+        {/* Section des images supplémentaires*/} 
         <div className="flex gap-6 mt-6">
           {images.map((img, i) => (
             <div
@@ -401,7 +401,7 @@ export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
         {focus.description}
       </div>
 
-      {/* 3 Images en bas avec bordures jaunes et centrées */}
+      {/* 3 Images en bas ou pub */}
       <PubFocus />
       <div>
         {isModalOpen && focus && (
@@ -483,4 +483,5 @@ export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
     </Container>
   );
 }
+
 
