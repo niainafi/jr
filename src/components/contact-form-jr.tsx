@@ -101,6 +101,7 @@ import PhoneInput from "react-phone-number-input";
 import 'react-phone-number-input/style.css'
 import '@/styles/phone-number.css'
 import { toast } from "sonner";
+import axios from "axios";
 
 
 // Définition du type pour formData afin de garantir la cohérence des données
@@ -140,7 +141,8 @@ export default function ReservationForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors,isSubmitting},
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     mode: "onChange",
@@ -233,22 +235,22 @@ export default function ReservationForm() {
 
   // Fonction pour envoyer les données via EmailJS
   const onSubmit = async (data: FormData) => {
-    const serviceID = "service_uynssi5";
-    const templateID = "template_m5neixf";
-    const userID = "m5HSHEwIFpginPQvC";
 
     const emailParams = {
       ...data,
       ...formData,
       telephone: phoneNumber,
+      subject: "Réservation de moto",
       motos: formData.motos.map((m) => `${m.moto} (${m.nbMotos})`).join("\n"),
     };
 
-    console.log("Données à envoyer :", emailParams);
-
     try {
-      await emailjs.send(serviceID, templateID, emailParams, userID);
-      toast.success("Réservation envoyée avec succès !");
+      const res = await axios.post('/api/reserver-moto', emailParams);
+      console.log("Réponse de l'API :", res);
+      if(res.status === 200 || res.status === 201) {
+        toast.success("Réservation envoyée avec succès !");
+        reset();
+      }
     } catch (error) {
       console.error("Erreur d'envoi :", error);
       toast.error("Une erreur s'est produite. Veuillez réessayer.");
@@ -424,7 +426,7 @@ export default function ReservationForm() {
             type="submit"
             className="mt-4 bg-accent text-white py-3 px-6 rounded-lg hover:bg-opacity-80 transition"
           >
-            ENVOYER
+            {isSubmitting ? "Envoie...":"ENVOYER"}
           </button>
         </div>
       </form>
