@@ -336,7 +336,7 @@ function CardJRA({ data }: { data: (typeof justRideData)[number] }) {
         ...formData,
         subject: `Demande de réservation pour ${data.title}`,
       };
-      const send = await axios.post("/api/me-reserver", dataToSend);
+      const send = await axios.post("/api/reserver-formation", dataToSend);
       if (send.status === 200) {
         toast.success("Votre reservation a été envoyé avec succès.");
         reset();
