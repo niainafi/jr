@@ -227,6 +227,12 @@ function ActualitesReportagesData(){
     <div className="absolute top-2 left-2 bg-accent bg-opacity-70 text-white text-xs px-2 py-1 rounded-br-lg z-10">
       {new Date(actu.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
     </div>
+
+                  {/* Badge de catégorie en bas à droite */}
+                  <div className="absolute bottom-2 right-2 bg-accent bg-opacity-70 text-white text-xs px-2 py-1 rounded-tl-lg z-10">
+                      Actus Internationale
+                  </div>
+
                   {actu.imageUne && (
                     <Image
                       src={actu.imageUne}
@@ -259,9 +265,16 @@ function ActualitesReportagesData(){
                 <a href={`/actualites/${actu._id}`} className="block">
                 <div className="relative w-full h-64">
             {/* Ajout de la date sur l'image  mety*/}
-          <div className="absolute top-2 left-2 bg-accent bg-opacity-70 text-white text-xs px-2 py-1 rounded-br-lg z-10">
-            {new Date(actu.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
-          </div>
+            <div className="absolute top-2 left-2 bg-accent bg-opacity-70 text-white text-xs px-2 py-1 rounded-br-lg z-10">
+              {new Date(actu.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })}
+            </div>
+
+
+            {/* Badge de catégorie en bas à droite */}
+              <div className="absolute bottom-2 right-2 bg-accent bg-opacity-70 text-white text-xs px-2 py-1 rounded-tl-lg z-10">
+                    Actus Locale
+              </div>
+
                   {actu.imageUne && (
                     <Image
                       src={actu.imageUne}
