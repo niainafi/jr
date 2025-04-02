@@ -122,9 +122,11 @@ export default function MotocrossNews() {
 
         {/* Affichage des articles sous forme de cartes */}
         {loading ? (
-          <p className="text-gray-500 text-center mt-6 min-h-[20rem]">
-            Chargement des actualités...
-          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full my-14">
+            {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
+              <ArticleLoading key={index} />
+            ))}
+          </div> 
         ) : (
           <div className="my-14 min-h-[10vh]">
             {articles.length > 0 ? (
@@ -164,6 +166,8 @@ export default function MotocrossNews() {
   );
 }
 
+
+
 // Composant pour afficher une carte d'article
 function CardArticle({ article }: any) {
   // Formater la date en français (ex: "12 mars 2025")
@@ -196,7 +200,7 @@ function CardArticle({ article }: any) {
           {formattedDate}
         </div>
 
-        {/* 🖼️ Affichage de l'image principale de l'article */}
+        {/* Affichage de l'image principale de l'article */}
         {article.imageUne && (
           <Image
             src={article.imageUne}
@@ -221,5 +225,21 @@ function CardArticle({ article }: any) {
         </div>
       </div>
     </Link>
+  );
+}
+// Composant de chargement pour les articles
+function ArticleLoading() {
+  return (
+    <div className="flex flex-col animate-pulse gap-3">
+      <div className="w-full h-64 bg-gray-200 rounded-sm"></div>
+      <div className="flex-1 space-y-4 py-1">
+        <div className="h-6 rounded bg-gray-200 w-3/4"></div>
+        <div className="space-y-2">
+          <div className="h-4 rounded bg-gray-200"></div>
+          <div className="h-4 rounded bg-gray-200"></div>
+          <div className="h-4 rounded bg-gray-200 w-5/6"></div>
+        </div>
+      </div>
+    </div>
   );
 }

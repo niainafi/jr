@@ -99,7 +99,7 @@ export default function Occasion() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMoto, setSelectedMoto] = useState<any | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
   const {
@@ -115,10 +115,13 @@ export default function Occasion() {
   useEffect(() => {
     const fetchOcas = async () => {
       try {
+         setLoading(true);
         const { data } = await axios.get(API_URL);
         setOcas(data);
       } catch (error) {
         console.error("❌ Erreur de chargement :", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -168,7 +171,13 @@ export default function Occasion() {
 
       {/* Affichage des motos récupérées depuis l'API */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6">
-        {ocas.length > 0 ? (
+        
+      {loading ? (
+          // Affichage du loading
+          Array.from({ length: 3 }).map((_, index) => (
+            <MotoLoading key={index} />
+          ))
+        ) : ocas.length > 0 ? (
           ocas.map((moto, index) => (
             <div
               key={index}
@@ -318,5 +327,23 @@ export default function Occasion() {
         </div>
       )}
     </section>
+  );
+}
+
+// Composant de chargement pour les motos
+function MotoLoading() {
+  return (
+    <div className="flex flex-col animate-pulse gap-3">
+      <div className="w-full h-96 sm:h-[400px] bg-gray-200 rounded-lg"></div>
+      <div className="flex-1 space-y-4 py-1">
+        <div className="h-6 rounded bg-gray-200 w-3/4"></div>
+        <div className="space-y-2">
+          <div className="h-4 rounded bg-gray-200 w-1/2"></div>
+          <div className="h-4 rounded bg-gray-200 w-2/3"></div>
+          <div className="h-4 rounded bg-gray-200 w-5/6"></div>
+        </div>
+        <div className="h-10 rounded bg-gray-200 mt-4"></div>
+      </div>
+    </div>
   );
 }
