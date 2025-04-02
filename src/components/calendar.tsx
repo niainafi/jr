@@ -242,6 +242,11 @@ export default MonthlyCalendar;
          {days.map((day, index) => {
            const isCurrentMonth = day.month() === currentMonth.month();
            const isToday = day.isSame(dayjs(), "day");
+           if(isToday){
+             console.log('dayjs',dayjs())
+            console.log('isToday', isToday)
+           }
+          //  console.log('isToday', isToday)
            const currentEvent = events?.find(
              (event) => event.date === day.format("YYYY-MM-DD")
            );
