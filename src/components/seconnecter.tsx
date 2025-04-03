@@ -475,6 +475,14 @@ export default function Seconnecter() {
           {slides[activeSlide].content}
         </div>
         <div className="flex items-center gap-4 mt-6 ml-auto">
+
+        <button
+          onClick={() => setShowModal(true)}
+          className="bg-accent text-white px-2 rounded-xl font-bold border-2 border-[#f9fafa]"
+        >
+          CONDITIONS GÉNÉRALES
+        </button>
+          {/*
           <button 
             type="button"
             onClick={() => setShowModal(true)} 
@@ -541,7 +549,7 @@ export default function Seconnecter() {
               <div className="flex flex-col w-full">
                 <input 
                   type="email" 
-                  placeholder="" 
+                  
                   className="w-full p-4 rounded bg-white text-black border border-gray-300 mx-auto block"
                   {...register("email")}
                 />
@@ -550,7 +558,7 @@ export default function Seconnecter() {
               <div className="flex flex-col w-full">
                 <input 
                   type="password" 
-                  placeholder="" 
+                   
                   className="w-full p-4 mt-4 rounded bg-white text-black border border-gray-300 block"
                   {...register("password")}
                 />

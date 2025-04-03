@@ -292,7 +292,7 @@ export default function JustRideAcademy() {
           <img 
             src="/images/logo/logo-just-ride-academy.png" 
             alt="Just Ride Academy Logo" 
-            style={{ width: '2.7cm', height: 'auto', marginRight: '10px' }} // Redimensionner l'image et espacement
+            style={{ width: '100px', height: '100px', marginRight: '10px' }}// Redimensionner l'image et espacement
           />
           <h2 className="uppercase text-3xl md:text-4xl font-bold text-center">
             Just Ride Academy
