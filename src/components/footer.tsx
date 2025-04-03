@@ -135,11 +135,16 @@ function PubFooter(){
   return(
     <div>
       <div className="relative  h-[170px]">
-      <a href="https://www.facebook.com/profile.php?id=61558253842790" target="_blank" rel="noopener noreferrer">
+      <a 
+          href="https://www.facebook.com/profile.php?id=61558253842790" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Visitez notre page Facebook (nouvelle fenêtre)"
+          >
           <div className="rounded-3xl w-[260px] h-[120px] overflow-hidden">
             <Image
               src="/images/pub/pub-footer.webp"
-              alt="Pub Footer"
+              alt="Bannière publicitaire pour notre page Facebook"
               width={300}
               height={60}
               objectFit="cover"

@@ -14,7 +14,7 @@ export default function HeroSectionOcas() {
         
       /> */}
       <Image 
-        src="/images/evenement/acc.webp"
+        src="/images/evenement/acc1.webp"
         alt="Background événement"
         className="absolute inset-0 bg-cover bg-center"
         layout="fill" 

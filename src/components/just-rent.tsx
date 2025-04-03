@@ -28,7 +28,14 @@ export default function JustRent() {
         <img 
           src="/images/logo/logo-just-rent.png" 
           alt="Just Ride Academy Logo" 
-          style={{ width: '2.5cm', height: 'auto', marginRight: '10px' }} // Largeur et hauteur définies
+          
+          style={{ 
+            width: '96px',        // 2.5cm ≈ 96px (1cm = 37.8px)
+            height: '96px',       // Remplacer "auto" par valeur fixe
+            marginRight: '10px',
+            aspectRatio: '1',     // Garde les proportions (optionnel)
+            objectFit: 'cover'    // Pour les images (si nécessaire)
+          }}
         />
         <h2 className='text-3xl md:text-4xl font-bold'>{'JUST RENT'}</h2>
       </div>
