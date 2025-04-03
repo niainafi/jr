@@ -198,6 +198,8 @@ export default MonthlyCalendar;
  
    // Fonction pour revenir au mois précédent
    const prevMonth = () => setCurrentMonth(currentMonth.subtract(1, "month"));
+
+   const isToday = (day: dayjs.Dayjs) => day.isSame(dayjs(), "day");
  
    return (
      <div className="max-w-2xl mx-auto p-3 bg-white shadow rounded-sm relative">
@@ -241,11 +243,8 @@ export default MonthlyCalendar;
        <div className="grid grid-cols-7">
          {days.map((day, index) => {
            const isCurrentMonth = day.month() === currentMonth.month();
-           const isToday = day.isSame(dayjs(), "day");
-           if(isToday){
-             console.log('dayjs',dayjs())
-            console.log('isToday', isToday)
-           }
+           const today = isToday(day);
+          
           //  console.log('isToday', isToday)
            const currentEvent = events?.find(
              (event) => event.date === day.format("YYYY-MM-DD")
@@ -268,7 +267,7 @@ export default MonthlyCalendar;
               className={clsx(
                 "text-center border p-2 w-13 h-13 relative",
                 currentEvent && "bg-accent text-white font-bold",
-                isToday && "bg-blue-500 text-white font-bold",
+                today && "bg-blue-500 text-white font-bold",
                 isCurrentMonth ? "text-gray-400" : "bg-gray-100"
               )}
             >
