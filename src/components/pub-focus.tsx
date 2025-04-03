@@ -54,7 +54,24 @@ export default function PubFocus() {
   }, []);
 
   if (loading) {
-    return <div className="text-center py-10">Chargement des publicités...</div>;
+    return (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-6 mt-10 md:mt-12 lg:mt-14 xl:mt-24 mb-12 text-center">
+        {Array.from({ length: 3 }).map((_, index) => (
+          <div key={index} className="flex flex-col animate-pulse gap-3 p-1">
+            <div className="w-full h-64 bg-gray-200 rounded-sm"></div>
+            <div className="flex-1 space-y-4 py-1">
+              <div className="h-4 rounded bg-gray-200 w-3/4 mx-auto"></div>
+              <div className="space-y-2">
+                <div className="h-2 rounded bg-gray-200"></div>
+                <div className="h-2 rounded bg-gray-200 w-5/6"></div>
+                <div className="h-2 rounded bg-gray-200 w-1/2"></div>
+              </div>
+              <div className="h-3 rounded bg-gray-200 w-1/3 mx-auto"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
   }
 
   if (error) {
@@ -82,4 +99,3 @@ export default function PubFocus() {
     </div>
   );
 }
-

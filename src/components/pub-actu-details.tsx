@@ -62,7 +62,7 @@ const pubs = await getPubImages();
               alt="Publicité"
               width={300}
               height={700}
-              className="w-full rounded-lg shadow-lg  object-contain"
+              className="w-full object-contain"
               style={{ objectFit: "cover" }} // Maintien l'aspect sans déformation
             />
           </div>
@@ -74,7 +74,7 @@ const pubs = await getPubImages();
               alt="Publicité"
               width={300}
               height={700}
-              className="w-full rounded-lg shadow-lg h-full object-contain"
+              className="w-full h-full object-contain"
               style={{ objectFit: "cover" }} // Maintien l'aspect sans déformation
             />
           </div>
