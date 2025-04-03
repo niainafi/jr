@@ -239,6 +239,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import ErrorMessage from "./error-message";
+import { toast } from "sonner";
 
 
 const formSchema = z.object({
@@ -269,7 +270,7 @@ export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
       handleSubmit,
       setValue,
       reset,
-      formState: { errors },
+      formState: { errors ,isSubmitting  },
     } = useForm<FormData>({
       resolver: zodResolver(formSchema),
       mode: "onChange",
@@ -293,42 +294,23 @@ export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
     });
   };
 
-  const sendEmail = async (data: FormData) => {
-      // e.preventDefault();
-      setLoading(true);
-      setMessage("");
-  
-      if (!formRef.current) {
-        console.error("❌ Le formulaire est introuvable !");
-        setLoading(false);
-        return;
-      }
-  
+  const onSubmit = async (formData: FormData) => {
       try {
-        console.log('formRef.current,', formRef.current)
-        console.log("📤 Tentative d'envoi avec EmailJS...");
-        const response = await emailjs.send(
-          "service_uynssi5", // Ton Service ID EmailJS
-          "template_id2orp9", // Ton Template ID EmailJS
-          data,
-          "m5HSHEwIFpginPQvC" // Ta Public Key EmailJS
-        );
-  
-        console.log("✅ Réponse EmailJS :", response);
-        if (response.status === 200) {
-          setMessage("✅ Votre message a bien été envoyé !");
-          formRef.current.reset();
-          reset()
-          setIsModalOpen(false); // Ferme le modal après l'envoi
+        const dataToSend = {
+          ...formData,
+        };
+        const send = await axios.post("/api/demande-devis", dataToSend);
+        if (send.status === 200) {
+          toast.success("Votre demande de devis a été envoyé avec succès.");
+          reset();
+          setIsModalOpen(false);
         } else {
-          setMessage("❌ Une erreur est survenue.");
+          toast.error("Une erreur est survenue lors de l'envoi du message.");
         }
       } catch (error) {
-        console.error("❌ Erreur :", error);
-        setMessage("❌ Erreur lors de l'envoi.");
+        console.error("❌ Erreur lors de l'envoi :", error);
+        toast.error("Une erreur est survenue lors de l'envoi du message.");
       }
-  
-      setLoading(false);
     };
   
     const openModal = () => {
@@ -410,7 +392,7 @@ export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
                     <h3 className="text-xl font-bold mb-4 bg-white">
                       Demander un devis pour  {focus.title}
                     </h3>
-                    <form ref={formRef} onSubmit={handleSubmit(sendEmail)} noValidate>
+                    <form ref={formRef} onSubmit={handleSubmit(onSubmit)} noValidate>
                       <div className="mb-3">
                       <input
                         type="text"
@@ -460,14 +442,15 @@ export default function FocusDetailCasque({focus}:{focus: DataFocusType}) {
                         <button
                           type="submit"
                           className="bg-accent text-white py-2 px-4 rounded-lg"
-                          disabled={loading}
+                          disabled={isSubmitting}
                         >
-                          {loading ? "Envoi..." : "ENVOYER"}
+                          {isSubmitting ? "Envoi..." : "ENVOYER"}
                         </button>
                         <button
                           type="button"
                           onClick={closeModal}
                           className="bg-gray-300 text-black py-2 px-4 rounded-lg"
+                          disabled={isSubmitting}
                         >
                           Annuler
                         </button>
