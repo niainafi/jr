@@ -95,17 +95,14 @@ export default function ActualitesReportages() {
     <section className="pb-12 bg-white text-gray-800">
       <Container className="xl:-mt-24">
         {/* Titre */}
-        <h2 className="relative text-3xl md:text-4xl font-bold text-center uppercase mb-12 flex flex-row justify-center gap-1">
-          <span>Actualités</span>
-          <span className="relative w-10 h-10">
-            {/* <Image src="/images/actualite/and.webp" alt="actualité &" width={40} height={40} /> */}
-            -
-          </span>
-          <span>Reportages</span>
+        <h2 className="relative text-3xl md:text-4xl font-bold text-center uppercase mb-12">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-1">
+            <span>Actualités</span>
+            <span className="relative w-10 h-10 hidden md:block">-</span>
+            <span>Reportages</span>
+          </div>
         </h2>
         <ActualitesReportagesData />
-
-       
       </Container>
     </section>
   );

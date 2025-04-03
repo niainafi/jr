@@ -33,6 +33,7 @@ export async function generateMetadata(
   }
 
 export default function FocusDetailPage({ params }: { params: any}) {
+console.log("Params:", params); // Debugging
 const {slug} = params;
   const focus = dataFocus.find((focus) => focus.slug === slug);
   if (!focus) {
