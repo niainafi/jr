@@ -22,7 +22,7 @@ export const events : Events[] = [
   {
     date: "2025-04-20",
     title: "Grand Prix de l'Est",
-    location: "Terrain IMC Ambohidava",
+    location: "Toamasina",
     category: "Course du championnat MOTOCROSS",
   },
   {
@@ -104,11 +104,19 @@ export const events : Events[] = [
     category: "Course du championnat ENDURO",
   },
   {
-    date: "2025-06-15",
+    date: "2025-05-31",
     title: "Enduro Ambatondrazaka",
     location: "Ambatondrazaka",
     category: "Course du championnat ENDURO",
   },
+  {
+    date: "2025-06-01",
+    title: "Enduro Ambatondrazaka",
+    location: "Ambatondrazaka",
+    category: "Course du championnat ENDURO",
+  },
+  
+
   {
     date: "2025-07-13",
     title: "Endurance GAS GAS",

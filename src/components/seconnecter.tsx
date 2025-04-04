@@ -306,12 +306,12 @@ const slides = [
           <p className="font-bold">
           <span>1. Obtention et Validité de la Carte</span>
           </p>
-            {`La carte est disponible en`} <span className="font-bold">trois niveaux de remise : 5%, 7% et 10%.</span><br/>
-            Pour obtenir la carte <span className="font-bold">5%</span>,{` un premier achat d’un minimum de`} <span className="font-bold">300 000 ariary</span> en une seule fois est requis.<br/>
-            Pour obtenir la carte <span className="font-bold">7%</span>, {`un premier achat d’un minimum de `}<span className="font-bold">500 000 ariary</span> en une seule fois est requis.<br/>
+            {`La carte est disponible en`} <span className="">trois niveaux de remise : 5%, 7% et 10%.</span><br/>
+            Pour obtenir la carte <span className="">5%</span>,{` un premier achat d’un minimum de`} <span className="">3 000 000 ariary</span> en une seule fois est requis.<br/>
+            Pour obtenir la carte <span className="">7%</span>, {`un premier achat d’un minimum de `}<span className="">5 000 000 ariary</span> en une seule fois est requis.<br/>
             est requis.
-            Pour obtenir la carte <span className="font-bold">10%</span>, {`un premier achat d’un minimum de`}<span className="font-bold">1 000 000</span> ariary en une seule fois est requis.<br/>
-            La carte est <span className="font-bold">nominative</span>, valable<span className="font-bold">{`uniquement pour l’année en cours`}</span> et ne peut être cédée à un tiers.
+            Pour obtenir la carte <span className="">10%</span>, {`un premier achat d’un minimum de`}<span className=""> 7 500 000</span> ariary en une seule fois est requis.<br/>
+            La carte est <span className="">nominative</span>, valable<span className="">{`uniquement pour l’année en cours`}</span> et ne peut être cédée à un tiers.
 
         </div>
       </> 
@@ -329,9 +329,9 @@ const slides = [
           <p className="font-bold">
           <span>2. Évolution de la Carte</span>
           </p>
-           {`Il est possible d’`}<span className="font-bold">upgrader</span> {`sa carte en fonction du total des achats effectués sur l’année :`}
-           Pour passer de la carte<span className="font-bold"> 5% à 7%</span>, il faut atteindre un<span className="font-bold"> {`cumul d’achats d’au moins 1 500 000 ariary`}</span>{` sur l’année.`}
-           Pour passer de la carte <span className="font-bold">7% à 10%</span>, il faut atteindre un <span className="font-bold">{`cumul d’achats d’au moins 3 000 000 ariary`}</span>{` sur l’année.`}
+           {`Il est possible d’`}<span className="">upgrader</span> {`sa carte en fonction du total des achats effectués sur l’année :`}
+           Pour passer de la carte<span className=""> 5% à 7%</span>, il faut atteindre un<span className=""> {`cumul d’achats d’au moins 1 500 000 ariary`}</span>{` sur l’année.`}
+           Pour passer de la carte <span className="">7% à 10%</span>, il faut atteindre un <span className="">{`cumul d’achats d’au moins 3 000 000 ariary`}</span>{` sur l’année.`}
            {`L’upgrade est automatique dès que le seuil est atteint.`}
         </div>
       </>
@@ -351,13 +351,13 @@ const slides = [
           </p>
           <p>En tant que titulaire de la carte, vous bénéficiez de :</p>
           <div className="pl-10">
-            <p className=""><span className="font-bold"> Remises immédiates</span> sur vos achats en magasin selon votre niveau de carte.</p>
-            <p className="pl-8"><span className="font-bold">Remises exclusives</span> chez nos partenaires : </p>
-            <p className="pl-8"><span className="font-bold">Just Rent</span> (location de moto)</p>
-            <p><span className="font-bold">Just Ride Academy</span> (cours de moto)</p>
-            <p><span className="font-bold">Prolongation des promotions</span> : si une promotion se termine le <span className="font-bold">20 du mois</span>, vous disposez de 10jours supplémentaires pour en bénéficier.</p>
-            <p><span className="font-bold">Inscriptions prioritaires</span><span className="font-bold"> aux raids moto.</span></p>
-            <p><span className="font-bold">Accès aux soirées VIP</span> lors de lancements de produits et événements exclusifs.</p>
+            <p className=""><span className=""> Remises immédiates</span> sur vos achats en magasin selon votre niveau de carte.</p>
+            <p className="pl-8"><span className="">Remises exclusives</span> chez nos partenaires : </p>
+            <p className="pl-8"><span className="">Just Rent</span> (location de moto)</p>
+            <p><span className="">Just Ride Academy</span> (cours de moto)</p>
+            <p><span className="">Prolongation des promotions</span> : si une promotion se termine le <span className="">20 du mois</span>, vous disposez de 10jours supplémentaires pour en bénéficier.</p>
+            <p><span className="">Inscriptions prioritaires</span><span className=""> aux raids moto.</span></p>
+            <p><span className="">Accès aux soirées VIP</span> lors de lancements de produits et événements exclusifs.</p>
           </div>
         </div>
       </>
@@ -376,10 +376,10 @@ const slides = [
           <span>4. Fonctionnement du Cashback</span>
           </p>
           <p>À chaque achat, un pourcentage correspondant à votre carte est crédité sur votre compte cashback.</p>
-          <p>Ce montant peut être utilisé comme<span className="font-bold"> réduction sur un prochain achat</span>, mais <span className="font-bold"> ne peut pas être cumulé avec une remise immédiate.</span></p>
-          <p><span className="font-bold">Exemple</span> : Vous achetez une veste à <span className="font-bold">900 000 ariary</span> avec une carte <span className="font-bold">10% → </span>Vous recevez <span className="font-bold">90 000 ariary</span> en cashback.</p>
-          <p>{`Lors d’un achat ultérieur à`} <span className="font-bold">500 000 ariary</span>, si vous utilisez vos <span className="font-bold">90 000 ariary</span> de cashback, vous ne pourrez <span className="font-bold">pas bénéficier de la remise 10% sur cet achat.</span></p>
-          <p>Vous devez<span className="font-bold"> {`choisir entre cumuler du cashback ou l’utiliser.`}</span></p>
+          <p>Ce montant peut être utilisé comme<span className=""> réduction sur un prochain achat</span>, mais <span className=""> ne peut pas être cumulé avec une remise immédiate.</span></p>
+          <p><span className="">Exemple</span> : Vous achetez une veste à <span className="">900 000 ariary</span> avec une carte <span className="">10% → </span>Vous recevez <span className="">90 000 ariary</span> en cashback.</p>
+          <p>{`Lors d’un achat ultérieur à`} <span className="">500 000 ariary</span>, si vous utilisez vos <span className="">90 000 ariary</span> de cashback, vous ne pourrez <span className="">pas bénéficier de la remise 10% sur cet achat.</span></p>
+          <p>Vous devez<span className=""> {`choisir entre cumuler du cashback ou l’utiliser.`}</span></p>
 
         </div>
       </>
@@ -397,7 +397,7 @@ const slides = [
           <p className="font-bold">
           <span>5. Cumul et Restrictions</span>
           </p>
-              <p>Les remises et avantages<span className="font-bold"> ne sont pas cumulables entre eux.</span></p>
+              <p>Les remises et avantages<span className=""> ne sont pas cumulables entre eux.</span></p>
               <p>Le cashback ne peut pas être converti en argent liquide.</p>
               <p>La carte doit être présentée en caisse pour bénéficier des avantages.</p>
               <p>En utilisant votre <span className="font-bold"> Cashback by RINO Just Ride</span>, vous acceptez ces conditions.</p>
