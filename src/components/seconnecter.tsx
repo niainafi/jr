@@ -322,17 +322,13 @@ const slides = [
     title: "CONDITIONS GÉNÉRALES DE LA CARTE DE FIDÉLITÉ \"CASHBACK BY JUST RIDE\"",
     content: (
       <>
-        <p className="mt-12 text-base md:text-lg leading-relaxed">
-          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
-        </p>
+       
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
           <span>2. Évolution de la Carte</span>
           </p>
-           {`Il est possible d’`}<span className="">upgrader</span> {`sa carte en fonction du total des achats effectués sur l’année :`}
-           Pour passer de la carte<span className=""> 5% à 7%</span>, il faut atteindre un<span className=""> {`cumul d’achats d’au moins 1 500 000 ariary`}</span>{` sur l’année.`}
-           Pour passer de la carte <span className="">7% à 10%</span>, il faut atteindre un <span className="">{`cumul d’achats d’au moins 3 000 000 ariary`}</span>{` sur l’année.`}
-           {`L’upgrade est automatique dès que le seuil est atteint.`}
+           {`Vous pouvez upgrader votre carte sur l'année en cours en répondant au critère définis pour les acquisitions des cartes de 5 % 7 % et 10 %`}
+           
         </div>
       </>
     ),
@@ -342,9 +338,7 @@ const slides = [
     title: "CONDITIONS GÉNÉRALES DE LA CARTE DE FIDÉLITÉ \"CASHBACK BY JUST RIDE\"",
     content: (
       <>
-        <p className="mt-12 text-base md:text-lg leading-relaxed">
-          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
-        </p>
+        
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
           <span>3. Avantages de la Carte</span>
@@ -368,9 +362,7 @@ const slides = [
     title: "CONDITIONS GÉNÉRALES DE LA CARTE DE FIDÉLITÉ \"CASHBACK BY JUST RIDE\"",
     content: (
       <>
-        <p className="mt-12 text-base md:text-lg leading-relaxed">
-          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
-        </p>
+       
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
           <span>4. Fonctionnement du Cashback</span>
@@ -390,9 +382,7 @@ const slides = [
     title: "CONDITIONS GÉNÉRALES DE LA CARTE DE FIDÉLITÉ \"CASHBACK BY JUST RIDE\"",
     content: (
       <>
-        <p className="mt-12 text-base md:text-lg leading-relaxed">
-          {`La carte Cashback by Just Ride vous permet de bénéficier de remises exclusives et d’avantages réservés à nos clients fidèles. En adhérant, vous acceptez les conditions suivantes :`}
-        </p>
+        
         <div className="mt-8 text-base md:text-lg leading-relaxed">
           <p className="font-bold">
           <span>5. Cumul et Restrictions</span>
