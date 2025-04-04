@@ -309,19 +309,18 @@ export default function Boutiques() {
                 height={700}       
                 className="w-full h-full object-cover"
               />
-              <Link 
-                  href="/boutique"
-                 className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50"
-                 >
-                {/* voir plus */}
-                
-                  <FaPlus width={100} height={100} className="text-accent absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 w-[100px] h-[100px]" />
-                
-                <span className="uppercase absolute top-1/2 left-1/2 -translate-x-1/2  lg:translate-y-[150%] font-[800] text-accent mt-16 whitespace-nowrap">
-                  Entrer dans notre univers
-                </span>
-                
-              </Link>
+             <Link 
+              href="/boutique"
+              className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 group"
+            >
+              {/* Texte en haut, icône en bas */}
+              <span className="uppercase font-[800] text-accent text-sm sm:text-base px-2 text-center max-w-[85vw] mb-4">
+                Entrer dans notre univers
+              </span>
+              
+              {/* Icône centrée en dessous */}
+              <FaPlus className="text-accent w-12 h-12 sm:w-[100px] sm:h-[100px] transition-transform group-hover:scale-110" />
+            </Link>
             </div>
         </div>
       </div>
