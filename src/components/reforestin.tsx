@@ -115,6 +115,7 @@ export default function ReforestinEvent() {
   );
 }*/}
 
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Container from "./container";
@@ -221,13 +222,23 @@ export default function ReforestinEvent() {
             </div>
           </SwiperSlide>
         ))}
-        {/* Flèches de navigation - en haut sur mobile, centrées sur tablette et desktop */}
-        <div className="swiper-button-prev text-white absolute left-0 top-4 z-10
-                        md:top-1/2 md:-translate-y-1/2">
+        {/* Flèches de navigation - position différente sur mobile */}
+        <div className="swiper-button-prev text-white absolute left-0 top-1/2 transform -translate-y-1/2 z-10 
+                        sm:top-1/2 sm:left-0 
+                        md:top-1/2 md:left-0
+                        lg:top-1/2 lg:left-0
+                        xl:top-1/2 xl:left-0
+                        2xl:top-1/2 2xl:left-0
+                        bottom-[calc(100%-120px)] !top-auto">
           <FaChevronLeft className="w-6 sm:w-[30px]"/>
         </div>
-        <div className="swiper-button-next text-white absolute right-0 top-4 z-10
-                        md:top-1/2 md:-translate-y-1/2">
+        <div className="swiper-button-next text-white absolute right-0 top-1/2 transform -translate-y-1/2 z-10
+                        sm:top-1/2 sm:right-0
+                        md:top-1/2 md:right-0
+                        lg:top-1/2 lg:right-0
+                        xl:top-1/2 xl:right-0
+                        2xl:top-1/2 2xl:right-0
+                        bottom-[calc(100%-120px)] !top-auto">
           <FaChevronRight className="w-6 sm:w-[30px]" />
         </div>
       </Swiper>
