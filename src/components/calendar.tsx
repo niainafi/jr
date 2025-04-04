@@ -157,7 +157,8 @@ export default MonthlyCalendar;
  dayjs.extend(weekOfYear);
  dayjs.locale("fr");
  
- dayjs().startOf("week");
+
+ dayjs().startOf("week"); 
  
  const daysOfWeek = [
    "Lundi",
