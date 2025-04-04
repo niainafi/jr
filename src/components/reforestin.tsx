@@ -440,13 +440,15 @@ export default function ReforestinEvent() {
             </div>
           </SwiperSlide>
         ))}
-        {/* Flèches de navigation blanches */}
+        {/* Flèches de navigation blanches  */}
         <div className="swiper-button-prev text-white absolute left-0 top-1/2 transform -translate-y-1/2 z-10">
-          <FaChevronLeft size={30} />
+          <FaChevronLeft className="w-6 sm:w-[30px]"/>
         </div>
         <div className="swiper-button-next text-white absolute right-0 top-1/2 transform -translate-y-1/2 z-10">
-          <FaChevronRight size={30} />
+          <FaChevronRight className="w-6 sm:w-[30px]" />
         </div>
+       
+        
       </Swiper>
 
       
