@@ -49,7 +49,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black opacity-50" />
 
       <Header />
-      <div className='absolute  top-[40%] translate-y-4 left-[65%] -translate-x-[35%] w-[45%] sm:w-[45%] md:w-[45%] lg:w-[50%] flex justify-center'>
+      <div className='absolute  top-[37%] translate-y-4 left-[70%] -translate-x-[35%] w-[45%] sm:w-[45%] md:w-[45%] lg:w-[50%] flex justify-center'>
         <HeroTitle />
       </div>
       
@@ -60,7 +60,7 @@ export default function HeroSection() {
 }
 function HeroTitle() {
   return (
-      <img src='/images/typo-flat/occas.png' width={450} height={50} alt='pour les'/>
+      <img src='/images/typo-flat/tampon.svg' width={280} height={30} alt='pour les'/>
     
   );
 }
