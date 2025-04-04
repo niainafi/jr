@@ -98,7 +98,7 @@ export default function Arrivage() {
         >
           {arrivals.map((item) => (
             <SwiperSlide key={item.id} className="flex justify-center">
-              <div className="shadow-lg overflow-hidden">
+              <div className="overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.alt}
