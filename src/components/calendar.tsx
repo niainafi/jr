@@ -152,22 +152,28 @@ export default MonthlyCalendar;
  import { MdEvent } from "react-icons/md";
  import { SlLocationPin } from "react-icons/sl";
  import { TbCategory } from "react-icons/tb";
+ import updateLocale from 'dayjs/plugin/updateLocale'
  
  dayjs.extend(weekday);
+ dayjs.extend(updateLocale)
  dayjs.extend(weekOfYear);
  dayjs.locale("fr");
+
+ dayjs.updateLocale('fr', {
+  weekStart: 1,
+})
  
 
  dayjs().startOf("week"); 
  
  const daysOfWeek = [
+   "Dimanche",
    "Lundi",
    "Mardi",
    "Mercredi",
    "Jeudi",
    "Vendredi",
    "Samedi",
-   "Dimanche",
  ];
  
  function MonthlyCalendar<T extends Record<string, any>>({
@@ -179,7 +185,7 @@ export default MonthlyCalendar;
  
    const firstDayOfMonth = currentMonth.startOf("month");
    const lastDayOfMonth = currentMonth.endOf("month");
-   const firstDayOfGrid = firstDayOfMonth.startOf("week").add(1, "day");
+   const firstDayOfGrid = firstDayOfMonth.startOf("week");
    const lastDayOfGrid = lastDayOfMonth.endOf("week");
  
    // ✅ Correction : Ajout des dépendances firstDayOfGrid et lastDayOfGrid
@@ -193,7 +199,7 @@ export default MonthlyCalendar;
      }
  
      return tempDays;
-   }, [firstDayOfGrid, lastDayOfGrid]); // 🔥 Correction ici !
+   }, [firstDayOfGrid, lastDayOfGrid,currentMonth]); // 🔥 Correction ici !
  
    const nextMonth = () => setCurrentMonth(currentMonth.add(1, "month"));
  
@@ -253,7 +259,7 @@ export default MonthlyCalendar;
            
            return (
             <div key={index} className={`group`} >
-            {currentEvent ? <div className={clsx(" hidden absolute left-1/2 top-5 -translate-x-1/2 bg-accent bg-opacity-0 w-[300px] p-2 rounded-lg text-white",
+            {currentEvent ? <div className={clsx(" hidden absolute z-20 left-1/2 top-5 -translate-x-1/2 bg-accent bg-opacity-0 w-[300px] p-2 rounded-lg text-white",
               `group-hover:flex flex-col transition-all duration-300`
             )}>
               
@@ -268,8 +274,9 @@ export default MonthlyCalendar;
               className={clsx(
                 "text-center border p-2 w-13 h-13 relative",
                 currentEvent && "bg-accent text-white font-bold",
-                today && "bg-blue-500 text-white font-bold",
-                isCurrentMonth ? "text-gray-400" : "bg-gray-100"
+                !currentEvent && today && "bg-blue-500 text-white font-bold",
+                !currentEvent && isCurrentMonth && "text-gray-400",
+                !currentEvent && !isCurrentMonth && "bg-gray-100"
               )}
             >
               <br />

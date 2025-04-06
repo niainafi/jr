@@ -123,6 +123,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import '@/styles/reforestin-swiper.css'
 import { Navigation } from "swiper/modules";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -155,9 +156,9 @@ const events = [
 
 export default function ReforestinEvent() {
   return (
-    <Container className="my-14">
+    <section className="bg-white py-8 md:py-10 px-6 font-roboto w-full">
        <h2 className='uppercase  text-center text-3xl md:text-4xl font-bold mb-16'>
-            Event à venir
+            Events à venir
         </h2>
       {/* Premier Carousel */}
       <Swiper
@@ -166,7 +167,7 @@ export default function ReforestinEvent() {
           prevEl: ".swiper-button-prev",
         }}
         modules={[Navigation]}
-        className="relative"
+        className="relative reforestin-swiper"
       >
         {events.map((event, index) => (
           <SwiperSlide key={index} >
@@ -201,7 +202,7 @@ export default function ReforestinEvent() {
                 <div className="mt-4 flex flex-col md:flex-row justify-end space-y-3 md:space-y-0 md:space-x-4 w-full">
                   <Link
                     href={event.link}
-                    className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1"
+                    className="bg-white text-accent rounded-md  w-full md:w-auto text-center font-bold flex flex-row items-center justify-center gap-1 px-1 text-[0.8rem] sm:text-[0.9rem] lg:text-base"
                   >
                      <span>{event.buttonText}</span>
                      {event.buttonIcon && (
@@ -223,25 +224,13 @@ export default function ReforestinEvent() {
           </SwiperSlide>
         ))}
         {/* Flèches de navigation - position différente sur mobile */}
-        <div className="swiper-button-prev text-white absolute left-0 top-1/2 transform -translate-y-1/2 z-10 
-                        sm:top-1/2 sm:left-0 
-                        md:top-1/2 md:left-0
-                        lg:top-1/2 lg:left-0
-                        xl:top-1/2 xl:left-0
-                        2xl:top-1/2 2xl:left-0
-                        bottom-[calc(100%-120px)] !top-auto">
-          <FaChevronLeft className="w-6 sm:w-[30px]"/>
+        <div className="swiper-button-prev">
+          {/* <FaChevronLeft className="w-6 sm:w-[30px]"/> */}
         </div>
-        <div className="swiper-button-next text-white absolute right-0 top-1/2 transform -translate-y-1/2 z-10
-                        sm:top-1/2 sm:right-0
-                        md:top-1/2 md:right-0
-                        lg:top-1/2 lg:right-0
-                        xl:top-1/2 xl:right-0
-                        2xl:top-1/2 2xl:right-0
-                        bottom-[calc(100%-120px)] !top-auto">
-          <FaChevronRight className="w-6 sm:w-[30px]" />
+        <div className="swiper-button-next">
+          {/* <FaChevronRight className="w-6 sm:w-[30px]" /> */}
         </div>
       </Swiper>
-    </Container>
+      </section>
   );
 }

@@ -137,7 +137,14 @@ export default function OccasionEvent() {
     try {
       setLoadingArticles(true);
       const { data } = await axios.get(`${PRODUCT_URL}/${categoryId}`);
-      const sortedArticles = data.sort((a: any, b: any) => (new Date(b.date) as any) - (new Date(a.date) as any));
+      
+      const sortedArticles = data.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      console.log("xxx",sortedArticles.map((s : any) => {
+        return {
+          date:s.date,
+          title :s.title
+        }
+      }))
       setArticles(sortedArticles);
       setSelectedCategory(categoryId);
     } catch (error) {

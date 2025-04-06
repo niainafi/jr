@@ -344,10 +344,10 @@ const slides = [
           <span>3. Avantages de la Carte</span>
           </p>
           <p>En tant que titulaire de la carte, vous bénéficiez de :</p>
-          <div className="pl-10">
+          <div className="">
             <p className=""><span className=""> Remises immédiates</span> sur vos achats en magasin selon votre niveau de carte.</p>
-            <p className="pl-8"><span className="">Remises exclusives</span> chez nos partenaires : </p>
-            <p className="pl-8"><span className="">Just Rent</span> (location de moto)</p>
+            <p className=""><span className="">Remises exclusives</span> chez nos partenaires : </p>
+            <p className=""><span className="">Just Rent</span> (location de moto)</p>
             <p><span className="">Just Ride Academy</span> (cours de moto)</p>
             <p><span className="">Prolongation des promotions</span> : si une promotion se termine le <span className="">20 du mois</span>, vous disposez de 10jours supplémentaires pour en bénéficier.</p>
             <p><span className="">Inscriptions prioritaires</span><span className=""> aux raids moto.</span></p>
