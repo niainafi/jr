@@ -1,0 +1,101 @@
+.reforestin-swiper .swiper-button-next{
+    position: absolute;
+    top: 50%;
+}
+
+.reforestin-swiper .swiper-button-prev{
+
+    position: absolute;
+    top: 50%;
+}
+
+/* 👶 Très petits appareils (téléphones anciens ou très petits) */
+@media (max-width: 320px) {
+    .reforestin-swiper .swiper-button-next{
+        top: 13%;
+    }
+    
+    .reforestin-swiper .swiper-button-prev{
+        top: 13%;
+    }
+   
+  }
+  
+  /* 📱 Petits téléphones (portrait) */
+  @media (min-width: 321px) and (max-width: 480px) {
+    .reforestin-swiper .swiper-button-next{
+        top: 17%;
+    }
+    
+    .reforestin-swiper .swiper-button-prev{
+        top: 17%;
+    }
+    
+  }
+  
+  /* 📱 Téléphones plus larges (ex. iPhone Plus, petits Android en paysage) */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .reforestin-swiper .swiper-button-next{
+        
+      
+    }
+    
+    .reforestin-swiper .swiper-button-prev{
+    
+    
+    }
+    
+  }
+  
+  /* 📲 Tablettes (portrait et petits écrans en paysage) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .reforestin-swiper .swiper-button-next{
+        
+    }
+    
+    .reforestin-swiper .swiper-button-prev{
+    
+    
+    }
+    
+  }
+  
+  /* 💻 Écrans de bureau standards */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .reforestin-swiper .swiper-button-next{
+        
+    }
+    
+    .reforestin-swiper .swiper-button-prev{
+    
+    
+    }
+    
+  }
+  
+  /* 🖥️ Grands écrans (HD, FHD) */
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .reforestin-swiper .swiper-button-next{
+       
+    }
+    
+    .reforestin-swiper .swiper-button-prev{
+    
+    
+    }
+    
+  }
+  
+  /* Très grands écrans */
+  @media (min-width: 1536px) {
+    .reforestin-swiper .swiper-button-next{
+       
+    }
+    
+    .reforestin-swiper .swiper-button-prev{
+    
+    
+    }
+    
+  }
+  

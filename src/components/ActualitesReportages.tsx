@@ -265,9 +265,9 @@ const formatDateCorrectly = (dateString: string) => {
 
 export default function ActualitesReportages() {
   return (
-    <section className="pb-12 bg-white text-gray-800">
-      <Container className="xl:-mt-24">
-        <h2 className="relative text-3xl md:text-4xl font-bold text-center uppercase mb-12">
+    <section className="pb-12 bg-white text-gray-800 mt-10">
+      <Container className="xl:-mt-24 mt-14 space-y-8">
+        <h2 className="relative text-3xl md:text-4xl font-bold text-center uppercase">
           <div className="flex flex-col md:flex-row justify-center items-center gap-1">
             <span>Actualités</span>
             <span className="relative w-10 h-10 hidden md:block">-</span>
@@ -334,7 +334,7 @@ function ActualitesReportagesData() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Colonne 1 - À la Une */}
       <div className="space-y-8">
         <h3 className="text-xl font-bold uppercase"></h3>
