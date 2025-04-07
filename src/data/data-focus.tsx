@@ -514,7 +514,13 @@ function FocusLumberJackDescription(){
             {`Le Bell Lithium MIPS est un excellent choix pour allier sécurité
             et confort sans compromis. Prêt à rouler en toute confiance ? Le
             Bell Lithium MIPS est là pour toi, il t’attend en Boutique.`}
-          </p> */}
+          </p> 
+           <p>
+            {`Ce casque ne se contente pas d’être sécuritaire. Il offre aussi un
+            confort optimal grâce à une bonne ventilation, idéale pour les
+            trajets longs ou sous chaleur.`}
+          </p>
+           */}
         </div>
       </div>
     )
