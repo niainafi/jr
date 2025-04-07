@@ -6,9 +6,31 @@
         "permanent": true
       },
       {
-        "source": "/:path*",
+        "source": "/wp-content/:path*",
         "destination": "/",
-        "statusCode": 301
+        "permanent": true
+      },
+      {
+        "source": "/blog/:path*",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/old-site/:path*",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "header",
+            "key": "x-vercel-cache",
+            "value": "HIT"
+          }
+        ],
+        "destination": "/:path*",
+        "statusCode": 200
       }
     ]
   }
