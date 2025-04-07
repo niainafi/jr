@@ -1,0 +1,40 @@
+{
+    "redirects": [
+      {
+        "source": "/wp-admin/:path*",
+        "destination": "/",
+        "permanent": true,
+        "headers": {
+          "Cache-Control": "no-store, max-age=0"
+        }
+      },
+      {
+        "source": "/wp-content/:path*",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/blog/:path*",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/old-site/:path*",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "header",
+            "key": "x-vercel-cache",
+            "value": "HIT"
+          }
+        ],
+        "destination": "/:path*",
+        "statusCode": 200
+      }
+    ]
+  }
+  
