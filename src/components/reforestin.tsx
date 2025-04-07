@@ -157,6 +157,7 @@ const events = [
 export default function ReforestinEvent() {
   return (
     <section className="bg-white py-8 md:py-10 px-6 font-roboto w-full">
+      <div className="max-w-8xl mx-auto">
        <h2 className='uppercase  text-center text-3xl md:text-4xl font-bold mb-16'>
             Events à venir
         </h2>
@@ -231,6 +232,10 @@ export default function ReforestinEvent() {
           {/* <FaChevronRight className="w-6 sm:w-[30px]" /> */}
         </div>
       </Swiper>
+      </div>
       </section>
   );
 }
+
+
+
