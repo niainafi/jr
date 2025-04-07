@@ -92,10 +92,9 @@ export default function Footer() {
               <p className="text-xs whitespace-break-spaces sm:whitespace-nowrap">
                 Immeuble Corona Plaza, Andranomena, Antananarivo, Madagascar
               </p>
-            </div>
-
-
-          {/* Section droite : Suivez-nous & Pub */}
+            </div> 
+          
+            {/* Section droite : Suivez-nous & Pub */}
           <aside className="flex flex-col items-start ml-auto col-span-2 lg:col-span-2 w-full">
             <div className="flex flex-col lg:items-end">
               <h2 className="text-xl">
