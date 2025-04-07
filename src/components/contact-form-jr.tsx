@@ -95,7 +95,7 @@ import emailjs from "@emailjs/browser";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { E164Number, isValidPhoneNumber } from "libphonenumber-js";
+import { CountryCode, E164Number, isValidPhoneNumber } from "libphonenumber-js";
 import ErrorMessage from "./error-message";
 import PhoneInput from "react-phone-number-input";
 import 'react-phone-number-input/style.css'
@@ -107,7 +107,7 @@ import axios from "axios";
 // Définition du type pour formData afin de garantir la cohérence des données
 interface MotoSelection {
   moto: string;
-  nbMotos: string;
+  nbMotos: number;
 }
 
 interface FormDataType {
@@ -131,12 +131,14 @@ type FormData = z.infer<typeof formSchema>;
 export default function ReservationForm() {
   // Initialisation de l'état avec un typage explicite
   const [formData, setFormData] = useState<FormDataType>({
-    motos: [{ moto: "HIMALAYAN 450", nbMotos: "1 Moto" }],
+    motos: [{ moto: "HIMALAYAN 450", nbMotos: 1 }],
     dateDebut: new Date().toISOString().split("T")[0],
     dateFin: new Date().toISOString().split("T")[0],
-    duree: "",
+    duree: "1",
   });
   const [phoneNumber, setPhoneNumber] = useState<E164Number>();
+  const [errorPhoneNumber,setErrorPhoneNumber] = useState<string | null>(null)
+  const [countryCode,setCountryCode] = useState<CountryCode |undefined>('MG')
 
   const {
     register,
@@ -193,12 +195,12 @@ export default function ReservationForm() {
     value: string
   ) => {
     setFormData((prevState) => {
-      const updatedMotos = [...prevState.motos];
+      const updatedMotos = [...prevState.motos] as any;
       updatedMotos[index][field] = value;
 
       // Réinitialisation de la quantité lorsqu'on change de type de moto
       if (field === "moto") {
-        updatedMotos[index].nbMotos = "1 Moto";
+        updatedMotos[index].nbMotos = 1;
       }
       return { ...prevState, motos: updatedMotos };
     });
@@ -219,9 +221,7 @@ export default function ReservationForm() {
 
     setFormData((prevState) => {
       const updatedMotos = [...prevState.motos];
-      updatedMotos[index].nbMotos = `${quantity} Moto${
-        quantity > 1 ? "s" : ""
-      }`;
+      updatedMotos[index].nbMotos = quantity;
       return { ...prevState, motos: updatedMotos };
     });
   };
@@ -229,10 +229,21 @@ export default function ReservationForm() {
   const addMotoSelection = () => {
     setFormData((prevState) => ({
       ...prevState,
-      motos: [...prevState.motos, { moto: "", nbMotos: "1 Moto" }],
+      motos: [...prevState.motos, { moto: "", nbMotos: 1 }],
     }));
   };
 
+  const handleCountryChange = (value: E164Number | undefined) => {
+    setPhoneNumber(value);
+
+    if (!value) {
+      setErrorPhoneNumber('Le numéro est requis.');
+    } else if (!isValidPhoneNumber(value)) {
+      setErrorPhoneNumber('Numéro invalide.');
+    } else {
+      setErrorPhoneNumber(null);
+    }
+  };
  
   const onSubmit = async (data: FormData) => {
 
@@ -240,9 +251,14 @@ export default function ReservationForm() {
       ...data,
       ...formData,
       telephone: phoneNumber,
+      to : process.env.NEXT_PUBLIC_JUST_RENT_MAIL,
       subject: "Réservation de moto",
       motos: formData.motos.map((m) => `${m.moto} (${m.nbMotos})`).join("\n"),
     };
+
+    if(errorPhoneNumber){
+      return;
+    }
 
     try {
       const res = await axios.post('/api/reserver-moto', emailParams);
@@ -305,12 +321,14 @@ export default function ReservationForm() {
           <div>
             <label htmlFor="contact">Téléphone</label>
            
-            <PhoneInput 
+            <PhoneInput
               id="contact"
-              defaultCountry="MG"
+              defaultCountry={countryCode}
               value={phoneNumber}
-              onChange={(value) => setPhoneNumber(value)}
+              onChange={handleCountryChange}
+              onCountryChange={(c) => setCountryCode(c)}
             />
+            {errorPhoneNumber && <ErrorMessage message={errorPhoneNumber} />}
            
           </div>
           <div>
@@ -391,9 +409,7 @@ export default function ReservationForm() {
                     type="number"
                     min="1"
                     max={maxQuantities[moto.moto]}
-                    value={moto.nbMotos
-                      .replace(" Motos", "")
-                      .replace(" Moto", "")}
+                    value={moto.nbMotos}
                     onChange={(e) =>
                       handleQuantityChange(index, e.target.value)
                     }
