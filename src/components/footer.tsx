@@ -84,7 +84,7 @@ export default function Footer() {
           {/* Contact Info */}
             <div className="flex flex-col items-start text-left space-y-2 col-span-2 lg:col-span-3 w-full">
               <p className="text-xl font-medium whitespace-break-spaces sm:whitespace-nowrap">
-                <a href="mailto:justrentus@gmail.com">+261 32 93 867 87-justrentus@gmail.com</a>
+                <a href="mailto:justrentus@gmail.com">+261 32 04 066 97-Justrentmada@gmail.com</a>
               </p>
               <p className="text-xl font-medium whitespace-break-spaces sm:whitespace-nowrap">
                 <a href="mailto:justrideus@gmail.com">+261 32 93 867 87-justrideus@gmail.com</a>
