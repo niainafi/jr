@@ -514,6 +514,11 @@ function FocusLumberJackDescription(){
             {`Le Bell Lithium MIPS est un excellent choix pour allier sécurité
             et confort sans compromis. Prêt à rouler en toute confiance ? Le
             Bell Lithium MIPS est là pour toi, il t’attend en Boutique.`}
+          </p> 
+           <p>
+            {`Le Bell Lithium MIPS est un excellent choix pour allier sécurité
+            et confort sans compromis. Prêt à rouler en toute confiance ? Le
+            Bell Lithium MIPS est là pour toi, il t’attend en Boutique.`}
           </p> */}
         </div>
       </div>
