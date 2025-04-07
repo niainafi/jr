@@ -314,12 +314,12 @@ export default function Boutiques() {
               className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 group"
             >
               {/* Texte en haut, icône en bas */}
-              <span className="uppercase font-[800] text-accent text-sm sm:text-base px-2 text-center max-w-[85vw] mb-4">
+              <span className="uppercase font-bold text-white text-sm sm:text-base px-2 text-center max-w-[85vw] mb-4">
                 Entrer dans notre univers
               </span>
               
               {/* Icône centrée en dessous */}
-              <FaPlus className="text-accent w-12 h-12 sm:w-[100px] sm:h-[100px] transition-transform group-hover:scale-110" />
+              <FaPlus className="text-white w-12 h-12 sm:w-[100px] sm:h-[100px] transition-transform group-hover:scale-110" />
             </Link>
             </div>
         </div>
