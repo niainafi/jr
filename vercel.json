@@ -32,5 +32,17 @@
         "destination": "/:path*",
         "statusCode": 200
       }
+    ],
+    "headers": [
+      {
+        "source": "/wp-admin/:path*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store, max-age=0"
+          }
+        ]
+      }
     ]
   }
+  
