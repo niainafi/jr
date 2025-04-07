@@ -1,0 +1,14 @@
+{
+    "redirects": [
+      {
+        "source": "/wp-admin/:path*",
+        "destination": "/",
+        "permanent": true
+      },
+      {
+        "source": "/:path*",
+        "destination": "/",
+        "statusCode": 301
+      }
+    ]
+  }
