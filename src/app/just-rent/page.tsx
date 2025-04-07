@@ -17,6 +17,7 @@ export default function JustRentPage() {
       <ContactFormjr/>
       <EnTouteLiberte />
       {/*<Nextripe/>*/}
+       {/*<Nextripe/>*/}
       <Footer/> 
     </div>
   );
