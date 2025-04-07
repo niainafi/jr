@@ -251,6 +251,7 @@ export default function ReservationForm() {
       ...data,
       ...formData,
       telephone: phoneNumber,
+      duree: parseInt(formData.duree) > 1 ? `${formData.duree} jours` : `${formData.duree}jour`,
       to : process.env.NEXT_PUBLIC_JUST_RENT_MAIL,
       subject: "Réservation de moto",
       motos: formData.motos.map((m) => `${m.moto} (${m.nbMotos})`).join("\n"),
@@ -404,12 +405,13 @@ export default function ReservationForm() {
                   </select>
                 </div>
                 <div className="w-full">
-                  <label htmlFor="nombre">Nombre(s)</label>
+                  <label htmlFor={`nombre-${index}`}>Nombre(s)</label>
                   <input
+                    id={`nombre-${index}`}
                     type="number"
                     min="1"
                     max={maxQuantities[moto.moto]}
-                    value={moto.nbMotos}
+                    value={Number(formData.motos[index].nbMotos)}
                     onChange={(e) =>
                       handleQuantityChange(index, e.target.value)
                     }
