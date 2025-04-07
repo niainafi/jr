@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://justride.mg
+
+# Sitemaps
+Sitemap: https://justride.mg/sitemap.xml
