@@ -3,7 +3,10 @@
       {
         "source": "/wp-admin/:path*",
         "destination": "/",
-        "permanent": true
+        "permanent": true,
+        "headers": {
+          "Cache-Control": "no-store, max-age=0"
+        }
       },
       {
         "source": "/wp-content/:path*",
@@ -34,3 +37,4 @@
       }
     ]
   }
+  
