@@ -307,11 +307,11 @@ const slides = [
           <span>1. Obtention et Validité de la Carte</span>
           </p>
             {`La carte est disponible en`} <span className="">trois niveaux de remise : 5%, 7% et 10%.</span><br/>
-            Pour obtenir la carte <span className="">5%</span>,{` un premier achat d’un minimum de`} <span className="">3 000 000 ariary</span> en une seule fois est requis.<br/>
-            Pour obtenir la carte <span className="">7%</span>, {`un premier achat d’un minimum de `}<span className="">5 000 000 ariary</span> en une seule fois est requis.<br/>
+            Pour obtenir la carte <span className="">5%</span>,{` des achats  cumulés sur une année d'un minimum de`} <span className="">3 000 000 ariary</span> est requis.<br/>
+            Pour obtenir la carte <span className="">7%</span>, {`des achats  cumulés sur une année d'un minimum de `}<span className="">5 000 000 ariary</span> en une seule fois est requis.<br/>
             est requis.
-            Pour obtenir la carte <span className="">10%</span>, {`un premier achat d’un minimum de`}<span className=""> 7 500 000</span> ariary en une seule fois est requis.<br/>
-            La carte est <span className="">nominative</span>, valable<span className="">{`uniquement pour l’année en cours`}</span> et ne peut être cédée à un tiers.
+            Pour obtenir la carte <span className="">10%</span>, {`des achats  cumulés sur une année d'un minimum de`}<span className=""> 7 500 000</span> ariary est requis.<br/>
+            La carte est <span className="">nominative</span>, valable <span className="">{`uniquement pour l’année en cours`}</span> et ne peut être cédée à un tiers.
 
         </div>
       </> 
