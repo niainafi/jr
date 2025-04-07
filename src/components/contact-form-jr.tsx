@@ -233,7 +233,7 @@ export default function ReservationForm() {
     }));
   };
 
-  // Fonction pour envoyer les données via EmailJS
+ 
   const onSubmit = async (data: FormData) => {
 
     const emailParams = {
@@ -304,23 +304,14 @@ export default function ReservationForm() {
           </div>
           <div>
             <label htmlFor="contact">Téléphone</label>
-            {/* <input
-              type="text"
-              id="contact"
-              placeholder="Numero téléphone"
-              {...register("telephone")}
-              className="p-3 border rounded-lg w-full"
-              required
-            /> */}
+           
             <PhoneInput 
               id="contact"
               defaultCountry="MG"
               value={phoneNumber}
               onChange={(value) => setPhoneNumber(value)}
             />
-            {/* {errors.telephone && (
-              <ErrorMessage message={errors.telephone.message} />
-            )} */}
+           
           </div>
           <div>
             <label htmlFor="email">Email</label>
