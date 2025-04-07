@@ -5,6 +5,7 @@ import { z } from 'zod'
 
 const bodyData = z.object({
   telephone: z.string(),
+  to: z.string().email(),
   motos: z.string(),
   subject: z.string(),
   dateDebut: z.string(), 
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const validateData = bodyData.parse(body)
-    const {nom,prenom,motos,dateDebut,dateFin,duree,subject,email,telephone,passeport} = validateData;
+    const {nom,prenom,motos,dateDebut,dateFin,duree,subject,to,email,telephone,passeport} = validateData;
     console.log('body', validateData)
     checkEmailVariable()
     
@@ -28,7 +29,7 @@ export async function POST(request: NextRequest) {
         service: process.env.NEXT_EMAIL_SERVICE!,
         host: process.env.NEXT_EMAIL_HOST!,
         from: process.env.NEXT_EMAIL_USER! ,
-        to: process.env.NEXT_EMAIL_USER!,
+        to: to,
         senderName: validateData.email.split('@')[0],
         pass: process.env.NEXT_EMAIL_PASS!,
         port: 587,
