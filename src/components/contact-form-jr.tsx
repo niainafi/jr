@@ -274,7 +274,7 @@ export default function ReservationForm() {
  
 
   const removeMotoSelection = (index: number) => {
-    if (formData.motos.length > 1) {
+    if (formData.motos.length > 0) {
       const newMotos = formData.motos.filter((_, i) => i !== index);
       setFormData({...formData, motos: newMotos});
     }
