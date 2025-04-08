@@ -110,8 +110,7 @@ export default function ContactForm() {
     </div>
   );
 }
-*/
-}
+*/}
 
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
