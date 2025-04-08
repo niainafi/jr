@@ -280,6 +280,8 @@ export default function ReservationForm() {
   //     return {...prev,motos: motoDatas}
   //   })
   // },[formData.motos])
+  // },[formData.motos])
+  // },[formData.motos])
 
   const handleQuantityChange = (index: number, value: number) => {
     const newMotos = [...formData.motos];
@@ -394,7 +396,7 @@ export default function ReservationForm() {
       <h2 className="text-3xl font-bold mb-10">ME RÉSERVER</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+        className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-6"
       >
         <div className="space-y-4">
           <div>
