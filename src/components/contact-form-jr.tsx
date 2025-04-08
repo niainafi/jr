@@ -280,6 +280,8 @@ export default function ReservationForm() {
   //     return {...prev,motos: motoDatas}
   //   })
   // },[formData.motos])
+  // },[formData.motos])
+  // },[formData.motos])
 
   const handleQuantityChange = (index: number, value: number) => {
     const newMotos = [...formData.motos];
