@@ -235,7 +235,7 @@ export default function ContactForm() {
           </div>
         </form>
 
-        <div className="flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
+        <div className="md:flex-1 h-64 sm:h-auto flex justify-center sm:justify-end">
           <MyMap />
         </div>
       </div>
