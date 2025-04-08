@@ -152,7 +152,7 @@ const API_URL = "https://justride.up.railway.app/api/moto-occasion";
 export default function OccasionAccueilCarousel() {
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mt-5">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mt-5 mb-10 md:mb-5">
         NOS OCCASIONS <span className="text-accent">100% VALIDÉES</span> PAR JUST RIDE
       </h2>
       <OccasionData />

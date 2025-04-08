@@ -56,6 +56,7 @@ const TroisPub = () => {
     const fetchAds = async () => {
       try {
         const response = await fetch('https://justride.up.railway.app/api/publicite-b');
+        console.log('reee',response);
         if (!response.ok) throw new Error('Erreur lors de la récupération des publicités');
         const data = await response.json();
         const validAds = Array.isArray(data)
