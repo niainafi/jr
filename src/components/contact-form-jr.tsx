@@ -206,23 +206,7 @@ export default function ReservationForm() {
     });
   };
 
-  // Fonction pour mettre à jour les motos sélectionnées
-  // const handleMotoChange = (
-  //   index: number,
-  //   value: string
-  // ) => {
-  //   setFormData((prevState) => {
-  //     const updatedMotos = [...prevState.motos] as any;
-  //     updatedMotos[index] = value;
-
-  //     // Réinitialisation de la quantité lorsqu'on change de type de moto
-  //     // if (field === "moto") {
-  //     //   updatedMotos[index].nbMotos = 1;
-  //     // }
-  //     return { ...prevState, motos: updatedMotos };
-  //   });
-  // };
-
+ 
   const getAvailableMotoOptions = (currentIndex: number) => {
     // Toutes les motos disponibles
     const allMotos = motos.map(m => m.name);
@@ -245,43 +229,7 @@ export default function ReservationForm() {
     setFormData({...formData, motos: newMotos});
   };
 
-  // Gestion du changement de quantité de moto avec une validation
-  // const handleQuantityChange = (index: number,name: string ,value: string | number) => {
-  //   let quantity = typeof value === 'string' ? parseInt(value, 10) : value;
-  //   console.log('aaaa',index,name,value,quantity)  
-  //   const moto = formData.motos[index].quantity;
-  //   const max = maxQuantities[moto] || 1;
-  
-  //   if (isNaN(quantity) || quantity < 1) {
-  //     quantity = 1;
-  //   } else if (quantity > max) {
-  //     quantity = max;
-  //   }
-  
-  //   setFormData((prevState) => {
-  //     const updatedMotos = [...prevState.motos];
-  //     updatedMotos[index].quantity = quantity;
-  //     return { ...prevState, motos: updatedMotos };
-  //   });
-  // };
 
-  // useEffect(() => {
-  //   const motoDatas  = formData.motos.map(m => {
-  //     if(m.quantity === '' || m.quantity=== 0){
-  //       return {
-  //         ...m,
-  //         quantity: 1
-  //       }
-  //     }else{
-  //       return m
-  //     }
-  //   })
-  //   setFormData((prev) =>{
-  //     return {...prev,motos: motoDatas}
-  //   })
-  // },[formData.motos])
-  // },[formData.motos])
-  // },[formData.motos])
 
   const handleQuantityChange = (index: number, value: number) => {
     const newMotos = [...formData.motos];
@@ -323,12 +271,7 @@ export default function ReservationForm() {
       alert("Toutes les motos disponibles ont déjà été sélectionnées.");
     }
   };
-  // const addMotoSelection = () => {
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     motos: [...prevState.motos, { name: "", quantity: 1 }],
-  //   }));
-  // };
+ 
 
   const removeMotoSelection = (index: number) => {
     if (formData.motos.length > 1) {
@@ -501,45 +444,7 @@ export default function ReservationForm() {
               />
             </div>
           </div>
-          {/* {formData.motos.map((moto, index) => (
-            <div key={index} className="flex gap-4 w-full">
-              <div className="w-full flex">
-                <div className="w-full">
-                  <label htmlFor="type-moto"> Moto</label>
-                  <select
-                    id="type-moto"
-                    name="name"
-                    value={moto.name}
-                    onChange={(e) =>
-                      handleMotoChange(index, e.target.value)
-                    }
-                    className="p-3 border rounded-lg w-full bg-white h-[3.10rem] sm:h-auto"
-                  >
-                    {motosOptions.map((option, idx) => (
-                      <option key={idx} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="w-full">
-                  <label htmlFor={`nombre-${index}`}>Nombre(s)</label>
-                  <input
-                    id={`nombre-${index}`}
-                    type="number"
-                    min={1}
-                    name="quantity"
-                    max={maxQuantities[moto.quantity]}
-                    value={moto.quantity} // <- ici c'est bien un number
-                    onChange={(e) =>
-                      handleQuantityChange(index,e.target.name ,e.target.valueAsNumber)
-                    }
-                    className="p-3 border rounded-lg w-full bg-white"
-                  />
-                </div>
-              </div>
-            </div>
-          ))} */}
+       
           {formData.motos.map((moto, index) => {
   const availableMotos = getAvailableMotoOptions(index);
   const selectedMoto = motos.find(m => m.name === moto.name);
@@ -603,18 +508,7 @@ export default function ReservationForm() {
 >
   Ajouter une moto
 </button>
-          {/* <input 
-            type="number"
-            value={testNum}
-            onChange={(e) => setTestNum(parseInt(e.target.value))}
-          /> */}
-            {/* <button
-              type="button"
-              onClick={addMotoSelection}
-              className="p-2 bg-accent text-white rounded"
-            >
-              Ajouter une moto
-            </button> */}
+         
         </div>
 
         <div className="md:col-span-2 flex justify-end">
