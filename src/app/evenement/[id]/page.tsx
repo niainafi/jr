@@ -69,3 +69,4 @@ export default async function EventDetailPage({ params }: { params: any }) {
 }
 
 
+ 

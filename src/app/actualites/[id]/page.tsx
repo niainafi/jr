@@ -6,17 +6,12 @@
     import Image from "next/image";
     import { Metadata, ResolvingMetadata } from "next";
     import { cache, Suspense } from "react";
-import PubActuDetails from "@/components/pub-actu-details";
-    
-    
+    import PubActuDetails from "@/components/pub-actu-details";
     type Props = {
         params: Promise<{ id: string }>
         searchParams: Promise<{ [key: string]: string | string[] | undefined }>
     }
    
-
-    
-    
     const getActuDetails = cache(async (id: string) => {
         const res = await api.get(`https://justride.up.railway.app/api/actus/${id}`);
         return res.data;
