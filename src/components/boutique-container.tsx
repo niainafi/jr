@@ -3,7 +3,7 @@ import Container from './container'
 import Image from 'next/image'
 import Boutiques from './boutiques'
 import Logos from './logos-partner'
-import Occasion from './occasion'
+import OccasionAccueilCarousel from './occasionaccueilcarousel'
 import Link from 'next/link'
 
 const dataPub = [
@@ -40,7 +40,7 @@ export default function BoutiqueContainer() {
                 </div>
                 {/* <Logos /> */}
                 <div className='flex flex-col gap-2'>
-                <Occasion />
+                <OccasionAccueilCarousel />
                 <Link href={'/occasions'} className="bg-accent ml-auto text-black font-bold rounded-r-full pl-2 h-5 flex items-center space-x-2">
                     <span className='text-nowrap'>Voir plus</span>
                     <span className="text-xl">&raquo;&raquo;&raquo;</span>
