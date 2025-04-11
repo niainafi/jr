@@ -3,17 +3,19 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Container from "./container";
 import YourCalendarIcon from "./icons/vos-calendrier-icon";
-import Calendar from "./calendar";
+// import Calendar from "./calendar";
 import Image from "next/image";
 import clsx from "clsx";
 import Link from "next/link";
-;
+
+
+const Calendar = dynamic(() => import('./calendar'),{
+  ssr: false,
+  loading: () => <LoadingCalendar />,
+  
+});
 
 import { dataFocus } from "@/data/data-focus";
-
-
-
-
 import axios, { AxiosError } from "axios";
 import { events } from "@/data/data-event";
 import { Events } from "@/store/events/type";
@@ -21,6 +23,10 @@ import { useEventStore } from "@/store/events";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import dynamic from "next/dynamic";
+import { LoadingCalendar } from "./calendar";
+
+
 
 // Activer les plugins
 dayjs.extend(utc);
@@ -154,7 +160,7 @@ function YourCalendar() {
             Events - Rides - Sorties - Courses
           </h3>
         </div>
-        <Calendar<Events> events={dataEvent} />
+        <Calendar events={dataEvent} />
         <div className="mt-2">
           <EventsList events={dataEvent} />
         </div>

@@ -67,9 +67,10 @@ import { useAutoUpdateCalendar } from "@/hooks/use-auto-update-date";
    // Fonction pour revenir au mois précédent
    const prevMonth = () => setCurrentMonth(currentMonth.subtract(1, "month"));
 
-   const isToday = (day: dayjs.Dayjs) => day.isSame(currentDate, "day");
+   const isToday = (day: dayjs.Dayjs) => day.isSame(dayjs(), "day");
  
    return (
+    
      <div className="max-w-2xl mx-auto p-3 bg-white shadow rounded-sm relative">
        {/* Header */}
        <div className="flex justify-between items-center mb-3">
@@ -151,7 +152,27 @@ import { useAutoUpdateCalendar } from "@/hooks/use-auto-update-date";
         })}
       </div>
     </div>
+    
+    
   );
+}
+
+export function LoadingCalendar(){
+  return (
+    <div className="p-4 bg-white rounded-sm">
+    <div className="flex flex-col  animate-pulse gap-3">
+      <div className="flex justify-between items-center">
+      <div className="w-7 h-7 rounded-full bg-gray-200"></div>
+      <div className="w-[20%] h-4 bg-gray-200 rounded-sm"></div>
+      <div className="w-7 h-7 rounded-full bg-gray-200"></div>
+      </div>
+      <div className="">
+        
+      <div className="w-full h-40 bg-gray-200 rounded-sm "></div>
+      </div>
+    </div>
+    </div>
+  )
 }
  
  
