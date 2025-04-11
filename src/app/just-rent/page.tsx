@@ -37,7 +37,7 @@ import Head from 'next/head';
 export default function JustRentPage() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar - Just Rent</title>
         <meta
@@ -53,7 +53,7 @@ export default function JustRentPage() {
         <meta property="og:image" content="https://justride.mg/favicon.png" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-
+*/}
       {/* Contenu de la page Just Rent */}
       <div>
         <HeroSectionjr />

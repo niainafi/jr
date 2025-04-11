@@ -1,4 +1,4 @@
-{/*
+
 
 import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
@@ -12,14 +12,15 @@ export default function Home() {
       <HeroSection/>
       <LogoBoutiquePartener/> 
       <MenuPtiBoutique/>
-      {/* <CasqueBoutique/>
+      {/* <CasqueBoutique/>*/}
       <CarouselCasque/>
       <Footer/> 
     </div>
   );
 }
-  */}
+ 
 
+{/*
 import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import LogoBoutiquePartener from "@/components/logo-boutique-partener";
@@ -31,7 +32,7 @@ import Head from 'next/head';
 export default function Home() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar - Boutique</title>
         <meta
@@ -48,15 +49,16 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Contenu de la page Boutique */}
+      {/* Contenu de la page Boutique 
       <div className="p-1">
         <HeroSection />
         <LogoBoutiquePartener /> 
         <MenuPtiBoutique />
-        {/* <CasqueBoutique /> */}
+        {/* <CasqueBoutique /> 
         <CarouselCasque />
         <Footer /> 
       </div>
     </>
   );
 }
+*/}

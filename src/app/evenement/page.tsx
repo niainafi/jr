@@ -1,4 +1,4 @@
-{/* 
+
 import Footer from "@/components/footer";
 import HeroSectionEvent from "@/components/hero-section-event";
 import OccasionEvent from "@/components/occasion-event";
@@ -13,8 +13,8 @@ export default function EventPage() {
     </div>
   );
 }
-  */}
-
+  
+ {/*
   import Footer from "@/components/footer";
 import HeroSectionEvent from "@/components/hero-section-event";
 import OccasionEvent from "@/components/occasion-event";
@@ -24,7 +24,7 @@ import Head from 'next/head';
 export default function EventPage() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar - Événements</title>
         <meta
@@ -41,7 +41,7 @@ export default function EventPage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Contenu de la page Événements */}
+      {/* Contenu de la page Événements 
       <div className="p-1">
         <HeroSectionEvent />
         <ReforestinEventVrai />
@@ -51,5 +51,5 @@ export default function EventPage() {
     </>
   );
 }
-
+*/}
  

@@ -1,4 +1,4 @@
- {/*
+ 
 import Footer from "@/components/footer";
 import OccasionActu from "@/components/occasion-actu";
 import HeroSectionactu from "@/components/hero-sectio-actu";
@@ -12,7 +12,8 @@ export default function Home() {
   );
 }
      
-*/}
+
+{/*
 import Footer from "@/components/footer";
 import OccasionActu from "@/components/occasion-actu";
 import HeroSectionactu from "@/components/hero-sectio-actu";
@@ -21,7 +22,7 @@ import Head from 'next/head';
 export default function Home() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar - Actualités</title>
         <meta
@@ -38,7 +39,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Contenu de la page d'actualités */}
+      {/* Contenu de la page d'actualités 
       <div className="p-1">
         <HeroSectionactu />
         <OccasionActu />
@@ -47,6 +48,6 @@ export default function Home() {
     </>
   );
 }
-
+*/}
 
 
