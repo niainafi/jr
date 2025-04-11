@@ -1,4 +1,4 @@
-{/*
+
 import Footer from "@/components/footer";
 import HeroSectionOcas from "@/components/hero-section-ocas";
 import OccasionVrai from "@/components/occasion-vrai";
@@ -11,7 +11,8 @@ export default function Home() {
     </div>
   );
 }
-  */}
+
+  {/*
   import Footer from "@/components/footer";
 import HeroSectionOcas from "@/components/hero-section-ocas";
 import OccasionVrai from "@/components/occasion-vrai";
@@ -20,7 +21,7 @@ import Head from 'next/head';
 export default function Home() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar - Occasions</title>
         <meta
@@ -37,7 +38,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Contenu de la page Occasions */}
+      {/* Contenu de la page Occasions 
       <div className="p-1">
         <HeroSectionOcas />
         <OccasionVrai />
@@ -46,3 +47,4 @@ export default function Home() {
     </>
   );
 }
+*/}

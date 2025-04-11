@@ -1,4 +1,4 @@
-{/*
+
 import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import Seconnecter from "@/components/seconnecter";
@@ -11,7 +11,9 @@ export default function Home() {
     </div>
   );
 }
- */}
+
+
+  {/*
  import Footer from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import Seconnecter from "@/components/seconnecter";
@@ -20,7 +22,7 @@ import Head from 'next/head';
 export default function Home() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar - Cash Back</title>
         <meta
@@ -37,7 +39,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Contenu de la page Cash Back */}
+      {/* Contenu de la page Cash Back 
       <div className="p-1">
         <HeroSection />
         <Seconnecter />
@@ -46,3 +48,4 @@ export default function Home() {
     </>
   );
 }
+*/}

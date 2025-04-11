@@ -20,7 +20,7 @@ import Head from 'next/head';
 export default function Home() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar</title>
         <meta
@@ -36,7 +36,7 @@ export default function Home() {
         <meta property="og:image" content="https://justride.mg/favicon.png" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-
+*/}
       {/* Contenu de la page d'accueil */}
       <div className="p-1">
         <HeroSection />

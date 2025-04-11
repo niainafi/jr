@@ -1,6 +1,6 @@
 "use client"; 
 
-{/*
+
 import dynamic from "next/dynamic";
 
 // Charger tous les composants dynamiquement
@@ -17,7 +17,9 @@ export default function Home() {
     </div>
   );
 }
-*/}
+
+
+{/*
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
@@ -29,7 +31,7 @@ const Footer = dynamic(() => import("@/components/footer"));
 export default function Home() {
   return (
     <>
-      {/* Métadonnées SEO */}
+      {/* Métadonnées SEO 
       <Head>
         <title>Just Ride Madagascar - Contact</title>
         <meta
@@ -46,7 +48,7 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      {/* Contenu de la page Contact */}
+      {/* Contenu de la page Contact 
       <div className="p-1">
         <HeroSection />
         <ContactForm />
@@ -55,3 +57,4 @@ export default function Home() {
     </>
   );
 }
+*/}
