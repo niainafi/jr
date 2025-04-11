@@ -118,7 +118,7 @@ export default function Focus() {
           {"FOCUS ARRIVAGE"}
         </h2>
 
-          {/* Première ligne avec 3 images */}
+          {/* Première ligne avec 3 images  
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-5 lg:mb-5 sm:mb-0">
             {dataFocus.map((image, index) => (
               <div key={index} className="flex justify-center items-center rounded-md shadow-md">
@@ -136,6 +136,32 @@ export default function Focus() {
               </div>
             ))}
           </div>
+         */}
+     <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-5 lg:mb-5 sm:mb-0">
+  {dataFocus.map((image, index) => (
+    <div key={index} className="relative flex justify-center items-center rounded-md shadow-md group overflow-hidden">
+      <Link href={`focus/${image.slug}`} className="w-full h-full block">
+        {/* Conteneur image avec overflow */}
+        <div className="relative w-full h-full overflow-hidden">
+          <Image
+            src={image.coverPicure}
+            alt={'Image focus'}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            width={300}
+            height={300}
+            loading="eager"
+            priority
+          />
+        </div>
+        
+        {/* Bouton positionné plus bas avec hauteur réduite */}
+        <button className="absolute bottom-1 right-3 px-3 py-1.5 bg-accent text-black rounded-full text-xs font-medium shadow-sm transition-all duration-300 transform group-hover:scale-95 group-hover:bg-white group-hover:text-black">
+          Voir plus
+        </button>
+      </Link>
+    </div>
+  ))}
+</div>
         </section>
 
         <aside className="relative top-0 xl:-top-36 xl:w-[30%]">
