@@ -3,7 +3,7 @@ import React from 'react'
 
 export const metadata : Metadata = {
     title: 'Actualités Locales et Internationale',
-    description: 'Découvrez toute l’actualité moto à Madagascar et du monde entier : nouveautés, événements, tendances et compétitions internationales.',
+    description: 'Restez informé des dernières actualités moto Internationale et à Madagascar, des nouveautés produits aux événements à venir.',
   }
 
 export default function ActuLayout({

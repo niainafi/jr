@@ -4,7 +4,7 @@ import React from 'react'
 
 export const metadata: Metadata = {
     title: "Just Rent",
-    description: "Louez une moto en toute sécurité avec JustRide. Large choix de modèles et tarifs adaptés à votre aventure à Madagascar.",
+    description: "Louez des motos Royal Enfield à Madagascar avec Just Rent, pour des aventures inoubliables sur les routes malgaches.",
 };
 
 export default function JustRentLayout({

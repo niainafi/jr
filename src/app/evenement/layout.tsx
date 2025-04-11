@@ -3,7 +3,8 @@ import React from 'react'
 
 export const metadata : Metadata = {
     title: 'Événements Moto',
-    description: "Consultez l’agenda des événements moto à Madagascar : compétitions, balades, salons et rassemblements.",
+    description: "Découvrez nos événements moto exclusifs, des rassemblements aux sorties organisées, pour vivre pleinement votre passion."
+,
   }
 
 export default function EvenementLayout({
