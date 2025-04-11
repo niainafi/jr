@@ -136,8 +136,8 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+import { Navigation, Autoplay } from "swiper/modules";
 
 
 const events = [
@@ -176,10 +176,8 @@ export default function ReforestinEvent() {
         </h2>
       {/* Premier Carousel */}
       <Swiper
-          modules={[Pagination, Autoplay]}
-          pagination={{
-            clickable: true,
-          }}
+          modules={[ Autoplay]}
+          
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
