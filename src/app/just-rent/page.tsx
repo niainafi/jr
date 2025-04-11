@@ -59,8 +59,8 @@ export default function JustRentPage() {
         <HeroSectionjr />
         <Logojustrent />
         <MotoCarousel />
-        <AvisConditions />
         <ContactFormjr />
+        <AvisConditions />
         <EnTouteLiberte />
         {/* <Nextripe /> */}
         <Footer />
