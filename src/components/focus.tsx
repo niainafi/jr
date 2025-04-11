@@ -165,56 +165,7 @@ function YourCalendar() {
     </div>
   );
 }
-{/*
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return date
-    .toLocaleDateString("fr-FR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "2-digit",
-    })
-    .replace(/\//g, "."); // Remplace les "/" par "."
-}
-    
-// ✅ Correction de l'affichage des dates pour Antananarivo (GMT+3)
-function formatDate(dateString: string): string {
-  const date = dayjs.utc(dateString).tz("Indian/Antananarivo"); // Correction du fuseau
-  return date.format("DD.MM.YY"); // Format correct pour éviter le décalage
-}
 
-
-const EventsList = ({ events }: { events?: Events[] }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const {currentMonth,setCurrentMonth} = useEventStore()
-
-  const today = new Date();
-  // const upComingEvents = events && events
-  //   .filter((e) => new Date(e.date) >= today) 
-  //   .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()); 
-
-  const upComingEvents = useMemo(
-    () => {
-     return events && events
-    .filter((e) => {
-        const eventMonth = dayjs(e.date);
-        return eventMonth.month() === currentMonth.month() && eventMonth.year() === currentMonth.year();
-    });
-    },[currentMonth,events]
-  )
-
-  const itemsPerPage = 3; 
-  const totalPages = useMemo(() => upComingEvents ? Math.ceil(upComingEvents.length / itemsPerPage) : 0,[upComingEvents])
-  const safeCurrentPage = useMemo(() => Math.min(currentPage, totalPages),[currentPage,totalPages]) 
-
-  const paginatedEvents = useMemo(() => upComingEvents?.slice(
-    (safeCurrentPage - 1) * itemsPerPage,
-    safeCurrentPage * itemsPerPage
-  ),[safeCurrentPage,upComingEvents])
-
-  console.log("paginated eve", paginatedEvents);
-
-*/}
 
 // ✅ Correction de l'affichage des dates pour Antananarivo (GMT+3)
 function formatDate(dateString: string): string {
@@ -287,44 +238,6 @@ const EventsList = ({ events }: { events?: Events[] }) => {
             </button>
           </div>
 
-
-
-      {/* Pagination Controls
-      <div className="flex justify-between items-center px-2 py-2">
-        <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-          className={clsx(
-            "text-gray-500 text-sm p-1 rounded-full bg-gray-100 hover:bg-gray-200",
-            currentPage === 1
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:text-black"
-          )}
-        >
-          <GrFormPreviousLink className="w-7 h-7" />
-        </button>
-
-        <span className="text-sm">
-          Page {currentPage} sur {totalPages}
-          
-        </span>
-
-        <button
-          onClick={() =>
-            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-          }
-          disabled={currentPage === totalPages}
-          className={clsx(
-            "text-gray-500 text-sm p-1 rounded-full bg-gray-100 hover:bg-gray-200",
-            currentPage === totalPages
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:text-black"
-          )}
-        >
-          <GrFormNextLink className="w-7 h-7" />
-        </button>
-      </div>
-      */}
     </div>
   );
 };
