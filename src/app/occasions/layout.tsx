@@ -3,7 +3,8 @@ import React from 'react'
 
 export const metadata: Metadata = {
     title: "Motos d’Occasion",
-    description: "Trouvez votre moto d’occasion idéale à Madagascar. Offres vérifiées, prix attractifs et annonces mises à jour.",
+    description: "Consultez nos offres de motos d'occasion soigneusement sélectionnées, alliant fiabilité et performance."
+,
   };
   
 

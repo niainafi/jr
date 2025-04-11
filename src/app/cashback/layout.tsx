@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import React from 'react'
 
 export const metadata: Metadata = {
-    title: "Cashback Moto",
-    description: "Gérez vos informations personnelles et retrouvez votre historique d'activités sur Just Ride Madagascar.",
+    title: "Cashback",
+    description: "Profitez de notre programme de cash back attractif, récompensant votre fidélité et vos achats chez Just Ride.",
   };
   
 

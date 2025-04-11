@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: "Actualités, Événements & Passion Moto - Just Ride Madagascar",
     template: "%s - Just Ride Madagascar",
   },
-  description: "Rejoignez la communauté des passionnés de moto à Madagascar ! Suivez les actualités, explorez les événements et trouvez la moto idéale avec JustRide.",
+  description: "Just Ride Madagascar : pour ceux qui vivent moto ,Just Ride Madagascar : votre route commence ici, Just Ride Madagascar : la passion de la moto , l'excellence en équipements",
   icons: {
     icon: "/favicon.png",
   }
